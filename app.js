@@ -1,3 +1,5 @@
 process.env.NODE_ENV = process.env.NODE_ENV || "production";
-
-await import("./server.mjs");
+import("./server.mjs").catch((error) => {
+  console.error("Failed to start VinzaTools:", error);
+  process.exit(1);
+});
