@@ -1,0 +1,27 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="40" fill="#120E12"/>
+  <rect x="42" y="42" width="1116" height="636" rx="30" fill="url(#bg)"/>
+  <rect x="90" y="108" width="440" height="504" rx="28" fill="#FFF7FB" fill-opacity="0.94"/>
+  <rect x="570" y="108" width="540" height="250" rx="28" fill="#23161E"/>
+  <rect x="570" y="390" width="260" height="222" rx="28" fill="#1B1320"/>
+  <rect x="850" y="390" width="260" height="222" rx="28" fill="#20141C"/>
+  <circle cx="310" cy="240" r="92" fill="#FFB8C8"/>
+  <rect x="202" y="354" width="220" height="174" rx="28" fill="#FF5A82"/>
+  <path d="M716 182H1006" stroke="#FF6B93" stroke-width="18" stroke-linecap="round"/>
+  <path d="M716 230H950" stroke="#F8B4C8" stroke-width="14" stroke-linecap="round"/>
+  <path d="M716 274H886" stroke="#F8B4C8" stroke-width="14" stroke-linecap="round"/>
+  <path d="M620 486H782" stroke="#FF6B93" stroke-width="14" stroke-linecap="round"/>
+  <path d="M620 534H752" stroke="#F8B4C8" stroke-width="12" stroke-linecap="round"/>
+  <path d="M900 486H1028" stroke="#FF6B93" stroke-width="14" stroke-linecap="round"/>
+  <path d="M900 534H1040" stroke="#F8B4C8" stroke-width="12" stroke-linecap="round"/>
+  <text x="90" y="76" fill="#FFE4EC" font-family="Arial, sans-serif" font-size="28" font-weight="700">VinzaTools Guide</text>
+  <text x="612" y="160" fill="white" font-family="Arial, sans-serif" font-size="54" font-weight="800">Background Remover</text>
+  <text x="612" y="336" fill="#F8B4C8" font-family="Arial, sans-serif" font-size="28" font-weight="500">Clean product shots, profile photos, and marketing visuals.</text>
+  <defs>
+    <linearGradient id="bg" x1="42" y1="42" x2="1158" y2="678" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2A1723"/>
+      <stop offset="0.55" stop-color="#5E1834"/>
+      <stop offset="1" stop-color="#A53349"/>
+    </linearGradient>
+  </defs>
+</svg>

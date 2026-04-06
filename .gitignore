@@ -1,0 +1,15 @@
+.codex/
+node_modules/
+dist/
+cpanel-package/
+cpanel-package.zip
+uploads/
+downloads.db
+new-testing/
+*.log
+*.err.log
+server.mjs
+
+# OS/editor noise
+.DS_Store
+Thumbs.db

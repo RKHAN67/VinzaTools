@@ -1,0 +1,25 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="40" fill="#0B0E13"/>
+  <rect x="40" y="40" width="1120" height="640" rx="32" fill="url(#bg)"/>
+  <rect x="84" y="108" width="1032" height="504" rx="30" fill="#0F172A" fill-opacity="0.9" stroke="#E2E8F0" stroke-opacity="0.12"/>
+  <path d="M138 180H1062" stroke="#1E293B" stroke-width="4"/>
+  <circle cx="158" cy="156" r="10" fill="#F87171"/>
+  <circle cx="192" cy="156" r="10" fill="#FBBF24"/>
+  <circle cx="226" cy="156" r="10" fill="#34D399"/>
+  <path d="M170 258H468" stroke="#38BDF8" stroke-width="18" stroke-linecap="round"/>
+  <path d="M170 314H390" stroke="#CBD5E1" stroke-width="12" stroke-linecap="round"/>
+  <path d="M170 370H444" stroke="#CBD5E1" stroke-width="12" stroke-linecap="round"/>
+  <path d="M648 258H1030" stroke="#A855F7" stroke-width="18" stroke-linecap="round"/>
+  <path d="M648 314H978" stroke="#E9D5FF" stroke-width="12" stroke-linecap="round"/>
+  <path d="M648 370H922" stroke="#E9D5FF" stroke-width="12" stroke-linecap="round"/>
+  <path d="M170 474H1030" stroke="#22C55E" stroke-width="14" stroke-linecap="round"/>
+  <text x="88" y="86" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="28" font-weight="700">VinzaTools Guide</text>
+  <text x="88" y="660" fill="white" font-family="Arial, sans-serif" font-size="54" font-weight="800">Developer Utilities</text>
+  <text x="88" y="704" fill="#CBD5E1" font-family="Arial, sans-serif" font-size="28" font-weight="500">JSON formatting, code cleanup, database viewing, and daily helper tools.</text>
+  <defs>
+    <linearGradient id="bg" x1="40" y1="40" x2="1160" y2="680" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111827"/>
+      <stop offset="1" stop-color="#1E293B"/>
+    </linearGradient>
+  </defs>
+</svg>
