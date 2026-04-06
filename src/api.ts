@@ -9,6 +9,10 @@ const isJsonResponse = (response: Response) =>
   (response.headers.get("content-type") || "").includes("application/json");
 
 const envBase = (import.meta?.env?.VITE_API_BASE as string | undefined)?.trim();
+const hostedApiFallbacks = ["https://bluevinza-vinzatools-backend.hf.space"];
+
+const isHostedFrontend = (hostname: string) =>
+  /(?:vercel\.app|vinzatools\.com|bluevinza\.com)$/i.test(hostname);
 
 const buildCandidates = () => {
   const candidates: string[] = [];
@@ -16,6 +20,9 @@ const buildCandidates = () => {
 
   if (typeof window !== "undefined") {
     const { protocol, hostname, port } = window.location;
+    if (isHostedFrontend(hostname)) {
+      candidates.push(...hostedApiFallbacks);
+    }
     candidates.push(`${protocol}//${hostname}${port ? `:${port}` : ""}`);
     for (let p = 3000; p <= 3010; p += 1) {
       candidates.push(`${protocol}//${hostname}:${p}`);
