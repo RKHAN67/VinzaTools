@@ -1,0 +1,2360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krazy Kitchen Katerers | Premium Catering & Dining</title>
+    <meta name="description" content="Krazy Kitchen Katerers - Premium catering and dining experience for weddings, corporate events, and special occasions.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* ============================================
+           CSS VARIABLES & RESET
+           ============================================ */
+        :root {
+            /* Color Palette - Elegant Gold & Dark Theme */
+            --primary-gold: #C9A962;
+            --primary-gold-light: #D4BC7E;
+            --primary-gold-dark: #B8944F;
+            --dark-bg: #0F0F0F;
+            --darker-bg: #080808;
+            --card-bg: #1A1A1A;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0B0B0;
+            --text-muted: #707070;
+            --border-color: #2A2A2A;
+            --overlay: rgba(0, 0, 0, 0.7);
+            
+            /* Typography */
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Montserrat', sans-serif;
+            
+            /* Spacing */
+            --section-padding: 100px;
+            --container-width: 1280px;
+            
+            /* Transitions */
+            --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-fast: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ============================================
+           UTILITY CLASSES
+           ============================================ */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: var(--section-padding) 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .gold-text {
+            color: var(--primary-gold);
+        }
+
+        .section-subtitle {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            color: var(--primary-gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 600;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .section-description {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 50px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 35px;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--primary-gold);
+            color: var(--dark-bg);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 169, 98, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--primary-gold);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-gold);
+            color: var(--dark-bg);
+        }
+
+        /* ============================================
+           HEADER & NAVIGATION
+           ============================================ */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition-smooth);
+            padding: 20px 0;
+        }
+
+        .header.scrolled {
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary-gold);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            position: relative;
+            transition: var(--transition-fast);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gold);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-link:hover {
+            color: var(--primary-gold);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-toggle span {
+            width: 30px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: var(--transition-fast);
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(var(--overlay), var(--overlay)), 
+                        url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.5s;
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.7s;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.9s;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 1.1s;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator i {
+            font-size: 2rem;
+            color: var(--primary-gold);
+        }
+
+        /* ============================================
+           ABOUT SECTION
+           ============================================ */
+        .about {
+            background: var(--darker-bg);
+            position: relative;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--primary-gold);
+            border-radius: 10px;
+            z-index: -1;
+        }
+
+        .about-content {
+            padding: 20px;
+        }
+
+        .about-text {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(201, 169, 98, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-gold);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .feature-text h4 {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .feature-text p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* ============================================
+           MENU SECTION
+           ============================================ */
+        .menu {
+            background: var(--dark-bg);
+        }
+
+        .menu-filters {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 12px 30px;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-gold);
+            border-color: var(--primary-gold);
+            color: var(--dark-bg);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-gold);
+            transform: scaleX(0);
+            transition: var(--transition-smooth);
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .menu-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .menu-item-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .menu-item-price {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+            font-weight: 700;
+        }
+
+        .menu-item-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .menu-item-tags {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            padding: 5px 12px;
+            background: rgba(201, 169, 98, 0.1);
+            color: var(--primary-gold);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ============================================
+           BANQUET FACILITY SECTION
+           ============================================ */
+        .banquet {
+            background: linear-gradient(var(--overlay), var(--overlay)), 
+                        url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1920') center/cover fixed;
+            position: relative;
+        }
+
+        .banquet-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .banquet-info h3 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .banquet-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(201, 169, 98, 0.2);
+        }
+
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            color: var(--primary-gold);
+            font-weight: 700;
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .banquet-features-list {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .banquet-features-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .banquet-features-list i {
+            color: var(--primary-gold);
+        }
+
+        /* ============================================
+           GALLERY SECTION
+           ============================================ */
+        .gallery {
+            background: var(--darker-bg);
+        }
+
+        .gallery-slider {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-slide {
+            min-width: 100%;
+            height: 600px;
+            position: relative;
+        }
+
+        .gallery-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+        }
+
+        .gallery-title {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .gallery-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .gallery-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--primary-gold);
+            background: transparent;
+            color: var(--primary-gold);
+            cursor: pointer;
+            transition: var(--transition-fast);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-btn:hover {
+            background: var(--primary-gold);
+            color: var(--dark-bg);
+        }
+
+        .gallery-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--border-color);
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .dot.active {
+            background: var(--primary-gold);
+        }
+
+        /* ============================================
+           CATERING SECTION
+           ============================================ */
+        .catering {
+            background: var(--dark-bg);
+        }
+
+        .catering-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .catering-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 50px 30px;
+            text-align: center;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .catering-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-gold);
+            transform: translateY(100%);
+            transition: var(--transition-smooth);
+            z-index: 0;
+        }
+
+        .catering-card:hover::after {
+            transform: translateY(0);
+        }
+
+        .catering-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .catering-card:hover {
+            color: var(--dark-bg);
+        }
+
+        .catering-card:hover .catering-icon,
+        .catering-card:hover .catering-title,
+        .catering-card:hover .catering-description {
+            color: var(--dark-bg);
+        }
+
+        .catering-icon {
+            font-size: 3rem;
+            color: var(--primary-gold);
+            margin-bottom: 25px;
+            transition: var(--transition-fast);
+        }
+
+        .catering-title {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            transition: var(--transition-fast);
+        }
+
+        .catering-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            transition: var(--transition-fast);
+        }
+
+        /* ============================================
+           VISITING HOURS SECTION
+           ============================================ */
+        .hours {
+            background: var(--darker-bg);
+            position: relative;
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hours-image {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .hours-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hours-content {
+            padding: 40px;
+        }
+
+        .hours-list {
+            margin-top: 30px;
+        }
+
+        .hours-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            transition: var(--transition-fast);
+        }
+
+        .hours-item:hover {
+            background: rgba(201, 169, 98, 0.05);
+            padding-left: 20px;
+            padding-right: 20px;
+            margin: 0 -20px;
+        }
+
+        .hours-day {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hours-time {
+            color: var(--primary-gold);
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+        }
+
+        .hours-note {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(201, 169, 98, 0.1);
+            border-left: 4px solid var(--primary-gold);
+        }
+
+        /* ============================================
+           ONLINE BOOKING SECTION
+           ============================================ */
+        .booking {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
+        }
+
+        .booking-form {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 50px;
+            border: 1px solid var(--border-color);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 15px;
+            background: var(--darker-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: var(--transition-fast);
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* ============================================
+           MENU KIT SECTION
+           ============================================ */
+        .menu-kit {
+            background: var(--dark-bg);
+        }
+
+        .kit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .kit-item {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 3/4;
+            cursor: pointer;
+        }
+
+        .kit-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+
+        .kit-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition-smooth);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .kit-item:hover .kit-overlay {
+            opacity: 1;
+        }
+
+        .kit-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .kit-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            transform: translateY(20px);
+            transition: var(--transition-smooth);
+        }
+
+        .kit-item:hover .kit-title {
+            transform: translateY(0);
+        }
+
+        .kit-download {
+            padding: 10px 25px;
+            background: var(--primary-gold);
+            color: var(--dark-bg);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transform: translateY(20px);
+            transition: var(--transition-smooth) 0.1s;
+        }
+
+        .kit-item:hover .kit-download {
+            transform: translateY(0);
+        }
+
+        /* ============================================
+           CONTACT SECTION
+           ============================================ */
+        .contact {
+            background: var(--darker-bg);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info h3 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-details {
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(201, 169, 98, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-gold);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-text h4 {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .contact-text p {
+            color: var(--text-secondary);
+        }
+
+        .contact-form {
+            background: var(--card-bg);
+            padding: 40px;
+            border: 1px solid var(--border-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        .social-link:hover {
+            background: var(--primary-gold);
+            border-color: var(--primary-gold);
+            color: var(--dark-bg);
+        }
+
+        /* ============================================
+           HOSTING DETAILS SECTION
+           ============================================ */
+        .hosting {
+            background: var(--dark-bg);
+            padding: 60px 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .hosting-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hosting-info h4 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-gold);
+        }
+
+        .hosting-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .hosting-tech {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tech-badge {
+            padding: 8px 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tech-badge i {
+            color: var(--primary-gold);
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background: #050505;
+            padding: 80px 0 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .footer-title {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: var(--text-primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-gold);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-copyright {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-copyright span {
+            color: var(--primary-gold);
+        }
+
+        /* ============================================
+           ANIMATIONS
+           ============================================ */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+        @media (max-width: 1024px) {
+            .about-grid,
+            .banquet-content,
+            .hours-grid,
+            .contact-grid,
+            .hosting-content {
+                grid-template-columns: 1fr;
+            }
+
+            .catering-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .kit-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-image::before {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: var(--darker-bg);
+                flex-direction: column;
+                padding: 100px 40px;
+                transition: var(--transition-smooth);
+                gap: 30px;
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .mobile-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .mobile-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .about-features,
+            .banquet-stats,
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .catering-grid,
+            .kit-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-form,
+            .contact-form {
+                padding: 30px 20px;
+            }
+
+            .gallery-slide {
+                height: 400px;
+            }
+
+            .section-padding {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+
+        /* ============================================
+           UTILITY ANIMATIONS
+           ============================================ */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loading State */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark-bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--border-color);
+            border-top-color: var(--primary-gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <i class="fas fa-utensils"></i>
+                Krazy <span>Kitchen</span>
+            </a>
+            
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About Us</a></li>
+                    <li><a href="#menu" class="nav-link">Menu</a></li>
+                    <li><a href="#banquet" class="nav-link">Banquet</a></li>
+                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                    <li><a href="#catering" class="nav-link">Catering</a></li>
+                    <li><a href="#booking" class="nav-link">Book Now</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <p class="hero-subtitle">Welcome to Excellence</p>
+            <h1 class="hero-title">Krazy Kitchen<br><span class="gold-text">Katerers</span></h1>
+            <p class="hero-description">Experience culinary artistry at its finest. We transform your special moments into unforgettable gastronomic journeys with our premium catering and dining services.</p>
+            <div class="hero-buttons">
+                <a href="#booking" class="btn btn-primary">
+                    <i class="fas fa-calendar-check"></i>
+                    Reserve a Table
+                </a>
+                <a href="#menu" class="btn btn-outline">
+                    <i class="fas fa-book-open"></i>
+                    View Menu
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section-padding" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800" alt="Chef preparing gourmet dish">
+                </div>
+                <div class="about-content" data-aos="fade-left">
+                    <span class="section-subtitle">Our Story</span>
+                    <h2 class="section-title">Crafting Culinary<br>Excellence Since 1995</h2>
+                    <p class="about-text">
+                        At Krazy Kitchen Katerers, we believe that every meal tells a story. Our journey began with a simple passion for creating extraordinary dining experiences that bring people together. Today, we stand as a beacon of culinary innovation, blending traditional techniques with modern flair.
+                    </p>
+                    <p class="about-text">
+                        Our team of award-winning chefs and event specialists work tirelessly to ensure that every dish not only satisfies the palate but also creates lasting memories. From intimate dinners to grand celebrations, we bring the same level of dedication and artistry to every event.
+                    </p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Award Winning</h4>
+                                <p>Recognized excellence in culinary arts</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Fresh Ingredients</h4>
+                                <p>Locally sourced organic produce</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Expert Team</h4>
+                                <p>World-class chefs & staff</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Made with Love</h4>
+                                <p>Every dish prepared with passion</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu section-padding" id="menu">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up">
+                <span class="section-subtitle">Culinary Delights</span>
+                <h2 class="section-title">Our Signature Menu</h2>
+                <p class="section-description">Explore our carefully curated selection of dishes, each crafted to perfection using the finest ingredients and innovative techniques.</p>
+            </div>
+
+            <div class="menu-filters" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all">All Items</button>
+                <button class="filter-btn" data-filter="appetizer">Appetizers</button>
+                <button class="filter-btn" data-filter="main">Main Course</button>
+                <button class="filter-btn" data-filter="dessert">Desserts</button>
+                <button class="filter-btn" data-filter="beverage">Beverages</button>
+            </div>
+
+            <div class="menu-grid" id="menuGrid">
+                <!-- Menu items will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Banquet Facility Section -->
+    <section class="banquet section-padding" id="banquet">
+        <div class="container">
+            <div class="banquet-content">
+                <div class="banquet-info" data-aos="fade-right">
+                    <span class="section-subtitle">Event Spaces</span>
+                    <h3 class="section-title">Elegant Banquet Facilities</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 30px; line-height: 1.8;">
+                        Host your special occasions in our sophisticated banquet halls, designed to accommodate events of any scale. From weddings to corporate galas, our venues provide the perfect backdrop for unforgettable celebrations.
+                    </p>
+                    
+                    <ul class="banquet-features-list">
+                        <li><i class="fas fa-check-circle"></i> State-of-the-art audio-visual equipment</li>
+                        <li><i class="fas fa-check-circle"></i> Customizable lighting and décor</li>
+                        <li><i class="fas fa-check-circle"></i> Dedicated event coordination team</li>
+                        <li><i class="fas fa-check-circle"></i> Premium catering services included</li>
+                        <li><i class="fas fa-check-circle"></i> Complimentary parking for guests</li>
+                    </ul>
+
+                    <div class="banquet-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="500">0</span>
+                            <span class="stat-label">Guest Capacity</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="5">0</span>
+                            <span class="stat-label">Event Halls</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="1500">0</span>
+                            <span class="stat-label">Events Hosted</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1510076857177-7470076d4098?w=800" alt="Banquet Hall" style="width: 100%; border-radius: 10px; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery section-padding" id="gallery">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up">
+                <span class="section-subtitle">Visual Journey</span>
+                <h2 class="section-title">Our Gallery</h2>
+                <p class="section-description">Take a glimpse into our world of culinary excellence and elegant event hosting.</p>
+            </div>
+
+            <div class="gallery-slider" data-aos="fade-up">
+                <div class="gallery-track" id="galleryTrack">
+                    <div class="gallery-slide">
+                        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1200" alt="Fine dining setup">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-title">Elegant Dining Experience</h3>
+                            <p>Perfectly curated table settings for intimate gatherings</p>
+                        </div>
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="https://images.unsplash.com/photo-1555244162-803279f50793?w=1200" alt="Gourmet plating">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-title">Artistic Plating</h3>
+                            <p>Where culinary art meets visual perfection</p>
+                        </div>
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1200" alt="Wedding reception">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-title">Wedding Celebrations</h3>
+                            <p>Creating magical moments for your special day</p>
+                        </div>
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200" alt="Restaurant interior">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-title">Luxurious Ambiance</h3>
+                            <p>Designed for comfort and sophistication</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-nav">
+                    <button class="gallery-btn" id="prevSlide"><i class="fas fa-chevron-left"></i></button>
+                    <button class="gallery-btn" id="nextSlide"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                
+                <div class="gallery-dots" id="galleryDots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catering Section -->
+    <section class="catering section-padding" id="catering">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up">
+                <span class="section-subtitle">Services</span>
+                <h2 class="section-title">Catering Excellence</h2>
+                <p class="section-description">From corporate lunches to wedding feasts, we bring our culinary expertise to your chosen venue.</p>
+            </div>
+
+            <div class="catering-grid">
+                <div class="catering-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="catering-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="catering-title">Corporate Events</h3>
+                    <p class="catering-description">Impress your clients and team with professional catering solutions tailored for business meetings, conferences, and corporate celebrations.</p>
+                </div>
+                
+                <div class="catering-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="catering-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="catering-title">Weddings</h3>
+                    <p class="catering-description">Make your special day unforgettable with our bespoke wedding catering, from cocktail hours to grand receptions.</p>
+                </div>
+                
+                <div class="catering-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="catering-icon">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <h3 class="catering-title">Private Parties</h3>
+                    <p class="catering-description">Celebrate milestones in style with our customized party menus designed to match your theme and preferences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visiting Hours Section -->
+    <section class="hours section-padding" id="hours">
+        <div class="container">
+            <div class="hours-grid">
+                <div class="hours-image" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1550966871-3ed3c47e2ce2?w=800" alt="Restaurant interior">
+                </div>
+                
+                <div class="hours-content" data-aos="fade-left">
+                    <span class="section-subtitle">Visit Us</span>
+                    <h2 class="section-title">Opening Hours</h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 30px;">
+                        Join us for an exceptional dining experience. Our doors are open to serve you throughout the week.
+                    </p>
+                    
+                    <div class="hours-list">
+                        <div class="hours-item">
+                            <span class="hours-day">Monday - Thursday</span>
+                            <span class="hours-time">11:00 AM - 10:00 PM</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="hours-day">Friday - Saturday</span>
+                            <span class="hours-time">11:00 AM - 11:00 PM</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="hours-day">Sunday</span>
+                            <span class="hours-time">10:00 AM - 9:00 PM</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="hours-day">Happy Hour</span>
+                            <span class="hours-time">4:00 PM - 7:00 PM (Daily)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="hours-note">
+                        <i class="fas fa-info-circle" style="color: var(--primary-gold); margin-right: 10px;"></i>
+                        <strong>Reservations Recommended:</strong> For parties of 6 or more, we recommend booking in advance to ensure the best experience.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Online Booking Section -->
+    <section class="booking section-padding" id="booking">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up">
+                <span class="section-subtitle">Reservations</span>
+                <h2 class="section-title">Book Your Table</h2>
+                <p class="section-description">Secure your spot for an unforgettable dining experience. For large parties or special events, please contact us directly.</p>
+            </div>
+
+            <form class="booking-form" id="bookingForm" data-aos="fade-up">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-input" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-input" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone Number</label>
+                        <input type="tel" class="form-input" placeholder="+1 (555) 123-4567" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Date</label>
+                        <input type="date" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Time</label>
+                        <select class="form-select" required>
+                            <option value="">Select Time</option>
+                            <option value="11:00">11:00 AM</option>
+                            <option value="12:00">12:00 PM</option>
+                            <option value="13:00">1:00 PM</option>
+                            <option value="18:00">6:00 PM</option>
+                            <option value="19:00">7:00 PM</option>
+                            <option value="20:00">8:00 PM</option>
+                            <option value="21:00">9:00 PM</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Party Size</label>
+                        <select class="form-select" required>
+                            <option value="">Number of Guests</option>
+                            <option value="1">1 Person</option>
+                            <option value="2">2 People</option>
+                            <option value="3-4">3-4 People</option>
+                            <option value="5-6">5-6 People</option>
+                            <option value="7-8">7-8 People</option>
+                            <option value="9+">9+ People</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label class="form-label">Special Requests</label>
+                        <textarea class="form-textarea" placeholder="Any dietary restrictions, special occasions, or seating preferences..."></textarea>
+                    </div>
+                </div>
+                <div class="text-center" style="margin-top: 30px;">
+                    <button type="submit" class="btn btn-primary" style="min-width: 250px;">
+                        <i class="fas fa-calendar-check"></i>
+                        Confirm Reservation
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Menu Kit Section -->
+    <section class="menu-kit section-padding" id="menu-kit">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up">
+                <span class="section-subtitle">Resources</span>
+                <h2 class="section-title">Menu Kit Downloads</h2>
+                <p class="section-description">Download our comprehensive menu kits for your event planning needs.</p>
+            </div>
+
+            <div class="kit-grid" data-aos="fade-up">
+                <div class="kit-item">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400" alt="Wedding Menu">
+                    <div class="kit-overlay">
+                        <h3 class="kit-title">Wedding Package</h3>
+                        <a href="#" class="kit-download">Download PDF</a>
+                    </div>
+                </div>
+                <div class="kit-item">
+                    <img src="https://images.unsplash.com/photo-1555244162-803279f50793?w=400" alt="Corporate Menu">
+                    <div class="kit-overlay">
+                        <h3 class="kit-title">Corporate Events</h3>
+                        <a href="#" class="kit-download">Download PDF</a>
+                    </div>
+                </div>
+                <div class="kit-item">
+                    <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400" alt="Private Party">
+                    <div class="kit-overlay">
+                        <h3 class="kit-title">Private Parties</h3>
+                        <a href="#" class="kit-download">Download PDF</a>
+                    </div>
+                </div>
+                <div class="kit-item">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400" alt="Seasonal Specials">
+                    <div class="kit-overlay">
+                        <h3 class="kit-title">Seasonal Menu</h3>
+                        <a href="#" class="kit-download">Download PDF</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section-padding" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info" data-aos="fade-right">
+                    <span class="section-subtitle">Get in Touch</span>
+                    <h3>Contact Information</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 30px;">
+                        We'd love to hear from you. Reach out to us for reservations, inquiries, or to discuss your next event.
+                    </p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Location</h4>
+                                <p>123 Gourmet Avenue, Culinary District<br>New York, NY 10001</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <p>+1 (555) 123-4567<br>+1 (555) 987-6543</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>info@krazykitchen.com<br>events@krazykitchen.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form-wrapper" data-aos="fade-left">
+                    <form class="contact-form" id="contactForm">
+                        <h3 style="font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 25px;">Send us a Message</h3>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Your Name</label>
+                            <input type="text" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Subject</label>
+                            <select class="form-select">
+                                <option>General Inquiry</option>
+                                <option>Event Booking</option>
+                                <option>Feedback</option>
+                                <option>Careers</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-textarea" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hosting Details Section -->
+    <section class="hosting" id="hosting">
+        <div class="container">
+            <div class="hosting-content">
+                <div class="hosting-info">
+                    <h4><i class="fas fa-server" style="margin-right: 10px;"></i>Website Hosting & Technical Details</h4>
+                    <p>
+                        This website is built with modern web technologies ensuring fast loading speeds, security, and easy maintenance. 
+                        The single-file architecture allows for simple deployment on any web hosting platform including GitHub Pages, Netlify, Vercel, or traditional hosting providers. 
+                        All content is easily editable by modifying the HTML structure, and images can be updated by replacing the placeholder URLs.
+                    </p>
+                </div>
+                <div class="hosting-tech">
+                    <div class="tech-badge">
+                        <i class="fab fa-html5"></i> HTML5
+                    </div>
+                    <div class="tech-badge">
+                        <i class="fab fa-css3-alt"></i> CSS3
+                    </div>
+                    <div class="tech-badge">
+                        <i class="fab fa-js"></i> JavaScript
+                    </div>
+                    <div class="tech-badge">
+                        <i class="fas fa-mobile-alt"></i> Responsive
+                    </div>
+                    <div class="tech-badge">
+                        <i class="fas fa-bolt"></i> Optimized
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#home" class="logo">
+                        <i class="fas fa-utensils"></i>
+                        Krazy <span>Kitchen</span>
+                    </a>
+                    <p>Crafting extraordinary culinary experiences since 1995. We bring passion, creativity, and excellence to every dish we serve and every event we cater.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#menu">Our Menu</a></li>
+                        <li><a href="#banquet">Banquet Facility</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#catering">Catering</a></li>
+                        <li><a href="#booking">Reservations</a></li>
+                        <li><a href="#menu-kit">Menu Kits</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+15551234567"><i class="fas fa-phone"></i> +1 (555) 123-4567</a></li>
+                        <li><a href="mailto:info@krazykitchen.com"><i class="fas fa-envelope"></i> info@krazykitchen.com</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 123 Gourmet Ave, NY</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    &copy; 2024 <span>Krazy Kitchen Katerers</span>. All rights reserved.
+                </p>
+                <div style="display: flex; gap: 20px; color: var(--text-muted); font-size: 0.85rem;">
+                    <a href="#" style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a>
+                    <a href="#" style="color: var(--text-muted); text-decoration: none;">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        /* ============================================
+           MENU DATA - Easy to Edit
+           Update items below to modify the menu
+           ============================================ */
+        const menuData = [
+            {
+                id: 1,
+                name: "Truffle Arancini",
+                price: "$16",
+                description: "Crispy risotto balls infused with black truffle, served with garlic aioli and micro herbs",
+                category: "appetizer",
+                tags: ["Vegetarian", "Chef's Choice"]
+            },
+            {
+                id: 2,
+                name: "Wagyu Beef Carpaccio",
+                price: "$24",
+                description: "Thinly sliced premium wagyu beef, truffle oil, parmesan shavings, capers, and arugula",
+                category: "appetizer",
+                tags: ["Gluten Free", "Premium"]
+            },
+            {
+                id: 3,
+                name: "Pan-Seared Scallops",
+                price: "$22",
+                description: "Jumbo scallops with cauliflower purée, crispy pancetta, and lemon butter sauce",
+                category: "appetizer",
+                tags: ["Seafood", "Gluten Free"]
+            },
+            {
+                id: 4,
+                name: "Herb-Crusted Lamb Rack",
+                price: "$48",
+                description: "New Zealand lamb with rosemary crust, fondant potatoes, seasonal vegetables, and red wine reduction",
+                category: "main",
+                tags: ["Signature", "Premium"]
+            },
+            {
+                id: 5,
+                name: "Miso Glazed Black Cod",
+                price: "$52",
+                description: "Sustainably sourced black cod, sweet miso marinade, bok choy, and ginger dashi",
+                category: "main",
+                tags: ["Seafood", "Healthy"]
+            },
+            {
+                id: 6,
+                name: "Wild Mushroom Risotto",
+                price: "$34",
+                description: "Arborio rice with porcini, shiitake, and oyster mushrooms, parmesan crisp, and truffle oil",
+                category: "main",
+                tags: ["Vegetarian", "Gluten Free"]
+            },
+            {
+                id: 7,
+                name: "Chocolate Fondant",
+                price: "$14",
+                description: "Warm chocolate cake with liquid center, vanilla bean ice cream, and raspberry coulis",
+                category: "dessert",
+                tags: ["Sweet", "Popular"]
+            },
+            {
+                id: 8,
+                name: "Crème Brûlée",
+                price: "$12",
+                description: "Classic vanilla bean custard with caramelized sugar crust and fresh berries",
+                category: "dessert",
+                tags: ["Classic", "GF Option"]
+            },
+            {
+                id: 9,
+                name: "Artisan Cheese Board",
+                price: "$28",
+                description: "Selection of local and imported cheeses, honeycomb, dried fruits, and artisan crackers",
+                category: "dessert",
+                tags: ["Sharing", "Premium"]
+            },
+            {
+                id: 10,
+                name: "Signature Old Fashioned",
+                price: "$18",
+                description: "Bourbon, smoked maple syrup, angostura bitters, and orange zest, served with a single large ice cube",
+                category: "beverage",
+                tags: ["Cocktail", "Signature"]
+            },
+            {
+                id: 11,
+                name: "Elderflower Spritz",
+                price: "$16",
+                description: "Prosecco, St-Germain elderflower liqueur, soda water, and fresh mint",
+                category: "beverage",
+                tags: ["Refreshing", "Popular"]
+            },
+            {
+                id: 12,
+                name: "Premium Wine Selection",
+                price: "$15/glass",
+                description: "Rotating selection of fine wines from renowned vineyards worldwide. Ask server for details",
+                category: "beverage",
+                tags: ["Wine", "Variety"]
+            }
+        ];
+
+        /* ============================================
+           DOM CONTENT LOADED
+           ============================================ */
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide loading screen
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hidden');
+            }, 500);
+
+            // Initialize AOS Animation Library
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100
+            });
+
+            // Initialize all functions
+            initNavigation();
+            initMenu();
+            initGallery();
+            initScrollEffects();
+            initCounters();
+            initForms();
+        });
+
+        /* ============================================
+           NAVIGATION FUNCTIONALITY
+           ============================================ */
+        function initNavigation() {
+            const header = document.getElementById('header');
+            const mobileToggle = document.getElementById('mobileToggle');
+            const navMenu = document.getElementById('navMenu');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            // Header scroll effect
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile menu toggle
+            mobileToggle.addEventListener('click', () => {
+                mobileToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            // Close mobile menu on link click
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+
+        /* ============================================
+           MENU FUNCTIONALITY
+           ============================================ */
+        function initMenu() {
+            const menuGrid = document.getElementById('menuGrid');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+
+            // Render menu items
+            function renderMenu(filter = 'all') {
+                menuGrid.innerHTML = '';
+                const filteredItems = filter === 'all' 
+                    ? menuData 
+                    : menuData.filter(item => item.category === filter);
+
+                filteredItems.forEach((item, index) => {
+                    const menuItem = document.createElement('div');
+                    menuItem.className = 'menu-item';
+                    menuItem.setAttribute('data-aos', 'fade-up');
+                    menuItem.setAttribute('data-aos-delay', index * 50);
+                    
+                    menuItem.innerHTML = `
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">${item.name}</h3>
+                            <span class="menu-item-price">${item.price}</span>
+                        </div>
+                        <p class="menu-item-description">${item.description}</p>
+                        <div class="menu-item-tags">
+                            ${item.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        </div>
+                    `;
+                    
+                    menuGrid.appendChild(menuItem);
+                });
+
+                // Reinitialize AOS for new elements
+                AOS.refresh();
+            }
+
+            // Initial render
+            renderMenu();
+
+            // Filter buttons
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    renderMenu(btn.getAttribute('data-filter'));
+                });
+            });
+        }
+
+        /* ============================================
+           GALLERY SLIDER
+           ============================================ */
+        function initGallery() {
+            const track = document.getElementById('galleryTrack');
+            const slides = document.querySelectorAll('.gallery-slide');
+            const prevBtn = document.getElementById('prevSlide');
+            const nextBtn = document.getElementById('nextSlide');
+            const dotsContainer = document.getElementById('galleryDots');
+            
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            // Create dots
+            slides.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.className = 'dot' + (index === 0 ? ' active' : '');
+                dot.addEventListener('click', () => goToSlide(index));
+                dotsContainer.appendChild(dot);
+            });
+
+            const dots = document.querySelectorAll('.dot');
+
+            function updateSlider() {
+                track.style.transform = `translateX(-${currentSlide * 100}%)`;
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentSlide);
+                });
+            }
+
+            function goToSlide(index) {
+                currentSlide = index;
+                updateSlider();
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateSlider();
+            }
+
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                updateSlider();
+            }
+
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+
+            // Auto-play
+            setInterval(nextSlide, 5000);
+        }
+
+        /* ============================================
+           SCROLL EFFECTS
+           ============================================ */
+        function initScrollEffects() {
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        /* ============================================
+           ANIMATED COUNTERS
+           ============================================ */
+        function initCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 200;
+
+            const observerOptions = {
+                threshold: 0.5
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = parseInt(counter.getAttribute('data-count'));
+                        const increment = target / speed;
+                        let current = 0;
+
+                        const updateCounter = () => {
+                            if (current < target) {
+                                current += increment;
+                                counter.innerText = Math.ceil(current);
+                                setTimeout(updateCounter, 10);
+                            } else {
+                                counter.innerText = target + (target > 100 ? '+' : '');
+                            }
+                        };
+
+                        updateCounter();
+                        observer.unobserve(counter);
+                    }
+                });
+            }, observerOptions);
+
+            counters.forEach(counter => observer.observe(counter));
+        }
+
+        /* ============================================
+           FORM HANDLING
+           ============================================ */
+        function initForms() {
+            const bookingForm = document.getElementById('bookingForm');
+            const contactForm = document.getElementById('contactForm');
+
+            bookingForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                // Show success message
+                alert('Thank you for your reservation request! We will confirm your booking shortly.');
+                bookingForm.reset();
+            });
+
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                // Show success message
+                alert('Thank you for your message! We will get back to you within 24 hours.');
+                contactForm.reset();
+            });
+        }
+
+        /* ============================================
+           CLIENT EDITING INSTRUCTIONS
+           ============================================
+           
+           TO EDIT CONTENT:
+           
+           1. TEXT CONTENT:
+              - Simply edit the text between HTML tags
+              - Look for comments indicating editable sections
+           
+           2. IMAGES:
+              - Replace the src attribute in img tags
+              - Use your own image URLs or local paths
+              - Recommended size: 1920x1080 for hero, 800x600 for content
+           
+           3. MENU ITEMS:
+              - Edit the menuData array in the JavaScript section above
+              - Follow the existing format: name, price, description, category, tags
+           
+           4. COLORS:
+              - Edit CSS variables in the :root selector at top of style section
+              - --primary-gold controls the accent color
+              - --dark-bg controls the background color
+           
+           5. CONTACT INFO:
+              - Edit text in the Contact section HTML
+              - Update email, phone, and address details
+           
+           HOSTING INSTRUCTIONS:
+           - Upload this single HTML file to any web server
+           - No database or server-side processing required
+           - For custom domain, configure DNS to point to your host
+           - SSL certificate recommended for HTTPS (usually free with hosts)
+           
+           ============================================ */
+    </script>
+</body>
+</html>

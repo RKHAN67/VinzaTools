@@ -1,0 +1,12 @@
+<svg width="600" height="420" viewBox="0 0 600 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="420" rx="32" fill="#140B0C"/>
+  <circle cx="486" cy="92" r="76" fill="#FB7185" fill-opacity="0.18"/>
+  <rect x="44" y="48" width="512" height="324" rx="28" fill="#241317" stroke="#402027"/>
+  <rect x="76" y="86" width="214" height="24" rx="12" fill="#FFE4E6" fill-opacity="0.16"/>
+  <rect x="76" y="126" width="300" height="16" rx="8" fill="#FFF1F2" fill-opacity="0.12"/>
+  <rect x="76" y="158" width="260" height="16" rx="8" fill="#FFF1F2" fill-opacity="0.12"/>
+  <rect x="76" y="212" width="448" height="112" rx="22" fill="#2B1A1F"/>
+  <text x="76" y="104" fill="#FFF7F9" font-size="24" font-family="Segoe UI, Arial, sans-serif" font-weight="700">VinzaTools Article</text>
+  <text x="76" y="250" fill="#FDA4AF" font-size="18" font-family="Segoe UI, Arial, sans-serif">Actionable tips, cleaner workflows, and practical step-by-step help.</text>
+</svg>
+

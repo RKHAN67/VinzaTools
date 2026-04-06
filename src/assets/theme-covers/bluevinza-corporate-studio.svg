@@ -1,0 +1,19 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" rx="40" fill="#120F17"/>
+  <rect x="60" y="60" width="1080" height="780" rx="34" fill="#1B1623" stroke="#2F233C"/>
+  <rect x="110" y="120" width="980" height="120" rx="28" fill="url(#g1)"/>
+  <rect x="110" y="290" width="470" height="220" rx="28" fill="#F8FAFC"/>
+  <rect x="620" y="290" width="470" height="220" rx="28" fill="#F8FAFC"/>
+  <rect x="110" y="550" width="980" height="200" rx="28" fill="#F8FAFC"/>
+  <text x="140" y="190" fill="white" font-size="72" font-family="Arial" font-weight="700">BlueVinza</text>
+  <text x="140" y="255" fill="#FBCFE8" font-size="28" font-family="Arial">Corporate Studio</text>
+  <text x="150" y="390" fill="#0F172A" font-size="32" font-family="Arial" font-weight="700">Services</text>
+  <text x="660" y="390" fill="#0F172A" font-size="32" font-family="Arial" font-weight="700">Leadership</text>
+  <text x="150" y="640" fill="#0F172A" font-size="40" font-family="Arial" font-weight="700">Trust-first company presentation</text>
+  <defs>
+    <linearGradient id="g1" x1="110" y1="120" x2="1090" y2="240" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FB7185"/>
+      <stop offset="1" stop-color="#F97316"/>
+    </linearGradient>
+  </defs>
+</svg>

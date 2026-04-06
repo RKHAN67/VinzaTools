@@ -1,0 +1,8 @@
+<svg width="400" height="225" viewBox="0 0 400 225" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="225" rx="24" fill="#100809"/>
+  <circle cx="310" cy="54" r="42" fill="#F43F5E" fill-opacity="0.22"/>
+  <rect x="34" y="34" width="332" height="157" rx="18" fill="#26161A" stroke="#412127"/>
+  <polygon points="170,94 170,132 226,113" fill="#FFF7F9" fill-opacity="0.92"/>
+  <text x="34" y="212" fill="#FDA4AF" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="700">VinzaTools Media Preview</text>
+</svg>
+

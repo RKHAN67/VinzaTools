@@ -1,0 +1,6 @@
+pypdf
+yt-dlp
+PyMuPDF
+python-docx
+openpyxl
+reportlab

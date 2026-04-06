@@ -1,0 +1,13 @@
+{
+  "health": {
+    "ok": true,
+    "port": 3015
+  },
+  "youtube_info_status": 200,
+  "youtube_title": "Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)",
+  "video_format_count": 4,
+  "audio_format_count": 3,
+  "download_status": 200,
+  "download_size": 1048576,
+  "download_file": "D:\\Projects\\toolkit-pro\\testing\\outputs\\youtube-smoke-download.bin"
+}
