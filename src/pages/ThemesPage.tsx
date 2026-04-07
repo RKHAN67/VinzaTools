@@ -336,7 +336,7 @@ export const ThemesPage = () => {
                   <img
                     src={THEME_COVERS[theme.id] || vinzaLuxuryStorefrontCover}
                     alt={`${getThemeDisplayName(theme)} cover`}
-                    className="h-[250px] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.035]"
+                    className="h-[220px] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.035] sm:h-[250px]"
                     loading="lazy"
                   />
                   <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#151010] via-[#151010]/30 to-transparent" />

@@ -108,10 +108,30 @@ export const ToolsPage = ({
   renderTool,
   activeToolName,
 }: ToolsPageProps) => {
+  const [isMobile, setIsMobile] = React.useState(false);
+  const [showAllTools, setShowAllTools] = React.useState(false);
+
   React.useEffect(() => {
     if (typeof window === 'undefined') return;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [activeToolId]);
+
+  React.useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const mediaQuery = window.matchMedia('(max-width: 640px)');
+    const handleChange = () => setIsMobile(mediaQuery.matches);
+    handleChange();
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener('change', handleChange);
+      return () => mediaQuery.removeEventListener('change', handleChange);
+    }
+    mediaQuery.addListener(handleChange);
+    return () => mediaQuery.removeListener(handleChange);
+  }, []);
+
+  React.useEffect(() => {
+    setShowAllTools(false);
+  }, [activeCategory, searchQuery]);
 
   const newToolIds = new Set([
     ...SCREENSHOT_NEW_TOOL_IDS,
@@ -124,6 +144,10 @@ export const ToolsPage = ({
     'color-palette-generator',
   ]);
   const visibleNewTools = filteredTools.filter((tool) => newToolIds.has(tool.id));
+  const mobileLimit = 12;
+  const toolsToShow =
+    isMobile && !showAllTools ? filteredTools.slice(0, mobileLimit) : filteredTools;
+  const hiddenCount = Math.max(filteredTools.length - toolsToShow.length, 0);
 
   return (
     <div className="space-y-8">
@@ -159,7 +183,7 @@ export const ToolsPage = ({
               </p>
             </div>
             <div className="flex flex-wrap gap-2">
-              {visibleNewTools.slice(0, 8).map((tool) => (
+              {visibleNewTools.slice(0, isMobile ? 4 : 8).map((tool) => (
                 <span
                   key={tool.id}
                   className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.18em] text-emerald-200"
@@ -232,12 +256,12 @@ export const ToolsPage = ({
 
       {/* Tools Grid or Active Tool */}
       {!activeToolId ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {filteredTools.map((tool) => (
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {toolsToShow.map((tool) => (
             <button
               key={tool.id}
               onClick={() => handleToolClick(tool)}
-              className="group relative p-6 bg-[#1a1414] rounded-2xl border border-white/10 hover:border-rose-500/30 hover:bg-[#1f1919] transition-all text-left"
+              className="group relative rounded-2xl border border-white/10 bg-[#1a1414] p-5 text-left transition-all hover:border-rose-500/30 hover:bg-[#1f1919] sm:p-6"
             >
               {newToolIds.has(tool.id) && (
                 <span className="absolute right-4 top-4 rounded-full border border-rose-400/20 bg-rose-500/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.2em] text-rose-200">
@@ -302,6 +326,18 @@ export const ToolsPage = ({
               </React.Suspense>
             </ToolErrorBoundary>
           </div>
+        </div>
+      )}
+
+      {!activeToolId && isMobile && filteredTools.length > mobileLimit && (
+        <div className="flex items-center justify-center">
+          <button
+            type="button"
+            onClick={() => setShowAllTools((prev) => !prev)}
+            className="vinza-button rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-rose-400/30 hover:bg-white/10"
+          >
+            {showAllTools ? 'Show fewer tools' : `Show ${hiddenCount} more tools`}
+          </button>
         </div>
       )}
     </div>
