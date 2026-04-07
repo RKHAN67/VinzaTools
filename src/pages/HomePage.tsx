@@ -80,10 +80,29 @@ export const HomePage = ({
   goTools,
 }: HomePageProps) => {
   const [activeCard, setActiveCard] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const [showAllHomeTools, setShowAllHomeTools] = useState(false);
   const freshToolsCount = featuredTools.length;
   const backgroundRemoverTool = [...featuredTools, ...filteredTools].find(
     (tool) => tool.id === 'bg-remover'
   );
+
+  React.useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const mediaQuery = window.matchMedia('(max-width: 640px)');
+    const handleChange = () => setIsMobile(mediaQuery.matches);
+    handleChange();
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener('change', handleChange);
+      return () => mediaQuery.removeEventListener('change', handleChange);
+    }
+    mediaQuery.addListener(handleChange);
+    return () => mediaQuery.removeListener(handleChange);
+  }, []);
+
+  React.useEffect(() => {
+    setShowAllHomeTools(false);
+  }, [activeCategory, searchQuery]);
 
   const spotlightLabels: Record<string, string> = {
     'shopify-helper': 'Shopify Exclusive',
@@ -159,6 +178,13 @@ export const HomePage = ({
       gradient: 'from-rose-400 via-pink-500 to-coral-500',
     },
   ];
+
+  const mobileCommandLimit = 8;
+  const commandCenterTools =
+    isMobile && !showAllHomeTools
+      ? filteredTools.slice(0, mobileCommandLimit)
+      : filteredTools;
+  const hiddenCommandTools = Math.max(filteredTools.length - commandCenterTools.length, 0);
 
   return (
     <div className="min-h-screen bg-[#0f0a0a] text-white overflow-x-hidden selection:bg-rose-500/30">
@@ -508,7 +534,7 @@ Platform Live
 
             {/* Tools Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {filteredTools.map((tool, index) => (
+              {commandCenterTools.map((tool, index) => (
                 <button
                   key={tool.id}
                   onClick={() => handleToolClick(tool)}
@@ -547,6 +573,18 @@ Platform Live
                 </button>
               ))}
             </div>
+
+            {isMobile && filteredTools.length > mobileCommandLimit && (
+              <div className="mt-6 flex items-center justify-center">
+                <button
+                  type="button"
+                  onClick={() => setShowAllHomeTools((prev) => !prev)}
+                  className="vinza-button rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-rose-400/30 hover:bg-white/10"
+                >
+                  {showAllHomeTools ? 'Show fewer tools' : `Show ${hiddenCommandTools} more tools`}
+                </button>
+              </div>
+            )}
           </div>
         </section>
 
