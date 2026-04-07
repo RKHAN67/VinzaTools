@@ -111,6 +111,7 @@ const ADMIN_FALLBACK_PIN = 'admin123';
 export const AdminPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [otp, setOtp] = useState('');
   const [authed, setAuthed] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -155,16 +156,18 @@ export const AdminPage = () => {
   >('all');
   const [showNotifications, setShowNotifications] = useState(false);
 
-  const fetchOverview = async (user: string, pass: string) => {
+  const fetchOverview = async (user: string, pass: string, otpCode?: string) => {
     setLoading(true);
     setError('');
     try {
-      const query = `?admin_user=${encodeURIComponent(user)}&admin_pass=${encodeURIComponent(pass)}`;
+      const otpValue = (otpCode || '').trim();
+      const query = `?admin_user=${encodeURIComponent(user)}&admin_pass=${encodeURIComponent(pass)}${otpValue ? `&admin_otp=${encodeURIComponent(otpValue)}` : ''}`;
       const res = await apiFetch(`/api/admin/overview${query}`, {
         headers: {
           'x-admin-user': user,
           'x-admin-pass': pass,
           'x-admin-pin': ADMIN_FALLBACK_PIN,
+          'x-admin-otp': otpValue,
         },
       });
       if (!res.ok) {
@@ -211,7 +214,7 @@ export const AdminPage = () => {
 
   useEffect(() => {
     if (authed) {
-      fetchOverview(username, password);
+      fetchOverview(username, password, otp);
     }
   }, [authed]);
 
@@ -236,7 +239,7 @@ export const AdminPage = () => {
     actionName.replace(/_/g, ' ');
 
   const refresh = async () => {
-    await fetchOverview(username, password);
+    await fetchOverview(username, password, otp);
   };
 
   const sendReply = async () => {
@@ -249,7 +252,8 @@ export const AdminPage = () => {
     setReplyFeedback('');
     const popup = window.open('', '_blank', 'noopener,noreferrer');
     try {
-      const query = `?admin_user=${encodeURIComponent(username)}&admin_pass=${encodeURIComponent(password)}`;
+      const otpValue = otp.trim();
+      const query = `?admin_user=${encodeURIComponent(username)}&admin_pass=${encodeURIComponent(password)}${otpValue ? `&admin_otp=${encodeURIComponent(otpValue)}` : ''}`;
       const res = await apiFetch(`/api/admin/messages/${selectedMessage.id}/reply${query}`, {
         method: 'POST',
         headers: {
@@ -257,6 +261,7 @@ export const AdminPage = () => {
           'x-admin-user': username,
           'x-admin-pass': password,
           'x-admin-pin': ADMIN_FALLBACK_PIN,
+          'x-admin-otp': otpValue,
         },
         body: JSON.stringify({ replyText: replyText.trim() }),
       });
@@ -278,7 +283,7 @@ export const AdminPage = () => {
           ? 'Reply opened in WhatsApp successfully.'
           : 'Reply opened in email successfully.'
       );
-      await fetchOverview(username, password);
+      await fetchOverview(username, password, otp);
       setReplyText('');
     } catch (err: any) {
       if (popup && !popup.closed) popup.close();
@@ -300,12 +305,13 @@ export const AdminPage = () => {
           'x-admin-user': username,
           'x-admin-pass': password,
           'x-admin-pin': ADMIN_FALLBACK_PIN,
+          'x-admin-otp': otp.trim(),
         },
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data.error || 'Failed to mark message as read.');
       setReplyFeedback(data.message || 'Message marked as read.');
-      await fetchOverview(username, password);
+      await fetchOverview(username, password, otp);
     } catch (err: any) {
       setReplyFeedback(err.message || 'Failed to mark message as read.');
     } finally {
@@ -321,13 +327,14 @@ export const AdminPage = () => {
     setMessageActionLoading('delete');
     setReplyFeedback('');
     try {
-      const query = `?admin_user=${encodeURIComponent(username)}&admin_pass=${encodeURIComponent(password)}`;
+      const query = `?admin_user=${encodeURIComponent(username)}&admin_pass=${encodeURIComponent(password)}${otp.trim() ? `&admin_otp=${encodeURIComponent(otp.trim())}` : ''}`;
       const res = await apiFetch(`/api/admin/messages/${selectedMessage.id}${query}`, {
         method: 'DELETE',
         headers: {
           'x-admin-user': username,
           'x-admin-pass': password,
           'x-admin-pin': ADMIN_FALLBACK_PIN,
+          'x-admin-otp': otp.trim(),
         },
       });
       const data = await res.json().catch(() => ({}));
@@ -335,7 +342,7 @@ export const AdminPage = () => {
       setReplyFeedback(data.message || 'Message deleted successfully.');
       setSelectedMessage(null);
       setReplyText('');
-      await fetchOverview(username, password);
+      await fetchOverview(username, password, otp);
     } catch (err: any) {
       setReplyFeedback(err.message || 'Failed to delete message.');
     } finally {
@@ -426,7 +433,7 @@ export const AdminPage = () => {
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     onKeyDown={(e) =>
-                      e.key === 'Enter' && fetchOverview(username, password)
+                      e.key === 'Enter' && fetchOverview(username, password, otp)
                     }
                     className="w-full pl-12 pr-4 py-4 bg-[#0f0a0a] border border-white/10 rounded-xl text-white placeholder-slate-600 focus:border-rose-500 focus:ring-1 focus:ring-rose-500/50 transition-all outline-none"
                     placeholder="Enter username"
@@ -448,7 +455,7 @@ export const AdminPage = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     onKeyDown={(e) =>
-                      e.key === 'Enter' && fetchOverview(username, password)
+                      e.key === 'Enter' && fetchOverview(username, password, otp)
                     }
                     className="w-full pl-12 pr-4 py-4 bg-[#0f0a0a] border border-white/10 rounded-xl text-white placeholder-slate-600 focus:border-rose-500 focus:ring-1 focus:ring-rose-500/50 transition-all outline-none"
                     placeholder="Enter password"
@@ -456,8 +463,29 @@ export const AdminPage = () => {
                 </div>
               </div>
 
+              <div className="group">
+                <label className="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wider">
+                  Authenticator Code (if enabled)
+                </label>
+                <div className="relative">
+                  <ShieldCheck
+                    className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-rose-400 transition-colors"
+                    size={20}
+                  />
+                  <input
+                    value={otp}
+                    onChange={(e) => setOtp(e.target.value)}
+                    onKeyDown={(e) =>
+                      e.key === 'Enter' && fetchOverview(username, password, otp)
+                    }
+                    className="w-full pl-12 pr-4 py-4 bg-[#0f0a0a] border border-white/10 rounded-xl text-white placeholder-slate-600 focus:border-rose-500 focus:ring-1 focus:ring-rose-500/50 transition-all outline-none"
+                    placeholder="6-digit code"
+                  />
+                </div>
+              </div>
+
               <button
-                onClick={() => fetchOverview(username, password)}
+                onClick={() => fetchOverview(username, password, otp)}
                 disabled={loading || !username || !password}
                 className="w-full py-4 rounded-xl bg-rose-500 hover:bg-rose-600 text-white font-bold text-lg shadow-lg shadow-rose-500/25 hover:shadow-rose-500/40 transform hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2"
               >

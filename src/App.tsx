@@ -1171,6 +1171,7 @@ const MEDIA_SUBTOOLS: { id: MediaToolType; name: string; desc: string; icon: any
 export default function App() {
   const adminRoute =
     (import.meta?.env?.VITE_ADMIN_ROUTE as string | undefined)?.trim().toLowerCase() || 'admin';
+  const gaId = (import.meta?.env?.VITE_GA_ID as string | undefined)?.trim() || '';
   const [activeToolId, setActiveToolId] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState<ToolCategory | 'all'>('all');
@@ -1211,6 +1212,36 @@ export default function App() {
     window.addEventListener('hashchange', handleHash);
     return () => window.removeEventListener('hashchange', handleHash);
   }, [adminRoute]);
+
+  React.useEffect(() => {
+    if (!gaId || typeof document === 'undefined') return;
+    const existing = document.querySelector(`script[data-ga-id="${gaId}"]`);
+    if (existing) return;
+
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+    script.setAttribute('data-ga-id', gaId);
+    document.head.appendChild(script);
+
+    const inline = document.createElement('script');
+    inline.setAttribute('data-ga-inline', gaId);
+    inline.innerHTML =
+      "window.dataLayer = window.dataLayer || [];" +
+      "function gtag(){dataLayer.push(arguments);} window.gtag=gtag;" +
+      `gtag('js', new Date()); gtag('config', '${gaId}', { send_page_view: false });`;
+    document.head.appendChild(inline);
+  }, [gaId]);
+
+  React.useEffect(() => {
+    if (!gaId || typeof window === 'undefined') return;
+    if (typeof window.gtag !== 'function') return;
+    const path = page === 'home' ? '/' : `/${page}`;
+    window.gtag('event', 'page_view', {
+      page_path: path,
+      page_title: document.title,
+    });
+  }, [gaId, page]);
 
   const filteredTools = useMemo(() => {
     return allTools.filter(t => {

@@ -1,4 +1,5 @@
 import express from "express";
+import crypto from "crypto";
 import os from "os";
 import multer from "multer";
 import path from "path";
@@ -788,10 +789,58 @@ const dbQuery = async <T = any>(sql: string, params: any[] = []) => {
 const ADMIN_PIN = (process.env.ADMIN_PIN || "admin123").trim();
 const ADMIN_USER = (process.env.ADMIN_USER || "admin").trim();
 const ADMIN_PASSWORD = (process.env.ADMIN_PASSWORD || "admin").trim();
+const ADMIN_TOTP_SECRET = (process.env.ADMIN_TOTP_SECRET || "").trim();
+
+const BASE32_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
+
+const decodeBase32 = (input: string) => {
+  const cleaned = input.toUpperCase().replace(/[^A-Z2-7]/g, "").replace(/=+$/g, "");
+  let bits = 0;
+  let buffer = 0;
+  const bytes: number[] = [];
+
+  for (const char of cleaned) {
+    const idx = BASE32_ALPHABET.indexOf(char);
+    if (idx === -1) continue;
+    buffer = (buffer << 5) | idx;
+    bits += 5;
+    if (bits >= 8) {
+      bytes.push((buffer >>> (bits - 8)) & 0xff);
+      bits -= 8;
+    }
+  }
+  return Buffer.from(bytes);
+};
+
+const generateTotp = (secret: string, counter: number) => {
+  const key = decodeBase32(secret);
+  if (!key.length) return "";
+  const buffer = Buffer.alloc(8);
+  buffer.writeUInt32BE(Math.floor(counter / 0x100000000), 0);
+  buffer.writeUInt32BE(counter % 0x100000000, 4);
+  const hmac = crypto.createHmac("sha1", key).update(buffer).digest();
+  const offset = hmac[hmac.length - 1] & 0x0f;
+  const code =
+    ((hmac[offset] & 0x7f) << 24) |
+    ((hmac[offset + 1] & 0xff) << 16) |
+    ((hmac[offset + 2] & 0xff) << 8) |
+    (hmac[offset + 3] & 0xff);
+  return String(code % 1_000_000).padStart(6, "0");
+};
+
+const verifyTotp = (token: string, secret: string) => {
+  if (!token || token.length < 6) return false;
+  const now = Math.floor(Date.now() / 1000 / 30);
+  const window = [now - 1, now, now + 1];
+  return window.some((counter) => generateTotp(secret, counter) === token);
+};
 const requireAdmin = (req: express.Request, res: express.Response, next: express.NextFunction) => {
   const pin = (req.headers["x-admin-pin"] || "").toString().trim();
   const user = (req.headers["x-admin-user"] || "").toString().trim();
   const pass = (req.headers["x-admin-pass"] || "").toString().trim();
+  const otp = (req.headers["x-admin-otp"] || req.query.admin_otp || "")
+    .toString()
+    .trim();
   const queryUser = (req.query.admin_user || "").toString().trim();
   const queryPass = (req.query.admin_pass || "").toString().trim();
   const pinOk = pin && pin === ADMIN_PIN;
@@ -799,6 +848,10 @@ const requireAdmin = (req: express.Request, res: express.Response, next: express
   const queryOk = queryUser && queryPass && queryUser === ADMIN_USER && queryPass === ADMIN_PASSWORD;
   const userOk = headerOk || queryOk;
   if (!pinOk && !userOk) return res.status(401).json({ error: "Unauthorized" });
+  if (ADMIN_TOTP_SECRET) {
+    const otpOk = verifyTotp(otp, ADMIN_TOTP_SECRET);
+    if (!otpOk) return res.status(401).json({ error: "Two-factor code required" });
+  }
   next();
 };
 
