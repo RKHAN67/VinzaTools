@@ -62,6 +62,7 @@ import { KeywordDensityChecker } from './components/KeywordDensityChecker';
 import { ShopifyHelper } from './components/ShopifyHelper';
 import { TextCounter } from './components/TextCounter';
 import { ParagraphGenerator } from './components/ParagraphGenerator';
+import { GoogleAuthenticator } from './components/GoogleAuthenticator';
 import { ImageToolkit, type ImageToolkitMode } from './components/ImageToolkit';
 import { MediaTranscoder, type MediaTranscoderMode } from './components/MediaTranscoder';
 import { PdfAdvancedTools, type PdfAdvancedMode } from './components/PdfAdvancedTools';
@@ -556,6 +557,13 @@ const INTERNAL_TOOLS: Tool[] = [
     description: 'Check repeated keywords and SEO focus inside content drafts.',
     category: 'text',
     icon: BarChart3
+  },
+  {
+    id: 'google-authenticator',
+    name: 'Google Authenticator Codes',
+    description: 'Generate TOTP 2FA codes from a base32 secret key.',
+    category: 'developer',
+    icon: KeyRound
   },
   {
     id: 'dev-json',
@@ -1312,6 +1320,7 @@ export default function App() {
       case 'case-converter': return <CaseConverter />;
       case 'slug-generator': return <SlugGenerator />;
       case 'keyword-density-checker': return <KeywordDensityChecker />;
+      case 'google-authenticator': return <GoogleAuthenticator />;
       case 'password-generator': return <PasswordGenerator />;
       case 'url-encoder': return <UrlEncoderDecoder />;
       case 'db-viewer': return <DatabaseViewer />;
@@ -1453,7 +1462,7 @@ export default function App() {
       pdf: 'pdf tools, pdf converter, merge pdf, split pdf, compress pdf, pdf to word, pdf to powerpoint, pdf to excel, word to pdf, ppt to pdf, excel to pdf, jpg to pdf',
       image: 'image tools, image converter, background remover, compare images, youtube thumbnail downloader',
       media: 'youtube downloader, tiktok downloader, instagram downloader, facebook downloader, video downloader',
-      developer: 'json formatter, code minifier, base64 encoder, svg viewer',
+      developer: 'json formatter, code minifier, base64 encoder, svg viewer, google authenticator, totp generator, 2fa codes',
       creative: 'resume builder, poster maker, corporate poster studio',
       text: 'word counter, character counter, paragraph generator, word count'
     };

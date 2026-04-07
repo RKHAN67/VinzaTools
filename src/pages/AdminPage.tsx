@@ -105,7 +105,7 @@ type ThemeDayRow = {
   count: number;
 };
 
-const TOTAL_AVAILABLE_TOOLS = 94;
+const TOTAL_AVAILABLE_TOOLS = 95;
 const ADMIN_FALLBACK_PIN = 'admin123';
 
 export const AdminPage = () => {
