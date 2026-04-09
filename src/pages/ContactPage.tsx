@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import type { ContactTab } from '../types/app';
 import { apiFetch } from '../api';
+import { trackGaEvent } from '../lib/analytics';
 
 interface ContactPageProps {
   contactTab: ContactTab;
@@ -72,6 +73,10 @@ export const ContactPage = ({ contactTab, setContactTab }: ContactPageProps) => 
 
       setStatus('success');
       setStatusMessage('Thank you. Your message has been sent successfully and our team usually replies within 24 hours.');
+      trackGaEvent('contact_submit', {
+        category: contactTab,
+        has_phone: Boolean(phone.trim()),
+      });
       setShowSuccessPopup(true);
       setName('');
       setEmail('');

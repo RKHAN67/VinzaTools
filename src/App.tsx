@@ -72,6 +72,7 @@ import type { ToolCategory, PageKey, ContactTab, ShowcaseTab, ToolContext, Tool 
 import { SiteLayout } from './layouts/SiteLayout';
 import { BrandMark } from './components/BrandMark';
 import { apiFetch } from './api';
+import { trackGaEvent } from './lib/analytics';
 
 const ResumeBuilder = React.lazy(() => import('./components/ResumeBuilder').then((m) => ({ default: m.ResumeBuilder })));
 const PosterMaker = React.lazy(() => import('./components/PosterMaker').then((m) => ({ default: m.PosterMaker })));
@@ -1429,6 +1430,11 @@ export default function App() {
 
   const handleToolClick = (tool: Tool) => {
     trackToolUsage(tool.id, tool.subAction);
+    trackGaEvent('tool_used', {
+      tool_id: tool.id,
+      tool_name: tool.name,
+      sub_action: tool.subAction || '',
+    });
     setToolContext(null);
     setActiveToolId(tool.id);
     setPageWithRoute('tools');
@@ -1440,6 +1446,12 @@ export default function App() {
       const mappedId = PDF_ACTION_TO_ID[subAction as PdfAction];
       if (mappedId) {
         trackToolUsage(mappedId, subAction);
+        const mappedTool = INTERNAL_TOOLS.find(t => t.id === mappedId);
+        trackGaEvent('tool_used', {
+          tool_id: mappedId,
+          tool_name: mappedTool?.name || mappedId,
+          sub_action: subAction,
+        });
         setToolContext(null);
         setActiveToolId(mappedId);
         setPageWithRoute('tools');
@@ -1452,6 +1464,12 @@ export default function App() {
       const mappedId = DEV_ACTION_TO_ID[subAction as DevAction];
       if (mappedId) {
         trackToolUsage(mappedId, subAction);
+        const mappedTool = INTERNAL_TOOLS.find(t => t.id === mappedId);
+        trackGaEvent('tool_used', {
+          tool_id: mappedId,
+          tool_name: mappedTool?.name || mappedId,
+          sub_action: subAction,
+        });
         setToolContext(null);
         setActiveToolId(mappedId);
         setPageWithRoute('tools');
@@ -1464,6 +1482,12 @@ export default function App() {
       const mappedId = MEDIA_ACTION_TO_ID[subAction as MediaToolType];
       if (mappedId) {
         trackToolUsage(mappedId, subAction);
+        const mappedTool = INTERNAL_TOOLS.find(t => t.id === mappedId);
+        trackGaEvent('tool_used', {
+          tool_id: mappedId,
+          tool_name: mappedTool?.name || mappedId,
+          sub_action: subAction,
+        });
         setToolContext(null);
         setActiveToolId(mappedId);
         setPageWithRoute('tools');
@@ -1473,6 +1497,12 @@ export default function App() {
     }
 
     trackToolUsage(toolId, subAction);
+    const mappedTool = INTERNAL_TOOLS.find(t => t.id === toolId);
+    trackGaEvent('tool_used', {
+      tool_id: toolId,
+      tool_name: mappedTool?.name || toolId,
+      sub_action: subAction,
+    });
     setToolContext({ toolId, subAction });
     setActiveToolId(toolId);
     setPageWithRoute('tools');

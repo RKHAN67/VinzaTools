@@ -8,6 +8,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 import { BrandMark } from '../components/BrandMark';
+import { trackGaEvent } from '../lib/analytics';
 
 type PageLabel = { key: PageKey; label: string };
 
@@ -304,6 +305,7 @@ export const SiteLayout = ({
               onClick={() => {
                 setOpenMenu(null);
                 setPage('contact');
+                trackGaEvent('request_tool_click', { location: 'header' });
               }}
               className="vinza-button cursor-pointer rounded-full bg-rose-500 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-rose-500/25 hover:bg-rose-600 hover:shadow-xl hover:shadow-rose-500/30"
             >
@@ -423,7 +425,10 @@ export const SiteLayout = ({
               <div className="flex gap-3">
                 <button
                   type="button"
-                  onClick={() => setPage('contact')}
+                  onClick={() => {
+                    setPage('contact');
+                    trackGaEvent('request_tool_click', { location: 'footer' });
+                  }}
                   className="vinza-button cursor-pointer flex items-center gap-2 rounded-xl bg-rose-500 px-5 py-2.5 font-semibold text-white transition-colors hover:bg-rose-600 hover:shadow-xl hover:shadow-rose-500/20"
                 >
                   Request Tool
