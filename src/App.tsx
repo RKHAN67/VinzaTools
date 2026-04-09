@@ -1171,7 +1171,12 @@ const MEDIA_SUBTOOLS: { id: MediaToolType; name: string; desc: string; icon: any
 export default function App() {
   const adminRoute =
     (import.meta?.env?.VITE_ADMIN_ROUTE as string | undefined)?.trim().toLowerCase() || 'admin';
-  const gaId = (import.meta?.env?.VITE_GA_ID as string | undefined)?.trim() || '';
+  const envGaId = (import.meta?.env?.VITE_GA_ID as string | undefined)?.trim() || '';
+  const fallbackGaId =
+    typeof window !== 'undefined' && window.location.hostname.endsWith('vinzatools.com')
+      ? 'G-L07YYMBBL7'
+      : '';
+  const gaId = envGaId || fallbackGaId;
   const [activeToolId, setActiveToolId] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState<ToolCategory | 'all'>('all');
