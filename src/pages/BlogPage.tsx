@@ -28,7 +28,7 @@ const posts: BlogPost[] = [
     title: 'How to Remove Backgrounds for Product Photos and Thumbnails',
     excerpt:
       'Use the VinzaTools background remover to clean product shots, profile photos, and thumbnail images without opening bulky desktop software.',
-    image: '/assets/blog/background-remover-guide.svg',
+    image: '/assets/blog/background-remover-guide.png',
     author: 'VinzaTools Desk',
     date: 'Apr 05, 2026',
     readTime: '4 min',
@@ -40,7 +40,7 @@ const posts: BlogPost[] = [
     title: 'The Clean PDF Workflow: Merge, Split, Compress, and Convert',
     excerpt:
       'Build a practical PDF routine with merge, split, PDF to Word, JPG to PDF, and quick cleanup tools from one dashboard.',
-    image: '/assets/blog/pdf-workflow-guide.svg',
+    image: '/assets/blog/pdf-workflow-guide.png',
     author: 'VinzaTools Desk',
     date: 'Apr 04, 2026',
     readTime: '6 min',
@@ -52,7 +52,7 @@ const posts: BlogPost[] = [
     title: 'How to Download YouTube Videos Without Breaking Your Workflow',
     excerpt:
       'Fetch public YouTube links, choose the right format, and keep your downloads simple, organized, and ready to use.',
-    image: '/assets/blog/youtube-downloader-guide.svg',
+    image: '/assets/blog/youtube-downloader-guide.png',
     author: 'VinzaTools Desk',
     date: 'Apr 03, 2026',
     readTime: '5 min',
@@ -64,7 +64,7 @@ const posts: BlogPost[] = [
     title: 'Instagram, TikTok, and Facebook Downloads: A Cleaner Social Workflow',
     excerpt:
       'Save public reels, videos, and clips from Instagram, TikTok, and Facebook with fewer steps and clearer results.',
-    image: '/assets/blog/social-download-guide.svg',
+    image: '/assets/blog/social-download-guide.png',
     author: 'VinzaTools Desk',
     date: 'Apr 02, 2026',
     readTime: '5 min',
@@ -76,7 +76,7 @@ const posts: BlogPost[] = [
     title: 'Resume Builder Tips for Faster, Cleaner Job Applications',
     excerpt:
       'Create sharper resumes, stay ATS-friendly, and keep your personal branding clean when applying for new roles.',
-    image: '/assets/blog/resume-builder-guide.svg',
+    image: '/assets/blog/resume-builder-guide.png',
     author: 'VinzaTools Desk',
     date: 'Apr 01, 2026',
     readTime: '7 min',
@@ -88,7 +88,7 @@ const posts: BlogPost[] = [
     title: 'Developer Utilities That Save Real Time',
     excerpt:
       'Format JSON, minify code, review database rows, and generate helper content without jumping between tabs.',
-    image: '/assets/blog/developer-utilities-guide.svg',
+    image: '/assets/blog/developer-utilities-guide.png',
     author: 'VinzaTools Desk',
     date: 'Mar 31, 2026',
     readTime: '4 min',
