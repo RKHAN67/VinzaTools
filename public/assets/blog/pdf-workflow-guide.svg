@@ -1,26 +1,35 @@
-<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="720" rx="40" fill="#0C1016"/>
-  <rect x="40" y="40" width="1120" height="640" rx="32" fill="url(#bg)"/>
-  <rect x="86" y="110" width="310" height="470" rx="28" fill="#F9FBFF"/>
-  <rect x="446" y="110" width="310" height="470" rx="28" fill="#F9FBFF"/>
-  <rect x="806" y="110" width="310" height="470" rx="28" fill="#F9FBFF"/>
-  <path d="M170 210H314" stroke="#3B82F6" stroke-width="18" stroke-linecap="round"/>
-  <path d="M170 258H290" stroke="#94A3B8" stroke-width="12" stroke-linecap="round"/>
-  <path d="M530 210H674" stroke="#06B6D4" stroke-width="18" stroke-linecap="round"/>
-  <path d="M530 258H650" stroke="#94A3B8" stroke-width="12" stroke-linecap="round"/>
-  <path d="M890 210H1034" stroke="#8B5CF6" stroke-width="18" stroke-linecap="round"/>
-  <path d="M890 258H1010" stroke="#94A3B8" stroke-width="12" stroke-linecap="round"/>
-  <path d="M430 346C466 346 492 320 492 284" stroke="#F59E0B" stroke-width="18" stroke-linecap="round"/>
-  <path d="M466 248L504 284L466 320" stroke="#F59E0B" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M790 346C826 346 852 320 852 284" stroke="#F59E0B" stroke-width="18" stroke-linecap="round"/>
-  <path d="M826 248L864 284L826 320" stroke="#F59E0B" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="88" y="84" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="28" font-weight="700">VinzaTools Guide</text>
-  <text x="86" y="640" fill="white" font-family="Arial, sans-serif" font-size="54" font-weight="800">PDF Workflow</text>
-  <text x="86" y="684" fill="#CBD5E1" font-family="Arial, sans-serif" font-size="28" font-weight="500">Merge, split, convert, and clean documents in one place.</text>
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg" x1="40" y1="40" x2="1160" y2="680" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#142032"/>
-      <stop offset="1" stop-color="#1F3858"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1A0F10"/>
+      <stop offset="0.5" stop-color="#3A1417"/>
+      <stop offset="1" stop-color="#7B2B22"/>
     </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(260 120) rotate(120) scale(280 240)">
+      <stop stop-color="#FF7A4A" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#FF7A4A" stop-opacity="0"/>
+    </radialGradient>
   </defs>
+  <rect width="1200" height="700" rx="42" fill="url(#bg)"/>
+  <rect width="1200" height="700" rx="42" fill="url(#glow)"/>
+  <g>
+    <rect x="140" y="170" width="260" height="360" rx="22" fill="#2B1416" stroke="#FF9C7A" stroke-opacity="0.3"/>
+    <rect x="190" y="220" width="160" height="26" rx="13" fill="#FFB19A"/>
+    <rect x="190" y="265" width="190" height="18" rx="9" fill="#F7D1C7" fill-opacity="0.3"/>
+    <rect x="190" y="295" width="150" height="18" rx="9" fill="#F7D1C7" fill-opacity="0.25"/>
+  </g>
+  <g>
+    <rect x="440" y="130" width="380" height="460" rx="28" fill="#2A1314" stroke="#FF8F65" stroke-opacity="0.25"/>
+    <text x="510" y="220" fill="#FFE1D6" font-size="36" font-family="Arial" font-weight="700">PDF</text>
+    <rect x="510" y="255" width="260" height="20" rx="10" fill="#F1B3A1" fill-opacity="0.3"/>
+    <rect x="510" y="290" width="220" height="20" rx="10" fill="#F1B3A1" fill-opacity="0.22"/>
+    <rect x="510" y="325" width="190" height="20" rx="10" fill="#F1B3A1" fill-opacity="0.18"/>
+  </g>
+  <g>
+    <rect x="870" y="210" width="180" height="260" rx="20" fill="#2B1416" stroke="#FF9C7A" stroke-opacity="0.25"/>
+    <path d="M920 260H1000" stroke="#FFBFA8" stroke-width="16" stroke-linecap="round"/>
+    <path d="M920 310H980" stroke="#FFBFA8" stroke-width="12" stroke-linecap="round" opacity="0.7"/>
+  </g>
+  <text x="140" y="96" fill="#FFD5C6" font-size="28" font-family="Arial" font-weight="700">PDF Workflow</text>
+  <text x="140" y="610" fill="#F4B6A5" font-size="18" font-family="Arial">Merge, split, compress, and convert with clarity</text>
 </svg>

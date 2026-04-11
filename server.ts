@@ -161,6 +161,7 @@ const walkThemeFiles = (rootDir: string) => {
 const getShopifyThemePreviewFiles = (themePath: string) => {
   const preferred = [
     "layout/theme.liquid",
+      "theme.html",
     "templates/index.json",
     "templates/product.json",
     "config/settings_data.json",
@@ -207,16 +208,24 @@ const getThemePreviewRoot = (themePath: string) => {
   if (fs.existsSync(path.join(distRoot, "index.html"))) {
     return distRoot;
   }
-
-  const packageJsonPath = path.join(themePath, "package.json");
-  if (
-    fs.existsSync(path.join(themePath, "index.html")) &&
-    !fs.existsSync(packageJsonPath)
-  ) {
+  if (fs.existsSync(path.join(themePath, "theme.html"))) {
     return themePath;
   }
-
+  if (fs.existsSync(path.join(themePath, "index.html"))) {
+    return themePath;
+  }
   return null;
+};
+
+const getThemePreviewEntry = (themePath: string) => {
+  const distRoot = path.join(themePath, "dist");
+  if (fs.existsSync(path.join(distRoot, "index.html"))) {
+    return "index.html";
+  }
+  if (fs.existsSync(path.join(themePath, "theme.html"))) {
+    return "theme.html";
+  }
+  return "index.html";
 };
 
 const scanShopifyThemes = (): ShopifyThemeSummary[] => {
@@ -445,6 +454,7 @@ app.get(["/assets/*", "/src/assets/*"], (req, res, next) => {
   const themeId = decodeURIComponent(match[1]);
   const themeRoot = path.join(shopifyThemesRoot, themeId);
   const previewRoot = getThemePreviewRoot(themeRoot);
+    const previewEntry = getThemePreviewEntry(themeRoot);
   if (!previewRoot) {
     return next();
   }
@@ -477,6 +487,7 @@ app.get("/theme-preview/:themeId", async (req, res) => {
 
     const themeRoot = path.join(shopifyThemesRoot, themeId);
     const previewRoot = getThemePreviewRoot(themeRoot);
+    const previewEntry = getThemePreviewEntry(themeRoot);
     if (!previewRoot) {
       return res
         .status(404)
@@ -484,7 +495,7 @@ app.get("/theme-preview/:themeId", async (req, res) => {
     }
 
     const previewBase = `/theme-preview/${encodeURIComponent(themeId)}`;
-    const html = fs.readFileSync(path.join(previewRoot, "index.html"), "utf8");
+    const html = fs.readFileSync(path.join(previewRoot, previewEntry), "utf8");
     void trackThemeActivity(req, themeId, "open_preview");
     return res.type("html").send(
       injectPreviewBranding(
@@ -510,6 +521,7 @@ app.get("/theme-preview/:themeId/*", async (req, res) => {
     }
     const themeRoot = path.join(shopifyThemesRoot, themeId);
     const previewRoot = getThemePreviewRoot(themeRoot);
+    const previewEntry = getThemePreviewEntry(themeRoot);
     if (!previewRoot) {
       return res
         .status(404)
@@ -519,7 +531,8 @@ app.get("/theme-preview/:themeId/*", async (req, res) => {
     const wildcardPath = Array.isArray(req.params[0])
       ? req.params[0].join("/")
       : String(req.params[0] || "").trim();
-    const requested = wildcardPath || "index.html";
+    const previewEntry = getThemePreviewEntry(themeRoot);
+    const requested = wildcardPath || previewEntry;
     const absoluteTarget = path.resolve(previewRoot, requested);
 
     if (!absoluteTarget.startsWith(previewRoot)) {
@@ -548,7 +561,7 @@ app.get("/theme-preview/:themeId/*", async (req, res) => {
     }
 
     void trackThemeActivity(req, themeId, "preview_view");
-    const html = fs.readFileSync(path.join(previewRoot, "index.html"), "utf8");
+    const html = fs.readFileSync(path.join(previewRoot, previewEntry), "utf8");
     return res.type("html").send(rewritePreviewHtml(html));
   } catch (error: any) {
     return res.status(500).send(error?.message || "Failed to open preview");
