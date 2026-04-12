@@ -41,6 +41,7 @@ const THEME_COVERS: Record<string, string> = {
   'lumina-editorial-blog': luminaEditorialBlogCover,
   'signature-personal-portfolio': signaturePersonalPortfolioCover,
   'vinza-luxury-storefront': vinzaLuxuryStorefrontCover,
+  'html-theme-preview': signaturePersonalPortfolioCover,
 };
 
 const FALLBACK_THEMES: ThemeSummary[] = Object.keys(THEME_COVERS).map((id) => ({
@@ -96,6 +97,17 @@ const getThemeMeta = (theme: ThemeSummary): ThemeMeta => {
         'Editorial theme with magazine sections, article-first layouts, and typography-driven storytelling.',
     };
   }
+  if (raw.includes('html-theme')) {
+    return {
+      category: 'HTML Template',
+      badge: 'Preview',
+      compatibility: 'HTML',
+      score: '8.8',
+      accent: 'from-emerald-500 via-teal-500 to-cyan-500',
+      blurb:
+        'Lightweight HTML preview template for quick demos and static landing pages.',
+    };
+  }
   return {
     category: 'Portfolio',
     badge: 'Creator Pick',
@@ -116,6 +128,7 @@ const getThemeDisplayName = (theme: ThemeSummary) => {
   if (raw.includes('bluevinza')) return 'BlueVinza Business Studio';
   if (raw.includes('lumina')) return 'Lumina Editorial Journal';
   if (raw.includes('signature')) return 'Signature Portfolio Canvas';
+  if (raw.includes('html-theme')) return 'HTML Theme Preview';
   return formatThemeTitle(theme);
 };
 
