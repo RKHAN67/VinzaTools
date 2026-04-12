@@ -22,6 +22,7 @@ type ThemeSummary = {
   previewFiles: string[];
   hasPreview?: boolean;
   canBuildPreview?: boolean;
+  isFallback?: boolean;
 };
 
 type SortMode = 'popular' | 'name' | 'files';
@@ -41,6 +42,18 @@ const THEME_COVERS: Record<string, string> = {
   'signature-personal-portfolio': signaturePersonalPortfolioCover,
   'vinza-luxury-storefront': vinzaLuxuryStorefrontCover,
 };
+
+const FALLBACK_THEMES: ThemeSummary[] = Object.keys(THEME_COVERS).map((id) => ({
+  id,
+  name: id.replace(/[-_]+/g, ' '),
+  description: '',
+  relativePath: '',
+  fileCount: 120,
+  previewFiles: [],
+  hasPreview: false,
+  canBuildPreview: false,
+  isFallback: true,
+}));
 
 const formatThemeTitle = (theme: ThemeSummary) =>
   theme.name
@@ -132,10 +145,15 @@ export const ThemesPage = () => {
     setError('');
     try {
       const res = await apiFetch('/api/shopify/themes');
+      const contentType = res.headers.get('content-type') || '';
+      if (!res.ok || !contentType.includes('application/json')) {
+        throw new Error('Theme service is temporarily unavailable.');
+      }
       const data = await res.json();
       if (!res.ok) throw new Error(data?.error || 'Failed to load themes');
       setThemes(sortThemes(data.themes || [], sortMode));
     } catch (err: any) {
+      setThemes(sortThemes(FALLBACK_THEMES, sortMode));
       setError(err.message || 'Unable to load themes.');
     } finally {
       setLoading(false);
@@ -170,6 +188,11 @@ export const ThemesPage = () => {
     setStatusNote('');
     const popup = window.open('', '_blank', 'noopener,noreferrer');
     try {
+      if (!theme.hasPreview && !theme.canBuildPreview) {
+        setStatusNote('Preview will be available soon for this theme.');
+        if (popup && !popup.closed) popup.close();
+        return;
+      }
       if (theme.hasPreview) {
         const href = await apiHref(`/theme-preview/${encodeURIComponent(theme.id)}`);
         if (popup) {
@@ -206,6 +229,11 @@ export const ThemesPage = () => {
   };
 
   const downloadTheme = async (themeId: string) => {
+    const target = themes.find((item) => item.id === themeId);
+    if (target?.isFallback) {
+      setStatusNote('Downloads are temporarily unavailable. Please try again later.');
+      return;
+    }
     setDownloadingThemeId(themeId);
     setStatusNote('Preparing theme download...');
     setError('');
