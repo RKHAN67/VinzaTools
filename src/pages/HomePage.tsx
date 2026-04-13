@@ -82,6 +82,7 @@ export const HomePage = ({
   const [activeCard, setActiveCard] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [showAllHomeTools, setShowAllHomeTools] = useState(false);
+  const [deferBelowFold, setDeferBelowFold] = useState(true);
   const freshToolsCount = featuredTools.length;
   const backgroundRemoverTool = [...featuredTools, ...filteredTools].find(
     (tool) => tool.id === 'bg-remover'
@@ -103,6 +104,17 @@ export const HomePage = ({
   React.useEffect(() => {
     setShowAllHomeTools(false);
   }, [activeCategory, searchQuery]);
+
+  React.useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const onIdle = () => setDeferBelowFold(false);
+    if ('requestIdleCallback' in window) {
+      const handle = (window as any).requestIdleCallback(onIdle, { timeout: 1800 });
+      return () => (window as any).cancelIdleCallback?.(handle);
+    }
+    const timer = window.setTimeout(onIdle, 1200);
+    return () => window.clearTimeout(timer);
+  }, []);
 
   const spotlightLabels: Record<string, string> = {
     'shopify-helper': 'Shopify Exclusive',
@@ -375,6 +387,8 @@ Platform Live
         </section>
 
         {/* Features Grid */}
+        {!deferBelowFold && (
+        {!deferBelowFold && (
         <section className="mb-32" style={lazySectionStyle}>
           <div className="grid md:grid-cols-3 gap-6">
             {features.map((feat, i) => (
@@ -476,6 +490,7 @@ Platform Live
         </section>
 
         {/* Command Center */}
+        {!deferBelowFold && (
         <section className="mb-32" style={lazySectionStyle}>
           <div className="bg-[#1a1414] backdrop-blur-xl rounded-[2rem] border border-white/10 p-8 shadow-2xl">
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 mb-10">
@@ -592,8 +607,12 @@ Platform Live
             )}
           </div>
         </section>
+        )}
+        )}
+        )}
 
         {/* PDF Powerhouse - Terminal Style */}
+        {!deferBelowFold && (
         <section className="mb-32" style={lazySectionStyle}>
           <div className="flex items-center justify-between mb-8">
             <div>
@@ -681,8 +700,10 @@ Platform Live
             </div>
           </div>
         </section>
+        )}
 
         {/* Dev Tools - Matrix Vibes */}
+        {!deferBelowFold && (
         <section className="mb-32 relative overflow-hidden" style={lazySectionStyle}>
           <div className="absolute inset-0 bg-gradient-to-r from-rose-900/20 to-orange-900/20 rounded-3xl" />
 
@@ -730,8 +751,10 @@ Platform Live
             </div>
           </div>
         </section>
+        )}
 
         {/* Media Downloader - Neon Cards */}
+        {!deferBelowFold && (
         <section className="mb-20" style={lazySectionStyle}>
           <div className="text-center mb-12">
             <h2 className="text-4xl font-black mb-4">
@@ -801,8 +824,10 @@ Platform Live
             ))}
           </div>
         </section>
+        )}
 
         {/* CTA Footer */}
+        {!deferBelowFold && (
         <section className="relative overflow-hidden rounded-3xl" style={lazySectionStyle}>
           <div className="absolute inset-0 bg-gradient-to-r from-rose-600 via-coral-600 to-orange-600" />
           <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.1%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-30" />
@@ -824,6 +849,7 @@ Platform Live
             </button>
           </div>
         </section>
+        )}
       </div>
     </div>
   );
