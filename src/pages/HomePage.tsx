@@ -186,13 +186,18 @@ export const HomePage = ({
       : filteredTools;
   const hiddenCommandTools = Math.max(filteredTools.length - commandCenterTools.length, 0);
 
+  const lazySectionStyle: React.CSSProperties = {
+    contentVisibility: 'auto',
+    containIntrinsicSize: '900px 600px',
+  };
+
   return (
     <div className="min-h-screen bg-[#0f0a0a] text-white overflow-x-hidden selection:bg-rose-500/30">
       {/* Static Background */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:100px_100px]" />
-        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-rose-500/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-orange-500/10 rounded-full blur-[100px]" />
+        <div className="absolute top-0 left-1/4 w-[420px] h-[420px] bg-rose-500/10 rounded-full blur-[90px] md:w-[600px] md:h-[600px] md:blur-[120px]" />
+        <div className="absolute bottom-0 right-1/4 w-[360px] h-[360px] bg-orange-500/10 rounded-full blur-[80px] md:w-[500px] md:h-[500px] md:blur-[100px]" />
       </div>
 
       {/* Minimal Top Bar */}
@@ -370,7 +375,7 @@ Platform Live
         </section>
 
         {/* Features Grid */}
-        <section className="mb-32">
+        <section className="mb-32" style={lazySectionStyle}>
           <div className="grid md:grid-cols-3 gap-6">
             {features.map((feat, i) => (
               <div
@@ -399,7 +404,7 @@ Platform Live
           </div>
         </section>
 
-        <section className="mb-32">
+        <section className="mb-32" style={lazySectionStyle}>
           <div className="rounded-[2rem] border border-white/10 bg-[#161010] p-8 md:p-10 shadow-2xl">
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-8">
               <div className="max-w-2xl">
@@ -471,7 +476,7 @@ Platform Live
         </section>
 
         {/* Command Center */}
-        <section className="mb-32">
+        <section className="mb-32" style={lazySectionStyle}>
           <div className="bg-[#1a1414] backdrop-blur-xl rounded-[2rem] border border-white/10 p-8 shadow-2xl">
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 mb-10">
               <div>
@@ -589,7 +594,7 @@ Platform Live
         </section>
 
         {/* PDF Powerhouse - Terminal Style */}
-        <section className="mb-32">
+        <section className="mb-32" style={lazySectionStyle}>
           <div className="flex items-center justify-between mb-8">
             <div>
               <h2 className="text-3xl font-black mb-2 flex items-center gap-3">
@@ -678,7 +683,7 @@ Platform Live
         </section>
 
         {/* Dev Tools - Matrix Vibes */}
-        <section className="mb-32 relative overflow-hidden">
+        <section className="mb-32 relative overflow-hidden" style={lazySectionStyle}>
           <div className="absolute inset-0 bg-gradient-to-r from-rose-900/20 to-orange-900/20 rounded-3xl" />
 
           <div className="relative p-8 lg:p-12 rounded-3xl border border-rose-500/20 bg-[#0a0a0a]/80 backdrop-blur-sm overflow-hidden">
@@ -727,7 +732,7 @@ Platform Live
         </section>
 
         {/* Media Downloader - Neon Cards */}
-        <section className="mb-20">
+        <section className="mb-20" style={lazySectionStyle}>
           <div className="text-center mb-12">
             <h2 className="text-4xl font-black mb-4">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-coral-400 to-orange-400">
@@ -798,7 +803,7 @@ Platform Live
         </section>
 
         {/* CTA Footer */}
-        <section className="relative overflow-hidden rounded-3xl">
+        <section className="relative overflow-hidden rounded-3xl" style={lazySectionStyle}>
           <div className="absolute inset-0 bg-gradient-to-r from-rose-600 via-coral-600 to-orange-600" />
           <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.1%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-30" />
 

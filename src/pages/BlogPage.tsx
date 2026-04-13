@@ -194,6 +194,8 @@ export const BlogPage = () => {
                   src={featuredPost.image}
                   alt={featuredPost.title}
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#1a1414] hidden md:block" />
                 <div className="absolute top-4 left-4">
@@ -262,6 +264,7 @@ export const BlogPage = () => {
                   alt={post.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1a1414] to-transparent opacity-60" />
                 <div className="absolute top-3 left-3">
