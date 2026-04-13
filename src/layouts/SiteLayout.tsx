@@ -30,6 +30,7 @@ interface SiteLayoutProps {
   pageLabels: PageLabel[];
   allTools: Tool[];
   onToolSelect: (tool: Tool) => void;
+  onCatalogNeeded?: () => void;
   children: React.ReactNode;
 }
 
@@ -39,6 +40,7 @@ export const SiteLayout = ({
   pageLabels,
   allTools,
   onToolSelect,
+  onCatalogNeeded,
   children,
 }: SiteLayoutProps) => {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
@@ -185,6 +187,12 @@ export const SiteLayout = ({
       document.removeEventListener('keydown', handleEscape);
     };
   }, []);
+
+  useEffect(() => {
+    if (openMenu && onCatalogNeeded) {
+      onCatalogNeeded();
+    }
+  }, [openMenu, onCatalogNeeded]);
 
   const directLinks: PageLabel[] = [
     { key: 'home', label: 'Home' },

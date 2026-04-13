@@ -231,6 +231,15 @@ const HOME_SPOTLIGHT_TOOL_IDS = [
   'archive-converter',
 ] as const;
 
+const HOME_FEATURED_PREVIEW_IDS = [
+  'bg-remover',
+  'pdf-merge',
+  'pdf-compress',
+  'image-compressor',
+  'qr-code-generator',
+  'media-youtube',
+] as const;
+
 const PAGE_LABELS: { key: PageKey; label: string }[] = [
   { key: 'home', label: 'Home' },
   { key: 'tools', label: 'Tools' },
@@ -617,16 +626,28 @@ export default function App() {
   }, [allTools, homePreviewTools, searchQuery, activeCategory, page]);
 
   const featuredTools = useMemo(() => {
-    const order = new Map(HOME_SPOTLIGHT_TOOL_IDS.map((id, index) => [id, index]));
+    if (catalogReady) {
+      const order = new Map(HOME_SPOTLIGHT_TOOL_IDS.map((id, index) => [id, index]));
+      return allTools
+        .filter((tool) => order.has(tool.id as (typeof HOME_SPOTLIGHT_TOOL_IDS)[number]))
+        .sort(
+          (a, b) =>
+            (order.get(a.id as (typeof HOME_SPOTLIGHT_TOOL_IDS)[number]) ?? 0) -
+            (order.get(b.id as (typeof HOME_SPOTLIGHT_TOOL_IDS)[number]) ?? 0)
+        )
+        .slice(0, 6);
+    }
+
+    const order = new Map(HOME_FEATURED_PREVIEW_IDS.map((id, index) => [id, index]));
     return homePreviewTools
-      .filter((tool) => order.has(tool.id as (typeof HOME_SPOTLIGHT_TOOL_IDS)[number]))
+      .filter((tool) => order.has(tool.id as (typeof HOME_FEATURED_PREVIEW_IDS)[number]))
       .sort(
         (a, b) =>
-          (order.get(a.id as (typeof HOME_SPOTLIGHT_TOOL_IDS)[number]) ?? 0) -
-          (order.get(b.id as (typeof HOME_SPOTLIGHT_TOOL_IDS)[number]) ?? 0)
+          (order.get(a.id as (typeof HOME_FEATURED_PREVIEW_IDS)[number]) ?? 0) -
+          (order.get(b.id as (typeof HOME_FEATURED_PREVIEW_IDS)[number]) ?? 0)
       )
       .slice(0, 6);
-  }, [homePreviewTools]);
+  }, [allTools, catalogReady, homePreviewTools]);
 
   const renderTool = () => {
     const pdfAction = activeToolId ? PDF_ID_TO_ACTION[activeToolId] : undefined;
@@ -1022,6 +1043,7 @@ export default function App() {
       pageLabels={PAGE_LABELS}
       allTools={allTools}
       onToolSelect={handleToolClick}
+      onCatalogNeeded={ensureCatalogLoaded}
     >
       <Suspense fallback={<PageFallback label="Loading VinzaTools..." />}>
         {page === 'home' && (
@@ -1035,6 +1057,7 @@ export default function App() {
             handleToolClick={handleToolClick}
             openSubTool={openSubTool}
             goTools={goTools}
+            onSecondaryVisible={ensureCatalogLoaded}
           />
         )}
         {page === 'tools' &&

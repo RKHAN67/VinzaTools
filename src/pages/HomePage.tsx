@@ -10,11 +10,6 @@ import {
 
 import type { Tool, ToolCategory } from '../types/app';
 import { BrandMark } from '../components/BrandMark';
-const HomeSecondarySections = React.lazy(() =>
-  import('../sections/home/HomeSecondarySections').then((m) => ({
-    default: m.HomeSecondarySections,
-  }))
-);
 
 interface HomePageProps {
   searchQuery: string;
@@ -26,6 +21,7 @@ interface HomePageProps {
   handleToolClick: (tool: Tool) => void;
   openSubTool: (toolId: string, subAction: string) => void;
   goTools: () => void;
+  onSecondaryVisible?: () => void;
 }
 
 export const HomePage = ({
@@ -38,6 +34,7 @@ export const HomePage = ({
   handleToolClick,
   openSubTool,
   goTools,
+  onSecondaryVisible,
 }: HomePageProps) => {
   const [isMobile, setIsMobile] = useState(() => {
     if (typeof window === 'undefined') return false;
@@ -45,6 +42,9 @@ export const HomePage = ({
   });
   const [showAllHomeTools, setShowAllHomeTools] = useState(false);
   const [showSecondary, setShowSecondary] = useState(false);
+  const [SecondarySections, setSecondarySections] = useState<
+    React.ComponentType<any> | null
+  >(null);
   const secondaryTriggerRef = useRef<HTMLDivElement | null>(null);
   const backgroundRemoverTool = [...featuredTools, ...filteredTools].find(
     (tool) => tool.id === 'bg-remover'
@@ -83,6 +83,20 @@ export const HomePage = ({
     observer.observe(node);
     return () => observer.disconnect();
   }, [showSecondary]);
+
+  React.useEffect(() => {
+    if (!showSecondary || SecondarySections) return;
+    let mounted = true;
+    onSecondaryVisible?.();
+    import('../sections/home/HomeSecondarySections').then((mod) => {
+      if (mounted) {
+        setSecondarySections(() => mod.HomeSecondarySections);
+      }
+    });
+    return () => {
+      mounted = false;
+    };
+  }, [showSecondary, SecondarySections, onSecondaryVisible]);
 
 
   const stats = [
@@ -290,15 +304,8 @@ Platform Live
         </section>
 
         <div ref={secondaryTriggerRef} className="h-1 w-full" aria-hidden="true" />
-        {showSecondary ? (
-          <React.Suspense
-            fallback={
-              <div className="mb-32 rounded-3xl border border-white/10 bg-white/5 p-10 text-center text-sm text-slate-400">
-                Loading tools...
-              </div>
-            }
-          >
-            <HomeSecondarySections
+        {showSecondary && SecondarySections ? (
+          <SecondarySections
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}
             activeCategory={activeCategory}
@@ -312,7 +319,6 @@ Platform Live
             showAllHomeTools={showAllHomeTools}
             setShowAllHomeTools={setShowAllHomeTools}
           />
-          </React.Suspense>
         ) : (
           <div className="mt-12 rounded-2xl border border-white/10 bg-white/5 px-6 py-5 text-center text-sm text-slate-400">
             Scroll to load the full tool library.
