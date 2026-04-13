@@ -1,49 +1,10 @@
 import React, { Suspense, useMemo, useState } from 'react';
 import {
   FileText,
-  Layout,
-  Columns,
   FileArchive,
   Eraser,
-  Search,
-  ChevronRight,
-  Sparkles,
-  ShieldCheck,
-  Zap,
   Image as ImageIcon,
-  FileType,
-  FileSpreadsheet,
-  Presentation,
-  Stamp,
-  RotateCw,
-  FileCode,
-  Lock,
-  ShieldPlus,
-  FileSearch,
-  ScanLine,
-  PenLine,
-  PenTool,
-  FileText as FileTextIcon,
-  FilePlus,
-  Scissors,
-  Hash,
-  Eye,
-  Layers,
-  Smartphone,
-  Users,
-  Mail,
-  Phone,
-  MessageCircle,
-  BookOpen,
-  Shield,
-  Newspaper,
-  Link,
   QrCode,
-  Palette,
-  KeyRound,
-  Database,
-  BarChart3,
-  ShoppingBag
 } from 'lucide-react';
 import type { PdfAction } from './components/PdfTools';
 import type { DevAction } from './components/DevTools';
@@ -53,7 +14,7 @@ import type { MediaTranscoderMode } from './components/MediaTranscoder';
 import type { PdfAdvancedMode } from './components/PdfAdvancedTools';
 import type { UtilityMode } from './components/UtilityConverters';
 import rizwanImage from './assets/images/team-images/rizwan.webp';
-import type { ToolCategory, PageKey, ContactTab, ShowcaseTab, ToolContext, Tool } from './types/app';
+import type { ToolCategory, PageKey, ContactTab, ToolContext, Tool } from './types/app';
 import { SiteLayout } from './layouts/SiteLayout';
 import { BrandMark } from './components/BrandMark';
 import { apiFetch } from './api';
@@ -122,50 +83,27 @@ const PageFallback = ({ label = 'Loading...' }: { label?: string }) => (
   </div>
 );
 
-const INTERNAL_TOOLS: Tool[] = [
+const HOME_PREVIEW_TOOLS: Tool[] = [
   {
     id: 'resume-builder',
     name: 'Professional Resume Builder',
     description: 'Build ATS-ready resumes with modern templates and exports.',
     category: 'creative',
-    icon: FileText
+    icon: FileText,
   },
   {
     id: 'poster-maker',
     name: 'Poster Maker & Flyer Designer',
     description: 'Design posters, flyers, and banners with clean layouts.',
     category: 'creative',
-    icon: Layout
-  },
-  {
-    id: 'corporate-poster-studio',
-    name: 'Corporate Poster Studio (AI Style)',
-    description: 'Corporate poster studio with smart layouts and exports.',
-    category: 'creative',
-    icon: Layout
-  },
-  {
-    id: 'image-compare',
-    name: 'Image Compare & Diff Tool',
-    description: 'Compare images side-by-side or with a slider.',
-    category: 'image',
-    icon: Columns
+    icon: FileText,
   },
   {
     id: 'pdf-merge',
     name: 'Merge PDF Files',
     description: 'Combine multiple PDFs into one file in order.',
     category: 'pdf',
-    icon: FilePlus,
-    subAction: 'merge'
-  },
-  {
-    id: 'pdf-split',
-    name: 'Split PDF',
-    description: 'Split one PDF into multiple files by pages.',
-    category: 'pdf',
-    icon: Scissors,
-    subAction: 'split'
+    icon: FileArchive,
   },
   {
     id: 'pdf-compress',
@@ -173,622 +111,34 @@ const INTERNAL_TOOLS: Tool[] = [
     description: 'Reduce PDF size while keeping quality.',
     category: 'pdf',
     icon: FileArchive,
-    subAction: 'compress'
-  },
-  {
-    id: 'pdf-rotate',
-    name: 'Rotate PDF Pages',
-    description: 'Rotate PDF pages in seconds.',
-    category: 'pdf',
-    icon: RotateCw,
-    subAction: 'rotate'
-  },
-  {
-    id: 'pdf-to-jpg',
-    name: 'PDF to JPG Converter',
-    description: 'Convert each PDF page to JPG images.',
-    category: 'pdf',
-    icon: ImageIcon,
-    subAction: 'pdf-to-jpg'
-  },
-  {
-    id: 'jpg-to-pdf',
-    name: 'JPG to PDF Converter',
-    description: 'Convert JPG images into a PDF document.',
-    category: 'pdf',
-    icon: ImageIcon,
-    subAction: 'jpg-to-pdf'
   },
   {
     id: 'pdf-to-word',
     name: 'PDF to Word Converter',
-    description: 'Convert PDF into an editable Word document.',
-    category: 'pdf',
-    icon: FileType,
-    subAction: 'pdf-to-word'
-  },
-  {
-    id: 'pdf-to-ppt',
-    name: 'PDF to PowerPoint Converter',
-    description: 'Turn PDF pages into PowerPoint slides.',
-    category: 'pdf',
-    icon: Presentation,
-    subAction: 'pdf-to-ppt'
-  },
-  {
-    id: 'pdf-to-excel',
-    name: 'PDF to Excel Converter',
-    description: 'Extract PDF text into an Excel spreadsheet.',
-    category: 'pdf',
-    icon: FileSpreadsheet,
-    subAction: 'pdf-to-excel'
-  },
-  {
-    id: 'edit-pdf',
-    name: 'Edit PDF Online',
-    description: 'Add quick text edits to your PDF.',
-    category: 'pdf',
-    icon: PenLine,
-    subAction: 'edit-pdf'
-  },
-  {
-    id: 'watermark-pdf',
-    name: 'Watermark PDF',
-    description: 'Add watermark text or image across pages.',
-    category: 'pdf',
-    icon: Stamp,
-    subAction: 'watermark-pdf'
-  },
-  {
-    id: 'sign-pdf',
-    name: 'Sign PDF Online',
-    description: 'Upload and place a signature on PDFs.',
-    category: 'pdf',
-    icon: PenLine,
-    subAction: 'sign-pdf'
-  },
-  {
-    id: 'protect-pdf',
-    name: 'Protect PDF with Password',
-    description: 'Add a password to your PDF.',
-    category: 'pdf',
-    icon: ShieldPlus,
-    subAction: 'protect-pdf'
-  },
-  {
-    id: 'unlock-pdf',
-    name: 'Unlock PDF Password',
-    description: 'Remove a password from your PDF.',
-    category: 'pdf',
-    icon: Lock,
-    subAction: 'unlock-pdf'
-  },
-  {
-    id: 'ocr-pdf',
-    name: 'OCR PDF (Text from Scan)',
-    description: 'Extract text from scanned PDFs.',
-    category: 'pdf',
-    icon: FileSearch,
-    subAction: 'ocr-pdf'
-  },
-  {
-    id: 'scan-to-pdf',
-    name: 'Scan to PDF',
-    description: 'Create a PDF from scanned images.',
-    category: 'pdf',
-    icon: ScanLine,
-    subAction: 'scan-to-pdf'
-  },
-  {
-    id: 'word-to-pdf',
-    name: 'Word to PDF Converter',
-    description: 'Convert DOCX files into PDF.',
-    category: 'pdf',
-    icon: FileType,
-    subAction: 'word-to-pdf'
-  },
-  {
-    id: 'ppt-to-pdf',
-    name: 'PPT to PDF Converter',
-    description: 'Convert PowerPoint slides into PDF.',
-    category: 'pdf',
-    icon: Presentation,
-    subAction: 'ppt-to-pdf'
-  },
-  {
-    id: 'excel-to-pdf',
-    name: 'Excel to PDF Converter',
-    description: 'Convert Excel sheets into PDF.',
-    category: 'pdf',
-    icon: FileSpreadsheet,
-    subAction: 'excel-to-pdf'
-  },
-  {
-    id: 'html-to-pdf',
-    name: 'HTML to PDF Converter',
-    description: 'Turn HTML into a PDF file.',
+    description: 'Convert PDF into editable Word.',
     category: 'pdf',
     icon: FileText,
-    subAction: 'html-to-pdf'
-  },
-  {
-    id: 'pdf-to-pdfa',
-    name: 'PDF to PDF/A Converter',
-    description: 'Create an archive-friendly PDF/A.',
-    category: 'pdf',
-    icon: FileArchive,
-    subAction: 'pdf-to-pdfa'
-  },
-  {
-    id: 'page-numbers',
-    name: 'Add Page Numbers to PDF',
-    description: 'Add page numbers to PDF pages.',
-    category: 'pdf',
-    icon: FileText,
-    subAction: 'page-numbers'
-  },
-  {
-    id: 'crop-pdf',
-    name: 'Crop PDF Pages',
-    description: 'Crop margins on PDF pages.',
-    category: 'pdf',
-    icon: Scissors,
-    subAction: 'crop-pdf'
-  },
-  {
-    id: 'compare-pdf',
-    name: 'Compare PDF Files',
-    description: 'Compare two PDFs side by side.',
-    category: 'pdf',
-    icon: Columns,
-    subAction: 'compare-pdf'
-  },
-  {
-    id: 'redact-pdf',
-    name: 'Redact PDF',
-    description: 'Redact or remove sensitive text from PDFs.',
-    category: 'pdf',
-    icon: ShieldPlus,
-    subAction: 'redact-pdf'
-  },
-  {
-    id: 'translate-pdf',
-    name: 'Translate PDF',
-    description: 'Translate PDF text to another language.',
-    category: 'pdf',
-    icon: FileSearch,
-    subAction: 'translate-pdf'
-  },
-  {
-    id: 'organize-pdf',
-    name: 'Organize PDF Pages',
-    description: 'Reorder PDF pages with a custom page sequence.',
-    category: 'pdf',
-    icon: FilePlus
-  },
-  {
-    id: 'flatten-pdf',
-    name: 'Flatten PDF',
-    description: 'Flatten PDF pages for cleaner sharing and printing.',
-    category: 'pdf',
-    icon: Layers
-  },
-  {
-    id: 'resize-pdf',
-    name: 'Resize PDF Pages',
-    description: 'Resize PDF pages to A4 or Letter layout.',
-    category: 'pdf',
-    icon: Layout
-  },
-  {
-    id: 'extract-image-from-pdf',
-    name: 'Extract Image from PDF',
-    description: 'Export PDF pages as image files in one click.',
-    category: 'pdf',
-    icon: ImageIcon
-  },
-  {
-    id: 'pdf-page-remover',
-    name: 'PDF Page Remover',
-    description: 'Remove selected PDF pages and download a clean file.',
-    category: 'pdf',
-    icon: Scissors
-  },
-  {
-    id: 'extract-pages-from-pdf',
-    name: 'Extract Pages from PDF',
-    description: 'Extract selected PDF pages into a new PDF document.',
-    category: 'pdf',
-    icon: FilePlus
   },
   {
     id: 'bg-remover',
     name: 'AI Background Remover',
     description: 'Remove image backgrounds with smart cleanup.',
     category: 'image',
-    icon: Eraser
-  },
-  {
-    id: 'image-converter',
-    name: 'Image Converter (JPG PNG WEBP)',
-    description: 'Convert images between PNG, JPG, JPEG, and WEBP.',
-    category: 'image',
-    icon: ImageIcon
-  },
-  {
-    id: 'youtube-thumbnail-downloader',
-    name: 'YouTube Thumbnail Downloader',
-    description: 'Download YouTube thumbnails in multiple sizes.',
-    category: 'image',
-    icon: ImageIcon
+    icon: Eraser,
   },
   {
     id: 'image-compressor',
     name: 'Image Compressor',
     description: 'Compress images for faster websites and quick sharing.',
     category: 'image',
-    icon: ImageIcon
-  },
-  {
-    id: 'gif-maker',
-    name: 'GIF Maker',
-    description: 'Turn multiple images into an animated GIF.',
-    category: 'image',
-    icon: ImageIcon
-  },
-  {
-    id: 'resize-image',
-    name: 'Resize Image',
-    description: 'Resize images with width and height controls.',
-    category: 'image',
-    icon: ImageIcon
-  },
-  {
-    id: 'crop-image',
-    name: 'Crop Image',
-    description: 'Crop a selected image area and export fast.',
-    category: 'image',
-    icon: Scissors
-  },
-  {
-    id: 'color-picker',
-    name: 'Color Picker',
-    description: 'Pick exact colors from any uploaded image.',
-    category: 'image',
-    icon: Palette
-  },
-  {
-    id: 'rotate-image',
-    name: 'Rotate Image',
-    description: 'Rotate an image to any angle and download it.',
-    category: 'image',
-    icon: RotateCw
-  },
-  {
-    id: 'flip-image',
-    name: 'Flip Image',
-    description: 'Flip images horizontally or vertically.',
-    category: 'image',
-    icon: Columns
-  },
-  {
-    id: 'image-enlarger',
-    name: 'Image Enlarger',
-    description: 'Enlarge images for quick previews and exports.',
-    category: 'image',
-    icon: Search
-  },
-  {
-    id: 'webp-to-png',
-    name: 'WEBP to PNG Converter',
-    description: 'Convert WEBP images into PNG format.',
-    category: 'image',
-    icon: ImageIcon
-  },
-  {
-    id: 'jfif-to-png',
-    name: 'JFIF to PNG Converter',
-    description: 'Convert JFIF images into PNG format.',
-    category: 'image',
-    icon: ImageIcon
-  },
-  {
-    id: 'heic-to-jpg',
-    name: 'HEIC to JPG Converter',
-    description: 'Convert HEIC photos into JPG files.',
-    category: 'image',
-    icon: ImageIcon
-  },
-  {
-    id: 'heic-to-png',
-    name: 'HEIC to PNG Converter',
-    description: 'Convert HEIC photos into PNG files.',
-    category: 'image',
-    icon: ImageIcon
-  },
-  {
-    id: 'webp-to-jpg',
-    name: 'WEBP to JPG Converter',
-    description: 'Convert WEBP images into JPG files.',
-    category: 'image',
-    icon: ImageIcon
+    icon: ImageIcon,
   },
   {
     id: 'qr-code-generator',
     name: 'QR Code Generator',
     description: 'Create branded QR codes for links, cards, and campaigns.',
     category: 'image',
-    icon: QrCode
-  },
-  {
-    id: 'color-palette-generator',
-    name: 'Color Palette Generator',
-    description: 'Generate brand color palettes for posters, apps, and websites.',
-    category: 'creative',
-    icon: Palette
-  },
-  {
-    id: 'text-counter',
-    name: 'Word & Character Counter',
-    description: 'Count words, characters, and sentences instantly.',
-    category: 'text',
-    icon: FileTextIcon
-  },
-  {
-    id: 'paragraph-generator',
-    name: 'Paragraph Generator',
-    description: 'Generate placeholder paragraphs for blogs and pages.',
-    category: 'text',
-    icon: PenTool
-  },
-  {
-    id: 'case-converter',
-    name: 'Case Converter',
-    description: 'Convert text to uppercase, lowercase, title case, or sentence case.',
-    category: 'text',
-    icon: FileTextIcon
-  },
-  {
-    id: 'slug-generator',
-    name: 'SEO Slug Generator',
-    description: 'Create clean, SEO-friendly slugs for pages, blogs, and landing URLs.',
-    category: 'text',
-    icon: Link
-  },
-  {
-    id: 'keyword-density-checker',
-    name: 'Keyword Density Checker',
-    description: 'Check repeated keywords and SEO focus inside content drafts.',
-    category: 'text',
-    icon: BarChart3
-  },
-  {
-    id: 'google-authenticator',
-    name: 'Google Authenticator Codes',
-    description: 'Generate TOTP 2FA codes from a base32 secret key.',
-    category: 'developer',
-    icon: KeyRound
-  },
-  {
-    id: 'dev-json',
-    name: 'JSON Formatter & Validator',
-    description: 'Format, validate, and beautify JSON output.',
-    category: 'developer',
-    icon: FileCode,
-    subAction: 'json'
-  },
-  {
-    id: 'dev-minify',
-    name: 'Code Minifier (HTML CSS JS)',
-    description: 'Minify code to a single-line output.',
-    category: 'developer',
-    icon: FileArchive,
-    subAction: 'minify'
-  },
-  {
-    id: 'dev-base64',
-    name: 'Base64 Encoder',
-    description: 'Encode plain text to Base64.',
-    category: 'developer',
-    icon: Hash,
-    subAction: 'base64'
-  },
-  {
-    id: 'dev-svg',
-    name: 'SVG Viewer & Preview',
-    description: 'Preview SVG markup instantly.',
-    category: 'developer',
-    icon: Eye,
-    subAction: 'svg-viewer'
-  },
-  {
-    id: 'password-generator',
-    name: 'Secure Password Generator',
-    description: 'Generate strong passwords with custom rules and length.',
-    category: 'developer',
-    icon: KeyRound
-  },
-  {
-    id: 'url-encoder',
-    name: 'URL Encoder & Decoder',
-    description: 'Encode or decode URL strings for APIs, links, and tracking.',
-    category: 'developer',
-    icon: Hash
-  },
-  {
-    id: 'db-viewer',
-    name: 'DB Viewer',
-    description: 'Browse MySQL tables and records in a safe read-only viewer.',
-    category: 'developer',
-    icon: Database
-  },
-  {
-    id: 'csv-viewer',
-    name: 'CSV / XLSX Viewer',
-    description: 'Open spreadsheet files and review rows directly in the browser.',
-    category: 'developer',
-    icon: FileSpreadsheet
-  },
-  {
-    id: 'shopify-helper',
-    name: 'Shopify ProExtract Studio',
-    description: 'Extract product details, clean pricing, and export Shopify-ready product sheets with a premium workflow.',
-    category: 'developer',
-    icon: ShoppingBag
-  },
-  {
-    id: 'unit-converter',
-    name: 'Unit Converter',
-    description: 'Convert length, weight, and storage values quickly.',
-    category: 'developer',
-    icon: Hash
-  },
-  {
-    id: 'time-converter',
-    name: 'Time Converter',
-    description: 'Convert seconds, minutes, hours, and days instantly.',
-    category: 'developer',
-    icon: Zap
-  },
-  {
-    id: 'archive-converter',
-    name: 'Archive Converter',
-    description: 'Bundle files into a downloadable ZIP archive.',
-    category: 'developer',
-    icon: FileArchive
-  },
-  {
-    id: 'crop-video',
-    name: 'Crop Video',
-    description: 'Crop a selected video area and export it again.',
-    category: 'media',
-    icon: Scissors
-  },
-  {
-    id: 'trim-video',
-    name: 'Trim Video',
-    description: 'Trim the start and end of a video clip.',
-    category: 'media',
-    icon: Scissors
-  },
-  {
-    id: 'video-converter',
-    name: 'Video Converter',
-    description: 'Convert videos into MP4, MOV, WEBM, or GIF.',
-    category: 'media',
-    icon: FileArchive
-  },
-  {
-    id: 'audio-converter',
-    name: 'Audio Converter',
-    description: 'Convert audio files into MP3, WAV, OGG, or AAC.',
-    category: 'media',
-    icon: Phone
-  },
-  {
-    id: 'mp3-converter',
-    name: 'MP3 Converter',
-    description: 'Convert supported files into MP3 audio.',
-    category: 'media',
-    icon: Phone
-  },
-  {
-    id: 'mp4-to-mp3',
-    name: 'MP4 to MP3 Converter',
-    description: 'Extract MP3 audio from MP4 video files.',
-    category: 'media',
-    icon: Phone
-  },
-  {
-    id: 'video-to-mp3',
-    name: 'Video to MP3 Converter',
-    description: 'Turn a video file into MP3 audio.',
-    category: 'media',
-    icon: Phone
-  },
-  {
-    id: 'mp4-converter',
-    name: 'MP4 Converter',
-    description: 'Convert supported videos into MP4.',
-    category: 'media',
-    icon: FileArchive
-  },
-  {
-    id: 'mov-to-mp4',
-    name: 'MOV to MP4 Converter',
-    description: 'Convert MOV clips into MP4 files.',
-    category: 'media',
-    icon: FileArchive
-  },
-  {
-    id: 'mp3-to-ogg',
-    name: 'MP3 to OGG Converter',
-    description: 'Convert MP3 audio into OGG format.',
-    category: 'media',
-    icon: Phone
-  },
-  {
-    id: 'video-to-gif',
-    name: 'Video to GIF Converter',
-    description: 'Convert a short video clip into a GIF.',
-    category: 'media',
-    icon: ImageIcon
-  },
-  {
-    id: 'mp4-to-gif',
-    name: 'MP4 to GIF Converter',
-    description: 'Convert MP4 videos into animated GIFs.',
-    category: 'media',
-    icon: ImageIcon
-  },
-  {
-    id: 'webm-to-gif',
-    name: 'WEBM to GIF Converter',
-    description: 'Convert WEBM videos into animated GIFs.',
-    category: 'media',
-    icon: ImageIcon
-  },
-  {
-    id: 'gif-to-mp4',
-    name: 'GIF to MP4 Converter',
-    description: 'Convert GIF animations into MP4 video.',
-    category: 'media',
-    icon: FileArchive
-  },
-  {
-    id: 'gif-to-apng',
-    name: 'GIF to APNG Converter',
-    description: 'Convert GIF animations into APNG files.',
-    category: 'media',
-    icon: ImageIcon
-  },
-  {
-    id: 'apng-to-gif',
-    name: 'APNG to GIF Converter',
-    description: 'Convert APNG files into GIF animations.',
-    category: 'media',
-    icon: ImageIcon
-  },
-  {
-    id: 'image-to-gif',
-    name: 'Image to GIF Converter',
-    description: 'Build a GIF animation from uploaded images.',
-    category: 'media',
-    icon: ImageIcon
-  },
-  {
-    id: 'mov-to-gif',
-    name: 'MOV to GIF Converter',
-    description: 'Convert MOV clips into GIF animations.',
-    category: 'media',
-    icon: ImageIcon
-  },
-  {
-    id: 'avi-to-gif',
-    name: 'AVI to GIF Converter',
-    description: 'Convert AVI videos into animated GIFs.',
-    category: 'media',
-    icon: ImageIcon
+    icon: QrCode,
   },
   {
     id: 'media-youtube',
@@ -796,32 +146,56 @@ const INTERNAL_TOOLS: Tool[] = [
     description: 'Download YouTube video or audio.',
     category: 'media',
     icon: FileArchive,
-    subAction: 'youtube'
   },
   {
-    id: 'media-tiktok',
-    name: 'TikTok Video Downloader',
-    description: 'Download TikTok videos without watermark.',
-    category: 'media',
-    icon: Smartphone,
-    subAction: 'tiktok'
-  },
-  {
-    id: 'media-instagram',
-    name: 'Instagram Reels Downloader',
-    description: 'Download Instagram reels, videos, and photos.',
-    category: 'media',
-    icon: ImageIcon,
-    subAction: 'instagram'
-  },
-  {
-    id: 'media-facebook',
-    name: 'Facebook Video Downloader',
-    description: 'Download Facebook videos quickly.',
-    category: 'media',
+    id: 'db-viewer',
+    name: 'DB Viewer',
+    description: 'Browse MySQL tables and records in a safe read-only viewer.',
+    category: 'developer',
     icon: FileArchive,
-    subAction: 'facebook'
-  }
+  },
+  {
+    id: 'csv-viewer',
+    name: 'CSV / XLSX Viewer',
+    description: 'Open spreadsheet files and review rows directly in the browser.',
+    category: 'developer',
+    icon: FileArchive,
+  },
+  {
+    id: 'keyword-density-checker',
+    name: 'Keyword Density Checker',
+    description: 'Check repeated keywords and SEO focus inside content drafts.',
+    category: 'text',
+    icon: FileText,
+  },
+  {
+    id: 'color-palette-generator',
+    name: 'Color Palette Generator',
+    description: 'Generate brand color palettes for posters, apps, and websites.',
+    category: 'creative',
+    icon: ImageIcon,
+  },
+  {
+    id: 'resize-image',
+    name: 'Resize Image',
+    description: 'Resize images with width and height controls.',
+    category: 'image',
+    icon: ImageIcon,
+  },
+  {
+    id: 'crop-image',
+    name: 'Crop Image',
+    description: 'Crop a selected image area and export fast.',
+    category: 'image',
+    icon: ImageIcon,
+  },
+  {
+    id: 'text-counter',
+    name: 'Word & Character Counter',
+    description: 'Count words, characters, and sentences instantly.',
+    category: 'text',
+    icon: FileText,
+  },
 ];
 
 const HOME_SPOTLIGHT_TOOL_IDS = [
@@ -866,46 +240,6 @@ const PAGE_LABELS: { key: PageKey; label: string }[] = [
   { key: 'about', label: 'About' },
   { key: 'contact', label: 'Contact' }
 ];
-
-const SHOWCASE_TABS: { id: ShowcaseTab; label: string }[] = [
-  { id: 'all', label: 'All' },
-  { id: 'workflows', label: 'Workflows' },
-  { id: 'organize', label: 'Organize PDF' },
-  { id: 'optimize', label: 'Optimize PDF' },
-  { id: 'convert', label: 'Convert PDF' },
-  { id: 'edit', label: 'Edit PDF' },
-  { id: 'security', label: 'PDF Security' },
-  { id: 'intelligence', label: 'PDF Intelligence' }
-];
-
-const SHOWCASE_TOOLS = [
-  { id: 'merge-pdf', name: 'Merge PDF Files', desc: 'Combine multiple PDFs into one file.', tab: 'workflows', icon: FilePlus, status: 'live', action: 'merge' },
-  { id: 'split-pdf', name: 'Split PDF', desc: 'Split a PDF by page range.', tab: 'workflows', icon: Scissors, status: 'live', action: 'split' },
-  { id: 'compress-pdf', name: 'Compress PDF File', desc: 'Reduce PDF size while keeping quality.', tab: 'optimize', icon: FileArchive, status: 'live', action: 'compress' },
-  { id: 'pdf-to-pdfa', name: 'PDF to PDF/A Converter', desc: 'Create archive-friendly PDF/A files.', tab: 'optimize', icon: FileArchive, status: 'live', action: 'pdf-to-pdfa' },
-  { id: 'rotate-pdf', name: 'Rotate PDF Pages', desc: 'Rotate PDF pages in seconds.', tab: 'organize', icon: RotateCw, status: 'live', action: 'rotate' },
-  { id: 'page-numbers', name: 'Add Page Numbers to PDF', desc: 'Add page numbers to PDF pages.', tab: 'organize', icon: FileTextIcon, status: 'live', action: 'page-numbers' },
-  { id: 'crop-pdf', name: 'Crop PDF Pages', desc: 'Crop margins of PDF pages.', tab: 'organize', icon: Scissors, status: 'live', action: 'crop-pdf' },
-  { id: 'compare-pdf', name: 'Compare PDF Files', desc: 'Compare two PDFs side by side.', tab: 'intelligence', icon: Columns, status: 'live', action: 'compare-pdf' },
-  { id: 'pdf-to-word', name: 'PDF to Word Converter', desc: 'Convert PDF into editable Word.', tab: 'convert', icon: FileType, status: 'live', action: 'pdf-to-word' },
-  { id: 'pdf-to-ppt', name: 'PDF to PowerPoint Converter', desc: 'Convert PDF pages to PPT slides.', tab: 'convert', icon: Presentation, status: 'live', action: 'pdf-to-ppt' },
-  { id: 'pdf-to-excel', name: 'PDF to Excel Converter', desc: 'Extract PDF text into Excel.', tab: 'convert', icon: FileSpreadsheet, status: 'live', action: 'pdf-to-excel' },
-  { id: 'word-to-pdf', name: 'Word to PDF Converter', desc: 'Convert DOCX to PDF.', tab: 'convert', icon: FileType, status: 'live', action: 'word-to-pdf' },
-  { id: 'ppt-to-pdf', name: 'PPT to PDF Converter', desc: 'Convert PPTX to PDF.', tab: 'convert', icon: Presentation, status: 'live', action: 'ppt-to-pdf' },
-  { id: 'excel-to-pdf', name: 'Excel to PDF Converter', desc: 'Convert Excel to PDF.', tab: 'convert', icon: FileSpreadsheet, status: 'live', action: 'excel-to-pdf' },
-  { id: 'pdf-to-jpg', name: 'PDF to JPG Converter', desc: 'Convert each page to JPG.', tab: 'convert', icon: ImageIcon, status: 'live', action: 'pdf-to-jpg' },
-  { id: 'jpg-to-pdf', name: 'JPG to PDF Converter', desc: 'Convert images to PDF.', tab: 'convert', icon: ImageIcon, status: 'live', action: 'jpg-to-pdf' },
-  { id: 'scan-to-pdf', name: 'Scan to PDF', desc: 'Turn photos into a PDF.', tab: 'convert', icon: ScanLine, status: 'live', action: 'scan-to-pdf' },
-  { id: 'html-to-pdf', name: 'HTML to PDF Converter', desc: 'Convert HTML to PDF.', tab: 'convert', icon: FileTextIcon, status: 'live', action: 'html-to-pdf' },
-  { id: 'edit-pdf', name: 'Edit PDF Online', desc: 'Add quick edits to PDFs.', tab: 'edit', icon: PenLine, status: 'live', action: 'edit-pdf' },
-  { id: 'watermark-pdf', name: 'Watermark PDF', desc: 'Stamp pages with watermark text.', tab: 'edit', icon: Stamp, status: 'live', action: 'watermark-pdf' },
-  { id: 'sign-pdf', name: 'Sign PDF Online', desc: 'Upload and place a signature.', tab: 'edit', icon: PenLine, status: 'live', action: 'sign-pdf' },
-  { id: 'protect-pdf', name: 'Protect PDF with Password', desc: 'Add a password to your PDF.', tab: 'security', icon: ShieldPlus, status: 'live', action: 'protect-pdf' },
-  { id: 'unlock-pdf', name: 'Unlock PDF Password', desc: 'Remove PDF password.', tab: 'security', icon: Lock, status: 'live', action: 'unlock-pdf' },
-  { id: 'redact-pdf', name: 'Redact PDF', desc: 'Remove sensitive text from PDFs.', tab: 'security', icon: ShieldPlus, status: 'live', action: 'redact-pdf' },
-  { id: 'ocr-pdf', name: 'OCR PDF (Text from Scan)', desc: 'Extract text from scans.', tab: 'intelligence', icon: FileSearch, status: 'live', action: 'ocr-pdf' },
-  { id: 'translate-pdf', name: 'Translate PDF', desc: 'Translate extracted text.', tab: 'intelligence', icon: FileSearch, status: 'live', action: 'translate-pdf' }
-] as const;
 
 const PDF_ACTION_TO_ID: Record<PdfAction, string> = {
   merge: 'pdf-merge',
@@ -1158,20 +492,6 @@ const UTILITY_TOOL_CONFIG: Record<string, UtilityMode> = {
   'archive-converter': 'archive-converter',
 };
 
-const DEV_SUBTOOLS: { id: DevAction; name: string; desc: string; icon: any }[] = [
-  { id: 'json', name: 'JSON Formatter & Validator', desc: 'Format and validate JSON output.', icon: FileCode },
-  { id: 'minify', name: 'Code Minifier (HTML CSS JS)', desc: 'Minify HTML, CSS, or JS into one line.', icon: FileArchive },
-  { id: 'base64', name: 'Base64 Encoder', desc: 'Encode plain text to Base64.', icon: Hash },
-  { id: 'svg-viewer', name: 'SVG Viewer & Preview', desc: 'Preview SVG markup instantly.', icon: Eye }
-];
-
-const MEDIA_SUBTOOLS: { id: MediaToolType; name: string; desc: string; icon: any }[] = [
-  { id: 'youtube', name: 'YouTube Video Downloader', desc: 'Download YouTube video or audio.', icon: FileArchive },
-  { id: 'tiktok', name: 'TikTok Video Downloader', desc: 'Download TikTok videos without watermark.', icon: Smartphone },
-  { id: 'instagram', name: 'Instagram Reels Downloader', desc: 'Download reels, videos, photos.', icon: ImageIcon },
-  { id: 'facebook', name: 'Facebook Video Downloader', desc: 'Download Facebook videos quickly.', icon: FileArchive }
-];
-
 export default function App() {
   const adminRoute =
     (import.meta?.env?.VITE_ADMIN_ROUTE as string | undefined)?.trim().toLowerCase() || 'admin';
@@ -1186,9 +506,10 @@ export default function App() {
   const [activeCategory, setActiveCategory] = useState<ToolCategory | 'all'>('all');
   const [page, setPage] = useState<PageKey>('home');
   const [contactTab, setContactTab] = useState<ContactTab>('general');
-  const [showcaseTab, setShowcaseTab] = useState<ShowcaseTab>('all');
   const [toolContext, setToolContext] = useState<ToolContext | null>(null);
-  const allTools = useMemo(() => [...INTERNAL_TOOLS], []);
+  const [allTools, setAllTools] = useState<Tool[]>(HOME_PREVIEW_TOOLS);
+  const [catalogReady, setCatalogReady] = useState(false);
+  const [catalogLoading, setCatalogLoading] = useState(false);
 
   React.useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -1221,6 +542,23 @@ export default function App() {
     window.addEventListener('hashchange', handleHash);
     return () => window.removeEventListener('hashchange', handleHash);
   }, [adminRoute]);
+
+  const ensureCatalogLoaded = () => {
+    if (catalogReady || catalogLoading) return;
+    setCatalogLoading(true);
+    import('./data/toolCatalog')
+      .then(({ INTERNAL_TOOLS }) => {
+        setAllTools(INTERNAL_TOOLS);
+        setCatalogReady(true);
+      })
+      .catch(() => null)
+      .finally(() => setCatalogLoading(false));
+  };
+
+  React.useEffect(() => {
+    if (page === 'home' || page === 'admin') return;
+    ensureCatalogLoaded();
+  }, [page]);
 
   React.useEffect(() => {
     if (!gaId || typeof document === 'undefined') return;
@@ -1262,31 +600,33 @@ export default function App() {
     });
   }, [gaId, page]);
 
+  const homePreviewTools = useMemo(() => {
+    const map = new Map(allTools.map((tool) => [tool.id, tool]));
+    return HOME_PREVIEW_TOOLS.map((tool) => map.get(tool.id) || tool);
+  }, [allTools]);
+
   const filteredTools = useMemo(() => {
-    return allTools.filter(t => {
-      const matchesSearch = t.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                           t.description.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchesCategory = activeCategory === 'all' || t.category === activeCategory;
+    const source = page === 'home' ? homePreviewTools : allTools;
+    return source.filter((tool) => {
+      const matchesSearch =
+        tool.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        tool.description.toLowerCase().includes(searchQuery.toLowerCase());
+      const matchesCategory = activeCategory === 'all' || tool.category === activeCategory;
       return matchesSearch && matchesCategory;
     });
-  }, [allTools, searchQuery, activeCategory]);
-
-  const showcaseFiltered = useMemo(() => {
-    if (showcaseTab === 'all') return SHOWCASE_TOOLS;
-    return SHOWCASE_TOOLS.filter(tool => tool.tab === showcaseTab);
-  }, [showcaseTab]);
-
-  const showcaseTabsVisible = useMemo(() => {
-    const tabsWithTools = new Set(SHOWCASE_TOOLS.map(t => t.tab));
-    return SHOWCASE_TABS.filter(tab => tab.id === 'all' || tabsWithTools.has(tab.id as any));
-  }, []);
+  }, [allTools, homePreviewTools, searchQuery, activeCategory, page]);
 
   const featuredTools = useMemo(() => {
     const order = new Map(HOME_SPOTLIGHT_TOOL_IDS.map((id, index) => [id, index]));
-    return allTools
+    return homePreviewTools
       .filter((tool) => order.has(tool.id as (typeof HOME_SPOTLIGHT_TOOL_IDS)[number]))
-      .sort((a, b) => (order.get(a.id as (typeof HOME_SPOTLIGHT_TOOL_IDS)[number]) ?? 0) - (order.get(b.id as (typeof HOME_SPOTLIGHT_TOOL_IDS)[number]) ?? 0));
-  }, [allTools]);
+      .sort(
+        (a, b) =>
+          (order.get(a.id as (typeof HOME_SPOTLIGHT_TOOL_IDS)[number]) ?? 0) -
+          (order.get(b.id as (typeof HOME_SPOTLIGHT_TOOL_IDS)[number]) ?? 0)
+      )
+      .slice(0, 6);
+  }, [homePreviewTools]);
 
   const renderTool = () => {
     const pdfAction = activeToolId ? PDF_ID_TO_ACTION[activeToolId] : undefined;
@@ -1441,6 +781,15 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const getToolName = (toolId?: string | null) => {
+    if (!toolId) return undefined;
+    if (toolId === 'pdf-tools') return 'PDF Tools';
+    if (toolId === 'dev-tools') return 'Developer Tools';
+    if (toolId === 'mediaflow-downloader') return 'Media Downloader';
+    const tool = allTools.find((item) => item.id === toolId);
+    return tool?.name;
+  };
+
   const handleToolClick = (tool: Tool) => {
     trackToolUsage(tool.id, tool.subAction);
     trackGaEvent('tool_used', {
@@ -1459,10 +808,13 @@ export default function App() {
       const mappedId = PDF_ACTION_TO_ID[subAction as PdfAction];
       if (mappedId) {
         trackToolUsage(mappedId, subAction);
-        const mappedTool = INTERNAL_TOOLS.find(t => t.id === mappedId);
+        const mappedToolName = getToolName(mappedId);
+        if (!mappedToolName && !catalogReady) {
+          ensureCatalogLoaded();
+        }
         trackGaEvent('tool_used', {
           tool_id: mappedId,
-          tool_name: mappedTool?.name || mappedId,
+          tool_name: mappedToolName || mappedId,
           sub_action: subAction,
         });
         setToolContext(null);
@@ -1477,10 +829,13 @@ export default function App() {
       const mappedId = DEV_ACTION_TO_ID[subAction as DevAction];
       if (mappedId) {
         trackToolUsage(mappedId, subAction);
-        const mappedTool = INTERNAL_TOOLS.find(t => t.id === mappedId);
+        const mappedToolName = getToolName(mappedId);
+        if (!mappedToolName && !catalogReady) {
+          ensureCatalogLoaded();
+        }
         trackGaEvent('tool_used', {
           tool_id: mappedId,
-          tool_name: mappedTool?.name || mappedId,
+          tool_name: mappedToolName || mappedId,
           sub_action: subAction,
         });
         setToolContext(null);
@@ -1495,10 +850,13 @@ export default function App() {
       const mappedId = MEDIA_ACTION_TO_ID[subAction as MediaToolType];
       if (mappedId) {
         trackToolUsage(mappedId, subAction);
-        const mappedTool = INTERNAL_TOOLS.find(t => t.id === mappedId);
+        const mappedToolName = getToolName(mappedId);
+        if (!mappedToolName && !catalogReady) {
+          ensureCatalogLoaded();
+        }
         trackGaEvent('tool_used', {
           tool_id: mappedId,
-          tool_name: mappedTool?.name || mappedId,
+          tool_name: mappedToolName || mappedId,
           sub_action: subAction,
         });
         setToolContext(null);
@@ -1510,10 +868,13 @@ export default function App() {
     }
 
     trackToolUsage(toolId, subAction);
-    const mappedTool = INTERNAL_TOOLS.find(t => t.id === toolId);
+    const mappedToolName = getToolName(toolId);
+    if (!mappedToolName && !catalogReady) {
+      ensureCatalogLoaded();
+    }
     trackGaEvent('tool_used', {
       tool_id: toolId,
-      tool_name: mappedTool?.name || toolId,
+      tool_name: mappedToolName || toolId,
       sub_action: subAction,
     });
     setToolContext({ toolId, subAction });
@@ -1522,7 +883,12 @@ export default function App() {
     scrollToTop();
   };
 
-  const activeToolName = INTERNAL_TOOLS.find(t => t.id === activeToolId)?.name;
+  const activeToolName =
+    getToolName(activeToolId) || (!catalogReady && activeToolId ? 'Loading tool...' : undefined);
+  const showToolsFallback =
+    page === 'tools' &&
+    !catalogReady &&
+    (!activeToolId || !allTools.find((tool) => tool.id === activeToolId));
 
   React.useEffect(() => {
     if (typeof document === 'undefined') return;
@@ -1551,12 +917,16 @@ export default function App() {
       description = 'Use VinzaTools for background remover, PDF tools, PDF to Word, YouTube video downloads, and Instagram, TikTok, and Facebook media workflows.';
       keywords = `${baseKeywords}, background remover, youtube downloader, instagram downloader, tiktok downloader, facebook downloader, pdf to word, pdf merge, pdf split, jpg to pdf`;
     } else if (page === 'tools') {
-      if (activeToolName) {
-        const activeTool = INTERNAL_TOOLS.find(t => t.id === activeToolId);
-        title = `${activeToolName} | VinzaTools`;
-        description = `Use ${activeToolName} on VinzaTools to finish your task quickly with clean, downloadable results.`;
-        const groupKeywords = activeTool ? toolKeywordsByGroup[activeTool.category] : '';
-        keywords = `${baseKeywords}, ${activeToolName.toLowerCase()}, ${groupKeywords}`.trim();
+      const activeTool = activeToolId ? allTools.find((tool) => tool.id === activeToolId) : undefined;
+      if (activeTool) {
+        title = `${activeTool.name} | VinzaTools`;
+        description = `Use ${activeTool.name} on VinzaTools to finish your task quickly with clean, downloadable results.`;
+        const groupKeywords = toolKeywordsByGroup[activeTool.category] || '';
+        keywords = `${baseKeywords}, ${activeTool.name.toLowerCase()}, ${groupKeywords}`.trim();
+      } else if (catalogReady && activeToolId) {
+        title = `${activeToolId} | VinzaTools`;
+        description = 'Use VinzaTools to finish your task quickly with clean, downloadable results.';
+        keywords = `${baseKeywords}, ${activeToolId}`;
       } else {
         title = 'All Tools | VinzaTools';
         description = 'Browse all available tools for PDF, image, and text tasks in one place.';
@@ -1663,30 +1033,27 @@ export default function App() {
             filteredTools={filteredTools}
             featuredTools={featuredTools}
             handleToolClick={handleToolClick}
-            showcaseTab={showcaseTab}
-            setShowcaseTab={setShowcaseTab}
-            showcaseTabsVisible={showcaseTabsVisible}
-            showcaseFiltered={showcaseFiltered as any}
             openSubTool={openSubTool}
-            devSubtools={DEV_SUBTOOLS}
-            mediaSubtools={MEDIA_SUBTOOLS}
             goTools={goTools}
           />
         )}
-        {page === 'tools' && (
-          <ToolsPage
-            searchQuery={searchQuery}
-            setSearchQuery={setSearchQuery}
-            activeCategory={activeCategory}
-            setActiveCategory={setActiveCategory}
-            filteredTools={filteredTools}
-            handleToolClick={handleToolClick}
-            activeToolId={activeToolId}
-            setActiveToolId={setActiveToolId}
-            renderTool={renderTool}
-            activeToolName={activeToolName}
-          />
-        )}
+        {page === 'tools' &&
+          (showToolsFallback ? (
+            <PageFallback label="Loading full tool library..." />
+          ) : (
+            <ToolsPage
+              searchQuery={searchQuery}
+              setSearchQuery={setSearchQuery}
+              activeCategory={activeCategory}
+              setActiveCategory={setActiveCategory}
+              filteredTools={filteredTools}
+              handleToolClick={handleToolClick}
+              activeToolId={activeToolId}
+              setActiveToolId={setActiveToolId}
+              renderTool={renderTool}
+              activeToolName={activeToolName}
+            />
+          ))}
         {page === 'themes' && <ThemesPage />}
         {page === 'team' && <TeamPage imageSrc={rizwanImage} />}
         {page === 'blog' && <BlogPage />}

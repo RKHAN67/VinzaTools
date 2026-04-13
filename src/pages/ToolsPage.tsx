@@ -307,7 +307,7 @@ export const ToolsPage = ({
                 <Sparkles className="text-rose-400" size={18} />
               </div>
               <h2 className="text-2xl font-bold text-white">
-                {activeToolName}
+                {activeToolName || 'Tool'}
               </h2>
             </div>
           </div>

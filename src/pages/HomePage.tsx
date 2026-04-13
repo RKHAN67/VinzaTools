@@ -8,25 +8,13 @@ import {
   Eraser,
 } from 'lucide-react';
 
-import type { Tool, ToolCategory, ShowcaseTab } from '../types/app';
+import type { Tool, ToolCategory } from '../types/app';
 import { BrandMark } from '../components/BrandMark';
 const HomeSecondarySections = React.lazy(() =>
   import('../sections/home/HomeSecondarySections').then((m) => ({
     default: m.HomeSecondarySections,
   }))
 );
-
-type ShowcaseTool = {
-  id: string;
-  name: string;
-  desc: string;
-  icon: any;
-  status: 'live' | 'coming';
-  action?: string;
-  tab: ShowcaseTab;
-};
-
-type SubTool = { id: string; name: string; desc: string; icon: any };
 
 interface HomePageProps {
   searchQuery: string;
@@ -36,13 +24,7 @@ interface HomePageProps {
   filteredTools: Tool[];
   featuredTools: Tool[];
   handleToolClick: (tool: Tool) => void;
-  showcaseTab: ShowcaseTab;
-  setShowcaseTab: (tab: ShowcaseTab) => void;
-  showcaseTabsVisible: { id: ShowcaseTab; label: string }[];
-  showcaseFiltered: ShowcaseTool[];
   openSubTool: (toolId: string, subAction: string) => void;
-  devSubtools: SubTool[];
-  mediaSubtools: SubTool[];
   goTools: () => void;
 }
 
@@ -54,13 +36,7 @@ export const HomePage = ({
   filteredTools,
   featuredTools,
   handleToolClick,
-  showcaseTab,
-  setShowcaseTab,
-  showcaseTabsVisible,
-  showcaseFiltered,
   openSubTool,
-  devSubtools,
-  mediaSubtools,
   goTools,
 }: HomePageProps) => {
   const [isMobile, setIsMobile] = useState(() => {
@@ -323,25 +299,19 @@ Platform Live
             }
           >
             <HomeSecondarySections
-              searchQuery={searchQuery}
-              setSearchQuery={setSearchQuery}
-              activeCategory={activeCategory}
-              setActiveCategory={setActiveCategory}
-              filteredTools={filteredTools}
-              featuredTools={featuredTools}
-              handleToolClick={handleToolClick}
-              showcaseTab={showcaseTab}
-              setShowcaseTab={setShowcaseTab}
-              showcaseTabsVisible={showcaseTabsVisible}
-              showcaseFiltered={showcaseFiltered}
-              openSubTool={openSubTool}
-              devSubtools={devSubtools}
-              mediaSubtools={mediaSubtools}
-              goTools={goTools}
-              isMobile={isMobile}
-              showAllHomeTools={showAllHomeTools}
-              setShowAllHomeTools={setShowAllHomeTools}
-            />
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+            activeCategory={activeCategory}
+            setActiveCategory={setActiveCategory}
+            filteredTools={filteredTools}
+            featuredTools={featuredTools}
+            handleToolClick={handleToolClick}
+            openSubTool={openSubTool}
+            goTools={goTools}
+            isMobile={isMobile}
+            showAllHomeTools={showAllHomeTools}
+            setShowAllHomeTools={setShowAllHomeTools}
+          />
           </React.Suspense>
         ) : (
           <div className="mt-12 rounded-2xl border border-white/10 bg-white/5 px-6 py-5 text-center text-sm text-slate-400">

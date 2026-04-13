@@ -1,8 +1,29 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import {
   Search,
   Zap,
   ArrowUpRight,
+  Columns,
+  FileArchive,
+  RotateCw,
+  FileText,
+  FileType,
+  FileSpreadsheet,
+  Presentation,
+  Stamp,
+  FileCode,
+  Lock,
+  ShieldPlus,
+  FileSearch,
+  ScanLine,
+  PenLine,
+  FileText as FileTextIcon,
+  FilePlus,
+  Scissors,
+  Hash,
+  Eye,
+  Smartphone,
+  Image as ImageIcon,
   Terminal,
   Cpu,
   Download,
@@ -34,13 +55,7 @@ interface HomeSecondarySectionsProps {
   filteredTools: Tool[];
   featuredTools: Tool[];
   handleToolClick: (tool: Tool) => void;
-  showcaseTab: ShowcaseTab;
-  setShowcaseTab: (tab: ShowcaseTab) => void;
-  showcaseTabsVisible: { id: ShowcaseTab; label: string }[];
-  showcaseFiltered: ShowcaseTool[];
   openSubTool: (toolId: string, subAction: string) => void;
-  devSubtools: SubTool[];
-  mediaSubtools: SubTool[];
   goTools: () => void;
   isMobile: boolean;
   showAllHomeTools: boolean;
@@ -108,6 +123,60 @@ const lazySectionStyle: React.CSSProperties = {
   containIntrinsicSize: '900px 600px',
 };
 
+const SHOWCASE_TABS: { id: ShowcaseTab; label: string }[] = [
+  { id: 'all', label: 'All' },
+  { id: 'workflows', label: 'Workflows' },
+  { id: 'organize', label: 'Organize PDF' },
+  { id: 'optimize', label: 'Optimize PDF' },
+  { id: 'convert', label: 'Convert PDF' },
+  { id: 'edit', label: 'Edit PDF' },
+  { id: 'security', label: 'PDF Security' },
+  { id: 'intelligence', label: 'PDF Intelligence' }
+];
+
+const SHOWCASE_TOOLS: ShowcaseTool[] = [
+  { id: 'merge-pdf', name: 'Merge PDF Files', desc: 'Combine multiple PDFs into one file.', tab: 'workflows', icon: FilePlus, status: 'live', action: 'merge' },
+  { id: 'split-pdf', name: 'Split PDF', desc: 'Split a PDF by page range.', tab: 'workflows', icon: Scissors, status: 'live', action: 'split' },
+  { id: 'compress-pdf', name: 'Compress PDF File', desc: 'Reduce PDF size while keeping quality.', tab: 'optimize', icon: FileArchive, status: 'live', action: 'compress' },
+  { id: 'pdf-to-pdfa', name: 'PDF to PDF/A Converter', desc: 'Create archive-friendly PDF/A files.', tab: 'optimize', icon: FileArchive, status: 'live', action: 'pdf-to-pdfa' },
+  { id: 'rotate-pdf', name: 'Rotate PDF Pages', desc: 'Rotate PDF pages in seconds.', tab: 'organize', icon: RotateCw, status: 'live', action: 'rotate' },
+  { id: 'page-numbers', name: 'Add Page Numbers to PDF', desc: 'Add page numbers to PDF pages.', tab: 'organize', icon: FileTextIcon, status: 'live', action: 'page-numbers' },
+  { id: 'crop-pdf', name: 'Crop PDF Pages', desc: 'Crop margins of PDF pages.', tab: 'organize', icon: Scissors, status: 'live', action: 'crop-pdf' },
+  { id: 'compare-pdf', name: 'Compare PDF Files', desc: 'Compare two PDFs side by side.', tab: 'intelligence', icon: Columns, status: 'live', action: 'compare-pdf' },
+  { id: 'pdf-to-word', name: 'PDF to Word Converter', desc: 'Convert PDF into editable Word.', tab: 'convert', icon: FileType, status: 'live', action: 'pdf-to-word' },
+  { id: 'pdf-to-ppt', name: 'PDF to PowerPoint Converter', desc: 'Convert PDF pages to PPT slides.', tab: 'convert', icon: Presentation, status: 'live', action: 'pdf-to-ppt' },
+  { id: 'pdf-to-excel', name: 'PDF to Excel Converter', desc: 'Extract PDF text into Excel.', tab: 'convert', icon: FileSpreadsheet, status: 'live', action: 'pdf-to-excel' },
+  { id: 'word-to-pdf', name: 'Word to PDF Converter', desc: 'Convert DOCX to PDF.', tab: 'convert', icon: FileType, status: 'live', action: 'word-to-pdf' },
+  { id: 'ppt-to-pdf', name: 'PPT to PDF Converter', desc: 'Convert PPTX to PDF.', tab: 'convert', icon: Presentation, status: 'live', action: 'ppt-to-pdf' },
+  { id: 'excel-to-pdf', name: 'Excel to PDF Converter', desc: 'Convert Excel to PDF.', tab: 'convert', icon: FileSpreadsheet, status: 'live', action: 'excel-to-pdf' },
+  { id: 'pdf-to-jpg', name: 'PDF to JPG Converter', desc: 'Convert each page to JPG.', tab: 'convert', icon: ImageIcon, status: 'live', action: 'pdf-to-jpg' },
+  { id: 'jpg-to-pdf', name: 'JPG to PDF Converter', desc: 'Convert images to PDF.', tab: 'convert', icon: ImageIcon, status: 'live', action: 'jpg-to-pdf' },
+  { id: 'scan-to-pdf', name: 'Scan to PDF', desc: 'Turn photos into a PDF.', tab: 'convert', icon: ScanLine, status: 'live', action: 'scan-to-pdf' },
+  { id: 'html-to-pdf', name: 'HTML to PDF Converter', desc: 'Convert HTML to PDF.', tab: 'convert', icon: FileText, status: 'live', action: 'html-to-pdf' },
+  { id: 'edit-pdf', name: 'Edit PDF Online', desc: 'Add quick edits to PDFs.', tab: 'edit', icon: PenLine, status: 'live', action: 'edit-pdf' },
+  { id: 'watermark-pdf', name: 'Watermark PDF', desc: 'Stamp pages with watermark text.', tab: 'edit', icon: Stamp, status: 'live', action: 'watermark-pdf' },
+  { id: 'sign-pdf', name: 'Sign PDF Online', desc: 'Upload and place a signature.', tab: 'edit', icon: PenLine, status: 'live', action: 'sign-pdf' },
+  { id: 'protect-pdf', name: 'Protect PDF with Password', desc: 'Add a password to your PDF.', tab: 'security', icon: ShieldPlus, status: 'live', action: 'protect-pdf' },
+  { id: 'unlock-pdf', name: 'Unlock PDF Password', desc: 'Remove PDF password.', tab: 'security', icon: Lock, status: 'live', action: 'unlock-pdf' },
+  { id: 'redact-pdf', name: 'Redact PDF', desc: 'Remove sensitive text from PDFs.', tab: 'security', icon: ShieldPlus, status: 'live', action: 'redact-pdf' },
+  { id: 'ocr-pdf', name: 'OCR PDF (Text from Scan)', desc: 'Extract text from scans.', tab: 'intelligence', icon: FileSearch, status: 'live', action: 'ocr-pdf' },
+  { id: 'translate-pdf', name: 'Translate PDF', desc: 'Translate extracted text.', tab: 'intelligence', icon: FileSearch, status: 'live', action: 'translate-pdf' }
+];
+
+const DEV_SUBTOOLS: SubTool[] = [
+  { id: 'json', name: 'JSON Formatter & Validator', desc: 'Format and validate JSON output.', icon: FileCode },
+  { id: 'minify', name: 'Code Minifier (HTML CSS JS)', desc: 'Minify HTML, CSS, or JS into one line.', icon: FileArchive },
+  { id: 'base64', name: 'Base64 Encoder', desc: 'Encode plain text to Base64.', icon: Hash },
+  { id: 'svg-viewer', name: 'SVG Viewer & Preview', desc: 'Preview SVG markup instantly.', icon: Eye }
+];
+
+const MEDIA_SUBTOOLS: SubTool[] = [
+  { id: 'youtube', name: 'YouTube Video Downloader', desc: 'Download YouTube video or audio.', icon: FileArchive },
+  { id: 'tiktok', name: 'TikTok Video Downloader', desc: 'Download TikTok videos without watermark.', icon: Smartphone },
+  { id: 'instagram', name: 'Instagram Reels Downloader', desc: 'Download reels, videos, photos.', icon: ImageIcon },
+  { id: 'facebook', name: 'Facebook Video Downloader', desc: 'Download Facebook videos quickly.', icon: FileArchive }
+];
+
 export const HomeSecondarySections = ({
   searchQuery,
   setSearchQuery,
@@ -116,23 +185,26 @@ export const HomeSecondarySections = ({
   filteredTools,
   featuredTools,
   handleToolClick,
-  showcaseTab,
-  setShowcaseTab,
-  showcaseTabsVisible,
-  showcaseFiltered,
   openSubTool,
-  devSubtools,
-  mediaSubtools,
   goTools,
   isMobile,
   showAllHomeTools,
   setShowAllHomeTools,
 }: HomeSecondarySectionsProps) => {
+  const [showcaseTab, setShowcaseTab] = useState<ShowcaseTab>('all');
   const commandCenterTools =
     isMobile && !showAllHomeTools
       ? filteredTools.slice(0, mobileCommandLimit)
       : filteredTools;
   const hiddenCommandTools = Math.max(filteredTools.length - commandCenterTools.length, 0);
+  const showcaseFiltered = useMemo(() => {
+    if (showcaseTab === 'all') return SHOWCASE_TOOLS;
+    return SHOWCASE_TOOLS.filter((tool) => tool.tab === showcaseTab);
+  }, [showcaseTab]);
+  const showcaseTabsVisible = useMemo(() => {
+    const tabsWithTools = new Set(SHOWCASE_TOOLS.map((tool) => tool.tab));
+    return SHOWCASE_TABS.filter((tab) => tab.id === 'all' || tabsWithTools.has(tab.id));
+  }, []);
 
   return (
     <>

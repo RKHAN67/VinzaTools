@@ -214,7 +214,7 @@ export const SiteLayout = ({
 
       <div
         ref={menuShellRef}
-        className="fixed left-0 right-0 top-0 z-50 border-b border-white/5 bg-[#0f0a0a]/92 backdrop-blur-xl"
+        className="fixed left-0 right-0 top-0 z-50 border-b border-white/5 bg-[#0f0a0a]/92 md:backdrop-blur-xl"
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4">
           <button
