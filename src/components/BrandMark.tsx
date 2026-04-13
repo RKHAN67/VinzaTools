@@ -13,6 +13,7 @@ export const BrandMark = ({
   className = '',
   textClassName = '',
 }: BrandMarkProps) => {
+  const logoSize = compact ? 44 : 56;
   return (
     <div
       className={`inline-flex items-center gap-3 ${
@@ -24,6 +25,10 @@ export const BrandMark = ({
         <img
           src={tooloraLogo}
           alt="VinzaTools logo"
+          width={logoSize}
+          height={logoSize}
+          loading="eager"
+          decoding="async"
           className={`${
             compact ? 'h-11 w-11' : 'h-14 w-14'
           } relative object-cover shadow-[0_10px_24px_rgba(0,0,0,0.24)]`}

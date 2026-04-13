@@ -401,9 +401,12 @@ export const SiteLayout = ({
         </div>
       </div>
 
-      <div className="relative z-10 mx-auto max-w-6xl px-4 pt-36 pb-16 xl:pt-28">
+      <main
+        id="main-content"
+        className="relative z-10 mx-auto max-w-6xl px-4 pt-36 pb-16 xl:pt-28"
+      >
         {children}
-      </div>
+      </main>
 
       <footer className="relative z-10 border-t border-white/10 bg-[#0f0a0a]">
         <div className="mx-auto max-w-6xl px-4 py-12">

@@ -45,7 +45,6 @@ import {
   BarChart3,
   ShoppingBag
 } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
 import type { PdfAction } from './components/PdfTools';
 import type { DevAction } from './components/DevTools';
 import type { ToolType as MediaToolType } from './components/MediaflowDownloader';

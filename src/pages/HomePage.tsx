@@ -79,10 +79,8 @@ export const HomePage = ({
   mediaSubtools,
   goTools,
 }: HomePageProps) => {
-  const [activeCard, setActiveCard] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [showAllHomeTools, setShowAllHomeTools] = useState(false);
-  const [deferBelowFold, setDeferBelowFold] = useState(true);
   const freshToolsCount = featuredTools.length;
   const backgroundRemoverTool = [...featuredTools, ...filteredTools].find(
     (tool) => tool.id === 'bg-remover'
@@ -105,16 +103,6 @@ export const HomePage = ({
     setShowAllHomeTools(false);
   }, [activeCategory, searchQuery]);
 
-  React.useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const onIdle = () => setDeferBelowFold(false);
-    if ('requestIdleCallback' in window) {
-      const handle = (window as any).requestIdleCallback(onIdle, { timeout: 1800 });
-      return () => (window as any).cancelIdleCallback?.(handle);
-    }
-    const timer = window.setTimeout(onIdle, 1200);
-    return () => window.clearTimeout(timer);
-  }, []);
 
   const spotlightLabels: Record<string, string> = {
     'shopify-helper': 'Shopify Exclusive',
@@ -213,7 +201,7 @@ export const HomePage = ({
       </div>
 
       {/* Minimal Top Bar */}
-      <div className="fixed top-0 left-0 right-0 z-50 bg-[#0f0a0a]/90 backdrop-blur-xl border-b border-white/5 px-6 py-3">
+      <div className="fixed top-0 left-0 right-0 z-50 bg-[#0f0a0a]/90 border-b border-white/5 px-6 py-3">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-4 text-xs font-mono">
           <BrandMark compact />
           <div className="hidden md:flex items-center gap-3">
@@ -336,9 +324,7 @@ Platform Live
                       openSubTool('pdf-tools', 'merge');
                     }
                   }}
-                  onMouseEnter={() => setActiveCard(i)}
-                  onMouseLeave={() => setActiveCard(null)}
->
+                >
                   {i === 2 ? (
                     <div className="h-full flex flex-col justify-between text-[#0f0a0a]">
                       <div className="flex justify-between items-start">
@@ -387,14 +373,12 @@ Platform Live
         </section>
 
         {/* Features Grid */}
-        {!deferBelowFold && (
-        {!deferBelowFold && (
         <section className="mb-32" style={lazySectionStyle}>
           <div className="grid md:grid-cols-3 gap-6">
             {features.map((feat, i) => (
               <div
                 key={i}
-                className="group relative p-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl hover:bg-white/10 hover:border-white/20 transition-all duration-500 overflow-hidden"
+                className="group relative p-8 bg-white/5 border border-white/10 rounded-3xl hover:bg-white/10 hover:border-white/20 transition-all duration-500 overflow-hidden"
               >
                 <div
                   className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${feat.gradient} opacity-20 blur-3xl group-hover:opacity-40 transition-opacity`}
@@ -490,9 +474,8 @@ Platform Live
         </section>
 
         {/* Command Center */}
-        {!deferBelowFold && (
         <section className="mb-32" style={lazySectionStyle}>
-          <div className="bg-[#1a1414] backdrop-blur-xl rounded-[2rem] border border-white/10 p-8 shadow-2xl">
+          <div className="bg-[#1a1414] rounded-[2rem] border border-white/10 p-8 shadow-2xl">
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 mb-10">
               <div>
                 <h2 className="text-4xl font-black mb-2 flex items-center gap-3">
@@ -607,12 +590,8 @@ Platform Live
             )}
           </div>
         </section>
-        )}
-        )}
-        )}
 
         {/* PDF Powerhouse - Terminal Style */}
-        {!deferBelowFold && (
         <section className="mb-32" style={lazySectionStyle}>
           <div className="flex items-center justify-between mb-8">
             <div>
@@ -700,14 +679,12 @@ Platform Live
             </div>
           </div>
         </section>
-        )}
 
         {/* Dev Tools - Matrix Vibes */}
-        {!deferBelowFold && (
         <section className="mb-32 relative overflow-hidden" style={lazySectionStyle}>
           <div className="absolute inset-0 bg-gradient-to-r from-rose-900/20 to-orange-900/20 rounded-3xl" />
 
-          <div className="relative p-8 lg:p-12 rounded-3xl border border-rose-500/20 bg-[#0a0a0a]/80 backdrop-blur-sm overflow-hidden">
+          <div className="relative p-8 lg:p-12 rounded-3xl border border-rose-500/20 bg-[#0a0a0a]/80 overflow-hidden">
             <div className="relative z-10 flex items-center justify-between mb-10">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-rose-500/20 rounded-xl flex items-center justify-center border border-rose-500/30">
@@ -751,10 +728,8 @@ Platform Live
             </div>
           </div>
         </section>
-        )}
 
         {/* Media Downloader - Neon Cards */}
-        {!deferBelowFold && (
         <section className="mb-20" style={lazySectionStyle}>
           <div className="text-center mb-12">
             <h2 className="text-4xl font-black mb-4">
@@ -824,10 +799,8 @@ Platform Live
             ))}
           </div>
         </section>
-        )}
 
         {/* CTA Footer */}
-        {!deferBelowFold && (
         <section className="relative overflow-hidden rounded-3xl" style={lazySectionStyle}>
           <div className="absolute inset-0 bg-gradient-to-r from-rose-600 via-coral-600 to-orange-600" />
           <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.1%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-30" />
@@ -849,7 +822,6 @@ Platform Live
             </button>
           </div>
         </section>
-        )}
       </div>
     </div>
   );
