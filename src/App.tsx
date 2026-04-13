@@ -1227,19 +1227,29 @@ export default function App() {
     const existing = document.querySelector(`script[data-ga-id="${gaId}"]`);
     if (existing) return;
 
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
-    script.setAttribute('data-ga-id', gaId);
-    document.head.appendChild(script);
+    const loadGa = () => {
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+      script.setAttribute('data-ga-id', gaId);
+      document.head.appendChild(script);
 
-    const inline = document.createElement('script');
-    inline.setAttribute('data-ga-inline', gaId);
-    inline.innerHTML =
-      "window.dataLayer = window.dataLayer || [];" +
-      "function gtag(){dataLayer.push(arguments);} window.gtag=gtag;" +
-      `gtag('js', new Date()); gtag('config', '${gaId}', { send_page_view: false });`;
-    document.head.appendChild(inline);
+      const inline = document.createElement('script');
+      inline.setAttribute('data-ga-inline', gaId);
+      inline.innerHTML =
+        "window.dataLayer = window.dataLayer || [];" +
+        "function gtag(){dataLayer.push(arguments);} window.gtag=gtag;" +
+        `gtag('js', new Date()); gtag('config', '${gaId}', { send_page_view: false });`;
+      document.head.appendChild(inline);
+    };
+
+    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+      const handle = (window as any).requestIdleCallback(loadGa, { timeout: 4000 });
+      return () => (window as any).cancelIdleCallback?.(handle);
+    }
+
+    const timer = window.setTimeout(loadGa, 2500);
+    return () => window.clearTimeout(timer);
   }, [gaId]);
 
   React.useEffect(() => {

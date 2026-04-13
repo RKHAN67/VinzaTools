@@ -512,7 +512,7 @@ export const HomeSecondarySections = ({
               <div className="relative h-full p-8 flex flex-col justify-between z-10">
                 <div className="flex justify-between items-start">
                   <div
-                    className={`w-14 h-14 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/20 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 ${
+                    className={`w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center border border-white/20 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 ${
                       index === 0
                         ? 'group-hover:bg-rose-500/20 group-hover:border-rose-500/50'
                         : index === 1
@@ -566,4 +566,3 @@ export const HomeSecondarySections = ({
     </>
   );
 };
-

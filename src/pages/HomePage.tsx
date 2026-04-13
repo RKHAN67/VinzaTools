@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import {
   ArrowUpRight,
   Wand2,
@@ -68,6 +68,8 @@ export const HomePage = ({
     return window.matchMedia('(max-width: 640px)').matches;
   });
   const [showAllHomeTools, setShowAllHomeTools] = useState(false);
+  const [showSecondary, setShowSecondary] = useState(false);
+  const secondaryTriggerRef = useRef<HTMLDivElement | null>(null);
   const backgroundRemoverTool = [...featuredTools, ...filteredTools].find(
     (tool) => tool.id === 'bg-remover'
   );
@@ -88,6 +90,23 @@ export const HomePage = ({
   React.useEffect(() => {
     setShowAllHomeTools(false);
   }, [activeCategory, searchQuery]);
+
+  React.useEffect(() => {
+    if (showSecondary) return;
+    if (typeof window === 'undefined') return;
+    const node = secondaryTriggerRef.current;
+    if (!node) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setShowSecondary(true);
+        }
+      },
+      { rootMargin: '280px 0px' }
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [showSecondary]);
 
 
   const stats = [
@@ -189,7 +208,7 @@ Platform Live
                     }
                     goTools();
                   }}
-                  className="vinza-button cursor-pointer group px-8 py-5 bg-white/5 backdrop-blur-sm border border-white/10 text-white rounded-2xl font-semibold hover:bg-white/10 hover:border-rose-400/30 hover:shadow-[0_20px_50px_rgba(244,63,94,0.12)] transition-all flex items-center gap-3"
+                  className="vinza-button cursor-pointer group px-8 py-5 bg-white/5 border border-white/10 text-white rounded-2xl font-semibold hover:bg-white/10 hover:border-rose-400/30 hover:shadow-[0_20px_50px_rgba(244,63,94,0.12)] transition-all flex items-center gap-3"
                 >
                   <Eraser size={18} className="transition-transform duration-300 group-hover:scale-110" />
                   Try Background Remover
@@ -294,30 +313,41 @@ Platform Live
           </div>
         </section>
 
-        <React.Suspense
-          fallback={<div className="mb-32 rounded-3xl border border-white/10 bg-white/5 p-10 text-center text-sm text-slate-400">Loading tools...</div>}
-        >
-          <HomeSecondarySections
-            searchQuery={searchQuery}
-            setSearchQuery={setSearchQuery}
-            activeCategory={activeCategory}
-            setActiveCategory={setActiveCategory}
-            filteredTools={filteredTools}
-            featuredTools={featuredTools}
-            handleToolClick={handleToolClick}
-            showcaseTab={showcaseTab}
-            setShowcaseTab={setShowcaseTab}
-            showcaseTabsVisible={showcaseTabsVisible}
-            showcaseFiltered={showcaseFiltered}
-            openSubTool={openSubTool}
-            devSubtools={devSubtools}
-            mediaSubtools={mediaSubtools}
-            goTools={goTools}
-            isMobile={isMobile}
-            showAllHomeTools={showAllHomeTools}
-            setShowAllHomeTools={setShowAllHomeTools}
-          />
-        </React.Suspense>
+        <div ref={secondaryTriggerRef} className="h-1 w-full" aria-hidden="true" />
+        {showSecondary ? (
+          <React.Suspense
+            fallback={
+              <div className="mb-32 rounded-3xl border border-white/10 bg-white/5 p-10 text-center text-sm text-slate-400">
+                Loading tools...
+              </div>
+            }
+          >
+            <HomeSecondarySections
+              searchQuery={searchQuery}
+              setSearchQuery={setSearchQuery}
+              activeCategory={activeCategory}
+              setActiveCategory={setActiveCategory}
+              filteredTools={filteredTools}
+              featuredTools={featuredTools}
+              handleToolClick={handleToolClick}
+              showcaseTab={showcaseTab}
+              setShowcaseTab={setShowcaseTab}
+              showcaseTabsVisible={showcaseTabsVisible}
+              showcaseFiltered={showcaseFiltered}
+              openSubTool={openSubTool}
+              devSubtools={devSubtools}
+              mediaSubtools={mediaSubtools}
+              goTools={goTools}
+              isMobile={isMobile}
+              showAllHomeTools={showAllHomeTools}
+              setShowAllHomeTools={setShowAllHomeTools}
+            />
+          </React.Suspense>
+        ) : (
+          <div className="mt-12 rounded-2xl border border-white/10 bg-white/5 px-6 py-5 text-center text-sm text-slate-400">
+            Scroll to load the full tool library.
+          </div>
+        )}
       </div>
     </div>
   );
