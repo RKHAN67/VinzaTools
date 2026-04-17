@@ -1,4 +1,5 @@
-import tooloraLogo from '../assets/logos/toolora-logo.webp';
+import logo56 from '../assets/logos/toolora-logo-56.webp';
+import logo112 from '../assets/logos/toolora-logo-112.webp';
 
 interface BrandMarkProps {
   compact?: boolean;
@@ -23,7 +24,8 @@ export const BrandMark = ({
       } ${className}`}
     >
         <img
-          src={tooloraLogo}
+          src={logo56}
+          srcSet={`${logo56} 1x, ${logo112} 2x`}
           alt="VinzaTools logo"
           width={logoSize}
           height={logoSize}

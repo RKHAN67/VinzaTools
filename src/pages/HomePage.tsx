@@ -45,6 +45,7 @@ export const HomePage = ({
   const [SecondarySections, setSecondarySections] = useState<
     React.ComponentType<any> | null
   >(null);
+  const [secondaryLoadError, setSecondaryLoadError] = useState<string | null>(null);
   const secondaryTriggerRef = useRef<HTMLDivElement | null>(null);
   const backgroundRemoverTool = [...featuredTools, ...filteredTools].find(
     (tool) => tool.id === 'bg-remover'
@@ -88,11 +89,19 @@ export const HomePage = ({
     if (!showSecondary || SecondarySections) return;
     let mounted = true;
     onSecondaryVisible?.();
-    import('../sections/home/HomeSecondarySections').then((mod) => {
-      if (mounted) {
-        setSecondarySections(() => mod.HomeSecondarySections);
-      }
-    });
+    import('../sections/home/HomeSecondarySections')
+      .then((mod) => {
+        if (mounted) {
+          setSecondaryLoadError(null);
+          setSecondarySections(() => mod.HomeSecondarySections);
+        }
+      })
+      .catch((error) => {
+        if (!mounted) return;
+        const message =
+          error instanceof Error ? error.message : 'Secondary sections failed to load.';
+        setSecondaryLoadError(message);
+      });
     return () => {
       mounted = false;
     };
@@ -320,8 +329,24 @@ Platform Live
             setShowAllHomeTools={setShowAllHomeTools}
           />
         ) : (
-          <div className="mt-12 rounded-2xl border border-white/10 bg-white/5 px-6 py-5 text-center text-sm text-slate-400">
-            Scroll to load the full tool library.
+          <div className="mt-12 min-h-[900px] rounded-2xl border border-white/10 bg-white/5 px-6 py-8 text-center text-sm text-slate-300/80 md:min-h-[1200px]">
+            {secondaryLoadError ? (
+              <div className="mx-auto max-w-xl space-y-3">
+                <div className="text-base font-black text-white">Section failed to load</div>
+                <div className="text-sm leading-7 text-rose-100/70">{secondaryLoadError}</div>
+                <button
+                  type="button"
+                  onClick={() => window.location.reload()}
+                  className="vinza-button cursor-pointer mt-2 inline-flex items-center justify-center rounded-xl bg-rose-500 px-5 py-2.5 font-bold text-white transition hover:bg-rose-600"
+                >
+                  Refresh Page
+                </button>
+              </div>
+            ) : showSecondary ? (
+              'Loading the full tool library...'
+            ) : (
+              'Scroll to load the full tool library.'
+            )}
           </div>
         )}
       </div>

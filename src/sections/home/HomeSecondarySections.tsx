@@ -265,7 +265,7 @@ export const HomeSecondarySections = ({
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
             {featuredTools.map((tool) => {
-              const Icon = tool.icon;
+              const Icon = tool.icon || FileText;
               return (
                 <button
                   key={tool.id}
@@ -389,7 +389,10 @@ export const HomeSecondarySections = ({
                         : 'bg-white/10 group-hover:bg-white/20'
                     } transition-all duration-300`}
                   >
-                    <tool.icon className="text-white" size={24} />
+                    {(() => {
+                      const Icon = tool.icon || FileText;
+                      return <Icon className="text-white" size={24} />;
+                    })()}
                   </div>
                   <ArrowUpRight
                     size={20}
@@ -482,7 +485,10 @@ export const HomeSecondarySections = ({
                           : 'bg-gray-800 text-gray-600'
                       }`}
                     >
-                      <tool.icon size={20} />
+                      {(() => {
+                        const Icon = tool.icon || FileText;
+                        return <Icon size={20} />;
+                      })()}
                     </div>
                     {isLive && (
                       <div className="px-2 py-1 bg-rose-500/20 text-rose-400 text-xs font-bold rounded-full border border-rose-500/30">
@@ -535,7 +541,10 @@ export const HomeSecondarySections = ({
                 <div className="absolute inset-0 bg-gradient-to-br from-rose-400/0 to-rose-400/10 opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="relative z-10">
                   <div className="w-10 h-10 bg-rose-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    <tool.icon className="text-rose-400" size={20} />
+                    {(() => {
+                      const Icon = tool.icon || FileText;
+                      return <Icon className="text-rose-400" size={20} />;
+                    })()}
                   </div>
                   <h3 className="font-bold text-white mb-2 group-hover:text-rose-300 transition-colors">
                     {tool.name}
@@ -592,7 +601,10 @@ export const HomeSecondarySections = ({
                           : 'group-hover:bg-orange-500/20 group-hover:border-orange-500/50'
                     }`}
                   >
-                    <tool.icon className="text-white" size={28} />
+                    {(() => {
+                      const Icon = tool.icon || FileText;
+                      return <Icon className="text-white" size={28} />;
+                    })()}
                   </div>
                   <Download
                     className="text-white/50 group-hover:text-white group-hover:translate-y-1 transition-all"
