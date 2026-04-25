@@ -212,7 +212,12 @@ export const MediaflowDownloader = ({
       const payload = await response.json().catch(() => null);
 
       if (!response.ok) {
-        throw new Error(payload?.error || 'Failed to fetch media information.');
+        // When the API base is misconfigured, the server often returns an HTML 404 page.
+        // That fails JSON parsing and then the UI shows a confusing generic error.
+        const hint =
+          payload?.error ||
+          `Request failed (${response.status}). Please try again in a moment.`;
+        throw new Error(hint);
       }
 
       const nextInfo: MediaInfo = {

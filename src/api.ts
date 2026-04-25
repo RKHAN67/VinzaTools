@@ -23,18 +23,25 @@ const isVinzaProdHost = () => {
 };
 
 const buildCandidates = () => {
-  // If env is configured, trust it (and avoid probing that can fail on cold starts).
-  if (envBase) return [envBase];
-
-  // Production safety: never fall back to relative `/api/*` on Vercel, because that returns
-  // an HTML 404 page and the UI crashes while parsing JSON.
-  if (isVinzaProdHost()) return [PROD_FALLBACK_BASE];
-
   const candidates: string[] = [];
 
   if (typeof window !== "undefined") {
     const { protocol, hostname, port } = window.location;
+
+    if (envBase) {
+      candidates.push(envBase);
+    }
+
+    // Production safety: never fall back to relative `/api/*` on Vercel, because that returns
+    // an HTML 404 page and the UI crashes while parsing JSON.
+    if (isVinzaProdHost()) {
+      candidates.push(PROD_FALLBACK_BASE);
+    } else if (isHostedFrontend(hostname)) {
+      candidates.push(...hostedApiFallbacks);
+    }
+
     if (isHostedFrontend(hostname)) {
+      // Keep the old fallback behavior for preview hosts too.
       candidates.push(...hostedApiFallbacks);
     }
     candidates.push(`${protocol}//${hostname}${port ? `:${port}` : ""}`);
@@ -53,13 +60,15 @@ const buildCandidates = () => {
 let basePromise: Promise<string> | null = null;
 
 export const resolveApiBase = async () => {
-  if (envBase) return envBase;
   if (basePromise) return basePromise;
   basePromise = (async () => {
     const candidates = buildCandidates();
     for (const base of candidates) {
       try {
-        const timeoutMs = base === PROD_FALLBACK_BASE ? 8_000 : 1_500;
+        // Validate candidate with a quick /api/health probe.
+        // This prevents misconfigured VITE_API_BASE (e.g. pointing at the frontend domain)
+        // from breaking every tool with HTML 404 pages.
+        const timeoutMs = base === PROD_FALLBACK_BASE ? 8_000 : envBase ? 4_000 : 1_500;
         const response = await withTimeout(fetch(`${base}/api/health`), timeoutMs);
         if (response.ok && isJsonResponse(response)) {
           return base;
