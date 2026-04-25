@@ -531,7 +531,6 @@ app.get("/theme-preview/:themeId/*", async (req, res) => {
     const wildcardPath = Array.isArray(req.params[0])
       ? req.params[0].join("/")
       : String(req.params[0] || "").trim();
-    const previewEntry = getThemePreviewEntry(themeRoot);
     const requested = wildcardPath || previewEntry;
     const absoluteTarget = path.resolve(previewRoot, requested);
 

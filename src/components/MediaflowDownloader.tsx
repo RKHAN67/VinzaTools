@@ -302,75 +302,17 @@ export const MediaflowDownloader = ({
         'vinzatools-media'
       )}.${extension}`;
 
-      // For our own API routes, fetch the file first so the browser saves the actual
-      // merged media instead of trying to open a streaming response in a new tab.
-      if (href.includes('/api/')) {
-        const response = await fetch(href);
-        if (!response.ok) {
-          throw new Error('Download request failed');
-        }
-        const totalBytes = Number(response.headers.get('content-length') || 0);
-
-        let blob: Blob;
-        if (response.body) {
-          const reader = response.body.getReader();
-          const chunks: Uint8Array[] = [];
-          let receivedBytes = 0;
-
-          setDownloadFeedback({
-            formatKey,
-            label,
-            status: 'downloading',
-            progress: totalBytes > 0 ? 0 : null,
-          });
-
-          while (true) {
-            const { done, value } = await reader.read();
-            if (done) break;
-            if (!value) continue;
-            chunks.push(value);
-            receivedBytes += value.length;
-
-            setDownloadFeedback({
-              formatKey,
-              label,
-              status: 'downloading',
-              progress:
-                totalBytes > 0
-                  ? Math.max(1, Math.min(100, Math.round((receivedBytes / totalBytes) * 100)))
-                  : null,
-            });
-          }
-
-          blob = new Blob(chunks);
-        } else {
-          blob = await response.blob();
-          setDownloadFeedback({
-            formatKey,
-            label,
-            status: 'downloading',
-            progress: null,
-          });
-        }
-
-        const objectUrl = URL.createObjectURL(blob);
-        const anchor = document.createElement('a');
-        anchor.href = objectUrl;
-        anchor.download = downloadName;
-        document.body.appendChild(anchor);
-        anchor.click();
-        anchor.remove();
-        URL.revokeObjectURL(objectUrl);
-      } else {
-        const anchor = document.createElement('a');
-        anchor.href = href;
-        anchor.target = '_blank';
-        anchor.rel = 'noopener noreferrer';
-        anchor.download = downloadName;
-        document.body.appendChild(anchor);
-        anchor.click();
-        anchor.remove();
-      }
+      // Never buffer large media files into memory (can crash mobile / blank the page).
+      // Instead, let the server stream with Content-Disposition so the browser downloads directly.
+      const anchor = document.createElement('a');
+      anchor.href = href;
+      anchor.rel = 'noopener noreferrer';
+      // Using `_self` is more reliable on mobile than opening a new tab.
+      anchor.target = '_self';
+      anchor.download = downloadName;
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
       setDownloadFeedback({
         formatKey,
         label,

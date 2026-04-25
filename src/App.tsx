@@ -570,7 +570,7 @@ export default function App() {
   }, [page]);
 
   React.useEffect(() => {
-    if (!gaId || typeof document === 'undefined') return;
+    if (!gaId || typeof window === 'undefined' || typeof document === 'undefined') return;
     const existing = document.querySelector(`script[data-ga-id="${gaId}"]`);
     if (existing) return;
 
@@ -590,13 +590,13 @@ export default function App() {
       document.head.appendChild(inline);
     };
 
-    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+    if ('requestIdleCallback' in window) {
       const handle = (window as any).requestIdleCallback(loadGa, { timeout: 4000 });
       return () => (window as any).cancelIdleCallback?.(handle);
     }
 
-    const timer = window.setTimeout(loadGa, 2500);
-    return () => window.clearTimeout(timer);
+    const timer = setTimeout(loadGa, 2500);
+    return () => clearTimeout(timer);
   }, [gaId]);
 
   React.useEffect(() => {
