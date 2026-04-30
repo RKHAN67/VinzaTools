@@ -519,6 +519,8 @@ export default function App() {
   const [allTools, setAllTools] = useState<Tool[]>(HOME_PREVIEW_TOOLS);
   const [catalogReady, setCatalogReady] = useState(false);
   const [catalogLoading, setCatalogLoading] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
+  const [gaLoaded, setGaLoaded] = useState(false);
 
   React.useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -570,9 +572,35 @@ export default function App() {
   }, [page]);
 
   React.useEffect(() => {
-    if (!gaId || typeof document === 'undefined') return;
+    if (hasInteracted) return;
+    if (typeof window === 'undefined') return;
+
+    const markInteraction = () => setHasInteracted(true);
+    const options: AddEventListenerOptions = { passive: true };
+
+    window.addEventListener('pointerdown', markInteraction, options);
+    window.addEventListener('keydown', markInteraction, options);
+    window.addEventListener('touchstart', markInteraction, options);
+    window.addEventListener('wheel', markInteraction, options);
+    window.addEventListener('scroll', markInteraction, options);
+
+    return () => {
+      window.removeEventListener('pointerdown', markInteraction, options as any);
+      window.removeEventListener('keydown', markInteraction, options as any);
+      window.removeEventListener('touchstart', markInteraction, options as any);
+      window.removeEventListener('wheel', markInteraction, options as any);
+      window.removeEventListener('scroll', markInteraction, options as any);
+    };
+  }, [hasInteracted]);
+
+  React.useEffect(() => {
+    if (!gaId || typeof window === 'undefined' || typeof document === 'undefined') return;
+    if (!hasInteracted) return;
     const existing = document.querySelector(`script[data-ga-id="${gaId}"]`);
-    if (existing) return;
+    if (existing) {
+      setGaLoaded(true);
+      return;
+    }
 
     const loadGa = () => {
       const script = document.createElement('script');
@@ -590,30 +618,33 @@ export default function App() {
       document.head.appendChild(inline);
     };
 
-    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+      setGaLoaded(true);
+    };
+
+    if ('requestIdleCallback' in window) {
       const handle = (window as any).requestIdleCallback(loadGa, { timeout: 4000 });
       return () => (window as any).cancelIdleCallback?.(handle);
     }
 
-    const timer = window.setTimeout(loadGa, 2500);
-    return () => window.clearTimeout(timer);
-  }, [gaId]);
+    const timer = setTimeout(loadGa, 2500);
+    return () => clearTimeout(timer);
+  }, [gaId, hasInteracted]);
 
   React.useEffect(() => {
     if (!gaId || typeof window === 'undefined') return;
+    if (!gaLoaded) return;
     if (typeof window.gtag !== 'function') return;
     const path = page === 'home' ? '/' : `/${page}`;
     window.gtag('event', 'page_view', {
       page_path: path,
       page_title: document.title,
     });
-  }, [gaId, page]);
+  }, [gaId, page, gaLoaded]);
 
   const homePreviewTools = useMemo(() => {
     const map = new Map(allTools.map((tool) => [tool.id, tool]));
     return HOME_PREVIEW_TOOLS.map((tool) => map.get(tool.id) || tool);
   }, [allTools]);
-
   const filteredTools = useMemo(() => {
     const source = page === 'home' ? homePreviewTools : allTools;
     return source.filter((tool) => {
