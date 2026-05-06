@@ -1,0 +1,3088 @@
+data: {"data":"===== Build Queued at 2026-04-06 21:33:09 / Commit SHA: 8b8d830 =====\n","timestamp":"2026-04-06T21:33:09Z"}
+
+data: {"data":"--> FROM docker.io/library/node:22-bookworm@sha256:7e791fc54bd02fc89fd4fb39eb37e5bea753c75679c8022478d81679367d995a","timestamp":"2026-04-06T21:33:15.521Z"}
+
+data: {"data":"DONE 3.5s\n","timestamp":"2026-04-06T21:33:18.927Z"}
+
+data: {"data":"DONE 6.6s\n","timestamp":"2026-04-06T21:33:22.104Z"}
+
+data: {"data":"DONE 7.9s\n","timestamp":"2026-04-06T21:33:23.362Z"}
+
+data: {"data":"DONE 7.9s\n","timestamp":"2026-04-06T21:33:23.495Z"}
+
+data: {"data":"--> WORKDIR /app","timestamp":"2026-04-06T21:33:23.496Z"}
+
+data: {"data":"DONE 0.0s\n","timestamp":"2026-04-06T21:33:23.496Z"}
+
+data: {"data":"--> RUN apt-get update && apt-get install -y --no-install-recommends     python3     python3-pip     ffmpeg     libreoffice     libreoffice-writer     libreoffice-calc     libreoffice-impress     build-essential     ca-certificates     && rm -rf /var/lib/apt/lists/*","timestamp":"2026-04-06T21:33:23.496Z"}
+
+data: {"data":"Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]","timestamp":"2026-04-06T21:33:23.496Z"}
+
+data: {"data":"Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]","timestamp":"2026-04-06T21:33:23.496Z"}
+
+data: {"data":"Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]","timestamp":"2026-04-06T21:33:23.496Z"}
+
+data: {"data":"Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8792 kB]","timestamp":"2026-04-06T21:33:23.496Z"}
+
+data: {"data":"Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]","timestamp":"2026-04-06T21:33:23.723Z"}
+
+data: {"data":"Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [294 kB]","timestamp":"2026-04-06T21:33:23.723Z"}
+
+data: {"data":"Fetched 9347 kB in 1s (10.5 MB/s)","timestamp":"2026-04-06T21:33:24.322Z"}
+
+data: {"data":"Reading package lists...","timestamp":"2026-04-06T21:33:24.722Z"}
+
+data: {"data":"Reading package lists...","timestamp":"2026-04-06T21:33:25.129Z"}
+
+data: {"data":"Building dependency tree...","timestamp":"2026-04-06T21:33:25.330Z"}
+
+data: {"data":"Reading state information...","timestamp":"2026-04-06T21:33:25.330Z"}
+
+data: {"data":"python3 is already the newest version (3.11.2-1+b1).","timestamp":"2026-04-06T21:33:25.330Z"}
+
+data: {"data":"python3 set to manually installed.","timestamp":"2026-04-06T21:33:25.330Z"}
+
+data: {"data":"ca-certificates is already the newest version (20230311+deb12u1).","timestamp":"2026-04-06T21:33:25.330Z"}
+
+data: {"data":"The following additional packages will be installed:","timestamp":"2026-04-06T21:33:25.330Z"}
+
+data: {"data":"  coinor-libcbc3 coinor-libcgl1 coinor-libclp1 coinor-libcoinmp1v5","timestamp":"2026-04-06T21:33:25.330Z"}
+
+data: {"data":"  coinor-libcoinutils3v5 coinor-libosi1v5 fonts-opensymbol iso-codes","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libabsl20220623 libabw-0.1-1 libasound2 libasound2-data libass9 libasyncns0","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libavahi-client3 libavahi-common-data libavahi-common3 libavc1394-0","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libavcodec59 libavdevice59 libavfilter8 libavformat59 libavutil57 libblas3","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libbluray2 libboost-filesystem1.74.0 libboost-iostreams1.74.0","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libboost-locale1.74.0 libboost-thread1.74.0 libbox2d2 libbs2b0 libcaca0","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libcap2-bin libcdio-cdda2 libcdio-paranoia2 libcdio19 libcdr-0.1-1","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libchromaprint1 libcjson1 libclucene-contribs1v5 libclucene-core1v5","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libcodec2-1.0 libcolamd2 libcups2 libdbus-1-3 libdc1394-25 libdconf1","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libdecor-0-0 libdrm-amdgpu1 libdrm-common libdrm-intel1 libdrm-nouveau2","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libdrm-radeon1 libdrm2 libdw1 libe-book-0.1-1 libeot0 libepoxy0","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libepubgen-0.1-1 libetonyek-0.1-1 libexttextcat-2.0-0 libexttextcat-data","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libflac12 libflite1 libfreehand-0.1-1 libgbm1 libgfortran5 libgl1","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libgl1-mesa-dri libglapi-mesa libglvnd0 libglx-mesa0 libglx0 libgme0","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libgpgme11 libgpgmepp6 libgsm1 libgstreamer-plugins-base1.0-0","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libgstreamer1.0-0 libharfbuzz-icu0 libhunspell-1.7-0 libhwy1 libhyphen0","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libiec61883-0 libjack-jackd2-0 libjxl0.7 liblangtag-common liblangtag1","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  liblapack3 liblilv-0-0 libllvm15 libmbedcrypto7 libmfx1 libmhash2","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libmp3lame0 libmpg123-0 libmspub-0.1-1 libmwaw-0.3-3 libmysofa1","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libmythes-1.2-0 libnorm1 libnspr4 libnss3 libnumbertext-1.0-0","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libnumbertext-data libodfgen-0.1-1 libogg0 libopenal-data libopenal1","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libopenmpt0 libopus0 liborc-0.4-0 liborcus-0.17-0 liborcus-parser-0.17-0","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libpagemaker-0.0-0 libpciaccess0 libpgm-5.3-0 libplacebo208 libpocketsphinx3","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libpoppler126 libpostproc56 libpulse0 libpython3.11 libqxp-0.0-0","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  librabbitmq4 libraptor2-0 librasqal3 librav1e0 libraw1394-11 librdf0","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libreoffice-base libreoffice-base-core libreoffice-base-drivers","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libreoffice-common libreoffice-core libreoffice-draw libreoffice-math","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libreoffice-report-builder-bin libreoffice-style-colibre librevenge-0.0-0","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  librist4 librubberband2 libsamplerate0 libsdl2-2.0-0 libsensors-config","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libsensors5 libserd-0-0 libshine3 libslang2 libsnappy1v5 libsndfile1","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libsndio7.0 libsodium23 libsord-0-0 libsoxr0 libspeex1 libsphinxbase3","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libsratom-0-0 libsrt1.5-gnutls libssh-gcrypt-4 libstaroffice-0.0-0","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libsuitesparseconfig5 libsvtav1enc1 libswresample4 libswscale6 libtheora0","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libtwolame0 libudfread0 libuno-cppu3 libuno-cppuhelpergcc3-3","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libuno-purpenvhelpergcc3-3 libuno-sal3 libuno-salhelpergcc3-3 libunwind8","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libusb-1.0-0 libva-drm2 libva-x11-2 libva2 libvdpau1 libvidstab1.1","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libvisio-0.1-1 libvorbis0a libvorbisenc2 libvorbisfile3 libvpx7 libvulkan1","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libwayland-client0 libwayland-cursor0 libwayland-egl1 libwayland-server0","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libwpd-0.10-10 libwpg-0.3-3 libwps-0.4-4 libx11-xcb1 libx264-164","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libxcb-dri2-0 libxcb-dri3-0 libxcb-glx0 libxcb-present0 libxcb-randr0","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libxcb-shape0 libxcb-sync1 libxcb-xfixes0 libxcursor1 libxfixes3 libxi6","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libxinerama1 libxkbcommon0 libxmlsec1 libxmlsec1-nss libxrandr2","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libxshmfence1 libxss1 libxv1 libxvidcore4 libxxf86vm1 libyajl2 libz3-4","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libzimg2 libzmf-0.0-0 libzmq5 libzvbi-common libzvbi0 libzxing2 lp-solve","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  ocl-icd-libopencl1 python3-pkg-resources python3-setuptools python3-uno","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  python3-wheel uno-libs-private ure xkb-data","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"Suggested packages:","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  ffmpeg-doc isoquery libasound2-plugins alsa-utils libcuda1 libnvcuvid1","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libnvidia-encode1 libbluray-bdj cups-common libvisual-0.4-plugins","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  gstreamer1.0-tools jackd2 libportaudio2 opus-tools pciutils pulseaudio","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  raptor2-utils rasqal-utils libraw1394-doc librdf-storage-mysql","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  librdf-storage-postgresql librdf-storage-sqlite librdf-storage-virtuoso","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  redland-utils cups-bsd firefox-esr | thunderbird | firefox ghostscript gpa","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  hunspell-dictionary hyphen-hyphenation-patterns libreoffice-gnome","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  | libreoffice-plasma libreoffice-grammarcheck libreoffice-help","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libreoffice-l10n libreoffice-librelogo myspell-dictionary mythes-thesaurus","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  openclipart-libreoffice pstoedit unixodbc gstreamer1.0-plugins-base","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-plugins-bad","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  gstreamer1.0-libav default-jre | java-runtime | java8-runtime | jre libsane1","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libofficebean-java libreoffice-report-builder libjtds-java","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libreoffice-sdbc-mysql | libmyodbc | libmariadb-java","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libreoffice-sdbc-postgresql | odbc-postgresql | libpg-java libsqliteodbc","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  | tdsodbc | odbc-mdbtools bluez fonts-crosextra-caladea","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  fonts-crosextra-carlito libreoffice-java-common xdg-utils lm-sensors serdi","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  sndiod sordi speex opencl-icd python-setuptools-doc","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"Recommended packages:","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  alsa-ucm-conf alsa-topology-conf libaacs0 libpam-cap dbus","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libdecor-0-plugin-1-cairo | libdecor-0-plugin-1 gstreamer1.0-plugins-base","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  hunspell-en-us | hunspell-dictionary | myspell-dictionary pocketsphinx-en-us","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  poppler-data fonts-crosextra-caladea fonts-crosextra-carlito fonts-dejavu","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  fonts-liberation fonts-liberation2 fonts-linuxlibertine fonts-noto-core","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  fonts-noto-extra fonts-noto-mono fonts-noto-ui-core fonts-sil-gentium-basic","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libreoffice-nlpsolver libreoffice-report-builder","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libreoffice-script-provider-bsh libreoffice-script-provider-js","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libreoffice-script-provider-python libreoffice-sdbc-mysql","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libreoffice-sdbc-postgresql libreoffice-wiki-publisher","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libreoffice-java-common default-jre | java-runtime | java8-runtime | jre","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  libreoffice-sdbc-hsqldb libreoffice-sdbc-firebird fonts-liberation2","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  | ttf-mscorefonts-installer apparmor xdg-utils libpaper-utils","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-plugins-bad","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  gstreamer1.0-libav va-driver-all | va-driver vdpau-driver-all | vdpau-driver","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"  mesa-vulkan-drivers | vulkan-icd python3-dev","timestamp":"2026-04-06T21:33:25.482Z"}
+
+data: {"data":"The following NEW packages will be installed:","timestamp":"2026-04-06T21:33:26.222Z"}
+
+data: {"data":"  build-essential coinor-libcbc3 coinor-libcgl1 coinor-libclp1","timestamp":"2026-04-06T21:33:26.222Z"}
+
+data: {"data":"  coinor-libcoinmp1v5 coinor-libcoinutils3v5 coinor-libosi1v5 ffmpeg","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  fonts-opensymbol iso-codes libabsl20220623 libabw-0.1-1 libasound2","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libasound2-data libass9 libasyncns0 libavahi-client3 libavahi-common-data","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libavahi-common3 libavc1394-0 libavcodec59 libavdevice59 libavfilter8","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libavformat59 libavutil57 libblas3 libbluray2 libboost-filesystem1.74.0","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libboost-iostreams1.74.0 libboost-locale1.74.0 libboost-thread1.74.0","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libbox2d2 libbs2b0 libcaca0 libcap2-bin libcdio-cdda2 libcdio-paranoia2","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libcdio19 libcdr-0.1-1 libchromaprint1 libcjson1 libclucene-contribs1v5","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libclucene-core1v5 libcodec2-1.0 libcolamd2 libcups2 libdbus-1-3","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libdc1394-25 libdconf1 libdecor-0-0 libdrm-amdgpu1 libdrm-common","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libdrm-intel1 libdrm-nouveau2 libdrm-radeon1 libdrm2 libdw1 libe-book-0.1-1","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libeot0 libepoxy0 libepubgen-0.1-1 libetonyek-0.1-1 libexttextcat-2.0-0","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libexttextcat-data libflac12 libflite1 libfreehand-0.1-1 libgbm1","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libgfortran5 libgl1 libgl1-mesa-dri libglapi-mesa libglvnd0 libglx-mesa0","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libglx0 libgme0 libgpgme11 libgpgmepp6 libgsm1","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libgstreamer-plugins-base1.0-0 libgstreamer1.0-0 libharfbuzz-icu0","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libhunspell-1.7-0 libhwy1 libhyphen0 libiec61883-0 libjack-jackd2-0","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libjxl0.7 liblangtag-common liblangtag1 liblapack3 liblilv-0-0 libllvm15","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libmbedcrypto7 libmfx1 libmhash2 libmp3lame0 libmpg123-0 libmspub-0.1-1","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libmwaw-0.3-3 libmysofa1 libmythes-1.2-0 libnorm1 libnspr4 libnss3","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libnumbertext-1.0-0 libnumbertext-data libodfgen-0.1-1 libogg0","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libopenal-data libopenal1 libopenmpt0 libopus0 liborc-0.4-0 liborcus-0.17-0","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  liborcus-parser-0.17-0 libpagemaker-0.0-0 libpciaccess0 libpgm-5.3-0","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libplacebo208 libpocketsphinx3 libpoppler126 libpostproc56 libpulse0","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libpython3.11 libqxp-0.0-0 librabbitmq4 libraptor2-0 librasqal3 librav1e0","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libraw1394-11 librdf0 libreoffice libreoffice-base libreoffice-base-core","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libreoffice-base-drivers libreoffice-calc libreoffice-common","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libreoffice-core libreoffice-draw libreoffice-impress libreoffice-math","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libreoffice-report-builder-bin libreoffice-style-colibre libreoffice-writer","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  librevenge-0.0-0 librist4 librubberband2 libsamplerate0 libsdl2-2.0-0","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libsensors-config libsensors5 libserd-0-0 libshine3 libslang2 libsnappy1v5","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libsndfile1 libsndio7.0 libsodium23 libsord-0-0 libsoxr0 libspeex1","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libsphinxbase3 libsratom-0-0 libsrt1.5-gnutls libssh-gcrypt-4","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libstaroffice-0.0-0 libsuitesparseconfig5 libsvtav1enc1 libswresample4","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libswscale6 libtheora0 libtwolame0 libudfread0 libuno-cppu3","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libuno-cppuhelpergcc3-3 libuno-purpenvhelpergcc3-3 libuno-sal3","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libuno-salhelpergcc3-3 libunwind8 libusb-1.0-0 libva-drm2 libva-x11-2 libva2","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libvdpau1 libvidstab1.1 libvisio-0.1-1 libvorbis0a libvorbisenc2","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libvorbisfile3 libvpx7 libvulkan1 libwayland-client0 libwayland-cursor0","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libwayland-egl1 libwayland-server0 libwpd-0.10-10 libwpg-0.3-3 libwps-0.4-4","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libx11-xcb1 libx264-164 libxcb-dri2-0 libxcb-dri3-0 libxcb-glx0","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libxcb-present0 libxcb-randr0 libxcb-shape0 libxcb-sync1 libxcb-xfixes0","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libxcursor1 libxfixes3 libxi6 libxinerama1 libxkbcommon0 libxmlsec1","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libxmlsec1-nss libxrandr2 libxshmfence1 libxss1 libxv1 libxvidcore4","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libxxf86vm1 libyajl2 libz3-4 libzimg2 libzmf-0.0-0 libzmq5 libzvbi-common","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  libzvbi0 libzxing2 lp-solve ocl-icd-libopencl1 python3-pip","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  python3-pkg-resources python3-setuptools python3-uno python3-wheel","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"  uno-libs-private ure xkb-data","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"0 upgraded, 240 newly installed, 0 to remove and 2 not upgraded.","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"Need to get 224 MB of archives.","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"After this operation, 792 MB of additional disk space will be used.","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"Get:1 http://deb.debian.org/debian bookworm/main amd64 fonts-opensymbol all 4:102.12+LibO7.4.7-1+deb12u10 [114 kB]","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"Get:2 http://deb.debian.org/debian bookworm/main amd64 libreoffice-style-colibre all 4:7.4.7-1+deb12u10 [7171 kB]","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"Get:3 http://deb.debian.org/debian bookworm/main amd64 libuno-sal3 amd64 4:7.4.7-1+deb12u10 [196 kB]","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"Get:4 http://deb.debian.org/debian bookworm/main amd64 libuno-salhelpergcc3-3 amd64 4:7.4.7-1+deb12u10 [38.3 kB]","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"Get:5 http://deb.debian.org/debian bookworm/main amd64 libuno-cppu3 amd64 4:7.4.7-1+deb12u10 [102 kB]","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"Get:6 http://deb.debian.org/debian bookworm/main amd64 uno-libs-private amd64 4:7.4.7-1+deb12u10 [228 kB]","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"Get:7 http://deb.debian.org/debian bookworm/main amd64 liblangtag-common all 0.6.4-2 [191 kB]","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"Get:8 http://deb.debian.org/debian bookworm/main amd64 liblangtag1 amd64 0.6.4-2 [51.5 kB]","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"Get:9 http://deb.debian.org/debian bookworm/main amd64 libuno-cppuhelpergcc3-3 amd64 4:7.4.7-1+deb12u10 [298 kB]","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"Get:10 http://deb.debian.org/debian bookworm/main amd64 libuno-purpenvhelpergcc3-3 amd64 4:7.4.7-1+deb12u10 [37.4 kB]","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"Get:11 http://deb.debian.org/debian bookworm/main amd64 ure amd64 4:7.4.7-1+deb12u10 [1228 kB]","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"Get:12 http://deb.debian.org/debian bookworm/main amd64 libnumbertext-data all 1.0.11-1 [70.2 kB]","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"Get:13 http://deb.debian.org/debian bookworm/main amd64 libreoffice-common all 4:7.4.7-1+deb12u10 [24.5 MB]","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"Get:14 http://deb.debian.org/debian bookworm/main amd64 libabsl20220623 amd64 20220623.1-1+deb12u2 [391 kB]","timestamp":"2026-04-06T21:33:26.362Z"}
+
+data: {"data":"Get:15 http://deb.debian.org/debian bookworm/main amd64 libboost-thread1.74.0 amd64 1.74.0+ds1-21 [257 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:16 http://deb.debian.org/debian bookworm/main amd64 libboost-locale1.74.0 amd64 1.74.0+ds1-21 [449 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:17 http://deb.debian.org/debian bookworm/main amd64 libclucene-core1v5 amd64 2.3.3.4+dfsg-1.1 [489 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:18 http://deb.debian.org/debian bookworm/main amd64 libclucene-contribs1v5 amd64 2.3.3.4+dfsg-1.1 [85.7 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:19 http://deb.debian.org/debian bookworm/main amd64 libavahi-common-data amd64 0.8-10+deb12u1 [107 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:20 http://deb.debian.org/debian bookworm/main amd64 libavahi-common3 amd64 0.8-10+deb12u1 [42.1 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:21 http://deb.debian.org/debian bookworm/main amd64 libdbus-1-3 amd64 1.14.10-1~deb12u1 [201 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:22 http://deb.debian.org/debian bookworm/main amd64 libavahi-client3 amd64 0.8-10+deb12u1 [45.8 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:23 http://deb.debian.org/debian bookworm/main amd64 libcups2 amd64 2.4.2-3+deb12u9 [245 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:24 http://deb.debian.org/debian bookworm/main amd64 libdconf1 amd64 0.40.0-4 [40.9 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:25 http://deb.debian.org/debian bookworm/main amd64 libeot0 amd64 0.01-5+b1 [27.1 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:26 http://deb.debian.org/debian bookworm/main amd64 libepoxy0 amd64 1.5.10-1 [189 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:27 http://deb.debian.org/debian bookworm/main amd64 libexttextcat-data all 3.4.5-1 [164 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:28 http://deb.debian.org/debian bookworm/main amd64 libexttextcat-2.0-0 amd64 3.4.5-1 [15.9 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:29 http://deb.debian.org/debian bookworm/main amd64 libgpgme11 amd64 1.18.0-3+b1 [300 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:30 http://deb.debian.org/debian bookworm/main amd64 libgpgmepp6 amd64 1.18.0-3+b1 [293 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:31 http://deb.debian.org/debian bookworm/main amd64 libdw1 amd64 0.188-2.1 [235 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:32 http://deb.debian.org/debian bookworm/main amd64 libunwind8 amd64 1.6.2-3 [51.2 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:33 http://deb.debian.org/debian bookworm/main amd64 libcap2-bin amd64 1:2.66-4+deb12u2+b2 [35.2 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:34 http://deb.debian.org/debian bookworm/main amd64 libgstreamer1.0-0 amd64 1.22.0-2+deb12u1 [1170 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:35 http://deb.debian.org/debian bookworm/main amd64 liborc-0.4-0 amd64 1:0.4.33-2 [164 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:36 http://deb.debian.org/debian bookworm/main amd64 iso-codes all 4.15.0-1 [2906 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:37 http://deb.debian.org/debian-security bookworm-security/main amd64 libgstreamer-plugins-base1.0-0 amd64 1.22.0-3+deb12u6 [934 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:38 http://deb.debian.org/debian bookworm/main amd64 libharfbuzz-icu0 amd64 6.0.0+dfsg-3 [1557 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:39 http://deb.debian.org/debian bookworm/main amd64 libhunspell-1.7-0 amd64 1.7.1-1 [193 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:40 http://deb.debian.org/debian bookworm/main amd64 libhyphen0 amd64 2.8.8-7 [32.5 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:41 http://deb.debian.org/debian bookworm/main amd64 libmythes-1.2-0 amd64 2:1.2.5-1 [11.1 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:42 http://deb.debian.org/debian bookworm/main amd64 libnspr4 amd64 2:4.35-1 [113 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:43 http://deb.debian.org/debian-security bookworm-security/main amd64 libnss3 amd64 2:3.87.1-1+deb12u2 [1332 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:44 http://deb.debian.org/debian bookworm/main amd64 libnumbertext-1.0-0 amd64 1.0.11-1 [106 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:45 http://deb.debian.org/debian bookworm/main amd64 libboost-filesystem1.74.0 amd64 1.74.0+ds1-21 [258 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:46 http://deb.debian.org/debian bookworm/main amd64 libboost-iostreams1.74.0 amd64 1.74.0+ds1-21 [240 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:47 http://deb.debian.org/debian bookworm/main amd64 liborcus-parser-0.17-0 amd64 0.17.2-2+b2 [111 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:48 http://deb.debian.org/debian bookworm/main amd64 liborcus-0.17-0 amd64 0.17.2-2+b2 [383 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:49 http://deb.debian.org/debian bookworm/main amd64 libpoppler126 amd64 22.12.0-2+deb12u1 [1853 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:50 http://deb.debian.org/debian bookworm/main amd64 libyajl2 amd64 2.1.0-3+deb12u2 [23.0 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:51 http://deb.debian.org/debian bookworm/main amd64 libraptor2-0 amd64 2.0.15-4+deb12u1 [160 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:52 http://deb.debian.org/debian bookworm/main amd64 libmhash2 amd64 0.9.9.9-9 [94.2 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:53 http://deb.debian.org/debian bookworm/main amd64 librasqal3 amd64 0.9.33-2 [191 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:54 http://deb.debian.org/debian bookworm/main amd64 librdf0 amd64 1.0.17-3 [105 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:55 http://deb.debian.org/debian bookworm/main amd64 librevenge-0.0-0 amd64 0.0.5-3 [287 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:56 http://deb.debian.org/debian bookworm/main amd64 libx11-xcb1 amd64 2:1.8.4-2+deb12u2 [192 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:57 http://deb.debian.org/debian bookworm/main amd64 libxinerama1 amd64 2:1.1.4-3 [17.8 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:58 http://deb.debian.org/debian bookworm/main amd64 libxmlsec1 amd64 1.2.37-2 [153 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:59 http://deb.debian.org/debian bookworm/main amd64 libxmlsec1-nss amd64 1.2.37-2 [64.8 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:60 http://deb.debian.org/debian bookworm/main amd64 libxrandr2 amd64 2:1.5.2-2+b1 [39.2 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:61 http://deb.debian.org/debian bookworm/main amd64 libzxing2 amd64 1.4.0-3+b1 [601 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:62 http://deb.debian.org/debian bookworm/main amd64 libreoffice-core amd64 4:7.4.7-1+deb12u10 [32.6 MB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:63 http://deb.debian.org/debian bookworm/main amd64 libreoffice-base-core amd64 4:7.4.7-1+deb12u10 [799 kB]","timestamp":"2026-04-06T21:33:26.513Z"}
+
+data: {"data":"Get:64 http://deb.debian.org/debian bookworm/main amd64 libreoffice-base-drivers amd64 4:7.4.7-1+deb12u10 [545 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:65 http://deb.debian.org/debian bookworm/main amd64 libreoffice-base amd64 4:7.4.7-1+deb12u10 [1417 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:66 http://deb.debian.org/debian bookworm/main amd64 build-essential amd64 12.9 [7704 B]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:67 http://deb.debian.org/debian bookworm/main amd64 libblas3 amd64 3.11.0-2 [149 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:68 http://deb.debian.org/debian bookworm/main amd64 libgfortran5 amd64 12.2.0-14+deb12u1 [793 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:69 http://deb.debian.org/debian bookworm/main amd64 liblapack3 amd64 3.11.0-2 [2323 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:70 http://deb.debian.org/debian bookworm/main amd64 coinor-libcoinutils3v5 amd64 2.11.4+repack1-2 [440 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:71 http://deb.debian.org/debian bookworm/main amd64 coinor-libosi1v5 amd64 0.108.6+repack1-2 [276 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:72 http://deb.debian.org/debian bookworm/main amd64 coinor-libclp1 amd64 1.17.6-3 [843 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:73 http://deb.debian.org/debian bookworm/main amd64 coinor-libcgl1 amd64 0.60.3+repack1-4 [409 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:74 http://deb.debian.org/debian bookworm/main amd64 coinor-libcbc3 amd64 2.10.8+ds1-1 [715 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:75 http://deb.debian.org/debian bookworm/main amd64 coinor-libcoinmp1v5 amd64 1.8.3-3 [31.6 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:76 http://deb.debian.org/debian bookworm/main amd64 libdrm-common all 2.4.114-1 [7112 B]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:77 http://deb.debian.org/debian bookworm/main amd64 libdrm2 amd64 2.4.114-1+b1 [37.5 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:78 http://deb.debian.org/debian bookworm/main amd64 libva2 amd64 2.17.0-1 [69.2 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:79 http://deb.debian.org/debian bookworm/main amd64 libmfx1 amd64 22.5.4-1 [3219 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:80 http://deb.debian.org/debian bookworm/main amd64 libva-drm2 amd64 2.17.0-1 [16.4 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:81 http://deb.debian.org/debian bookworm/main amd64 libxcb-dri3-0 amd64 1.15-1 [107 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:82 http://deb.debian.org/debian bookworm/main amd64 libxfixes3 amd64 1:6.0.0-2 [22.7 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:83 http://deb.debian.org/debian bookworm/main amd64 libva-x11-2 amd64 2.17.0-1 [21.0 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:84 http://deb.debian.org/debian bookworm/main amd64 libvdpau1 amd64 1.5-2 [26.1 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:85 http://deb.debian.org/debian bookworm/main amd64 ocl-icd-libopencl1 amd64 2.3.1-1 [43.0 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:86 http://deb.debian.org/debian bookworm/main amd64 libavutil57 amd64 7:5.1.8-0+deb12u1 [370 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:87 http://deb.debian.org/debian bookworm/main amd64 libcodec2-1.0 amd64 1.0.5-1 [8171 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:88 http://deb.debian.org/debian bookworm/main amd64 libgsm1 amd64 1.0.22-1 [30.9 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:89 http://deb.debian.org/debian bookworm/main amd64 libhwy1 amd64 1.0.3-3+deb12u1 [348 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:90 http://deb.debian.org/debian bookworm/main amd64 libjxl0.7 amd64 0.7.0-10+deb12u1 [1046 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:91 http://deb.debian.org/debian bookworm/main amd64 libmp3lame0 amd64 3.100-6 [365 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:92 http://deb.debian.org/debian bookworm/main amd64 libopus0 amd64 1.3.1-3 [195 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:93 http://deb.debian.org/debian bookworm/main amd64 librav1e0 amd64 0.5.1-6 [763 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:94 http://deb.debian.org/debian bookworm/main amd64 libshine3 amd64 3.1.1-2 [23.6 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:95 http://deb.debian.org/debian bookworm/main amd64 libsnappy1v5 amd64 1.1.9-3 [26.0 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:96 http://deb.debian.org/debian bookworm/main amd64 libspeex1 amd64 1.2.1-2 [54.6 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:97 http://deb.debian.org/debian bookworm/main amd64 libsvtav1enc1 amd64 1.4.1+dfsg-1 [2121 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:98 http://deb.debian.org/debian bookworm/main amd64 libsoxr0 amd64 0.1.3-4 [77.8 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:99 http://deb.debian.org/debian bookworm/main amd64 libswresample4 amd64 7:5.1.8-0+deb12u1 [104 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:100 http://deb.debian.org/debian bookworm/main amd64 libogg0 amd64 1.3.5-3 [23.4 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:101 http://deb.debian.org/debian bookworm/main amd64 libtheora0 amd64 1.1.1+dfsg.1-16.1+deb12u1 [154 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:102 http://deb.debian.org/debian bookworm/main amd64 libtwolame0 amd64 0.4.0-2 [51.1 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:103 http://deb.debian.org/debian bookworm/main amd64 libvorbis0a amd64 1.3.7-1 [93.0 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:104 http://deb.debian.org/debian bookworm/main amd64 libvorbisenc2 amd64 1.3.7-1 [80.6 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:105 http://deb.debian.org/debian-security bookworm-security/main amd64 libvpx7 amd64 1.12.0-1+deb12u5 [1003 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:106 http://deb.debian.org/debian bookworm/main amd64 libx264-164 amd64 2:0.164.3095+gitbaee400-3 [547 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:107 http://deb.debian.org/debian bookworm/main amd64 libxvidcore4 amd64 2:1.3.7-1 [242 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:108 http://deb.debian.org/debian bookworm/main amd64 libzvbi-common all 0.2.41-1 [69.7 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:109 http://deb.debian.org/debian bookworm/main amd64 libzvbi0 amd64 0.2.41-1 [274 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:110 http://deb.debian.org/debian bookworm/main amd64 libavcodec59 amd64 7:5.1.8-0+deb12u1 [5230 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:111 http://deb.debian.org/debian bookworm/main amd64 libasound2-data all 1.2.8-1 [20.5 kB]","timestamp":"2026-04-06T21:33:26.619Z"}
+
+data: {"data":"Get:112 http://deb.debian.org/debian bookworm/main amd64 libasound2 amd64 1.2.8-1+b1 [362 kB]","timestamp":"2026-04-06T21:33:26.739Z"}
+
+data: {"data":"Get:113 http://deb.debian.org/debian bookworm/main amd64 libraw1394-11 amd64 2.1.2-2 [41.1 kB]","timestamp":"2026-04-06T21:33:26.739Z"}
+
+data: {"data":"Get:114 http://deb.debian.org/debian bookworm/main amd64 libavc1394-0 amd64 0.5.4-5 [19.9 kB]","timestamp":"2026-04-06T21:33:26.739Z"}
+
+data: {"data":"Get:115 http://deb.debian.org/debian bookworm/main amd64 libass9 amd64 1:0.17.1-1 [107 kB]","timestamp":"2026-04-06T21:33:26.739Z"}
+
+data: {"data":"Get:116 http://deb.debian.org/debian bookworm/main amd64 libudfread0 amd64 1.1.2-1 [16.5 kB]","timestamp":"2026-04-06T21:33:26.739Z"}
+
+data: {"data":"Get:117 http://deb.debian.org/debian bookworm/main amd64 libbluray2 amd64 1:1.3.4-1 [138 kB]","timestamp":"2026-04-06T21:33:26.739Z"}
+
+data: {"data":"Get:118 http://deb.debian.org/debian bookworm/main amd64 libchromaprint1 amd64 1.5.1-2+b1 [41.0 kB]","timestamp":"2026-04-06T21:33:26.739Z"}
+
+data: {"data":"Get:119 http://deb.debian.org/debian bookworm/main amd64 libgme0 amd64 0.6.3-6 [130 kB]","timestamp":"2026-04-06T21:33:26.739Z"}
+
+data: {"data":"Get:120 http://deb.debian.org/debian bookworm/main amd64 libmpg123-0 amd64 1.31.2-1+deb12u1 [147 kB]","timestamp":"2026-04-06T21:33:26.739Z"}
+
+data: {"data":"Get:121 http://deb.debian.org/debian bookworm/main amd64 libvorbisfile3 amd64 1.3.7-1 [26.1 kB]","timestamp":"2026-04-06T21:33:26.739Z"}
+
+data: {"data":"Get:122 http://deb.debian.org/debian bookworm/main amd64 libopenmpt0 amd64 0.6.9-1 [693 kB]","timestamp":"2026-04-06T21:33:26.739Z"}
+
+data: {"data":"Get:123 http://deb.debian.org/debian bookworm/main amd64 librabbitmq4 amd64 0.11.0-1+deb12u1 [41.4 kB]","timestamp":"2026-04-06T21:33:26.739Z"}
+
+data: {"data":"Get:124 http://deb.debian.org/debian bookworm/main amd64 libcjson1 amd64 1.7.15-1+deb12u4 [23.2 kB]","timestamp":"2026-04-06T21:33:26.739Z"}
+
+data: {"data":"Get:125 http://deb.debian.org/debian bookworm/main amd64 libmbedcrypto7 amd64 2.28.3-1 [277 kB]","timestamp":"2026-04-06T21:33:26.739Z"}
+
+data: {"data":"Get:126 http://deb.debian.org/debian bookworm/main amd64 librist4 amd64 0.2.7+dfsg-1 [73.9 kB]","timestamp":"2026-04-06T21:33:26.739Z"}
+
+data: {"data":"Get:127 http://deb.debian.org/debian bookworm/main amd64 libsrt1.5-gnutls amd64 1.5.1-1+deb12u1 [313 kB]","timestamp":"2026-04-06T21:33:26.739Z"}
+
+data: {"data":"Get:128 http://deb.debian.org/debian bookworm/main amd64 libssh-gcrypt-4 amd64 0.10.6-0+deb12u2 [220 kB]","timestamp":"2026-04-06T21:33:26.739Z"}
+
+data: {"data":"Get:129 http://deb.debian.org/debian bookworm/main amd64 libnorm1 amd64 1.5.9+dfsg-2 [221 kB]","timestamp":"2026-04-06T21:33:26.739Z"}
+
+data: {"data":"Get:130 http://deb.debian.org/debian bookworm/main amd64 libpgm-5.3-0 amd64 5.3.128~dfsg-2 [161 kB]","timestamp":"2026-04-06T21:33:26.739Z"}
+
+data: {"data":"Get:131 http://deb.debian.org/debian-security bookworm-security/main amd64 libsodium23 amd64 1.0.18-1+deb12u1 [162 kB]","timestamp":"2026-04-06T21:33:26.739Z"}
+
+data: {"data":"Get:132 http://deb.debian.org/debian bookworm/main amd64 libzmq5 amd64 4.3.4-6 [273 kB]","timestamp":"2026-04-06T21:33:26.739Z"}
+
+data: {"data":"Get:133 http://deb.debian.org/debian bookworm/main amd64 libavformat59 amd64 7:5.1.8-0+deb12u1 [1110 kB]","timestamp":"2026-04-06T21:33:26.739Z"}
+
+data: {"data":"Get:134 http://deb.debian.org/debian bookworm/main amd64 libbs2b0 amd64 3.1.0+dfsg-7 [11.5 kB]","timestamp":"2026-04-06T21:33:26.739Z"}
+
+data: {"data":"Get:135 http://deb.debian.org/debian bookworm/main amd64 libflite1 amd64 2.2-5 [12.8 MB]","timestamp":"2026-04-06T21:33:26.739Z"}
+
+data: {"data":"Get:136 http://deb.debian.org/debian bookworm/main amd64 libserd-0-0 amd64 0.30.16-1 [47.5 kB]","timestamp":"2026-04-06T21:33:26.739Z"}
+
+data: {"data":"Get:137 http://deb.debian.org/debian bookworm/main amd64 libsord-0-0 amd64 0.16.14+git221008-1 [20.8 kB]","timestamp":"2026-04-06T21:33:26.739Z"}
+
+data: {"data":"Get:138 http://deb.debian.org/debian bookworm/main amd64 libsratom-0-0 amd64 0.6.14-1 [17.7 kB]","timestamp":"2026-04-06T21:33:26.739Z"}
+
+data: {"data":"Get:139 http://deb.debian.org/debian bookworm/main amd64 liblilv-0-0 amd64 0.24.14-1 [49.4 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:140 http://deb.debian.org/debian bookworm/main amd64 libmysofa1 amd64 1.3.1~dfsg0-1 [1158 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:141 http://deb.debian.org/debian bookworm/main amd64 libvulkan1 amd64 1.3.239.0-1 [116 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:142 http://deb.debian.org/debian bookworm/main amd64 libplacebo208 amd64 4.208.0-3 [2239 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:143 http://deb.debian.org/debian bookworm/main amd64 libasyncns0 amd64 0.8-6+b3 [12.9 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:144 http://deb.debian.org/debian bookworm/main amd64 libflac12 amd64 1.4.2+ds-2 [198 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:145 http://deb.debian.org/debian bookworm/main amd64 libsndfile1 amd64 1.2.0-1+deb12u1 [197 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:146 http://deb.debian.org/debian bookworm/main amd64 libpulse0 amd64 16.1+dfsg1-2+b1 [274 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:147 http://deb.debian.org/debian bookworm/main amd64 libsphinxbase3 amd64 0.8+5prealpha+1-16 [118 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:148 http://deb.debian.org/debian bookworm/main amd64 libpocketsphinx3 amd64 0.8+5prealpha+1-15 [125 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:149 http://deb.debian.org/debian bookworm/main amd64 libpostproc56 amd64 7:5.1.8-0+deb12u1 [100 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:150 http://deb.debian.org/debian bookworm/main amd64 librubberband2 amd64 3.1.2+dfsg0-1 [137 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:151 http://deb.debian.org/debian bookworm/main amd64 libswscale6 amd64 7:5.1.8-0+deb12u1 [221 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:152 http://deb.debian.org/debian bookworm/main amd64 libvidstab1.1 amd64 1.1.0-2+b1 [37.8 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:153 http://deb.debian.org/debian bookworm/main amd64 libzimg2 amd64 3.0.4+ds1-1 [227 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:154 http://deb.debian.org/debian bookworm/main amd64 libavfilter8 amd64 7:5.1.8-0+deb12u1 [3709 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:155 http://deb.debian.org/debian bookworm/main amd64 libslang2 amd64 2.3.3-3 [554 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:156 http://deb.debian.org/debian bookworm/main amd64 libcaca0 amd64 0.99.beta20-3 [205 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:157 http://deb.debian.org/debian bookworm/main amd64 libcdio19 amd64 2.1.0-4 [203 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:158 http://deb.debian.org/debian bookworm/main amd64 libcdio-cdda2 amd64 10.2+2.0.1-1 [20.9 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:159 http://deb.debian.org/debian bookworm/main amd64 libcdio-paranoia2 amd64 10.2+2.0.1-1 [20.4 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:160 http://deb.debian.org/debian bookworm/main amd64 libusb-1.0-0 amd64 2:1.0.26-1 [62.6 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:161 http://deb.debian.org/debian bookworm/main amd64 libdc1394-25 amd64 2.2.6-4 [109 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:162 http://deb.debian.org/debian bookworm/main amd64 libglvnd0 amd64 1.6.0-1 [51.8 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:163 http://deb.debian.org/debian bookworm/main amd64 libglapi-mesa amd64 22.3.6-1+deb12u1 [35.7 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:164 http://deb.debian.org/debian bookworm/main amd64 libxcb-dri2-0 amd64 1.15-1 [107 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:165 http://deb.debian.org/debian bookworm/main amd64 libxcb-glx0 amd64 1.15-1 [122 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:166 http://deb.debian.org/debian bookworm/main amd64 libxcb-present0 amd64 1.15-1 [105 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:167 http://deb.debian.org/debian bookworm/main amd64 libxcb-randr0 amd64 1.15-1 [117 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:168 http://deb.debian.org/debian bookworm/main amd64 libxcb-sync1 amd64 1.15-1 [109 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:169 http://deb.debian.org/debian bookworm/main amd64 libxcb-xfixes0 amd64 1.15-1 [109 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:170 http://deb.debian.org/debian bookworm/main amd64 libxshmfence1 amd64 1.3-1 [8820 B]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:171 http://deb.debian.org/debian bookworm/main amd64 libxxf86vm1 amd64 1:1.1.4-1+b2 [20.8 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:172 http://deb.debian.org/debian bookworm/main amd64 libdrm-amdgpu1 amd64 2.4.114-1+b1 [20.9 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:173 http://deb.debian.org/debian bookworm/main amd64 libpciaccess0 amd64 0.17-2 [51.4 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:174 http://deb.debian.org/debian bookworm/main amd64 libdrm-intel1 amd64 2.4.114-1+b1 [64.0 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:175 http://deb.debian.org/debian bookworm/main amd64 libdrm-nouveau2 amd64 2.4.114-1+b1 [19.1 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:176 http://deb.debian.org/debian bookworm/main amd64 libdrm-radeon1 amd64 2.4.114-1+b1 [21.8 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:177 http://deb.debian.org/debian bookworm/main amd64 libz3-4 amd64 4.8.12-3.1 [7216 kB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:178 http://deb.debian.org/debian bookworm/main amd64 libllvm15 amd64 1:15.0.6-4+b1 [23.1 MB]","timestamp":"2026-04-06T21:33:26.740Z"}
+
+data: {"data":"Get:179 http://deb.debian.org/debian bookworm/main amd64 libsensors-config all 1:3.6.0-7.1 [14.3 kB]","timestamp":"2026-04-06T21:33:26.840Z"}
+
+data: {"data":"Get:180 http://deb.debian.org/debian bookworm/main amd64 libsensors5 amd64 1:3.6.0-7.1 [34.2 kB]","timestamp":"2026-04-06T21:33:26.840Z"}
+
+data: {"data":"Get:181 http://deb.debian.org/debian bookworm/main amd64 libgl1-mesa-dri amd64 22.3.6-1+deb12u1 [7239 kB]","timestamp":"2026-04-06T21:33:26.840Z"}
+
+data: {"data":"Get:182 http://deb.debian.org/debian bookworm/main amd64 libglx-mesa0 amd64 22.3.6-1+deb12u1 [147 kB]","timestamp":"2026-04-06T21:33:26.840Z"}
+
+data: {"data":"Get:183 http://deb.debian.org/debian bookworm/main amd64 libglx0 amd64 1.6.0-1 [34.4 kB]","timestamp":"2026-04-06T21:33:26.840Z"}
+
+data: {"data":"Get:184 http://deb.debian.org/debian bookworm/main amd64 libgl1 amd64 1.6.0-1 [88.4 kB]","timestamp":"2026-04-06T21:33:26.840Z"}
+
+data: {"data":"Get:185 http://deb.debian.org/debian bookworm/main amd64 libiec61883-0 amd64 1.2.0-6+b1 [30.5 kB]","timestamp":"2026-04-06T21:33:26.840Z"}
+
+data: {"data":"Get:186 http://deb.debian.org/debian bookworm/main amd64 libsamplerate0 amd64 0.2.2-3 [952 kB]","timestamp":"2026-04-06T21:33:26.840Z"}
+
+data: {"data":"Get:187 http://deb.debian.org/debian bookworm/main amd64 libjack-jackd2-0 amd64 1.9.21~dfsg-3 [281 kB]","timestamp":"2026-04-06T21:33:26.840Z"}
+
+data: {"data":"Get:188 http://deb.debian.org/debian bookworm/main amd64 libopenal-data all 1:1.19.1-2 [170 kB]","timestamp":"2026-04-06T21:33:26.840Z"}
+
+data: {"data":"Get:189 http://deb.debian.org/debian bookworm/main amd64 libsndio7.0 amd64 1.9.0-0.3+b2 [27.3 kB]","timestamp":"2026-04-06T21:33:26.840Z"}
+
+data: {"data":"Get:190 http://deb.debian.org/debian bookworm/main amd64 libopenal1 amd64 1:1.19.1-2 [501 kB]","timestamp":"2026-04-06T21:33:26.840Z"}
+
+data: {"data":"Get:191 http://deb.debian.org/debian bookworm/main amd64 libwayland-client0 amd64 1.21.0-1 [28.3 kB]","timestamp":"2026-04-06T21:33:26.840Z"}
+
+data: {"data":"Get:192 http://deb.debian.org/debian bookworm/main amd64 libdecor-0-0 amd64 0.1.1-2 [14.6 kB]","timestamp":"2026-04-06T21:33:26.840Z"}
+
+data: {"data":"Get:193 http://deb.debian.org/debian bookworm/main amd64 libwayland-server0 amd64 1.21.0-1 [35.9 kB]","timestamp":"2026-04-06T21:33:26.840Z"}
+
+data: {"data":"Get:194 http://deb.debian.org/debian bookworm/main amd64 libgbm1 amd64 22.3.6-1+deb12u1 [38.0 kB]","timestamp":"2026-04-06T21:33:26.840Z"}
+
+data: {"data":"Get:195 http://deb.debian.org/debian bookworm/main amd64 libwayland-cursor0 amd64 1.21.0-1 [14.4 kB]","timestamp":"2026-04-06T21:33:26.840Z"}
+
+data: {"data":"Get:196 http://deb.debian.org/debian bookworm/main amd64 libwayland-egl1 amd64 1.21.0-1 [8640 B]","timestamp":"2026-04-06T21:33:26.840Z"}
+
+data: {"data":"Get:197 http://deb.debian.org/debian bookworm/main amd64 libxcursor1 amd64 1:1.2.1-1 [40.9 kB]","timestamp":"2026-04-06T21:33:26.840Z"}
+
+data: {"data":"Get:198 http://deb.debian.org/debian bookworm/main amd64 libxi6 amd64 2:1.8-1+b1 [84.2 kB]","timestamp":"2026-04-06T21:33:26.840Z"}
+
+data: {"data":"Get:199 http://deb.debian.org/debian bookworm/main amd64 xkb-data all 2.35.1-1 [764 kB]","timestamp":"2026-04-06T21:33:26.840Z"}
+
+data: {"data":"Get:200 http://deb.debian.org/debian bookworm/main amd64 libxkbcommon0 amd64 1.5.0-1 [106 kB]","timestamp":"2026-04-06T21:33:26.840Z"}
+
+data: {"data":"Get:201 http://deb.debian.org/debian bookworm/main amd64 libxss1 amd64 1:1.2.3-1 [17.8 kB]","timestamp":"2026-04-06T21:33:26.943Z"}
+
+data: {"data":"Get:202 http://deb.debian.org/debian bookworm/main amd64 libsdl2-2.0-0 amd64 2.26.5+dfsg-1 [629 kB]","timestamp":"2026-04-06T21:33:26.943Z"}
+
+data: {"data":"Get:203 http://deb.debian.org/debian bookworm/main amd64 libxcb-shape0 amd64 1.15-1 [106 kB]","timestamp":"2026-04-06T21:33:26.943Z"}
+
+data: {"data":"Get:204 http://deb.debian.org/debian bookworm/main amd64 libxv1 amd64 2:1.0.11-1.1 [24.8 kB]","timestamp":"2026-04-06T21:33:26.943Z"}
+
+data: {"data":"Get:205 http://deb.debian.org/debian bookworm/main amd64 libavdevice59 amd64 7:5.1.8-0+deb12u1 [121 kB]","timestamp":"2026-04-06T21:33:26.943Z"}
+
+data: {"data":"Get:206 http://deb.debian.org/debian bookworm/main amd64 ffmpeg amd64 7:5.1.8-0+deb12u1 [1819 kB]","timestamp":"2026-04-06T21:33:26.943Z"}
+
+data: {"data":"Get:207 http://deb.debian.org/debian bookworm/main amd64 libabw-0.1-1 amd64 0.1.3-1 [128 kB]","timestamp":"2026-04-06T21:33:26.943Z"}
+
+data: {"data":"Get:208 http://deb.debian.org/debian bookworm/main amd64 libbox2d2 amd64 2.4.1-3 [97.1 kB]","timestamp":"2026-04-06T21:33:26.943Z"}
+
+data: {"data":"Get:209 http://deb.debian.org/debian bookworm/main amd64 libcdr-0.1-1 amd64 0.1.6-2+b2 [392 kB]","timestamp":"2026-04-06T21:33:26.943Z"}
+
+data: {"data":"Get:210 http://deb.debian.org/debian bookworm/main amd64 libsuitesparseconfig5 amd64 1:5.12.0+dfsg-2 [23.9 kB]","timestamp":"2026-04-06T21:33:26.943Z"}
+
+data: {"data":"Get:211 http://deb.debian.org/debian bookworm/main amd64 libcolamd2 amd64 1:5.12.0+dfsg-2 [32.9 kB]","timestamp":"2026-04-06T21:33:26.943Z"}
+
+data: {"data":"Get:212 http://deb.debian.org/debian bookworm/main amd64 libe-book-0.1-1 amd64 0.1.3-2+b2 [198 kB]","timestamp":"2026-04-06T21:33:26.943Z"}
+
+data: {"data":"Get:213 http://deb.debian.org/debian bookworm/main amd64 libepubgen-0.1-1 amd64 0.1.1-1 [153 kB]","timestamp":"2026-04-06T21:33:26.943Z"}
+
+data: {"data":"Get:214 http://deb.debian.org/debian bookworm/main amd64 libetonyek-0.1-1 amd64 0.1.10-3+b1 [803 kB]","timestamp":"2026-04-06T21:33:26.943Z"}
+
+data: {"data":"Get:215 http://deb.debian.org/debian bookworm/main amd64 libfreehand-0.1-1 amd64 0.1.2-3 [267 kB]","timestamp":"2026-04-06T21:33:26.943Z"}
+
+data: {"data":"Get:216 http://deb.debian.org/debian bookworm/main amd64 libmspub-0.1-1 amd64 0.1.4-3+b3 [174 kB]","timestamp":"2026-04-06T21:33:26.943Z"}
+
+data: {"data":"Get:217 http://deb.debian.org/debian bookworm/main amd64 libmwaw-0.3-3 amd64 0.3.21-1 [2606 kB]","timestamp":"2026-04-06T21:33:26.943Z"}
+
+data: {"data":"Get:218 http://deb.debian.org/debian bookworm/main amd64 libodfgen-0.1-1 amd64 0.1.8-2 [293 kB]","timestamp":"2026-04-06T21:33:26.943Z"}
+
+data: {"data":"Get:219 http://deb.debian.org/debian bookworm/main amd64 libpagemaker-0.0-0 amd64 0.0.4-1 [79.6 kB]","timestamp":"2026-04-06T21:33:26.943Z"}
+
+data: {"data":"Get:220 http://deb.debian.org/debian bookworm/main amd64 libpython3.11 amd64 3.11.2-6+deb12u6 [1987 kB]","timestamp":"2026-04-06T21:33:26.943Z"}
+
+data: {"data":"Get:221 http://deb.debian.org/debian bookworm/main amd64 libqxp-0.0-0 amd64 0.0.2-1+b3 [125 kB]","timestamp":"2026-04-06T21:33:26.943Z"}
+
+data: {"data":"Get:222 http://deb.debian.org/debian bookworm/main amd64 lp-solve amd64 5.5.2.5-2 [293 kB]","timestamp":"2026-04-06T21:33:26.943Z"}
+
+data: {"data":"Get:223 http://deb.debian.org/debian bookworm/main amd64 libstaroffice-0.0-0 amd64 0.0.7-1 [728 kB]","timestamp":"2026-04-06T21:33:26.943Z"}
+
+data: {"data":"Get:224 http://deb.debian.org/debian bookworm/main amd64 libwps-0.4-4 amd64 0.4.13-1 [886 kB]","timestamp":"2026-04-06T21:33:26.943Z"}
+
+data: {"data":"Get:225 http://deb.debian.org/debian bookworm/main amd64 libreoffice-calc amd64 4:7.4.7-1+deb12u10 [7411 kB]","timestamp":"2026-04-06T21:33:26.943Z"}
+
+data: {"data":"Get:226 http://deb.debian.org/debian bookworm/main amd64 libvisio-0.1-1 amd64 0.1.7-1+b3 [304 kB]","timestamp":"2026-04-06T21:33:26.943Z"}
+
+data: {"data":"Get:227 http://deb.debian.org/debian bookworm/main amd64 libwpd-0.10-10 amd64 0.10.3-2+b1 [261 kB]","timestamp":"2026-04-06T21:33:26.943Z"}
+
+data: {"data":"Get:228 http://deb.debian.org/debian bookworm/main amd64 libwpg-0.3-3 amd64 0.3.3-1 [76.3 kB]","timestamp":"2026-04-06T21:33:26.943Z"}
+
+data: {"data":"Get:229 http://deb.debian.org/debian bookworm/main amd64 libzmf-0.0-0 amd64 0.0.2-1+b5 [84.2 kB]","timestamp":"2026-04-06T21:33:26.943Z"}
+
+data: {"data":"Get:230 http://deb.debian.org/debian bookworm/main amd64 libreoffice-draw amd64 4:7.4.7-1+deb12u10 [2703 kB]","timestamp":"2026-04-06T21:33:26.943Z"}
+
+data: {"data":"Get:231 http://deb.debian.org/debian bookworm/main amd64 libreoffice-impress amd64 4:7.4.7-1+deb12u10 [1117 kB]","timestamp":"2026-04-06T21:33:26.943Z"}
+
+data: {"data":"Get:232 http://deb.debian.org/debian bookworm/main amd64 libreoffice-math amd64 4:7.4.7-1+deb12u10 [540 kB]","timestamp":"2026-04-06T21:33:27.109Z"}
+
+data: {"data":"Get:233 http://deb.debian.org/debian bookworm/main amd64 libreoffice-report-builder-bin amd64 4:7.4.7-1+deb12u10 [827 kB]","timestamp":"2026-04-06T21:33:27.109Z"}
+
+data: {"data":"Get:234 http://deb.debian.org/debian bookworm/main amd64 libreoffice-writer amd64 4:7.4.7-1+deb12u10 [9260 kB]","timestamp":"2026-04-06T21:33:27.109Z"}
+
+data: {"data":"Get:235 http://deb.debian.org/debian bookworm/main amd64 python3-uno amd64 4:7.4.7-1+deb12u10 [159 kB]","timestamp":"2026-04-06T21:33:27.109Z"}
+
+data: {"data":"Get:236 http://deb.debian.org/debian bookworm/main amd64 libreoffice amd64 4:7.4.7-1+deb12u10 [35.4 kB]","timestamp":"2026-04-06T21:33:27.109Z"}
+
+data: {"data":"Get:237 http://deb.debian.org/debian bookworm/main amd64 python3-pkg-resources all 66.1.1-1+deb12u2 [297 kB]","timestamp":"2026-04-06T21:33:27.109Z"}
+
+data: {"data":"Get:238 http://deb.debian.org/debian bookworm/main amd64 python3-setuptools all 66.1.1-1+deb12u2 [522 kB]","timestamp":"2026-04-06T21:33:27.109Z"}
+
+data: {"data":"Get:239 http://deb.debian.org/debian bookworm/main amd64 python3-wheel all 0.38.4-2 [30.8 kB]","timestamp":"2026-04-06T21:33:27.109Z"}
+
+data: {"data":"Get:240 http://deb.debian.org/debian bookworm/main amd64 python3-pip all 23.0.1+dfsg-1 [1325 kB]","timestamp":"2026-04-06T21:33:27.109Z"}
+
+data: {"data":"debconf: delaying package configuration, since apt-utils is not installed","timestamp":"2026-04-06T21:33:27.109Z"}
+
+data: {"data":"Fetched 224 MB in 1s (296 MB/s)","timestamp":"2026-04-06T21:33:27.327Z"}
+
+data: {"data":"Selecting previously unselected package fonts-opensymbol.","timestamp":"2026-04-06T21:33:27.327Z"}
+
+data: {"data":"(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 23258 files and directories currently installed.)","timestamp":"2026-04-06T21:33:27.327Z"}
+
+data: {"data":"Preparing to unpack .../000-fonts-opensymbol_4%3a102.12+LibO7.4.7-1+deb12u10_all.deb ...","timestamp":"2026-04-06T21:33:27.327Z"}
+
+data: {"data":"Unpacking fonts-opensymbol (4:102.12+LibO7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:27.327Z"}
+
+data: {"data":"Selecting previously unselected package libreoffice-style-colibre.","timestamp":"2026-04-06T21:33:27.327Z"}
+
+data: {"data":"Preparing to unpack .../001-libreoffice-style-colibre_4%3a7.4.7-1+deb12u10_all.deb ...","timestamp":"2026-04-06T21:33:27.327Z"}
+
+data: {"data":"Unpacking libreoffice-style-colibre (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:27.327Z"}
+
+data: {"data":"Selecting previously unselected package libuno-sal3.","timestamp":"2026-04-06T21:33:27.620Z"}
+
+data: {"data":"Preparing to unpack .../002-libuno-sal3_4%3a7.4.7-1+deb12u10_amd64.deb ...","timestamp":"2026-04-06T21:33:27.723Z"}
+
+data: {"data":"Unpacking libuno-sal3 (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:27.723Z"}
+
+data: {"data":"Selecting previously unselected package libuno-salhelpergcc3-3.","timestamp":"2026-04-06T21:33:27.723Z"}
+
+data: {"data":"Preparing to unpack .../003-libuno-salhelpergcc3-3_4%3a7.4.7-1+deb12u10_amd64.deb ...","timestamp":"2026-04-06T21:33:27.723Z"}
+
+data: {"data":"Unpacking libuno-salhelpergcc3-3 (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:27.723Z"}
+
+data: {"data":"Selecting previously unselected package libuno-cppu3.","timestamp":"2026-04-06T21:33:27.723Z"}
+
+data: {"data":"Preparing to unpack .../004-libuno-cppu3_4%3a7.4.7-1+deb12u10_amd64.deb ...","timestamp":"2026-04-06T21:33:27.723Z"}
+
+data: {"data":"Unpacking libuno-cppu3 (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:27.723Z"}
+
+data: {"data":"Selecting previously unselected package uno-libs-private.","timestamp":"2026-04-06T21:33:27.723Z"}
+
+data: {"data":"Preparing to unpack .../005-uno-libs-private_4%3a7.4.7-1+deb12u10_amd64.deb ...","timestamp":"2026-04-06T21:33:27.723Z"}
+
+data: {"data":"Unpacking uno-libs-private (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:27.723Z"}
+
+data: {"data":"Selecting previously unselected package liblangtag-common.","timestamp":"2026-04-06T21:33:27.723Z"}
+
+data: {"data":"Preparing to unpack .../006-liblangtag-common_0.6.4-2_all.deb ...","timestamp":"2026-04-06T21:33:27.723Z"}
+
+data: {"data":"Unpacking liblangtag-common (0.6.4-2) ...","timestamp":"2026-04-06T21:33:27.723Z"}
+
+data: {"data":"Selecting previously unselected package liblangtag1:amd64.","timestamp":"2026-04-06T21:33:27.723Z"}
+
+data: {"data":"Preparing to unpack .../007-liblangtag1_0.6.4-2_amd64.deb ...","timestamp":"2026-04-06T21:33:27.871Z"}
+
+data: {"data":"Unpacking liblangtag1:amd64 (0.6.4-2) ...","timestamp":"2026-04-06T21:33:27.871Z"}
+
+data: {"data":"Selecting previously unselected package libuno-cppuhelpergcc3-3.","timestamp":"2026-04-06T21:33:27.871Z"}
+
+data: {"data":"Preparing to unpack .../008-libuno-cppuhelpergcc3-3_4%3a7.4.7-1+deb12u10_amd64.deb ...","timestamp":"2026-04-06T21:33:27.871Z"}
+
+data: {"data":"Unpacking libuno-cppuhelpergcc3-3 (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:27.871Z"}
+
+data: {"data":"Selecting previously unselected package libuno-purpenvhelpergcc3-3.","timestamp":"2026-04-06T21:33:27.871Z"}
+
+data: {"data":"Preparing to unpack .../009-libuno-purpenvhelpergcc3-3_4%3a7.4.7-1+deb12u10_amd64.deb ...","timestamp":"2026-04-06T21:33:27.871Z"}
+
+data: {"data":"Unpacking libuno-purpenvhelpergcc3-3 (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:27.871Z"}
+
+data: {"data":"Selecting previously unselected package ure.","timestamp":"2026-04-06T21:33:27.871Z"}
+
+data: {"data":"Preparing to unpack .../010-ure_4%3a7.4.7-1+deb12u10_amd64.deb ...","timestamp":"2026-04-06T21:33:27.871Z"}
+
+data: {"data":"Unpacking ure (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:27.871Z"}
+
+data: {"data":"Selecting previously unselected package libnumbertext-data.","timestamp":"2026-04-06T21:33:27.871Z"}
+
+data: {"data":"Preparing to unpack .../011-libnumbertext-data_1.0.11-1_all.deb ...","timestamp":"2026-04-06T21:33:28.054Z"}
+
+data: {"data":"Unpacking libnumbertext-data (1.0.11-1) ...","timestamp":"2026-04-06T21:33:28.054Z"}
+
+data: {"data":"Selecting previously unselected package libreoffice-common.","timestamp":"2026-04-06T21:33:28.054Z"}
+
+data: {"data":"Preparing to unpack .../012-libreoffice-common_4%3a7.4.7-1+deb12u10_all.deb ...","timestamp":"2026-04-06T21:33:28.054Z"}
+
+data: {"data":"Unpacking libreoffice-common (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:28.054Z"}
+
+data: {"data":"Selecting previously unselected package libabsl20220623:amd64.","timestamp":"2026-04-06T21:33:28.469Z"}
+
+data: {"data":"Preparing to unpack .../013-libabsl20220623_20220623.1-1+deb12u2_amd64.deb ...","timestamp":"2026-04-06T21:33:28.579Z"}
+
+data: {"data":"Unpacking libabsl20220623:amd64 (20220623.1-1+deb12u2) ...","timestamp":"2026-04-06T21:33:28.579Z"}
+
+data: {"data":"Selecting previously unselected package libboost-thread1.74.0:amd64.","timestamp":"2026-04-06T21:33:28.579Z"}
+
+data: {"data":"Preparing to unpack .../014-libboost-thread1.74.0_1.74.0+ds1-21_amd64.deb ...","timestamp":"2026-04-06T21:33:28.579Z"}
+
+data: {"data":"Unpacking libboost-thread1.74.0:amd64 (1.74.0+ds1-21) ...","timestamp":"2026-04-06T21:33:28.579Z"}
+
+data: {"data":"Selecting previously unselected package libboost-locale1.74.0:amd64.","timestamp":"2026-04-06T21:33:28.579Z"}
+
+data: {"data":"Preparing to unpack .../015-libboost-locale1.74.0_1.74.0+ds1-21_amd64.deb ...","timestamp":"2026-04-06T21:33:28.579Z"}
+
+data: {"data":"Unpacking libboost-locale1.74.0:amd64 (1.74.0+ds1-21) ...","timestamp":"2026-04-06T21:33:28.579Z"}
+
+data: {"data":"Selecting previously unselected package libclucene-core1v5:amd64.","timestamp":"2026-04-06T21:33:28.579Z"}
+
+data: {"data":"Preparing to unpack .../016-libclucene-core1v5_2.3.3.4+dfsg-1.1_amd64.deb ...","timestamp":"2026-04-06T21:33:28.700Z"}
+
+data: {"data":"Unpacking libclucene-core1v5:amd64 (2.3.3.4+dfsg-1.1) ...","timestamp":"2026-04-06T21:33:28.700Z"}
+
+data: {"data":"Selecting previously unselected package libclucene-contribs1v5:amd64.","timestamp":"2026-04-06T21:33:28.700Z"}
+
+data: {"data":"Preparing to unpack .../017-libclucene-contribs1v5_2.3.3.4+dfsg-1.1_amd64.deb ...","timestamp":"2026-04-06T21:33:28.700Z"}
+
+data: {"data":"Unpacking libclucene-contribs1v5:amd64 (2.3.3.4+dfsg-1.1) ...","timestamp":"2026-04-06T21:33:28.700Z"}
+
+data: {"data":"Selecting previously unselected package libavahi-common-data:amd64.","timestamp":"2026-04-06T21:33:28.700Z"}
+
+data: {"data":"Preparing to unpack .../018-libavahi-common-data_0.8-10+deb12u1_amd64.deb ...","timestamp":"2026-04-06T21:33:28.700Z"}
+
+data: {"data":"Unpacking libavahi-common-data:amd64 (0.8-10+deb12u1) ...","timestamp":"2026-04-06T21:33:28.700Z"}
+
+data: {"data":"Selecting previously unselected package libavahi-common3:amd64.","timestamp":"2026-04-06T21:33:28.700Z"}
+
+data: {"data":"Preparing to unpack .../019-libavahi-common3_0.8-10+deb12u1_amd64.deb ...","timestamp":"2026-04-06T21:33:28.700Z"}
+
+data: {"data":"Unpacking libavahi-common3:amd64 (0.8-10+deb12u1) ...","timestamp":"2026-04-06T21:33:28.700Z"}
+
+data: {"data":"Selecting previously unselected package libdbus-1-3:amd64.","timestamp":"2026-04-06T21:33:28.700Z"}
+
+data: {"data":"Preparing to unpack .../020-libdbus-1-3_1.14.10-1~deb12u1_amd64.deb ...","timestamp":"2026-04-06T21:33:28.700Z"}
+
+data: {"data":"Unpacking libdbus-1-3:amd64 (1.14.10-1~deb12u1) ...","timestamp":"2026-04-06T21:33:28.700Z"}
+
+data: {"data":"Selecting previously unselected package libavahi-client3:amd64.","timestamp":"2026-04-06T21:33:28.700Z"}
+
+data: {"data":"Preparing to unpack .../021-libavahi-client3_0.8-10+deb12u1_amd64.deb ...","timestamp":"2026-04-06T21:33:28.819Z"}
+
+data: {"data":"Unpacking libavahi-client3:amd64 (0.8-10+deb12u1) ...","timestamp":"2026-04-06T21:33:28.819Z"}
+
+data: {"data":"Selecting previously unselected package libcups2:amd64.","timestamp":"2026-04-06T21:33:28.819Z"}
+
+data: {"data":"Preparing to unpack .../022-libcups2_2.4.2-3+deb12u9_amd64.deb ...","timestamp":"2026-04-06T21:33:28.819Z"}
+
+data: {"data":"Unpacking libcups2:amd64 (2.4.2-3+deb12u9) ...","timestamp":"2026-04-06T21:33:28.819Z"}
+
+data: {"data":"Selecting previously unselected package libdconf1:amd64.","timestamp":"2026-04-06T21:33:28.819Z"}
+
+data: {"data":"Preparing to unpack .../023-libdconf1_0.40.0-4_amd64.deb ...","timestamp":"2026-04-06T21:33:28.819Z"}
+
+data: {"data":"Unpacking libdconf1:amd64 (0.40.0-4) ...","timestamp":"2026-04-06T21:33:28.819Z"}
+
+data: {"data":"Selecting previously unselected package libeot0:amd64.","timestamp":"2026-04-06T21:33:28.819Z"}
+
+data: {"data":"Preparing to unpack .../024-libeot0_0.01-5+b1_amd64.deb ...","timestamp":"2026-04-06T21:33:28.819Z"}
+
+data: {"data":"Unpacking libeot0:amd64 (0.01-5+b1) ...","timestamp":"2026-04-06T21:33:28.819Z"}
+
+data: {"data":"Selecting previously unselected package libepoxy0:amd64.","timestamp":"2026-04-06T21:33:28.819Z"}
+
+data: {"data":"Preparing to unpack .../025-libepoxy0_1.5.10-1_amd64.deb ...","timestamp":"2026-04-06T21:33:28.819Z"}
+
+data: {"data":"Unpacking libepoxy0:amd64 (1.5.10-1) ...","timestamp":"2026-04-06T21:33:28.819Z"}
+
+data: {"data":"Selecting previously unselected package libexttextcat-data.","timestamp":"2026-04-06T21:33:28.819Z"}
+
+data: {"data":"Preparing to unpack .../026-libexttextcat-data_3.4.5-1_all.deb ...","timestamp":"2026-04-06T21:33:28.819Z"}
+
+data: {"data":"Unpacking libexttextcat-data (3.4.5-1) ...","timestamp":"2026-04-06T21:33:28.819Z"}
+
+data: {"data":"Selecting previously unselected package libexttextcat-2.0-0:amd64.","timestamp":"2026-04-06T21:33:28.819Z"}
+
+data: {"data":"Preparing to unpack .../027-libexttextcat-2.0-0_3.4.5-1_amd64.deb ...","timestamp":"2026-04-06T21:33:28.932Z"}
+
+data: {"data":"Unpacking libexttextcat-2.0-0:amd64 (3.4.5-1) ...","timestamp":"2026-04-06T21:33:28.932Z"}
+
+data: {"data":"Selecting previously unselected package libgpgme11:amd64.","timestamp":"2026-04-06T21:33:28.932Z"}
+
+data: {"data":"Preparing to unpack .../028-libgpgme11_1.18.0-3+b1_amd64.deb ...","timestamp":"2026-04-06T21:33:28.932Z"}
+
+data: {"data":"Unpacking libgpgme11:amd64 (1.18.0-3+b1) ...","timestamp":"2026-04-06T21:33:28.932Z"}
+
+data: {"data":"Selecting previously unselected package libgpgmepp6:amd64.","timestamp":"2026-04-06T21:33:28.932Z"}
+
+data: {"data":"Preparing to unpack .../029-libgpgmepp6_1.18.0-3+b1_amd64.deb ...","timestamp":"2026-04-06T21:33:28.932Z"}
+
+data: {"data":"Unpacking libgpgmepp6:amd64 (1.18.0-3+b1) ...","timestamp":"2026-04-06T21:33:28.932Z"}
+
+data: {"data":"Selecting previously unselected package libdw1:amd64.","timestamp":"2026-04-06T21:33:28.932Z"}
+
+data: {"data":"Preparing to unpack .../030-libdw1_0.188-2.1_amd64.deb ...","timestamp":"2026-04-06T21:33:28.932Z"}
+
+data: {"data":"Unpacking libdw1:amd64 (0.188-2.1) ...","timestamp":"2026-04-06T21:33:28.932Z"}
+
+data: {"data":"Selecting previously unselected package libunwind8:amd64.","timestamp":"2026-04-06T21:33:28.932Z"}
+
+data: {"data":"Preparing to unpack .../031-libunwind8_1.6.2-3_amd64.deb ...","timestamp":"2026-04-06T21:33:28.932Z"}
+
+data: {"data":"Unpacking libunwind8:amd64 (1.6.2-3) ...","timestamp":"2026-04-06T21:33:28.932Z"}
+
+data: {"data":"Selecting previously unselected package libcap2-bin.","timestamp":"2026-04-06T21:33:28.932Z"}
+
+data: {"data":"Preparing to unpack .../032-libcap2-bin_1%3a2.66-4+deb12u2+b2_amd64.deb ...","timestamp":"2026-04-06T21:33:28.932Z"}
+
+data: {"data":"Unpacking libcap2-bin (1:2.66-4+deb12u2+b2) ...","timestamp":"2026-04-06T21:33:28.932Z"}
+
+data: {"data":"Selecting previously unselected package libgstreamer1.0-0:amd64.","timestamp":"2026-04-06T21:33:28.932Z"}
+
+data: {"data":"Preparing to unpack .../033-libgstreamer1.0-0_1.22.0-2+deb12u1_amd64.deb ...","timestamp":"2026-04-06T21:33:29.040Z"}
+
+data: {"data":"Unpacking libgstreamer1.0-0:amd64 (1.22.0-2+deb12u1) ...","timestamp":"2026-04-06T21:33:29.040Z"}
+
+data: {"data":"Selecting previously unselected package liborc-0.4-0:amd64.","timestamp":"2026-04-06T21:33:29.040Z"}
+
+data: {"data":"Preparing to unpack .../034-liborc-0.4-0_1%3a0.4.33-2_amd64.deb ...","timestamp":"2026-04-06T21:33:29.040Z"}
+
+data: {"data":"Unpacking liborc-0.4-0:amd64 (1:0.4.33-2) ...","timestamp":"2026-04-06T21:33:29.040Z"}
+
+data: {"data":"Selecting previously unselected package iso-codes.","timestamp":"2026-04-06T21:33:29.040Z"}
+
+data: {"data":"Preparing to unpack .../035-iso-codes_4.15.0-1_all.deb ...","timestamp":"2026-04-06T21:33:29.193Z"}
+
+data: {"data":"Unpacking iso-codes (4.15.0-1) ...","timestamp":"2026-04-06T21:33:29.193Z"}
+
+data: {"data":"Selecting previously unselected package libgstreamer-plugins-base1.0-0:amd64.","timestamp":"2026-04-06T21:33:29.309Z"}
+
+data: {"data":"Preparing to unpack .../036-libgstreamer-plugins-base1.0-0_1.22.0-3+deb12u6_amd64.deb ...","timestamp":"2026-04-06T21:33:29.411Z"}
+
+data: {"data":"Unpacking libgstreamer-plugins-base1.0-0:amd64 (1.22.0-3+deb12u6) ...","timestamp":"2026-04-06T21:33:29.411Z"}
+
+data: {"data":"Selecting previously unselected package libharfbuzz-icu0:amd64.","timestamp":"2026-04-06T21:33:29.411Z"}
+
+data: {"data":"Preparing to unpack .../037-libharfbuzz-icu0_6.0.0+dfsg-3_amd64.deb ...","timestamp":"2026-04-06T21:33:29.411Z"}
+
+data: {"data":"Unpacking libharfbuzz-icu0:amd64 (6.0.0+dfsg-3) ...","timestamp":"2026-04-06T21:33:29.411Z"}
+
+data: {"data":"Selecting previously unselected package libhunspell-1.7-0:amd64.","timestamp":"2026-04-06T21:33:29.411Z"}
+
+data: {"data":"Preparing to unpack .../038-libhunspell-1.7-0_1.7.1-1_amd64.deb ...","timestamp":"2026-04-06T21:33:29.411Z"}
+
+data: {"data":"Unpacking libhunspell-1.7-0:amd64 (1.7.1-1) ...","timestamp":"2026-04-06T21:33:29.568Z"}
+
+data: {"data":"Selecting previously unselected package libhyphen0:amd64.","timestamp":"2026-04-06T21:33:29.569Z"}
+
+data: {"data":"Preparing to unpack .../039-libhyphen0_2.8.8-7_amd64.deb ...","timestamp":"2026-04-06T21:33:29.569Z"}
+
+data: {"data":"Unpacking libhyphen0:amd64 (2.8.8-7) ...","timestamp":"2026-04-06T21:33:29.569Z"}
+
+data: {"data":"Selecting previously unselected package libmythes-1.2-0:amd64.","timestamp":"2026-04-06T21:33:29.569Z"}
+
+data: {"data":"Preparing to unpack .../040-libmythes-1.2-0_2%3a1.2.5-1_amd64.deb ...","timestamp":"2026-04-06T21:33:29.569Z"}
+
+data: {"data":"Unpacking libmythes-1.2-0:amd64 (2:1.2.5-1) ...","timestamp":"2026-04-06T21:33:29.569Z"}
+
+data: {"data":"Selecting previously unselected package libnspr4:amd64.","timestamp":"2026-04-06T21:33:29.569Z"}
+
+data: {"data":"Preparing to unpack .../041-libnspr4_2%3a4.35-1_amd64.deb ...","timestamp":"2026-04-06T21:33:29.569Z"}
+
+data: {"data":"Unpacking libnspr4:amd64 (2:4.35-1) ...","timestamp":"2026-04-06T21:33:29.569Z"}
+
+data: {"data":"Selecting previously unselected package libnss3:amd64.","timestamp":"2026-04-06T21:33:29.569Z"}
+
+data: {"data":"Preparing to unpack .../042-libnss3_2%3a3.87.1-1+deb12u2_amd64.deb ...","timestamp":"2026-04-06T21:33:29.569Z"}
+
+data: {"data":"Unpacking libnss3:amd64 (2:3.87.1-1+deb12u2) ...","timestamp":"2026-04-06T21:33:29.569Z"}
+
+data: {"data":"Selecting previously unselected package libnumbertext-1.0-0:amd64.","timestamp":"2026-04-06T21:33:29.569Z"}
+
+data: {"data":"Preparing to unpack .../043-libnumbertext-1.0-0_1.0.11-1_amd64.deb ...","timestamp":"2026-04-06T21:33:29.693Z"}
+
+data: {"data":"Unpacking libnumbertext-1.0-0:amd64 (1.0.11-1) ...","timestamp":"2026-04-06T21:33:29.693Z"}
+
+data: {"data":"Selecting previously unselected package libboost-filesystem1.74.0:amd64.","timestamp":"2026-04-06T21:33:29.693Z"}
+
+data: {"data":"Preparing to unpack .../044-libboost-filesystem1.74.0_1.74.0+ds1-21_amd64.deb ...","timestamp":"2026-04-06T21:33:29.693Z"}
+
+data: {"data":"Unpacking libboost-filesystem1.74.0:amd64 (1.74.0+ds1-21) ...","timestamp":"2026-04-06T21:33:29.693Z"}
+
+data: {"data":"Selecting previously unselected package libboost-iostreams1.74.0:amd64.","timestamp":"2026-04-06T21:33:29.693Z"}
+
+data: {"data":"Preparing to unpack .../045-libboost-iostreams1.74.0_1.74.0+ds1-21_amd64.deb ...","timestamp":"2026-04-06T21:33:29.693Z"}
+
+data: {"data":"Unpacking libboost-iostreams1.74.0:amd64 (1.74.0+ds1-21) ...","timestamp":"2026-04-06T21:33:29.693Z"}
+
+data: {"data":"Selecting previously unselected package liborcus-parser-0.17-0:amd64.","timestamp":"2026-04-06T21:33:29.693Z"}
+
+data: {"data":"Preparing to unpack .../046-liborcus-parser-0.17-0_0.17.2-2+b2_amd64.deb ...","timestamp":"2026-04-06T21:33:29.693Z"}
+
+data: {"data":"Unpacking liborcus-parser-0.17-0:amd64 (0.17.2-2+b2) ...","timestamp":"2026-04-06T21:33:29.693Z"}
+
+data: {"data":"Selecting previously unselected package liborcus-0.17-0:amd64.","timestamp":"2026-04-06T21:33:29.693Z"}
+
+data: {"data":"Preparing to unpack .../047-liborcus-0.17-0_0.17.2-2+b2_amd64.deb ...","timestamp":"2026-04-06T21:33:29.693Z"}
+
+data: {"data":"Unpacking liborcus-0.17-0:amd64 (0.17.2-2+b2) ...","timestamp":"2026-04-06T21:33:29.693Z"}
+
+data: {"data":"Selecting previously unselected package libpoppler126:amd64.","timestamp":"2026-04-06T21:33:29.693Z"}
+
+data: {"data":"Preparing to unpack .../048-libpoppler126_22.12.0-2+deb12u1_amd64.deb ...","timestamp":"2026-04-06T21:33:29.808Z"}
+
+data: {"data":"Unpacking libpoppler126:amd64 (22.12.0-2+deb12u1) ...","timestamp":"2026-04-06T21:33:29.808Z"}
+
+data: {"data":"Selecting previously unselected package libyajl2:amd64.","timestamp":"2026-04-06T21:33:29.808Z"}
+
+data: {"data":"Preparing to unpack .../049-libyajl2_2.1.0-3+deb12u2_amd64.deb ...","timestamp":"2026-04-06T21:33:29.808Z"}
+
+data: {"data":"Unpacking libyajl2:amd64 (2.1.0-3+deb12u2) ...","timestamp":"2026-04-06T21:33:29.808Z"}
+
+data: {"data":"Selecting previously unselected package libraptor2-0:amd64.","timestamp":"2026-04-06T21:33:29.808Z"}
+
+data: {"data":"Preparing to unpack .../050-libraptor2-0_2.0.15-4+deb12u1_amd64.deb ...","timestamp":"2026-04-06T21:33:29.808Z"}
+
+data: {"data":"Unpacking libraptor2-0:amd64 (2.0.15-4+deb12u1) ...","timestamp":"2026-04-06T21:33:29.808Z"}
+
+data: {"data":"Selecting previously unselected package libmhash2:amd64.","timestamp":"2026-04-06T21:33:29.808Z"}
+
+data: {"data":"Preparing to unpack .../051-libmhash2_0.9.9.9-9_amd64.deb ...","timestamp":"2026-04-06T21:33:29.909Z"}
+
+data: {"data":"Unpacking libmhash2:amd64 (0.9.9.9-9) ...","timestamp":"2026-04-06T21:33:29.909Z"}
+
+data: {"data":"Selecting previously unselected package librasqal3:amd64.","timestamp":"2026-04-06T21:33:29.909Z"}
+
+data: {"data":"Preparing to unpack .../052-librasqal3_0.9.33-2_amd64.deb ...","timestamp":"2026-04-06T21:33:29.909Z"}
+
+data: {"data":"Unpacking librasqal3:amd64 (0.9.33-2) ...","timestamp":"2026-04-06T21:33:29.909Z"}
+
+data: {"data":"Selecting previously unselected package librdf0:amd64.","timestamp":"2026-04-06T21:33:29.909Z"}
+
+data: {"data":"Preparing to unpack .../053-librdf0_1.0.17-3_amd64.deb ...","timestamp":"2026-04-06T21:33:29.909Z"}
+
+data: {"data":"Unpacking librdf0:amd64 (1.0.17-3) ...","timestamp":"2026-04-06T21:33:29.909Z"}
+
+data: {"data":"Selecting previously unselected package librevenge-0.0-0:amd64.","timestamp":"2026-04-06T21:33:29.909Z"}
+
+data: {"data":"Preparing to unpack .../054-librevenge-0.0-0_0.0.5-3_amd64.deb ...","timestamp":"2026-04-06T21:33:29.909Z"}
+
+data: {"data":"Unpacking librevenge-0.0-0:amd64 (0.0.5-3) ...","timestamp":"2026-04-06T21:33:29.909Z"}
+
+data: {"data":"Selecting previously unselected package libx11-xcb1:amd64.","timestamp":"2026-04-06T21:33:29.909Z"}
+
+data: {"data":"Preparing to unpack .../055-libx11-xcb1_2%3a1.8.4-2+deb12u2_amd64.deb ...","timestamp":"2026-04-06T21:33:29.909Z"}
+
+data: {"data":"Unpacking libx11-xcb1:amd64 (2:1.8.4-2+deb12u2) ...","timestamp":"2026-04-06T21:33:29.909Z"}
+
+data: {"data":"Selecting previously unselected package libxinerama1:amd64.","timestamp":"2026-04-06T21:33:29.909Z"}
+
+data: {"data":"Preparing to unpack .../056-libxinerama1_2%3a1.1.4-3_amd64.deb ...","timestamp":"2026-04-06T21:33:30.021Z"}
+
+data: {"data":"Unpacking libxinerama1:amd64 (2:1.1.4-3) ...","timestamp":"2026-04-06T21:33:30.021Z"}
+
+data: {"data":"Selecting previously unselected package libxmlsec1:amd64.","timestamp":"2026-04-06T21:33:30.021Z"}
+
+data: {"data":"Preparing to unpack .../057-libxmlsec1_1.2.37-2_amd64.deb ...","timestamp":"2026-04-06T21:33:30.021Z"}
+
+data: {"data":"Unpacking libxmlsec1:amd64 (1.2.37-2) ...","timestamp":"2026-04-06T21:33:30.021Z"}
+
+data: {"data":"Selecting previously unselected package libxmlsec1-nss:amd64.","timestamp":"2026-04-06T21:33:30.021Z"}
+
+data: {"data":"Preparing to unpack .../058-libxmlsec1-nss_1.2.37-2_amd64.deb ...","timestamp":"2026-04-06T21:33:30.021Z"}
+
+data: {"data":"Unpacking libxmlsec1-nss:amd64 (1.2.37-2) ...","timestamp":"2026-04-06T21:33:30.021Z"}
+
+data: {"data":"Selecting previously unselected package libxrandr2:amd64.","timestamp":"2026-04-06T21:33:30.021Z"}
+
+data: {"data":"Preparing to unpack .../059-libxrandr2_2%3a1.5.2-2+b1_amd64.deb ...","timestamp":"2026-04-06T21:33:30.021Z"}
+
+data: {"data":"Unpacking libxrandr2:amd64 (2:1.5.2-2+b1) ...","timestamp":"2026-04-06T21:33:30.021Z"}
+
+data: {"data":"Selecting previously unselected package libzxing2:amd64.","timestamp":"2026-04-06T21:33:30.021Z"}
+
+data: {"data":"Preparing to unpack .../060-libzxing2_1.4.0-3+b1_amd64.deb ...","timestamp":"2026-04-06T21:33:30.021Z"}
+
+data: {"data":"Unpacking libzxing2:amd64 (1.4.0-3+b1) ...","timestamp":"2026-04-06T21:33:30.021Z"}
+
+data: {"data":"Selecting previously unselected package libreoffice-core.","timestamp":"2026-04-06T21:33:30.021Z"}
+
+data: {"data":"Preparing to unpack .../061-libreoffice-core_4%3a7.4.7-1+deb12u10_amd64.deb ...","timestamp":"2026-04-06T21:33:30.186Z"}
+
+data: {"data":"Unpacking libreoffice-core (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:30.186Z"}
+
+data: {"data":"Selecting previously unselected package libreoffice-base-core.","timestamp":"2026-04-06T21:33:30.748Z"}
+
+data: {"data":"Preparing to unpack .../062-libreoffice-base-core_4%3a7.4.7-1+deb12u10_amd64.deb ...","timestamp":"2026-04-06T21:33:30.868Z"}
+
+data: {"data":"Unpacking libreoffice-base-core (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:30.868Z"}
+
+data: {"data":"Selecting previously unselected package libreoffice-base-drivers.","timestamp":"2026-04-06T21:33:30.868Z"}
+
+data: {"data":"Preparing to unpack .../063-libreoffice-base-drivers_4%3a7.4.7-1+deb12u10_amd64.deb ...","timestamp":"2026-04-06T21:33:30.868Z"}
+
+data: {"data":"Unpacking libreoffice-base-drivers (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:30.868Z"}
+
+data: {"data":"Selecting previously unselected package libreoffice-base.","timestamp":"2026-04-06T21:33:30.868Z"}
+
+data: {"data":"Preparing to unpack .../064-libreoffice-base_4%3a7.4.7-1+deb12u10_amd64.deb ...","timestamp":"2026-04-06T21:33:30.999Z"}
+
+data: {"data":"No diversion 'diversion of /usr/lib/libreoffice/share/basic/dialog.xlc to /usr/lib/libreoffice/share/basic/dialog.xlc.noaccess by libreoffice-base', none removed.","timestamp":"2026-04-06T21:33:30.999Z"}
+
+data: {"data":"No diversion 'diversion of /usr/lib/libreoffice/share/basic/script.xlc to /usr/lib/libreoffice/share/basic/script.xlc.noaccess by libreoffice-base', none removed.","timestamp":"2026-04-06T21:33:30.999Z"}
+
+data: {"data":"Unpacking libreoffice-base (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:30.999Z"}
+
+data: {"data":"Selecting previously unselected package build-essential.","timestamp":"2026-04-06T21:33:30.999Z"}
+
+data: {"data":"Preparing to unpack .../065-build-essential_12.9_amd64.deb ...","timestamp":"2026-04-06T21:33:31.101Z"}
+
+data: {"data":"Unpacking build-essential (12.9) ...","timestamp":"2026-04-06T21:33:31.101Z"}
+
+data: {"data":"Selecting previously unselected package libblas3:amd64.","timestamp":"2026-04-06T21:33:31.101Z"}
+
+data: {"data":"Preparing to unpack .../066-libblas3_3.11.0-2_amd64.deb ...","timestamp":"2026-04-06T21:33:31.101Z"}
+
+data: {"data":"Unpacking libblas3:amd64 (3.11.0-2) ...","timestamp":"2026-04-06T21:33:31.101Z"}
+
+data: {"data":"Selecting previously unselected package libgfortran5:amd64.","timestamp":"2026-04-06T21:33:31.101Z"}
+
+data: {"data":"Preparing to unpack .../067-libgfortran5_12.2.0-14+deb12u1_amd64.deb ...","timestamp":"2026-04-06T21:33:31.101Z"}
+
+data: {"data":"Unpacking libgfortran5:amd64 (12.2.0-14+deb12u1) ...","timestamp":"2026-04-06T21:33:31.101Z"}
+
+data: {"data":"Selecting previously unselected package liblapack3:amd64.","timestamp":"2026-04-06T21:33:31.101Z"}
+
+data: {"data":"Preparing to unpack .../068-liblapack3_3.11.0-2_amd64.deb ...","timestamp":"2026-04-06T21:33:31.101Z"}
+
+data: {"data":"Unpacking liblapack3:amd64 (3.11.0-2) ...","timestamp":"2026-04-06T21:33:31.253Z"}
+
+data: {"data":"Selecting previously unselected package coinor-libcoinutils3v5:amd64.","timestamp":"2026-04-06T21:33:31.253Z"}
+
+data: {"data":"Preparing to unpack .../069-coinor-libcoinutils3v5_2.11.4+repack1-2_amd64.deb ...","timestamp":"2026-04-06T21:33:31.388Z"}
+
+data: {"data":"Unpacking coinor-libcoinutils3v5:amd64 (2.11.4+repack1-2) ...","timestamp":"2026-04-06T21:33:31.388Z"}
+
+data: {"data":"Selecting previously unselected package coinor-libosi1v5:amd64.","timestamp":"2026-04-06T21:33:31.388Z"}
+
+data: {"data":"Preparing to unpack .../070-coinor-libosi1v5_0.108.6+repack1-2_amd64.deb ...","timestamp":"2026-04-06T21:33:31.388Z"}
+
+data: {"data":"Unpacking coinor-libosi1v5:amd64 (0.108.6+repack1-2) ...","timestamp":"2026-04-06T21:33:31.388Z"}
+
+data: {"data":"Selecting previously unselected package coinor-libclp1:amd64.","timestamp":"2026-04-06T21:33:31.388Z"}
+
+data: {"data":"Preparing to unpack .../071-coinor-libclp1_1.17.6-3_amd64.deb ...","timestamp":"2026-04-06T21:33:31.388Z"}
+
+data: {"data":"Unpacking coinor-libclp1:amd64 (1.17.6-3) ...","timestamp":"2026-04-06T21:33:31.388Z"}
+
+data: {"data":"Selecting previously unselected package coinor-libcgl1:amd64.","timestamp":"2026-04-06T21:33:31.388Z"}
+
+data: {"data":"Preparing to unpack .../072-coinor-libcgl1_0.60.3+repack1-4_amd64.deb ...","timestamp":"2026-04-06T21:33:31.498Z"}
+
+data: {"data":"Unpacking coinor-libcgl1:amd64 (0.60.3+repack1-4) ...","timestamp":"2026-04-06T21:33:31.498Z"}
+
+data: {"data":"Selecting previously unselected package coinor-libcbc3:amd64.","timestamp":"2026-04-06T21:33:31.498Z"}
+
+data: {"data":"Preparing to unpack .../073-coinor-libcbc3_2.10.8+ds1-1_amd64.deb ...","timestamp":"2026-04-06T21:33:31.498Z"}
+
+data: {"data":"Unpacking coinor-libcbc3:amd64 (2.10.8+ds1-1) ...","timestamp":"2026-04-06T21:33:31.498Z"}
+
+data: {"data":"Selecting previously unselected package coinor-libcoinmp1v5:amd64.","timestamp":"2026-04-06T21:33:31.498Z"}
+
+data: {"data":"Preparing to unpack .../074-coinor-libcoinmp1v5_1.8.3-3_amd64.deb ...","timestamp":"2026-04-06T21:33:31.498Z"}
+
+data: {"data":"Unpacking coinor-libcoinmp1v5:amd64 (1.8.3-3) ...","timestamp":"2026-04-06T21:33:31.498Z"}
+
+data: {"data":"Selecting previously unselected package libdrm-common.","timestamp":"2026-04-06T21:33:31.498Z"}
+
+data: {"data":"Preparing to unpack .../075-libdrm-common_2.4.114-1_all.deb ...","timestamp":"2026-04-06T21:33:31.693Z"}
+
+data: {"data":"Unpacking libdrm-common (2.4.114-1) ...","timestamp":"2026-04-06T21:33:31.693Z"}
+
+data: {"data":"Selecting previously unselected package libdrm2:amd64.","timestamp":"2026-04-06T21:33:31.693Z"}
+
+data: {"data":"Preparing to unpack .../076-libdrm2_2.4.114-1+b1_amd64.deb ...","timestamp":"2026-04-06T21:33:31.693Z"}
+
+data: {"data":"Unpacking libdrm2:amd64 (2.4.114-1+b1) ...","timestamp":"2026-04-06T21:33:31.693Z"}
+
+data: {"data":"Selecting previously unselected package libva2:amd64.","timestamp":"2026-04-06T21:33:31.693Z"}
+
+data: {"data":"Preparing to unpack .../077-libva2_2.17.0-1_amd64.deb ...","timestamp":"2026-04-06T21:33:31.693Z"}
+
+data: {"data":"Unpacking libva2:amd64 (2.17.0-1) ...","timestamp":"2026-04-06T21:33:31.693Z"}
+
+data: {"data":"Selecting previously unselected package libmfx1:amd64.","timestamp":"2026-04-06T21:33:31.693Z"}
+
+data: {"data":"Preparing to unpack .../078-libmfx1_22.5.4-1_amd64.deb ...","timestamp":"2026-04-06T21:33:31.693Z"}
+
+data: {"data":"Unpacking libmfx1:amd64 (22.5.4-1) ...","timestamp":"2026-04-06T21:33:31.693Z"}
+
+data: {"data":"Selecting previously unselected package libva-drm2:amd64.","timestamp":"2026-04-06T21:33:31.782Z"}
+
+data: {"data":"Preparing to unpack .../079-libva-drm2_2.17.0-1_amd64.deb ...","timestamp":"2026-04-06T21:33:31.909Z"}
+
+data: {"data":"Unpacking libva-drm2:amd64 (2.17.0-1) ...","timestamp":"2026-04-06T21:33:31.909Z"}
+
+data: {"data":"Selecting previously unselected package libxcb-dri3-0:amd64.","timestamp":"2026-04-06T21:33:31.909Z"}
+
+data: {"data":"Preparing to unpack .../080-libxcb-dri3-0_1.15-1_amd64.deb ...","timestamp":"2026-04-06T21:33:31.909Z"}
+
+data: {"data":"Unpacking libxcb-dri3-0:amd64 (1.15-1) ...","timestamp":"2026-04-06T21:33:31.909Z"}
+
+data: {"data":"Selecting previously unselected package libxfixes3:amd64.","timestamp":"2026-04-06T21:33:31.909Z"}
+
+data: {"data":"Preparing to unpack .../081-libxfixes3_1%3a6.0.0-2_amd64.deb ...","timestamp":"2026-04-06T21:33:31.909Z"}
+
+data: {"data":"Unpacking libxfixes3:amd64 (1:6.0.0-2) ...","timestamp":"2026-04-06T21:33:31.909Z"}
+
+data: {"data":"Selecting previously unselected package libva-x11-2:amd64.","timestamp":"2026-04-06T21:33:31.909Z"}
+
+data: {"data":"Preparing to unpack .../082-libva-x11-2_2.17.0-1_amd64.deb ...","timestamp":"2026-04-06T21:33:31.909Z"}
+
+data: {"data":"Unpacking libva-x11-2:amd64 (2.17.0-1) ...","timestamp":"2026-04-06T21:33:31.909Z"}
+
+data: {"data":"Selecting previously unselected package libvdpau1:amd64.","timestamp":"2026-04-06T21:33:31.909Z"}
+
+data: {"data":"Preparing to unpack .../083-libvdpau1_1.5-2_amd64.deb ...","timestamp":"2026-04-06T21:33:31.909Z"}
+
+data: {"data":"Unpacking libvdpau1:amd64 (1.5-2) ...","timestamp":"2026-04-06T21:33:31.909Z"}
+
+data: {"data":"Selecting previously unselected package ocl-icd-libopencl1:amd64.","timestamp":"2026-04-06T21:33:31.909Z"}
+
+data: {"data":"Preparing to unpack .../084-ocl-icd-libopencl1_2.3.1-1_amd64.deb ...","timestamp":"2026-04-06T21:33:31.909Z"}
+
+data: {"data":"Unpacking ocl-icd-libopencl1:amd64 (2.3.1-1) ...","timestamp":"2026-04-06T21:33:31.909Z"}
+
+data: {"data":"Selecting previously unselected package libavutil57:amd64.","timestamp":"2026-04-06T21:33:31.909Z"}
+
+data: {"data":"Preparing to unpack .../085-libavutil57_7%3a5.1.8-0+deb12u1_amd64.deb ...","timestamp":"2026-04-06T21:33:31.909Z"}
+
+data: {"data":"Unpacking libavutil57:amd64 (7:5.1.8-0+deb12u1) ...","timestamp":"2026-04-06T21:33:31.909Z"}
+
+data: {"data":"Selecting previously unselected package libcodec2-1.0:amd64.","timestamp":"2026-04-06T21:33:31.909Z"}
+
+data: {"data":"Preparing to unpack .../086-libcodec2-1.0_1.0.5-1_amd64.deb ...","timestamp":"2026-04-06T21:33:32.062Z"}
+
+data: {"data":"Unpacking libcodec2-1.0:amd64 (1.0.5-1) ...","timestamp":"2026-04-06T21:33:32.062Z"}
+
+data: {"data":"Selecting previously unselected package libgsm1:amd64.","timestamp":"2026-04-06T21:33:32.417Z"}
+
+data: {"data":"Preparing to unpack .../087-libgsm1_1.0.22-1_amd64.deb ...","timestamp":"2026-04-06T21:33:32.576Z"}
+
+data: {"data":"Unpacking libgsm1:amd64 (1.0.22-1) ...","timestamp":"2026-04-06T21:33:32.576Z"}
+
+data: {"data":"Selecting previously unselected package libhwy1:amd64.","timestamp":"2026-04-06T21:33:32.576Z"}
+
+data: {"data":"Preparing to unpack .../088-libhwy1_1.0.3-3+deb12u1_amd64.deb ...","timestamp":"2026-04-06T21:33:32.576Z"}
+
+data: {"data":"Unpacking libhwy1:amd64 (1.0.3-3+deb12u1) ...","timestamp":"2026-04-06T21:33:32.576Z"}
+
+data: {"data":"Selecting previously unselected package libjxl0.7:amd64.","timestamp":"2026-04-06T21:33:32.576Z"}
+
+data: {"data":"Preparing to unpack .../089-libjxl0.7_0.7.0-10+deb12u1_amd64.deb ...","timestamp":"2026-04-06T21:33:32.576Z"}
+
+data: {"data":"Unpacking libjxl0.7:amd64 (0.7.0-10+deb12u1) ...","timestamp":"2026-04-06T21:33:32.576Z"}
+
+data: {"data":"Selecting previously unselected package libmp3lame0:amd64.","timestamp":"2026-04-06T21:33:32.576Z"}
+
+data: {"data":"Preparing to unpack .../090-libmp3lame0_3.100-6_amd64.deb ...","timestamp":"2026-04-06T21:33:32.722Z"}
+
+data: {"data":"Unpacking libmp3lame0:amd64 (3.100-6) ...","timestamp":"2026-04-06T21:33:32.722Z"}
+
+data: {"data":"Selecting previously unselected package libopus0:amd64.","timestamp":"2026-04-06T21:33:32.722Z"}
+
+data: {"data":"Preparing to unpack .../091-libopus0_1.3.1-3_amd64.deb ...","timestamp":"2026-04-06T21:33:32.722Z"}
+
+data: {"data":"Unpacking libopus0:amd64 (1.3.1-3) ...","timestamp":"2026-04-06T21:33:32.722Z"}
+
+data: {"data":"Selecting previously unselected package librav1e0:amd64.","timestamp":"2026-04-06T21:33:32.722Z"}
+
+data: {"data":"Preparing to unpack .../092-librav1e0_0.5.1-6_amd64.deb ...","timestamp":"2026-04-06T21:33:32.833Z"}
+
+data: {"data":"Unpacking librav1e0:amd64 (0.5.1-6) ...","timestamp":"2026-04-06T21:33:32.833Z"}
+
+data: {"data":"Selecting previously unselected package libshine3:amd64.","timestamp":"2026-04-06T21:33:32.833Z"}
+
+data: {"data":"Preparing to unpack .../093-libshine3_3.1.1-2_amd64.deb ...","timestamp":"2026-04-06T21:33:32.833Z"}
+
+data: {"data":"Unpacking libshine3:amd64 (3.1.1-2) ...","timestamp":"2026-04-06T21:33:32.833Z"}
+
+data: {"data":"Selecting previously unselected package libsnappy1v5:amd64.","timestamp":"2026-04-06T21:33:32.833Z"}
+
+data: {"data":"Preparing to unpack .../094-libsnappy1v5_1.1.9-3_amd64.deb ...","timestamp":"2026-04-06T21:33:32.833Z"}
+
+data: {"data":"Unpacking libsnappy1v5:amd64 (1.1.9-3) ...","timestamp":"2026-04-06T21:33:32.833Z"}
+
+data: {"data":"Selecting previously unselected package libspeex1:amd64.","timestamp":"2026-04-06T21:33:32.833Z"}
+
+data: {"data":"Preparing to unpack .../095-libspeex1_1.2.1-2_amd64.deb ...","timestamp":"2026-04-06T21:33:32.833Z"}
+
+data: {"data":"Unpacking libspeex1:amd64 (1.2.1-2) ...","timestamp":"2026-04-06T21:33:32.833Z"}
+
+data: {"data":"Selecting previously unselected package libsvtav1enc1:amd64.","timestamp":"2026-04-06T21:33:32.833Z"}
+
+data: {"data":"Preparing to unpack .../096-libsvtav1enc1_1.4.1+dfsg-1_amd64.deb ...","timestamp":"2026-04-06T21:33:32.980Z"}
+
+data: {"data":"Unpacking libsvtav1enc1:amd64 (1.4.1+dfsg-1) ...","timestamp":"2026-04-06T21:33:32.980Z"}
+
+data: {"data":"Selecting previously unselected package libsoxr0:amd64.","timestamp":"2026-04-06T21:33:32.980Z"}
+
+data: {"data":"Preparing to unpack .../097-libsoxr0_0.1.3-4_amd64.deb ...","timestamp":"2026-04-06T21:33:33.083Z"}
+
+data: {"data":"Unpacking libsoxr0:amd64 (0.1.3-4) ...","timestamp":"2026-04-06T21:33:33.083Z"}
+
+data: {"data":"Selecting previously unselected package libswresample4:amd64.","timestamp":"2026-04-06T21:33:33.083Z"}
+
+data: {"data":"Preparing to unpack .../098-libswresample4_7%3a5.1.8-0+deb12u1_amd64.deb ...","timestamp":"2026-04-06T21:33:33.083Z"}
+
+data: {"data":"Unpacking libswresample4:amd64 (7:5.1.8-0+deb12u1) ...","timestamp":"2026-04-06T21:33:33.083Z"}
+
+data: {"data":"Selecting previously unselected package libogg0:amd64.","timestamp":"2026-04-06T21:33:33.083Z"}
+
+data: {"data":"Preparing to unpack .../099-libogg0_1.3.5-3_amd64.deb ...","timestamp":"2026-04-06T21:33:33.083Z"}
+
+data: {"data":"Unpacking libogg0:amd64 (1.3.5-3) ...","timestamp":"2026-04-06T21:33:33.083Z"}
+
+data: {"data":"Selecting previously unselected package libtheora0:amd64.","timestamp":"2026-04-06T21:33:33.083Z"}
+
+data: {"data":"Preparing to unpack .../100-libtheora0_1.1.1+dfsg.1-16.1+deb12u1_amd64.deb ...","timestamp":"2026-04-06T21:33:33.083Z"}
+
+data: {"data":"Unpacking libtheora0:amd64 (1.1.1+dfsg.1-16.1+deb12u1) ...","timestamp":"2026-04-06T21:33:33.083Z"}
+
+data: {"data":"Selecting previously unselected package libtwolame0:amd64.","timestamp":"2026-04-06T21:33:33.083Z"}
+
+data: {"data":"Preparing to unpack .../101-libtwolame0_0.4.0-2_amd64.deb ...","timestamp":"2026-04-06T21:33:33.083Z"}
+
+data: {"data":"Unpacking libtwolame0:amd64 (0.4.0-2) ...","timestamp":"2026-04-06T21:33:33.083Z"}
+
+data: {"data":"Selecting previously unselected package libvorbis0a:amd64.","timestamp":"2026-04-06T21:33:33.083Z"}
+
+data: {"data":"Preparing to unpack .../102-libvorbis0a_1.3.7-1_amd64.deb ...","timestamp":"2026-04-06T21:33:33.083Z"}
+
+data: {"data":"Unpacking libvorbis0a:amd64 (1.3.7-1) ...","timestamp":"2026-04-06T21:33:33.083Z"}
+
+data: {"data":"Selecting previously unselected package libvorbisenc2:amd64.","timestamp":"2026-04-06T21:33:33.083Z"}
+
+data: {"data":"Preparing to unpack .../103-libvorbisenc2_1.3.7-1_amd64.deb ...","timestamp":"2026-04-06T21:33:33.223Z"}
+
+data: {"data":"Unpacking libvorbisenc2:amd64 (1.3.7-1) ...","timestamp":"2026-04-06T21:33:33.223Z"}
+
+data: {"data":"Selecting previously unselected package libvpx7:amd64.","timestamp":"2026-04-06T21:33:33.223Z"}
+
+data: {"data":"Preparing to unpack .../104-libvpx7_1.12.0-1+deb12u5_amd64.deb ...","timestamp":"2026-04-06T21:33:33.223Z"}
+
+data: {"data":"Unpacking libvpx7:amd64 (1.12.0-1+deb12u5) ...","timestamp":"2026-04-06T21:33:33.223Z"}
+
+data: {"data":"Selecting previously unselected package libx264-164:amd64.","timestamp":"2026-04-06T21:33:33.223Z"}
+
+data: {"data":"Preparing to unpack .../105-libx264-164_2%3a0.164.3095+gitbaee400-3_amd64.deb ...","timestamp":"2026-04-06T21:33:33.223Z"}
+
+data: {"data":"Unpacking libx264-164:amd64 (2:0.164.3095+gitbaee400-3) ...","timestamp":"2026-04-06T21:33:33.223Z"}
+
+data: {"data":"Selecting previously unselected package libxvidcore4:amd64.","timestamp":"2026-04-06T21:33:33.223Z"}
+
+data: {"data":"Preparing to unpack .../106-libxvidcore4_2%3a1.3.7-1_amd64.deb ...","timestamp":"2026-04-06T21:33:33.449Z"}
+
+data: {"data":"Unpacking libxvidcore4:amd64 (2:1.3.7-1) ...","timestamp":"2026-04-06T21:33:33.449Z"}
+
+data: {"data":"Selecting previously unselected package libzvbi-common.","timestamp":"2026-04-06T21:33:33.449Z"}
+
+data: {"data":"Preparing to unpack .../107-libzvbi-common_0.2.41-1_all.deb ...","timestamp":"2026-04-06T21:33:33.449Z"}
+
+data: {"data":"Unpacking libzvbi-common (0.2.41-1) ...","timestamp":"2026-04-06T21:33:33.449Z"}
+
+data: {"data":"Selecting previously unselected package libzvbi0:amd64.","timestamp":"2026-04-06T21:33:33.449Z"}
+
+data: {"data":"Preparing to unpack .../108-libzvbi0_0.2.41-1_amd64.deb ...","timestamp":"2026-04-06T21:33:33.449Z"}
+
+data: {"data":"Unpacking libzvbi0:amd64 (0.2.41-1) ...","timestamp":"2026-04-06T21:33:33.449Z"}
+
+data: {"data":"Selecting previously unselected package libavcodec59:amd64.","timestamp":"2026-04-06T21:33:33.449Z"}
+
+data: {"data":"Preparing to unpack .../109-libavcodec59_7%3a5.1.8-0+deb12u1_amd64.deb ...","timestamp":"2026-04-06T21:33:33.449Z"}
+
+data: {"data":"Unpacking libavcodec59:amd64 (7:5.1.8-0+deb12u1) ...","timestamp":"2026-04-06T21:33:33.449Z"}
+
+data: {"data":"Selecting previously unselected package libasound2-data.","timestamp":"2026-04-06T21:33:33.632Z"}
+
+data: {"data":"Preparing to unpack .../110-libasound2-data_1.2.8-1_all.deb ...","timestamp":"2026-04-06T21:33:33.732Z"}
+
+data: {"data":"Unpacking libasound2-data (1.2.8-1) ...","timestamp":"2026-04-06T21:33:33.732Z"}
+
+data: {"data":"Selecting previously unselected package libasound2:amd64.","timestamp":"2026-04-06T21:33:33.732Z"}
+
+data: {"data":"Preparing to unpack .../111-libasound2_1.2.8-1+b1_amd64.deb ...","timestamp":"2026-04-06T21:33:33.732Z"}
+
+data: {"data":"Unpacking libasound2:amd64 (1.2.8-1+b1) ...","timestamp":"2026-04-06T21:33:33.732Z"}
+
+data: {"data":"Selecting previously unselected package libraw1394-11:amd64.","timestamp":"2026-04-06T21:33:33.732Z"}
+
+data: {"data":"Preparing to unpack .../112-libraw1394-11_2.1.2-2_amd64.deb ...","timestamp":"2026-04-06T21:33:33.732Z"}
+
+data: {"data":"Unpacking libraw1394-11:amd64 (2.1.2-2) ...","timestamp":"2026-04-06T21:33:33.732Z"}
+
+data: {"data":"Selecting previously unselected package libavc1394-0:amd64.","timestamp":"2026-04-06T21:33:33.732Z"}
+
+data: {"data":"Preparing to unpack .../113-libavc1394-0_0.5.4-5_amd64.deb ...","timestamp":"2026-04-06T21:33:33.732Z"}
+
+data: {"data":"Unpacking libavc1394-0:amd64 (0.5.4-5) ...","timestamp":"2026-04-06T21:33:33.732Z"}
+
+data: {"data":"Selecting previously unselected package libass9:amd64.","timestamp":"2026-04-06T21:33:33.732Z"}
+
+data: {"data":"Preparing to unpack .../114-libass9_1%3a0.17.1-1_amd64.deb ...","timestamp":"2026-04-06T21:33:33.732Z"}
+
+data: {"data":"Unpacking libass9:amd64 (1:0.17.1-1) ...","timestamp":"2026-04-06T21:33:33.732Z"}
+
+data: {"data":"Selecting previously unselected package libudfread0:amd64.","timestamp":"2026-04-06T21:33:33.732Z"}
+
+data: {"data":"Preparing to unpack .../115-libudfread0_1.1.2-1_amd64.deb ...","timestamp":"2026-04-06T21:33:33.732Z"}
+
+data: {"data":"Unpacking libudfread0:amd64 (1.1.2-1) ...","timestamp":"2026-04-06T21:33:33.833Z"}
+
+data: {"data":"Selecting previously unselected package libbluray2:amd64.","timestamp":"2026-04-06T21:33:33.833Z"}
+
+data: {"data":"Preparing to unpack .../116-libbluray2_1%3a1.3.4-1_amd64.deb ...","timestamp":"2026-04-06T21:33:33.833Z"}
+
+data: {"data":"Unpacking libbluray2:amd64 (1:1.3.4-1) ...","timestamp":"2026-04-06T21:33:33.833Z"}
+
+data: {"data":"Selecting previously unselected package libchromaprint1:amd64.","timestamp":"2026-04-06T21:33:33.833Z"}
+
+data: {"data":"Preparing to unpack .../117-libchromaprint1_1.5.1-2+b1_amd64.deb ...","timestamp":"2026-04-06T21:33:33.833Z"}
+
+data: {"data":"Unpacking libchromaprint1:amd64 (1.5.1-2+b1) ...","timestamp":"2026-04-06T21:33:33.833Z"}
+
+data: {"data":"Selecting previously unselected package libgme0:amd64.","timestamp":"2026-04-06T21:33:33.833Z"}
+
+data: {"data":"Preparing to unpack .../118-libgme0_0.6.3-6_amd64.deb ...","timestamp":"2026-04-06T21:33:33.833Z"}
+
+data: {"data":"Unpacking libgme0:amd64 (0.6.3-6) ...","timestamp":"2026-04-06T21:33:33.833Z"}
+
+data: {"data":"Selecting previously unselected package libmpg123-0:amd64.","timestamp":"2026-04-06T21:33:33.833Z"}
+
+data: {"data":"Preparing to unpack .../119-libmpg123-0_1.31.2-1+deb12u1_amd64.deb ...","timestamp":"2026-04-06T21:33:33.833Z"}
+
+data: {"data":"Unpacking libmpg123-0:amd64 (1.31.2-1+deb12u1) ...","timestamp":"2026-04-06T21:33:33.833Z"}
+
+data: {"data":"Selecting previously unselected package libvorbisfile3:amd64.","timestamp":"2026-04-06T21:33:33.833Z"}
+
+data: {"data":"Preparing to unpack .../120-libvorbisfile3_1.3.7-1_amd64.deb ...","timestamp":"2026-04-06T21:33:33.833Z"}
+
+data: {"data":"Unpacking libvorbisfile3:amd64 (1.3.7-1) ...","timestamp":"2026-04-06T21:33:33.833Z"}
+
+data: {"data":"Selecting previously unselected package libopenmpt0:amd64.","timestamp":"2026-04-06T21:33:33.833Z"}
+
+data: {"data":"Preparing to unpack .../121-libopenmpt0_0.6.9-1_amd64.deb ...","timestamp":"2026-04-06T21:33:33.946Z"}
+
+data: {"data":"Unpacking libopenmpt0:amd64 (0.6.9-1) ...","timestamp":"2026-04-06T21:33:33.946Z"}
+
+data: {"data":"Selecting previously unselected package librabbitmq4:amd64.","timestamp":"2026-04-06T21:33:33.946Z"}
+
+data: {"data":"Preparing to unpack .../122-librabbitmq4_0.11.0-1+deb12u1_amd64.deb ...","timestamp":"2026-04-06T21:33:33.946Z"}
+
+data: {"data":"Unpacking librabbitmq4:amd64 (0.11.0-1+deb12u1) ...","timestamp":"2026-04-06T21:33:33.946Z"}
+
+data: {"data":"Selecting previously unselected package libcjson1:amd64.","timestamp":"2026-04-06T21:33:33.946Z"}
+
+data: {"data":"Preparing to unpack .../123-libcjson1_1.7.15-1+deb12u4_amd64.deb ...","timestamp":"2026-04-06T21:33:33.946Z"}
+
+data: {"data":"Unpacking libcjson1:amd64 (1.7.15-1+deb12u4) ...","timestamp":"2026-04-06T21:33:33.946Z"}
+
+data: {"data":"Selecting previously unselected package libmbedcrypto7:amd64.","timestamp":"2026-04-06T21:33:33.946Z"}
+
+data: {"data":"Preparing to unpack .../124-libmbedcrypto7_2.28.3-1_amd64.deb ...","timestamp":"2026-04-06T21:33:33.946Z"}
+
+data: {"data":"Unpacking libmbedcrypto7:amd64 (2.28.3-1) ...","timestamp":"2026-04-06T21:33:33.946Z"}
+
+data: {"data":"Selecting previously unselected package librist4:amd64.","timestamp":"2026-04-06T21:33:33.946Z"}
+
+data: {"data":"Preparing to unpack .../125-librist4_0.2.7+dfsg-1_amd64.deb ...","timestamp":"2026-04-06T21:33:34.050Z"}
+
+data: {"data":"Unpacking librist4:amd64 (0.2.7+dfsg-1) ...","timestamp":"2026-04-06T21:33:34.050Z"}
+
+data: {"data":"Selecting previously unselected package libsrt1.5-gnutls:amd64.","timestamp":"2026-04-06T21:33:34.050Z"}
+
+data: {"data":"Preparing to unpack .../126-libsrt1.5-gnutls_1.5.1-1+deb12u1_amd64.deb ...","timestamp":"2026-04-06T21:33:34.050Z"}
+
+data: {"data":"Unpacking libsrt1.5-gnutls:amd64 (1.5.1-1+deb12u1) ...","timestamp":"2026-04-06T21:33:34.050Z"}
+
+data: {"data":"Selecting previously unselected package libssh-gcrypt-4:amd64.","timestamp":"2026-04-06T21:33:34.050Z"}
+
+data: {"data":"Preparing to unpack .../127-libssh-gcrypt-4_0.10.6-0+deb12u2_amd64.deb ...","timestamp":"2026-04-06T21:33:34.050Z"}
+
+data: {"data":"Unpacking libssh-gcrypt-4:amd64 (0.10.6-0+deb12u2) ...","timestamp":"2026-04-06T21:33:34.050Z"}
+
+data: {"data":"Selecting previously unselected package libnorm1:amd64.","timestamp":"2026-04-06T21:33:34.050Z"}
+
+data: {"data":"Preparing to unpack .../128-libnorm1_1.5.9+dfsg-2_amd64.deb ...","timestamp":"2026-04-06T21:33:34.050Z"}
+
+data: {"data":"Unpacking libnorm1:amd64 (1.5.9+dfsg-2) ...","timestamp":"2026-04-06T21:33:34.050Z"}
+
+data: {"data":"Selecting previously unselected package libpgm-5.3-0:amd64.","timestamp":"2026-04-06T21:33:34.050Z"}
+
+data: {"data":"Preparing to unpack .../129-libpgm-5.3-0_5.3.128~dfsg-2_amd64.deb ...","timestamp":"2026-04-06T21:33:34.203Z"}
+
+data: {"data":"Unpacking libpgm-5.3-0:amd64 (5.3.128~dfsg-2) ...","timestamp":"2026-04-06T21:33:34.203Z"}
+
+data: {"data":"Selecting previously unselected package libsodium23:amd64.","timestamp":"2026-04-06T21:33:34.203Z"}
+
+data: {"data":"Preparing to unpack .../130-libsodium23_1.0.18-1+deb12u1_amd64.deb ...","timestamp":"2026-04-06T21:33:34.203Z"}
+
+data: {"data":"Unpacking libsodium23:amd64 (1.0.18-1+deb12u1) ...","timestamp":"2026-04-06T21:33:34.203Z"}
+
+data: {"data":"Selecting previously unselected package libzmq5:amd64.","timestamp":"2026-04-06T21:33:34.203Z"}
+
+data: {"data":"Preparing to unpack .../131-libzmq5_4.3.4-6_amd64.deb ...","timestamp":"2026-04-06T21:33:34.203Z"}
+
+data: {"data":"Unpacking libzmq5:amd64 (4.3.4-6) ...","timestamp":"2026-04-06T21:33:34.203Z"}
+
+data: {"data":"Selecting previously unselected package libavformat59:amd64.","timestamp":"2026-04-06T21:33:34.203Z"}
+
+data: {"data":"Preparing to unpack .../132-libavformat59_7%3a5.1.8-0+deb12u1_amd64.deb ...","timestamp":"2026-04-06T21:33:34.203Z"}
+
+data: {"data":"Unpacking libavformat59:amd64 (7:5.1.8-0+deb12u1) ...","timestamp":"2026-04-06T21:33:34.203Z"}
+
+data: {"data":"Selecting previously unselected package libbs2b0:amd64.","timestamp":"2026-04-06T21:33:34.203Z"}
+
+data: {"data":"Preparing to unpack .../133-libbs2b0_3.1.0+dfsg-7_amd64.deb ...","timestamp":"2026-04-06T21:33:34.372Z"}
+
+data: {"data":"Unpacking libbs2b0:amd64 (3.1.0+dfsg-7) ...","timestamp":"2026-04-06T21:33:34.372Z"}
+
+data: {"data":"Selecting previously unselected package libflite1:amd64.","timestamp":"2026-04-06T21:33:34.372Z"}
+
+data: {"data":"Preparing to unpack .../134-libflite1_2.2-5_amd64.deb ...","timestamp":"2026-04-06T21:33:34.372Z"}
+
+data: {"data":"Unpacking libflite1:amd64 (2.2-5) ...","timestamp":"2026-04-06T21:33:34.372Z"}
+
+data: {"data":"Selecting previously unselected package libserd-0-0:amd64.","timestamp":"2026-04-06T21:33:34.964Z"}
+
+data: {"data":"Preparing to unpack .../135-libserd-0-0_0.30.16-1_amd64.deb ...","timestamp":"2026-04-06T21:33:35.067Z"}
+
+data: {"data":"Unpacking libserd-0-0:amd64 (0.30.16-1) ...","timestamp":"2026-04-06T21:33:35.067Z"}
+
+data: {"data":"Selecting previously unselected package libsord-0-0:amd64.","timestamp":"2026-04-06T21:33:35.067Z"}
+
+data: {"data":"Preparing to unpack .../136-libsord-0-0_0.16.14+git221008-1_amd64.deb ...","timestamp":"2026-04-06T21:33:35.067Z"}
+
+data: {"data":"Unpacking libsord-0-0:amd64 (0.16.14+git221008-1) ...","timestamp":"2026-04-06T21:33:35.067Z"}
+
+data: {"data":"Selecting previously unselected package libsratom-0-0:amd64.","timestamp":"2026-04-06T21:33:35.067Z"}
+
+data: {"data":"Preparing to unpack .../137-libsratom-0-0_0.6.14-1_amd64.deb ...","timestamp":"2026-04-06T21:33:35.067Z"}
+
+data: {"data":"Unpacking libsratom-0-0:amd64 (0.6.14-1) ...","timestamp":"2026-04-06T21:33:35.067Z"}
+
+data: {"data":"Selecting previously unselected package liblilv-0-0:amd64.","timestamp":"2026-04-06T21:33:35.067Z"}
+
+data: {"data":"Preparing to unpack .../138-liblilv-0-0_0.24.14-1_amd64.deb ...","timestamp":"2026-04-06T21:33:35.067Z"}
+
+data: {"data":"Unpacking liblilv-0-0:amd64 (0.24.14-1) ...","timestamp":"2026-04-06T21:33:35.067Z"}
+
+data: {"data":"Selecting previously unselected package libmysofa1:amd64.","timestamp":"2026-04-06T21:33:35.067Z"}
+
+data: {"data":"Preparing to unpack .../139-libmysofa1_1.3.1~dfsg0-1_amd64.deb ...","timestamp":"2026-04-06T21:33:35.067Z"}
+
+data: {"data":"Unpacking libmysofa1:amd64 (1.3.1~dfsg0-1) ...","timestamp":"2026-04-06T21:33:35.067Z"}
+
+data: {"data":"Selecting previously unselected package libvulkan1:amd64.","timestamp":"2026-04-06T21:33:35.067Z"}
+
+data: {"data":"Preparing to unpack .../140-libvulkan1_1.3.239.0-1_amd64.deb ...","timestamp":"2026-04-06T21:33:35.239Z"}
+
+data: {"data":"Unpacking libvulkan1:amd64 (1.3.239.0-1) ...","timestamp":"2026-04-06T21:33:35.239Z"}
+
+data: {"data":"Selecting previously unselected package libplacebo208:amd64.","timestamp":"2026-04-06T21:33:35.239Z"}
+
+data: {"data":"Preparing to unpack .../141-libplacebo208_4.208.0-3_amd64.deb ...","timestamp":"2026-04-06T21:33:35.239Z"}
+
+data: {"data":"Unpacking libplacebo208:amd64 (4.208.0-3) ...","timestamp":"2026-04-06T21:33:35.239Z"}
+
+data: {"data":"Selecting previously unselected package libasyncns0:amd64.","timestamp":"2026-04-06T21:33:35.239Z"}
+
+data: {"data":"Preparing to unpack .../142-libasyncns0_0.8-6+b3_amd64.deb ...","timestamp":"2026-04-06T21:33:35.340Z"}
+
+data: {"data":"Unpacking libasyncns0:amd64 (0.8-6+b3) ...","timestamp":"2026-04-06T21:33:35.340Z"}
+
+data: {"data":"Selecting previously unselected package libflac12:amd64.","timestamp":"2026-04-06T21:33:35.340Z"}
+
+data: {"data":"Preparing to unpack .../143-libflac12_1.4.2+ds-2_amd64.deb ...","timestamp":"2026-04-06T21:33:35.340Z"}
+
+data: {"data":"Unpacking libflac12:amd64 (1.4.2+ds-2) ...","timestamp":"2026-04-06T21:33:35.340Z"}
+
+data: {"data":"Selecting previously unselected package libsndfile1:amd64.","timestamp":"2026-04-06T21:33:35.340Z"}
+
+data: {"data":"Preparing to unpack .../144-libsndfile1_1.2.0-1+deb12u1_amd64.deb ...","timestamp":"2026-04-06T21:33:35.340Z"}
+
+data: {"data":"Unpacking libsndfile1:amd64 (1.2.0-1+deb12u1) ...","timestamp":"2026-04-06T21:33:35.340Z"}
+
+data: {"data":"Selecting previously unselected package libpulse0:amd64.","timestamp":"2026-04-06T21:33:35.340Z"}
+
+data: {"data":"Preparing to unpack .../145-libpulse0_16.1+dfsg1-2+b1_amd64.deb ...","timestamp":"2026-04-06T21:33:35.340Z"}
+
+data: {"data":"Unpacking libpulse0:amd64 (16.1+dfsg1-2+b1) ...","timestamp":"2026-04-06T21:33:35.340Z"}
+
+data: {"data":"Selecting previously unselected package libsphinxbase3:amd64.","timestamp":"2026-04-06T21:33:35.340Z"}
+
+data: {"data":"Preparing to unpack .../146-libsphinxbase3_0.8+5prealpha+1-16_amd64.deb ...","timestamp":"2026-04-06T21:33:35.340Z"}
+
+data: {"data":"Unpacking libsphinxbase3:amd64 (0.8+5prealpha+1-16) ...","timestamp":"2026-04-06T21:33:35.443Z"}
+
+data: {"data":"Selecting previously unselected package libpocketsphinx3:amd64.","timestamp":"2026-04-06T21:33:35.443Z"}
+
+data: {"data":"Preparing to unpack .../147-libpocketsphinx3_0.8+5prealpha+1-15_amd64.deb ...","timestamp":"2026-04-06T21:33:35.443Z"}
+
+data: {"data":"Unpacking libpocketsphinx3:amd64 (0.8+5prealpha+1-15) ...","timestamp":"2026-04-06T21:33:35.443Z"}
+
+data: {"data":"Selecting previously unselected package libpostproc56:amd64.","timestamp":"2026-04-06T21:33:35.443Z"}
+
+data: {"data":"Preparing to unpack .../148-libpostproc56_7%3a5.1.8-0+deb12u1_amd64.deb ...","timestamp":"2026-04-06T21:33:35.443Z"}
+
+data: {"data":"Unpacking libpostproc56:amd64 (7:5.1.8-0+deb12u1) ...","timestamp":"2026-04-06T21:33:35.443Z"}
+
+data: {"data":"Selecting previously unselected package librubberband2:amd64.","timestamp":"2026-04-06T21:33:35.443Z"}
+
+data: {"data":"Preparing to unpack .../149-librubberband2_3.1.2+dfsg0-1_amd64.deb ...","timestamp":"2026-04-06T21:33:35.443Z"}
+
+data: {"data":"Unpacking librubberband2:amd64 (3.1.2+dfsg0-1) ...","timestamp":"2026-04-06T21:33:35.443Z"}
+
+data: {"data":"Selecting previously unselected package libswscale6:amd64.","timestamp":"2026-04-06T21:33:35.443Z"}
+
+data: {"data":"Preparing to unpack .../150-libswscale6_7%3a5.1.8-0+deb12u1_amd64.deb ...","timestamp":"2026-04-06T21:33:35.443Z"}
+
+data: {"data":"Unpacking libswscale6:amd64 (7:5.1.8-0+deb12u1) ...","timestamp":"2026-04-06T21:33:35.443Z"}
+
+data: {"data":"Selecting previously unselected package libvidstab1.1:amd64.","timestamp":"2026-04-06T21:33:35.443Z"}
+
+data: {"data":"Preparing to unpack .../151-libvidstab1.1_1.1.0-2+b1_amd64.deb ...","timestamp":"2026-04-06T21:33:35.638Z"}
+
+data: {"data":"Unpacking libvidstab1.1:amd64 (1.1.0-2+b1) ...","timestamp":"2026-04-06T21:33:35.638Z"}
+
+data: {"data":"Selecting previously unselected package libzimg2:amd64.","timestamp":"2026-04-06T21:33:35.638Z"}
+
+data: {"data":"Preparing to unpack .../152-libzimg2_3.0.4+ds1-1_amd64.deb ...","timestamp":"2026-04-06T21:33:35.638Z"}
+
+data: {"data":"Unpacking libzimg2:amd64 (3.0.4+ds1-1) ...","timestamp":"2026-04-06T21:33:35.638Z"}
+
+data: {"data":"Selecting previously unselected package libavfilter8:amd64.","timestamp":"2026-04-06T21:33:35.638Z"}
+
+data: {"data":"Preparing to unpack .../153-libavfilter8_7%3a5.1.8-0+deb12u1_amd64.deb ...","timestamp":"2026-04-06T21:33:35.638Z"}
+
+data: {"data":"Unpacking libavfilter8:amd64 (7:5.1.8-0+deb12u1) ...","timestamp":"2026-04-06T21:33:35.638Z"}
+
+data: {"data":"Selecting previously unselected package libslang2:amd64.","timestamp":"2026-04-06T21:33:35.728Z"}
+
+data: {"data":"Preparing to unpack .../154-libslang2_2.3.3-3_amd64.deb ...","timestamp":"2026-04-06T21:33:35.833Z"}
+
+data: {"data":"Unpacking libslang2:amd64 (2.3.3-3) ...","timestamp":"2026-04-06T21:33:35.833Z"}
+
+data: {"data":"Selecting previously unselected package libcaca0:amd64.","timestamp":"2026-04-06T21:33:35.833Z"}
+
+data: {"data":"Preparing to unpack .../155-libcaca0_0.99.beta20-3_amd64.deb ...","timestamp":"2026-04-06T21:33:35.833Z"}
+
+data: {"data":"Unpacking libcaca0:amd64 (0.99.beta20-3) ...","timestamp":"2026-04-06T21:33:35.833Z"}
+
+data: {"data":"Selecting previously unselected package libcdio19:amd64.","timestamp":"2026-04-06T21:33:35.833Z"}
+
+data: {"data":"Preparing to unpack .../156-libcdio19_2.1.0-4_amd64.deb ...","timestamp":"2026-04-06T21:33:35.833Z"}
+
+data: {"data":"Unpacking libcdio19:amd64 (2.1.0-4) ...","timestamp":"2026-04-06T21:33:35.833Z"}
+
+data: {"data":"Selecting previously unselected package libcdio-cdda2:amd64.","timestamp":"2026-04-06T21:33:35.833Z"}
+
+data: {"data":"Preparing to unpack .../157-libcdio-cdda2_10.2+2.0.1-1_amd64.deb ...","timestamp":"2026-04-06T21:33:35.833Z"}
+
+data: {"data":"Unpacking libcdio-cdda2:amd64 (10.2+2.0.1-1) ...","timestamp":"2026-04-06T21:33:35.833Z"}
+
+data: {"data":"Selecting previously unselected package libcdio-paranoia2:amd64.","timestamp":"2026-04-06T21:33:35.833Z"}
+
+data: {"data":"Preparing to unpack .../158-libcdio-paranoia2_10.2+2.0.1-1_amd64.deb ...","timestamp":"2026-04-06T21:33:35.934Z"}
+
+data: {"data":"Unpacking libcdio-paranoia2:amd64 (10.2+2.0.1-1) ...","timestamp":"2026-04-06T21:33:35.934Z"}
+
+data: {"data":"Selecting previously unselected package libusb-1.0-0:amd64.","timestamp":"2026-04-06T21:33:35.934Z"}
+
+data: {"data":"Preparing to unpack .../159-libusb-1.0-0_2%3a1.0.26-1_amd64.deb ...","timestamp":"2026-04-06T21:33:35.934Z"}
+
+data: {"data":"Unpacking libusb-1.0-0:amd64 (2:1.0.26-1) ...","timestamp":"2026-04-06T21:33:35.934Z"}
+
+data: {"data":"Selecting previously unselected package libdc1394-25:amd64.","timestamp":"2026-04-06T21:33:35.934Z"}
+
+data: {"data":"Preparing to unpack .../160-libdc1394-25_2.2.6-4_amd64.deb ...","timestamp":"2026-04-06T21:33:35.934Z"}
+
+data: {"data":"Unpacking libdc1394-25:amd64 (2.2.6-4) ...","timestamp":"2026-04-06T21:33:35.934Z"}
+
+data: {"data":"Selecting previously unselected package libglvnd0:amd64.","timestamp":"2026-04-06T21:33:35.934Z"}
+
+data: {"data":"Preparing to unpack .../161-libglvnd0_1.6.0-1_amd64.deb ...","timestamp":"2026-04-06T21:33:35.934Z"}
+
+data: {"data":"Unpacking libglvnd0:amd64 (1.6.0-1) ...","timestamp":"2026-04-06T21:33:35.934Z"}
+
+data: {"data":"Selecting previously unselected package libglapi-mesa:amd64.","timestamp":"2026-04-06T21:33:35.934Z"}
+
+data: {"data":"Preparing to unpack .../162-libglapi-mesa_22.3.6-1+deb12u1_amd64.deb ...","timestamp":"2026-04-06T21:33:35.934Z"}
+
+data: {"data":"Unpacking libglapi-mesa:amd64 (22.3.6-1+deb12u1) ...","timestamp":"2026-04-06T21:33:35.934Z"}
+
+data: {"data":"Selecting previously unselected package libxcb-dri2-0:amd64.","timestamp":"2026-04-06T21:33:35.934Z"}
+
+data: {"data":"Preparing to unpack .../163-libxcb-dri2-0_1.15-1_amd64.deb ...","timestamp":"2026-04-06T21:33:35.934Z"}
+
+data: {"data":"Unpacking libxcb-dri2-0:amd64 (1.15-1) ...","timestamp":"2026-04-06T21:33:35.934Z"}
+
+data: {"data":"Selecting previously unselected package libxcb-glx0:amd64.","timestamp":"2026-04-06T21:33:35.934Z"}
+
+data: {"data":"Preparing to unpack .../164-libxcb-glx0_1.15-1_amd64.deb ...","timestamp":"2026-04-06T21:33:35.934Z"}
+
+data: {"data":"Unpacking libxcb-glx0:amd64 (1.15-1) ...","timestamp":"2026-04-06T21:33:36.035Z"}
+
+data: {"data":"Selecting previously unselected package libxcb-present0:amd64.","timestamp":"2026-04-06T21:33:36.035Z"}
+
+data: {"data":"Preparing to unpack .../165-libxcb-present0_1.15-1_amd64.deb ...","timestamp":"2026-04-06T21:33:36.035Z"}
+
+data: {"data":"Unpacking libxcb-present0:amd64 (1.15-1) ...","timestamp":"2026-04-06T21:33:36.035Z"}
+
+data: {"data":"Selecting previously unselected package libxcb-randr0:amd64.","timestamp":"2026-04-06T21:33:36.035Z"}
+
+data: {"data":"Preparing to unpack .../166-libxcb-randr0_1.15-1_amd64.deb ...","timestamp":"2026-04-06T21:33:36.035Z"}
+
+data: {"data":"Unpacking libxcb-randr0:amd64 (1.15-1) ...","timestamp":"2026-04-06T21:33:36.035Z"}
+
+data: {"data":"Selecting previously unselected package libxcb-sync1:amd64.","timestamp":"2026-04-06T21:33:36.035Z"}
+
+data: {"data":"Preparing to unpack .../167-libxcb-sync1_1.15-1_amd64.deb ...","timestamp":"2026-04-06T21:33:36.035Z"}
+
+data: {"data":"Unpacking libxcb-sync1:amd64 (1.15-1) ...","timestamp":"2026-04-06T21:33:36.035Z"}
+
+data: {"data":"Selecting previously unselected package libxcb-xfixes0:amd64.","timestamp":"2026-04-06T21:33:36.035Z"}
+
+data: {"data":"Preparing to unpack .../168-libxcb-xfixes0_1.15-1_amd64.deb ...","timestamp":"2026-04-06T21:33:36.035Z"}
+
+data: {"data":"Unpacking libxcb-xfixes0:amd64 (1.15-1) ...","timestamp":"2026-04-06T21:33:36.035Z"}
+
+data: {"data":"Selecting previously unselected package libxshmfence1:amd64.","timestamp":"2026-04-06T21:33:36.035Z"}
+
+data: {"data":"Preparing to unpack .../169-libxshmfence1_1.3-1_amd64.deb ...","timestamp":"2026-04-06T21:33:36.035Z"}
+
+data: {"data":"Unpacking libxshmfence1:amd64 (1.3-1) ...","timestamp":"2026-04-06T21:33:36.283Z"}
+
+data: {"data":"Selecting previously unselected package libxxf86vm1:amd64.","timestamp":"2026-04-06T21:33:36.283Z"}
+
+data: {"data":"Preparing to unpack .../170-libxxf86vm1_1%3a1.1.4-1+b2_amd64.deb ...","timestamp":"2026-04-06T21:33:36.283Z"}
+
+data: {"data":"Unpacking libxxf86vm1:amd64 (1:1.1.4-1+b2) ...","timestamp":"2026-04-06T21:33:36.283Z"}
+
+data: {"data":"Selecting previously unselected package libdrm-amdgpu1:amd64.","timestamp":"2026-04-06T21:33:36.283Z"}
+
+data: {"data":"Preparing to unpack .../171-libdrm-amdgpu1_2.4.114-1+b1_amd64.deb ...","timestamp":"2026-04-06T21:33:36.283Z"}
+
+data: {"data":"Unpacking libdrm-amdgpu1:amd64 (2.4.114-1+b1) ...","timestamp":"2026-04-06T21:33:36.283Z"}
+
+data: {"data":"Selecting previously unselected package libpciaccess0:amd64.","timestamp":"2026-04-06T21:33:36.283Z"}
+
+data: {"data":"Preparing to unpack .../172-libpciaccess0_0.17-2_amd64.deb ...","timestamp":"2026-04-06T21:33:36.283Z"}
+
+data: {"data":"Unpacking libpciaccess0:amd64 (0.17-2) ...","timestamp":"2026-04-06T21:33:36.283Z"}
+
+data: {"data":"Selecting previously unselected package libdrm-intel1:amd64.","timestamp":"2026-04-06T21:33:36.283Z"}
+
+data: {"data":"Preparing to unpack .../173-libdrm-intel1_2.4.114-1+b1_amd64.deb ...","timestamp":"2026-04-06T21:33:36.283Z"}
+
+data: {"data":"Unpacking libdrm-intel1:amd64 (2.4.114-1+b1) ...","timestamp":"2026-04-06T21:33:36.283Z"}
+
+data: {"data":"Selecting previously unselected package libdrm-nouveau2:amd64.","timestamp":"2026-04-06T21:33:36.283Z"}
+
+data: {"data":"Preparing to unpack .../174-libdrm-nouveau2_2.4.114-1+b1_amd64.deb ...","timestamp":"2026-04-06T21:33:36.283Z"}
+
+data: {"data":"Unpacking libdrm-nouveau2:amd64 (2.4.114-1+b1) ...","timestamp":"2026-04-06T21:33:36.283Z"}
+
+data: {"data":"Selecting previously unselected package libdrm-radeon1:amd64.","timestamp":"2026-04-06T21:33:36.283Z"}
+
+data: {"data":"Preparing to unpack .../175-libdrm-radeon1_2.4.114-1+b1_amd64.deb ...","timestamp":"2026-04-06T21:33:36.283Z"}
+
+data: {"data":"Unpacking libdrm-radeon1:amd64 (2.4.114-1+b1) ...","timestamp":"2026-04-06T21:33:36.283Z"}
+
+data: {"data":"Selecting previously unselected package libz3-4:amd64.","timestamp":"2026-04-06T21:33:36.283Z"}
+
+data: {"data":"Preparing to unpack .../176-libz3-4_4.8.12-3.1_amd64.deb ...","timestamp":"2026-04-06T21:33:36.283Z"}
+
+data: {"data":"Unpacking libz3-4:amd64 (4.8.12-3.1) ...","timestamp":"2026-04-06T21:33:36.283Z"}
+
+data: {"data":"Selecting previously unselected package libllvm15:amd64.","timestamp":"2026-04-06T21:33:36.589Z"}
+
+data: {"data":"Preparing to unpack .../177-libllvm15_1%3a15.0.6-4+b1_amd64.deb ...","timestamp":"2026-04-06T21:33:36.742Z"}
+
+data: {"data":"Unpacking libllvm15:amd64 (1:15.0.6-4+b1) ...","timestamp":"2026-04-06T21:33:36.742Z"}
+
+data: {"data":"Selecting previously unselected package libsensors-config.","timestamp":"2026-04-06T21:33:37.239Z"}
+
+data: {"data":"Preparing to unpack .../178-libsensors-config_1%3a3.6.0-7.1_all.deb ...","timestamp":"2026-04-06T21:33:37.443Z"}
+
+data: {"data":"Unpacking libsensors-config (1:3.6.0-7.1) ...","timestamp":"2026-04-06T21:33:37.443Z"}
+
+data: {"data":"Selecting previously unselected package libsensors5:amd64.","timestamp":"2026-04-06T21:33:37.443Z"}
+
+data: {"data":"Preparing to unpack .../179-libsensors5_1%3a3.6.0-7.1_amd64.deb ...","timestamp":"2026-04-06T21:33:37.443Z"}
+
+data: {"data":"Unpacking libsensors5:amd64 (1:3.6.0-7.1) ...","timestamp":"2026-04-06T21:33:37.443Z"}
+
+data: {"data":"Selecting previously unselected package libgl1-mesa-dri:amd64.","timestamp":"2026-04-06T21:33:37.443Z"}
+
+data: {"data":"Preparing to unpack .../180-libgl1-mesa-dri_22.3.6-1+deb12u1_amd64.deb ...","timestamp":"2026-04-06T21:33:37.443Z"}
+
+data: {"data":"Unpacking libgl1-mesa-dri:amd64 (22.3.6-1+deb12u1) ...","timestamp":"2026-04-06T21:33:37.443Z"}
+
+data: {"data":"Selecting previously unselected package libglx-mesa0:amd64.","timestamp":"2026-04-06T21:33:37.731Z"}
+
+data: {"data":"Preparing to unpack .../181-libglx-mesa0_22.3.6-1+deb12u1_amd64.deb ...","timestamp":"2026-04-06T21:33:37.917Z"}
+
+data: {"data":"Unpacking libglx-mesa0:amd64 (22.3.6-1+deb12u1) ...","timestamp":"2026-04-06T21:33:37.917Z"}
+
+data: {"data":"Selecting previously unselected package libglx0:amd64.","timestamp":"2026-04-06T21:33:37.917Z"}
+
+data: {"data":"Preparing to unpack .../182-libglx0_1.6.0-1_amd64.deb ...","timestamp":"2026-04-06T21:33:37.917Z"}
+
+data: {"data":"Unpacking libglx0:amd64 (1.6.0-1) ...","timestamp":"2026-04-06T21:33:37.917Z"}
+
+data: {"data":"Selecting previously unselected package libgl1:amd64.","timestamp":"2026-04-06T21:33:37.917Z"}
+
+data: {"data":"Preparing to unpack .../183-libgl1_1.6.0-1_amd64.deb ...","timestamp":"2026-04-06T21:33:37.917Z"}
+
+data: {"data":"Unpacking libgl1:amd64 (1.6.0-1) ...","timestamp":"2026-04-06T21:33:37.917Z"}
+
+data: {"data":"Selecting previously unselected package libiec61883-0:amd64.","timestamp":"2026-04-06T21:33:37.917Z"}
+
+data: {"data":"Preparing to unpack .../184-libiec61883-0_1.2.0-6+b1_amd64.deb ...","timestamp":"2026-04-06T21:33:37.917Z"}
+
+data: {"data":"Unpacking libiec61883-0:amd64 (1.2.0-6+b1) ...","timestamp":"2026-04-06T21:33:37.917Z"}
+
+data: {"data":"Selecting previously unselected package libsamplerate0:amd64.","timestamp":"2026-04-06T21:33:37.917Z"}
+
+data: {"data":"Preparing to unpack .../185-libsamplerate0_0.2.2-3_amd64.deb ...","timestamp":"2026-04-06T21:33:37.917Z"}
+
+data: {"data":"Unpacking libsamplerate0:amd64 (0.2.2-3) ...","timestamp":"2026-04-06T21:33:37.917Z"}
+
+data: {"data":"Selecting previously unselected package libjack-jackd2-0:amd64.","timestamp":"2026-04-06T21:33:37.917Z"}
+
+data: {"data":"Preparing to unpack .../186-libjack-jackd2-0_1.9.21~dfsg-3_amd64.deb ...","timestamp":"2026-04-06T21:33:38.035Z"}
+
+data: {"data":"Unpacking libjack-jackd2-0:amd64 (1.9.21~dfsg-3) ...","timestamp":"2026-04-06T21:33:38.035Z"}
+
+data: {"data":"Selecting previously unselected package libopenal-data.","timestamp":"2026-04-06T21:33:38.035Z"}
+
+data: {"data":"Preparing to unpack .../187-libopenal-data_1%3a1.19.1-2_all.deb ...","timestamp":"2026-04-06T21:33:38.035Z"}
+
+data: {"data":"Unpacking libopenal-data (1:1.19.1-2) ...","timestamp":"2026-04-06T21:33:38.035Z"}
+
+data: {"data":"Selecting previously unselected package libsndio7.0:amd64.","timestamp":"2026-04-06T21:33:38.035Z"}
+
+data: {"data":"Preparing to unpack .../188-libsndio7.0_1.9.0-0.3+b2_amd64.deb ...","timestamp":"2026-04-06T21:33:38.035Z"}
+
+data: {"data":"Unpacking libsndio7.0:amd64 (1.9.0-0.3+b2) ...","timestamp":"2026-04-06T21:33:38.035Z"}
+
+data: {"data":"Selecting previously unselected package libopenal1:amd64.","timestamp":"2026-04-06T21:33:38.035Z"}
+
+data: {"data":"Preparing to unpack .../189-libopenal1_1%3a1.19.1-2_amd64.deb ...","timestamp":"2026-04-06T21:33:38.035Z"}
+
+data: {"data":"Unpacking libopenal1:amd64 (1:1.19.1-2) ...","timestamp":"2026-04-06T21:33:38.035Z"}
+
+data: {"data":"Selecting previously unselected package libwayland-client0:amd64.","timestamp":"2026-04-06T21:33:38.035Z"}
+
+data: {"data":"Preparing to unpack .../190-libwayland-client0_1.21.0-1_amd64.deb ...","timestamp":"2026-04-06T21:33:38.147Z"}
+
+data: {"data":"Unpacking libwayland-client0:amd64 (1.21.0-1) ...","timestamp":"2026-04-06T21:33:38.147Z"}
+
+data: {"data":"Selecting previously unselected package libdecor-0-0:amd64.","timestamp":"2026-04-06T21:33:38.147Z"}
+
+data: {"data":"Preparing to unpack .../191-libdecor-0-0_0.1.1-2_amd64.deb ...","timestamp":"2026-04-06T21:33:38.147Z"}
+
+data: {"data":"Unpacking libdecor-0-0:amd64 (0.1.1-2) ...","timestamp":"2026-04-06T21:33:38.147Z"}
+
+data: {"data":"Selecting previously unselected package libwayland-server0:amd64.","timestamp":"2026-04-06T21:33:38.147Z"}
+
+data: {"data":"Preparing to unpack .../192-libwayland-server0_1.21.0-1_amd64.deb ...","timestamp":"2026-04-06T21:33:38.147Z"}
+
+data: {"data":"Unpacking libwayland-server0:amd64 (1.21.0-1) ...","timestamp":"2026-04-06T21:33:38.147Z"}
+
+data: {"data":"Selecting previously unselected package libgbm1:amd64.","timestamp":"2026-04-06T21:33:38.147Z"}
+
+data: {"data":"Preparing to unpack .../193-libgbm1_22.3.6-1+deb12u1_amd64.deb ...","timestamp":"2026-04-06T21:33:38.147Z"}
+
+data: {"data":"Unpacking libgbm1:amd64 (22.3.6-1+deb12u1) ...","timestamp":"2026-04-06T21:33:38.147Z"}
+
+data: {"data":"Selecting previously unselected package libwayland-cursor0:amd64.","timestamp":"2026-04-06T21:33:38.147Z"}
+
+data: {"data":"Preparing to unpack .../194-libwayland-cursor0_1.21.0-1_amd64.deb ...","timestamp":"2026-04-06T21:33:38.147Z"}
+
+data: {"data":"Unpacking libwayland-cursor0:amd64 (1.21.0-1) ...","timestamp":"2026-04-06T21:33:38.147Z"}
+
+data: {"data":"Selecting previously unselected package libwayland-egl1:amd64.","timestamp":"2026-04-06T21:33:38.147Z"}
+
+data: {"data":"Preparing to unpack .../195-libwayland-egl1_1.21.0-1_amd64.deb ...","timestamp":"2026-04-06T21:33:38.147Z"}
+
+data: {"data":"Unpacking libwayland-egl1:amd64 (1.21.0-1) ...","timestamp":"2026-04-06T21:33:38.147Z"}
+
+data: {"data":"Selecting previously unselected package libxcursor1:amd64.","timestamp":"2026-04-06T21:33:38.147Z"}
+
+data: {"data":"Preparing to unpack .../196-libxcursor1_1%3a1.2.1-1_amd64.deb ...","timestamp":"2026-04-06T21:33:38.147Z"}
+
+data: {"data":"Unpacking libxcursor1:amd64 (1:1.2.1-1) ...","timestamp":"2026-04-06T21:33:38.147Z"}
+
+data: {"data":"Selecting previously unselected package libxi6:amd64.","timestamp":"2026-04-06T21:33:38.147Z"}
+
+data: {"data":"Preparing to unpack .../197-libxi6_2%3a1.8-1+b1_amd64.deb ...","timestamp":"2026-04-06T21:33:38.147Z"}
+
+data: {"data":"Unpacking libxi6:amd64 (2:1.8-1+b1) ...","timestamp":"2026-04-06T21:33:38.147Z"}
+
+data: {"data":"Selecting previously unselected package xkb-data.","timestamp":"2026-04-06T21:33:38.147Z"}
+
+data: {"data":"Preparing to unpack .../198-xkb-data_2.35.1-1_all.deb ...","timestamp":"2026-04-06T21:33:38.250Z"}
+
+data: {"data":"Unpacking xkb-data (2.35.1-1) ...","timestamp":"2026-04-06T21:33:38.250Z"}
+
+data: {"data":"Selecting previously unselected package libxkbcommon0:amd64.","timestamp":"2026-04-06T21:33:38.250Z"}
+
+data: {"data":"Preparing to unpack .../199-libxkbcommon0_1.5.0-1_amd64.deb ...","timestamp":"2026-04-06T21:33:38.250Z"}
+
+data: {"data":"Unpacking libxkbcommon0:amd64 (1.5.0-1) ...","timestamp":"2026-04-06T21:33:38.250Z"}
+
+data: {"data":"Selecting previously unselected package libxss1:amd64.","timestamp":"2026-04-06T21:33:38.250Z"}
+
+data: {"data":"Preparing to unpack .../200-libxss1_1%3a1.2.3-1_amd64.deb ...","timestamp":"2026-04-06T21:33:38.250Z"}
+
+data: {"data":"Unpacking libxss1:amd64 (1:1.2.3-1) ...","timestamp":"2026-04-06T21:33:38.250Z"}
+
+data: {"data":"Selecting previously unselected package libsdl2-2.0-0:amd64.","timestamp":"2026-04-06T21:33:38.250Z"}
+
+data: {"data":"Preparing to unpack .../201-libsdl2-2.0-0_2.26.5+dfsg-1_amd64.deb ...","timestamp":"2026-04-06T21:33:38.354Z"}
+
+data: {"data":"Unpacking libsdl2-2.0-0:amd64 (2.26.5+dfsg-1) ...","timestamp":"2026-04-06T21:33:38.354Z"}
+
+data: {"data":"Selecting previously unselected package libxcb-shape0:amd64.","timestamp":"2026-04-06T21:33:38.354Z"}
+
+data: {"data":"Preparing to unpack .../202-libxcb-shape0_1.15-1_amd64.deb ...","timestamp":"2026-04-06T21:33:38.354Z"}
+
+data: {"data":"Unpacking libxcb-shape0:amd64 (1.15-1) ...","timestamp":"2026-04-06T21:33:38.354Z"}
+
+data: {"data":"Selecting previously unselected package libxv1:amd64.","timestamp":"2026-04-06T21:33:38.354Z"}
+
+data: {"data":"Preparing to unpack .../203-libxv1_2%3a1.0.11-1.1_amd64.deb ...","timestamp":"2026-04-06T21:33:38.354Z"}
+
+data: {"data":"Unpacking libxv1:amd64 (2:1.0.11-1.1) ...","timestamp":"2026-04-06T21:33:38.354Z"}
+
+data: {"data":"Selecting previously unselected package libavdevice59:amd64.","timestamp":"2026-04-06T21:33:38.354Z"}
+
+data: {"data":"Preparing to unpack .../204-libavdevice59_7%3a5.1.8-0+deb12u1_amd64.deb ...","timestamp":"2026-04-06T21:33:38.354Z"}
+
+data: {"data":"Unpacking libavdevice59:amd64 (7:5.1.8-0+deb12u1) ...","timestamp":"2026-04-06T21:33:38.354Z"}
+
+data: {"data":"Selecting previously unselected package ffmpeg.","timestamp":"2026-04-06T21:33:38.354Z"}
+
+data: {"data":"Preparing to unpack .../205-ffmpeg_7%3a5.1.8-0+deb12u1_amd64.deb ...","timestamp":"2026-04-06T21:33:38.456Z"}
+
+data: {"data":"Unpacking ffmpeg (7:5.1.8-0+deb12u1) ...","timestamp":"2026-04-06T21:33:38.456Z"}
+
+data: {"data":"Selecting previously unselected package libabw-0.1-1:amd64.","timestamp":"2026-04-06T21:33:38.456Z"}
+
+data: {"data":"Preparing to unpack .../206-libabw-0.1-1_0.1.3-1_amd64.deb ...","timestamp":"2026-04-06T21:33:38.558Z"}
+
+data: {"data":"Unpacking libabw-0.1-1:amd64 (0.1.3-1) ...","timestamp":"2026-04-06T21:33:38.558Z"}
+
+data: {"data":"Selecting previously unselected package libbox2d2:amd64.","timestamp":"2026-04-06T21:33:38.558Z"}
+
+data: {"data":"Preparing to unpack .../207-libbox2d2_2.4.1-3_amd64.deb ...","timestamp":"2026-04-06T21:33:38.558Z"}
+
+data: {"data":"Unpacking libbox2d2:amd64 (2.4.1-3) ...","timestamp":"2026-04-06T21:33:38.558Z"}
+
+data: {"data":"Selecting previously unselected package libcdr-0.1-1:amd64.","timestamp":"2026-04-06T21:33:38.558Z"}
+
+data: {"data":"Preparing to unpack .../208-libcdr-0.1-1_0.1.6-2+b2_amd64.deb ...","timestamp":"2026-04-06T21:33:38.558Z"}
+
+data: {"data":"Unpacking libcdr-0.1-1:amd64 (0.1.6-2+b2) ...","timestamp":"2026-04-06T21:33:38.558Z"}
+
+data: {"data":"Selecting previously unselected package libsuitesparseconfig5:amd64.","timestamp":"2026-04-06T21:33:38.558Z"}
+
+data: {"data":"Preparing to unpack .../209-libsuitesparseconfig5_1%3a5.12.0+dfsg-2_amd64.deb ...","timestamp":"2026-04-06T21:33:38.558Z"}
+
+data: {"data":"Unpacking libsuitesparseconfig5:amd64 (1:5.12.0+dfsg-2) ...","timestamp":"2026-04-06T21:33:38.558Z"}
+
+data: {"data":"Selecting previously unselected package libcolamd2:amd64.","timestamp":"2026-04-06T21:33:38.558Z"}
+
+data: {"data":"Preparing to unpack .../210-libcolamd2_1%3a5.12.0+dfsg-2_amd64.deb ...","timestamp":"2026-04-06T21:33:38.558Z"}
+
+data: {"data":"Unpacking libcolamd2:amd64 (1:5.12.0+dfsg-2) ...","timestamp":"2026-04-06T21:33:38.558Z"}
+
+data: {"data":"Selecting previously unselected package libe-book-0.1-1:amd64.","timestamp":"2026-04-06T21:33:38.558Z"}
+
+data: {"data":"Preparing to unpack .../211-libe-book-0.1-1_0.1.3-2+b2_amd64.deb ...","timestamp":"2026-04-06T21:33:38.670Z"}
+
+data: {"data":"Unpacking libe-book-0.1-1:amd64 (0.1.3-2+b2) ...","timestamp":"2026-04-06T21:33:38.670Z"}
+
+data: {"data":"Selecting previously unselected package libepubgen-0.1-1:amd64.","timestamp":"2026-04-06T21:33:38.670Z"}
+
+data: {"data":"Preparing to unpack .../212-libepubgen-0.1-1_0.1.1-1_amd64.deb ...","timestamp":"2026-04-06T21:33:38.670Z"}
+
+data: {"data":"Unpacking libepubgen-0.1-1:amd64 (0.1.1-1) ...","timestamp":"2026-04-06T21:33:38.670Z"}
+
+data: {"data":"Selecting previously unselected package libetonyek-0.1-1:amd64.","timestamp":"2026-04-06T21:33:38.670Z"}
+
+data: {"data":"Preparing to unpack .../213-libetonyek-0.1-1_0.1.10-3+b1_amd64.deb ...","timestamp":"2026-04-06T21:33:38.670Z"}
+
+data: {"data":"Unpacking libetonyek-0.1-1:amd64 (0.1.10-3+b1) ...","timestamp":"2026-04-06T21:33:38.670Z"}
+
+data: {"data":"Selecting previously unselected package libfreehand-0.1-1.","timestamp":"2026-04-06T21:33:38.670Z"}
+
+data: {"data":"Preparing to unpack .../214-libfreehand-0.1-1_0.1.2-3_amd64.deb ...","timestamp":"2026-04-06T21:33:38.875Z"}
+
+data: {"data":"Unpacking libfreehand-0.1-1 (0.1.2-3) ...","timestamp":"2026-04-06T21:33:38.875Z"}
+
+data: {"data":"Selecting previously unselected package libmspub-0.1-1:amd64.","timestamp":"2026-04-06T21:33:38.875Z"}
+
+data: {"data":"Preparing to unpack .../215-libmspub-0.1-1_0.1.4-3+b3_amd64.deb ...","timestamp":"2026-04-06T21:33:38.875Z"}
+
+data: {"data":"Unpacking libmspub-0.1-1:amd64 (0.1.4-3+b3) ...","timestamp":"2026-04-06T21:33:38.875Z"}
+
+data: {"data":"Selecting previously unselected package libmwaw-0.3-3:amd64.","timestamp":"2026-04-06T21:33:38.875Z"}
+
+data: {"data":"Preparing to unpack .../216-libmwaw-0.3-3_0.3.21-1_amd64.deb ...","timestamp":"2026-04-06T21:33:38.875Z"}
+
+data: {"data":"Unpacking libmwaw-0.3-3:amd64 (0.3.21-1) ...","timestamp":"2026-04-06T21:33:38.875Z"}
+
+data: {"data":"Selecting previously unselected package libodfgen-0.1-1:amd64.","timestamp":"2026-04-06T21:33:38.901Z"}
+
+data: {"data":"Preparing to unpack .../217-libodfgen-0.1-1_0.1.8-2_amd64.deb ...","timestamp":"2026-04-06T21:33:39.092Z"}
+
+data: {"data":"Unpacking libodfgen-0.1-1:amd64 (0.1.8-2) ...","timestamp":"2026-04-06T21:33:39.092Z"}
+
+data: {"data":"Selecting previously unselected package libpagemaker-0.0-0:amd64.","timestamp":"2026-04-06T21:33:39.092Z"}
+
+data: {"data":"Preparing to unpack .../218-libpagemaker-0.0-0_0.0.4-1_amd64.deb ...","timestamp":"2026-04-06T21:33:39.092Z"}
+
+data: {"data":"Unpacking libpagemaker-0.0-0:amd64 (0.0.4-1) ...","timestamp":"2026-04-06T21:33:39.092Z"}
+
+data: {"data":"Selecting previously unselected package libpython3.11:amd64.","timestamp":"2026-04-06T21:33:39.092Z"}
+
+data: {"data":"Preparing to unpack .../219-libpython3.11_3.11.2-6+deb12u6_amd64.deb ...","timestamp":"2026-04-06T21:33:39.092Z"}
+
+data: {"data":"Unpacking libpython3.11:amd64 (3.11.2-6+deb12u6) ...","timestamp":"2026-04-06T21:33:39.092Z"}
+
+data: {"data":"Selecting previously unselected package libqxp-0.0-0.","timestamp":"2026-04-06T21:33:39.092Z"}
+
+data: {"data":"Preparing to unpack .../220-libqxp-0.0-0_0.0.2-1+b3_amd64.deb ...","timestamp":"2026-04-06T21:33:39.204Z"}
+
+data: {"data":"Unpacking libqxp-0.0-0 (0.0.2-1+b3) ...","timestamp":"2026-04-06T21:33:39.204Z"}
+
+data: {"data":"Selecting previously unselected package lp-solve.","timestamp":"2026-04-06T21:33:39.204Z"}
+
+data: {"data":"Preparing to unpack .../221-lp-solve_5.5.2.5-2_amd64.deb ...","timestamp":"2026-04-06T21:33:39.204Z"}
+
+data: {"data":"Unpacking lp-solve (5.5.2.5-2) ...","timestamp":"2026-04-06T21:33:39.204Z"}
+
+data: {"data":"Selecting previously unselected package libstaroffice-0.0-0:amd64.","timestamp":"2026-04-06T21:33:39.204Z"}
+
+data: {"data":"Preparing to unpack .../222-libstaroffice-0.0-0_0.0.7-1_amd64.deb ...","timestamp":"2026-04-06T21:33:39.204Z"}
+
+data: {"data":"Unpacking libstaroffice-0.0-0:amd64 (0.0.7-1) ...","timestamp":"2026-04-06T21:33:39.204Z"}
+
+data: {"data":"Selecting previously unselected package libwps-0.4-4:amd64.","timestamp":"2026-04-06T21:33:39.204Z"}
+
+data: {"data":"Preparing to unpack .../223-libwps-0.4-4_0.4.13-1_amd64.deb ...","timestamp":"2026-04-06T21:33:39.429Z"}
+
+data: {"data":"Unpacking libwps-0.4-4:amd64 (0.4.13-1) ...","timestamp":"2026-04-06T21:33:39.429Z"}
+
+data: {"data":"Selecting previously unselected package libreoffice-calc.","timestamp":"2026-04-06T21:33:39.429Z"}
+
+data: {"data":"Preparing to unpack .../224-libreoffice-calc_4%3a7.4.7-1+deb12u10_amd64.deb ...","timestamp":"2026-04-06T21:33:39.429Z"}
+
+data: {"data":"Unpacking libreoffice-calc (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:39.429Z"}
+
+data: {"data":"Selecting previously unselected package libvisio-0.1-1:amd64.","timestamp":"2026-04-06T21:33:39.773Z"}
+
+data: {"data":"Preparing to unpack .../225-libvisio-0.1-1_0.1.7-1+b3_amd64.deb ...","timestamp":"2026-04-06T21:33:40.021Z"}
+
+data: {"data":"Unpacking libvisio-0.1-1:amd64 (0.1.7-1+b3) ...","timestamp":"2026-04-06T21:33:40.021Z"}
+
+data: {"data":"Selecting previously unselected package libwpd-0.10-10:amd64.","timestamp":"2026-04-06T21:33:40.021Z"}
+
+data: {"data":"Preparing to unpack .../226-libwpd-0.10-10_0.10.3-2+b1_amd64.deb ...","timestamp":"2026-04-06T21:33:40.021Z"}
+
+data: {"data":"Unpacking libwpd-0.10-10:amd64 (0.10.3-2+b1) ...","timestamp":"2026-04-06T21:33:40.021Z"}
+
+data: {"data":"Selecting previously unselected package libwpg-0.3-3:amd64.","timestamp":"2026-04-06T21:33:40.021Z"}
+
+data: {"data":"Preparing to unpack .../227-libwpg-0.3-3_0.3.3-1_amd64.deb ...","timestamp":"2026-04-06T21:33:40.021Z"}
+
+data: {"data":"Unpacking libwpg-0.3-3:amd64 (0.3.3-1) ...","timestamp":"2026-04-06T21:33:40.021Z"}
+
+data: {"data":"Selecting previously unselected package libzmf-0.0-0:amd64.","timestamp":"2026-04-06T21:33:40.021Z"}
+
+data: {"data":"Preparing to unpack .../228-libzmf-0.0-0_0.0.2-1+b5_amd64.deb ...","timestamp":"2026-04-06T21:33:40.021Z"}
+
+data: {"data":"Unpacking libzmf-0.0-0:amd64 (0.0.2-1+b5) ...","timestamp":"2026-04-06T21:33:40.021Z"}
+
+data: {"data":"Selecting previously unselected package libreoffice-draw.","timestamp":"2026-04-06T21:33:40.021Z"}
+
+data: {"data":"Preparing to unpack .../229-libreoffice-draw_4%3a7.4.7-1+deb12u10_amd64.deb ...","timestamp":"2026-04-06T21:33:40.021Z"}
+
+data: {"data":"Unpacking libreoffice-draw (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:40.021Z"}
+
+data: {"data":"Selecting previously unselected package libreoffice-impress.","timestamp":"2026-04-06T21:33:40.066Z"}
+
+data: {"data":"Preparing to unpack .../230-libreoffice-impress_4%3a7.4.7-1+deb12u10_amd64.deb ...","timestamp":"2026-04-06T21:33:40.179Z"}
+
+data: {"data":"Unpacking libreoffice-impress (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:40.179Z"}
+
+data: {"data":"Selecting previously unselected package libreoffice-math.","timestamp":"2026-04-06T21:33:40.179Z"}
+
+data: {"data":"Preparing to unpack .../231-libreoffice-math_4%3a7.4.7-1+deb12u10_amd64.deb ...","timestamp":"2026-04-06T21:33:40.319Z"}
+
+data: {"data":"Unpacking libreoffice-math (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:40.319Z"}
+
+data: {"data":"Selecting previously unselected package libreoffice-report-builder-bin.","timestamp":"2026-04-06T21:33:40.319Z"}
+
+data: {"data":"Preparing to unpack .../232-libreoffice-report-builder-bin_4%3a7.4.7-1+deb12u10_amd64.deb ...","timestamp":"2026-04-06T21:33:40.319Z"}
+
+data: {"data":"Unpacking libreoffice-report-builder-bin (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:40.319Z"}
+
+data: {"data":"Selecting previously unselected package libreoffice-writer.","timestamp":"2026-04-06T21:33:40.319Z"}
+
+data: {"data":"Preparing to unpack .../233-libreoffice-writer_4%3a7.4.7-1+deb12u10_amd64.deb ...","timestamp":"2026-04-06T21:33:40.476Z"}
+
+data: {"data":"Unpacking libreoffice-writer (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:40.476Z"}
+
+data: {"data":"Selecting previously unselected package python3-uno.","timestamp":"2026-04-06T21:33:40.952Z"}
+
+data: {"data":"Preparing to unpack .../234-python3-uno_4%3a7.4.7-1+deb12u10_amd64.deb ...","timestamp":"2026-04-06T21:33:41.064Z"}
+
+data: {"data":"Unpacking python3-uno (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:41.064Z"}
+
+data: {"data":"Selecting previously unselected package libreoffice.","timestamp":"2026-04-06T21:33:41.064Z"}
+
+data: {"data":"Preparing to unpack .../235-libreoffice_4%3a7.4.7-1+deb12u10_amd64.deb ...","timestamp":"2026-04-06T21:33:41.064Z"}
+
+data: {"data":"Unpacking libreoffice (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:41.064Z"}
+
+data: {"data":"Selecting previously unselected package python3-pkg-resources.","timestamp":"2026-04-06T21:33:41.064Z"}
+
+data: {"data":"Preparing to unpack .../236-python3-pkg-resources_66.1.1-1+deb12u2_all.deb ...","timestamp":"2026-04-06T21:33:41.064Z"}
+
+data: {"data":"Unpacking python3-pkg-resources (66.1.1-1+deb12u2) ...","timestamp":"2026-04-06T21:33:41.064Z"}
+
+data: {"data":"Selecting previously unselected package python3-setuptools.","timestamp":"2026-04-06T21:33:41.064Z"}
+
+data: {"data":"Preparing to unpack .../237-python3-setuptools_66.1.1-1+deb12u2_all.deb ...","timestamp":"2026-04-06T21:33:41.064Z"}
+
+data: {"data":"Unpacking python3-setuptools (66.1.1-1+deb12u2) ...","timestamp":"2026-04-06T21:33:41.064Z"}
+
+data: {"data":"Selecting previously unselected package python3-wheel.","timestamp":"2026-04-06T21:33:41.064Z"}
+
+data: {"data":"Preparing to unpack .../238-python3-wheel_0.38.4-2_all.deb ...","timestamp":"2026-04-06T21:33:41.191Z"}
+
+data: {"data":"Unpacking python3-wheel (0.38.4-2) ...","timestamp":"2026-04-06T21:33:41.191Z"}
+
+data: {"data":"Selecting previously unselected package python3-pip.","timestamp":"2026-04-06T21:33:41.191Z"}
+
+data: {"data":"Preparing to unpack .../239-python3-pip_23.0.1+dfsg-1_all.deb ...","timestamp":"2026-04-06T21:33:41.191Z"}
+
+data: {"data":"Unpacking python3-pip (23.0.1+dfsg-1) ...","timestamp":"2026-04-06T21:33:41.191Z"}
+
+data: {"data":"Setting up libgme0:amd64 (0.6.3-6) ...","timestamp":"2026-04-06T21:33:41.191Z"}
+
+data: {"data":"Setting up python3-pkg-resources (66.1.1-1+deb12u2) ...","timestamp":"2026-04-06T21:33:41.343Z"}
+
+data: {"data":"Setting up libssh-gcrypt-4:amd64 (0.10.6-0+deb12u2) ...","timestamp":"2026-04-06T21:33:41.374Z"}
+
+data: {"data":"Setting up libxcb-dri3-0:amd64 (1.15-1) ...","timestamp":"2026-04-06T21:33:41.544Z"}
+
+data: {"data":"Setting up libudfread0:amd64 (1.1.2-1) ...","timestamp":"2026-04-06T21:33:41.544Z"}
+
+data: {"data":"Setting up libwayland-server0:amd64 (1.21.0-1) ...","timestamp":"2026-04-06T21:33:41.544Z"}
+
+data: {"data":"Setting up libx11-xcb1:amd64 (2:1.8.4-2+deb12u2) ...","timestamp":"2026-04-06T21:33:41.544Z"}
+
+data: {"data":"Setting up libpciaccess0:amd64 (0.17-2) ...","timestamp":"2026-04-06T21:33:41.544Z"}
+
+data: {"data":"Setting up libabsl20220623:amd64 (20220623.1-1+deb12u2) ...","timestamp":"2026-04-06T21:33:41.544Z"}
+
+data: {"data":"Setting up libdw1:amd64 (0.188-2.1) ...","timestamp":"2026-04-06T21:33:41.544Z"}
+
+data: {"data":"Setting up librabbitmq4:amd64 (0.11.0-1+deb12u1) ...","timestamp":"2026-04-06T21:33:41.544Z"}
+
+data: {"data":"Setting up libraw1394-11:amd64 (2.1.2-2) ...","timestamp":"2026-04-06T21:33:41.544Z"}
+
+data: {"data":"Setting up libharfbuzz-icu0:amd64 (6.0.0+dfsg-3) ...","timestamp":"2026-04-06T21:33:41.544Z"}
+
+data: {"data":"Setting up libcodec2-1.0:amd64 (1.0.5-1) ...","timestamp":"2026-04-06T21:33:41.544Z"}
+
+data: {"data":"Setting up libsodium23:amd64 (1.0.18-1+deb12u1) ...","timestamp":"2026-04-06T21:33:41.544Z"}
+
+data: {"data":"Setting up libmpg123-0:amd64 (1.31.2-1+deb12u1) ...","timestamp":"2026-04-06T21:33:41.544Z"}
+
+data: {"data":"Setting up libxcb-xfixes0:amd64 (1.15-1) ...","timestamp":"2026-04-06T21:33:41.544Z"}
+
+data: {"data":"Setting up libogg0:amd64 (1.3.5-3) ...","timestamp":"2026-04-06T21:33:41.544Z"}
+
+data: {"data":"Setting up libspeex1:amd64 (1.2.1-2) ...","timestamp":"2026-04-06T21:33:41.544Z"}
+
+data: {"data":"Setting up libshine3:amd64 (3.1.1-2) ...","timestamp":"2026-04-06T21:33:41.544Z"}
+
+data: {"data":"Setting up python3-setuptools (66.1.1-1+deb12u2) ...","timestamp":"2026-04-06T21:33:41.544Z"}
+
+data: {"data":"Setting up libpython3.11:amd64 (3.11.2-6+deb12u6) ...","timestamp":"2026-04-06T21:33:41.733Z"}
+
+data: {"data":"Setting up libxi6:amd64 (2:1.8-1+b1) ...","timestamp":"2026-04-06T21:33:41.861Z"}
+
+data: {"data":"Setting up libx264-164:amd64 (2:0.164.3095+gitbaee400-3) ...","timestamp":"2026-04-06T21:33:41.861Z"}
+
+data: {"data":"Setting up libtwolame0:amd64 (0.4.0-2) ...","timestamp":"2026-04-06T21:33:41.861Z"}
+
+data: {"data":"Setting up libhyphen0:amd64 (2.8.8-7) ...","timestamp":"2026-04-06T21:33:41.861Z"}
+
+data: {"data":"Setting up libgsm1:amd64 (1.0.22-1) ...","timestamp":"2026-04-06T21:33:41.861Z"}
+
+data: {"data":"Setting up libsoxr0:amd64 (0.1.3-4) ...","timestamp":"2026-04-06T21:33:41.861Z"}
+
+data: {"data":"Setting up libboost-iostreams1.74.0:amd64 (1.74.0+ds1-21) ...","timestamp":"2026-04-06T21:33:41.861Z"}
+
+data: {"data":"Setting up libglvnd0:amd64 (1.6.0-1) ...","timestamp":"2026-04-06T21:33:41.861Z"}
+
+data: {"data":"Setting up libpgm-5.3-0:amd64 (5.3.128~dfsg-2) ...","timestamp":"2026-04-06T21:33:41.861Z"}
+
+data: {"data":"Setting up libxcb-glx0:amd64 (1.15-1) ...","timestamp":"2026-04-06T21:33:41.861Z"}
+
+data: {"data":"Setting up libnorm1:amd64 (1.5.9+dfsg-2) ...","timestamp":"2026-04-06T21:33:41.861Z"}
+
+data: {"data":"Setting up libmysofa1:amd64 (1.3.1~dfsg0-1) ...","timestamp":"2026-04-06T21:33:41.861Z"}
+
+data: {"data":"Setting up libxcb-shape0:amd64 (1.15-1) ...","timestamp":"2026-04-06T21:33:41.861Z"}
+
+data: {"data":"Setting up libyajl2:amd64 (2.1.0-3+deb12u2) ...","timestamp":"2026-04-06T21:33:41.861Z"}
+
+data: {"data":"Setting up libsensors-config (1:3.6.0-7.1) ...","timestamp":"2026-04-06T21:33:41.861Z"}
+
+data: {"data":"Setting up libuno-sal3 (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:41.861Z"}
+
+data: {"data":"Setting up xkb-data (2.35.1-1) ...","timestamp":"2026-04-06T21:33:41.861Z"}
+
+data: {"data":"Setting up libboost-filesystem1.74.0:amd64 (1.74.0+ds1-21) ...","timestamp":"2026-04-06T21:33:41.861Z"}
+
+data: {"data":"Setting up libhwy1:amd64 (1.0.3-3+deb12u1) ...","timestamp":"2026-04-06T21:33:41.861Z"}
+
+data: {"data":"Setting up libeot0:amd64 (0.01-5+b1) ...","timestamp":"2026-04-06T21:33:41.861Z"}
+
+data: {"data":"Setting up libsvtav1enc1:amd64 (1.4.1+dfsg-1) ...","timestamp":"2026-04-06T21:33:41.861Z"}
+
+data: {"data":"Setting up libcdio19:amd64 (2.1.0-4) ...","timestamp":"2026-04-06T21:33:41.861Z"}
+
+data: {"data":"Setting up libcjson1:amd64 (1.7.15-1+deb12u4) ...","timestamp":"2026-04-06T21:33:41.861Z"}
+
+data: {"data":"Setting up libxvidcore4:amd64 (2:1.3.7-1) ...","timestamp":"2026-04-06T21:33:41.861Z"}
+
+data: {"data":"Setting up libunwind8:amd64 (1.6.2-3) ...","timestamp":"2026-04-06T21:33:41.861Z"}
+
+data: {"data":"Setting up libgpgme11:amd64 (1.18.0-3+b1) ...","timestamp":"2026-04-06T21:33:41.861Z"}
+
+data: {"data":"Setting up python3-wheel (0.38.4-2) ...","timestamp":"2026-04-06T21:33:41.861Z"}
+
+data: {"data":"Setting up librav1e0:amd64 (0.5.1-6) ...","timestamp":"2026-04-06T21:33:41.861Z"}
+
+data: {"data":"Setting up librevenge-0.0-0:amd64 (0.0.5-3) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up libxxf86vm1:amd64 (1:1.1.4-1+b2) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up libsnappy1v5:amd64 (1.1.9-3) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up libcap2-bin (1:2.66-4+deb12u2+b2) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up libxcb-present0:amd64 (1.15-1) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up libdconf1:amd64 (0.40.0-4) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up libasound2-data (1.2.8-1) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up libreoffice-style-colibre (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up libz3-4:amd64 (4.8.12-3.1) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up liborcus-parser-0.17-0:amd64 (0.17.2-2+b2) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up libblas3:amd64 (3.11.0-2) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"update-alternatives: using /usr/lib/x86_64-linux-gnu/blas/libblas.so.3 to provide /usr/lib/x86_64-linux-gnu/libblas.so.3 (libblas.so.3-x86_64-linux-gnu) in auto mode","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up libzxing2:amd64 (1.4.0-3+b1) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up libnumbertext-data (1.0.11-1) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up libflac12:amd64 (1.4.2+ds-2) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up libass9:amd64 (1:0.17.1-1) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up libslang2:amd64 (2.3.3-3) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up libva2:amd64 (2.17.0-1) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up libmbedcrypto7:amd64 (2.28.3-1) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up libepoxy0:amd64 (1.5.10-1) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up libnspr4:amd64 (2:4.35-1) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up libxfixes3:amd64 (1:6.0.0-2) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up libxcb-sync1:amd64 (1.15-1) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up libavahi-common-data:amd64 (0.8-10+deb12u1) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up libdbus-1-3:amd64 (1.14.10-1~deb12u1) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up libopus0:amd64 (1.3.1-3) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up libxinerama1:amd64 (2:1.1.4-3) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up libxv1:amd64 (2:1.0.11-1.1) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up libvorbis0a:amd64 (1.3.7-1) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up libxrandr2:amd64 (2:1.5.2-2+b1) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up liborc-0.4-0:amd64 (1:0.4.33-2) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up libfreehand-0.1-1 (0.1.2-3) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up libclucene-core1v5:amd64 (2.3.3.4+dfsg-1.1) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up libsensors5:amd64 (1:3.6.0-7.1) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up python3-pip (23.0.1+dfsg-1) ...","timestamp":"2026-04-06T21:33:42.060Z"}
+
+data: {"data":"Setting up libjxl0.7:amd64 (0.7.0-10+deb12u1) ...","timestamp":"2026-04-06T21:33:42.683Z"}
+
+data: {"data":"Setting up libglapi-mesa:amd64 (22.3.6-1+deb12u1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libbox2d2:amd64 (2.4.1-3) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libgfortran5:amd64 (12.2.0-14+deb12u1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libvulkan1:amd64 (1.3.239.0-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up librubberband2:amd64 (3.1.2+dfsg0-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libmhash2:amd64 (0.9.9.9-9) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libmythes-1.2-0:amd64 (2:1.2.5-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libxcb-dri2-0:amd64 (1.15-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libvidstab1.1:amd64 (1.1.0-2+b1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libsrt1.5-gnutls:amd64 (1.5.1-1+deb12u1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up ocl-icd-libopencl1:amd64 (2.3.1-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libasyncns0:amd64 (0.8-6+b3) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libxshmfence1:amd64 (1.3-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libvdpau1:amd64 (1.5-2) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libbs2b0:amd64 (3.1.0+dfsg-7) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libxcb-randr0:amd64 (1.15-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libexttextcat-data (3.4.5-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libllvm15:amd64 (1:15.0.6-4+b1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libtheora0:amd64 (1.1.1+dfsg.1-16.1+deb12u1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libasound2:amd64 (1.2.8-1+b1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libabw-0.1-1:amd64 (0.1.3-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libepubgen-0.1-1:amd64 (0.1.1-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libuno-salhelpergcc3-3 (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libzimg2:amd64 (3.0.4+ds1-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up build-essential (12.9) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libopenal-data (1:1.19.1-2) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libvpx7:amd64 (1.12.0-1+deb12u5) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libwayland-egl1:amd64 (1.21.0-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libxss1:amd64 (1:1.2.3-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libusb-1.0-0:amd64 (2:1.0.26-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up liblangtag-common (0.6.4-2) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libhunspell-1.7-0:amd64 (1.7.1-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libxmlsec1:amd64 (1.2.37-2) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libmfx1:amd64 (22.5.4-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libbluray2:amd64 (1:1.3.4-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libsamplerate0:amd64 (0.2.2-3) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libwpd-0.10-10:amd64 (0.10.3-2+b1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libdrm-common (2.4.114-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libnumbertext-1.0-0:amd64 (1.0.11-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libsuitesparseconfig5:amd64 (1:5.12.0+dfsg-2) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up iso-codes (4.15.0-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libzvbi-common (0.2.41-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libgstreamer1.0-0:amd64 (1.22.0-2+deb12u1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setcap worked! gst-ptp-helper is not suid!","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up fonts-opensymbol (4:102.12+LibO7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libmp3lame0:amd64 (3.100-6) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libvorbisenc2:amd64 (1.3.7-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libodfgen-0.1-1:amd64 (0.1.8-2) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libvisio-0.1-1:amd64 (0.1.7-1+b3) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libboost-thread1.74.0:amd64 (1.74.0+ds1-21) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libiec61883-0:amd64 (1.2.0-6+b1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libserd-0-0:amd64 (0.30.16-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libxkbcommon0:amd64 (1.5.0-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libwayland-client0:amd64 (1.21.0-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libavc1394-0:amd64 (0.5.4-5) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libzvbi0:amd64 (0.2.41-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up liblapack3:amd64 (3.11.0-2) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"update-alternatives: using /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3 to provide /usr/lib/x86_64-linux-gnu/liblapack.so.3 (liblapack.so.3-x86_64-linux-gnu) in auto mode","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libstaroffice-0.0-0:amd64 (0.0.7-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libplacebo208:amd64 (4.208.0-3) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libwps-0.4-4:amd64 (0.4.13-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libzmq5:amd64 (4.3.4-6) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libcolamd2:amd64 (1:5.12.0+dfsg-2) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libcaca0:amd64 (0.99.beta20-3) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libexttextcat-2.0-0:amd64 (3.4.5-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libgpgmepp6:amd64 (1.18.0-3+b1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libmspub-0.1-1:amd64 (0.1.4-3+b3) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libcdio-cdda2:amd64 (10.2+2.0.1-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libcdio-paranoia2:amd64 (10.2+2.0.1-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libxcursor1:amd64 (1:1.2.1-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libraptor2-0:amd64 (2.0.15-4+deb12u1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libavahi-common3:amd64 (0.8-10+deb12u1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up lp-solve (5.5.2.5-2) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libgstreamer-plugins-base1.0-0:amd64 (1.22.0-3+deb12u6) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libpagemaker-0.0-0:amd64 (0.0.4-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libnss3:amd64 (2:3.87.1-1+deb12u2) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libmwaw-0.3-3:amd64 (0.3.21-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libcdr-0.1-1:amd64 (0.1.6-2+b2) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up liblangtag1:amd64 (0.6.4-2) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libzmf-0.0-0:amd64 (0.0.2-1+b5) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libqxp-0.0-0 (0.0.2-1+b3) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up liborcus-0.17-0:amd64 (0.17.2-2+b2) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up librist4:amd64 (0.2.7+dfsg-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up coinor-libcoinutils3v5:amd64 (2.11.4+repack1-2) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libvorbisfile3:amd64 (1.3.7-1) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libuno-cppu3 (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:42.784Z"}
+
+data: {"data":"Setting up libdc1394-25:amd64 (2.2.6-4) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libclucene-contribs1v5:amd64 (2.3.3.4+dfsg-1.1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libpoppler126:amd64 (22.12.0-2+deb12u1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up coinor-libosi1v5:amd64 (0.108.6+repack1-2) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libwpg-0.3-3:amd64 (0.3.3-1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libsndio7.0:amd64 (1.9.0-0.3+b2) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libxmlsec1-nss:amd64 (1.2.37-2) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libjack-jackd2-0:amd64 (1.9.21~dfsg-3) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libdrm2:amd64 (2.4.114-1+b1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libflite1:amd64 (2.2-5) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libva-drm2:amd64 (2.17.0-1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libsord-0-0:amd64 (0.16.14+git221008-1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libwayland-cursor0:amd64 (1.21.0-1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libsratom-0-0:amd64 (0.6.14-1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libdecor-0-0:amd64 (0.1.1-2) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libsndfile1:amd64 (1.2.0-1+deb12u1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libboost-locale1.74.0:amd64 (1.74.0+ds1-21) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libva-x11-2:amd64 (2.17.0-1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up liblilv-0-0:amd64 (0.24.14-1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libopenmpt0:amd64 (0.6.9-1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libavahi-client3:amd64 (0.8-10+deb12u1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libdrm-amdgpu1:amd64 (2.4.114-1+b1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libuno-purpenvhelpergcc3-3 (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libdrm-nouveau2:amd64 (2.4.114-1+b1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up uno-libs-private (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libgbm1:amd64 (22.3.6-1+deb12u1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libpulse0:amd64 (16.1+dfsg1-2+b1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libdrm-radeon1:amd64 (2.4.114-1+b1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up librasqal3:amd64 (0.9.33-2) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libdrm-intel1:amd64 (2.4.114-1+b1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libgl1-mesa-dri:amd64 (22.3.6-1+deb12u1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libetonyek-0.1-1:amd64 (0.1.10-3+b1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libopenal1:amd64 (1:1.19.1-2) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libe-book-0.1-1:amd64 (0.1.3-2+b2) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libavutil57:amd64 (7:5.1.8-0+deb12u1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libswresample4:amd64 (7:5.1.8-0+deb12u1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up librdf0:amd64 (1.0.17-3) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up coinor-libclp1:amd64 (1.17.6-3) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libcups2:amd64 (2.4.2-3+deb12u9) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libpostproc56:amd64 (7:5.1.8-0+deb12u1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up coinor-libcgl1:amd64 (0.60.3+repack1-4) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libavcodec59:amd64 (7:5.1.8-0+deb12u1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libsdl2-2.0-0:amd64 (2.26.5+dfsg-1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libswscale6:amd64 (7:5.1.8-0+deb12u1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libchromaprint1:amd64 (1.5.1-2+b1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libuno-cppuhelpergcc3-3 (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up coinor-libcbc3:amd64 (2.10.8+ds1-1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libglx-mesa0:amd64 (22.3.6-1+deb12u1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libavformat59:amd64 (7:5.1.8-0+deb12u1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libglx0:amd64 (1.6.0-1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libsphinxbase3:amd64 (0.8+5prealpha+1-16) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libpocketsphinx3:amd64 (0.8+5prealpha+1-15) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libgl1:amd64 (1.6.0-1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up coinor-libcoinmp1v5:amd64 (1.8.3-3) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up ure (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libavfilter8:amd64 (7:5.1.8-0+deb12u1) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"Setting up libreoffice-common (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"debconf: unable to initialize frontend: Dialog","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"debconf: (TERM is not set, so the dialog frontend is not usable.)","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"debconf: falling back to frontend: Readline","timestamp":"2026-04-06T21:33:42.925Z"}
+
+data: {"data":"debconf: unable to initialize frontend: Readline","timestamp":"2026-04-06T21:33:43.066Z"}
+
+data: {"data":"debconf: (This frontend requires a controlling tty.)","timestamp":"2026-04-06T21:33:43.066Z"}
+
+data: {"data":"debconf: falling back to frontend: Teletype","timestamp":"2026-04-06T21:33:43.066Z"}
+
+data: {"data":"","timestamp":"2026-04-06T21:33:43.066Z"}
+
+data: {"data":"Creating config file /etc/libreoffice/registry/main.xcd with new version","timestamp":"2026-04-06T21:33:43.066Z"}
+
+data: {"data":"debconf: unable to initialize frontend: Dialog","timestamp":"2026-04-06T21:33:43.066Z"}
+
+data: {"data":"debconf: (TERM is not set, so the dialog frontend is not usable.)","timestamp":"2026-04-06T21:33:43.066Z"}
+
+data: {"data":"debconf: falling back to frontend: Readline","timestamp":"2026-04-06T21:33:43.066Z"}
+
+data: {"data":"debconf: unable to initialize frontend: Readline","timestamp":"2026-04-06T21:33:43.204Z"}
+
+data: {"data":"debconf: (This frontend requires a controlling tty.)","timestamp":"2026-04-06T21:33:43.204Z"}
+
+data: {"data":"debconf: falling back to frontend: Teletype","timestamp":"2026-04-06T21:33:43.204Z"}
+
+data: {"data":"","timestamp":"2026-04-06T21:33:43.204Z"}
+
+data: {"data":"Creating config file /etc/libreoffice/registry/pdfimport.xcd with new version","timestamp":"2026-04-06T21:33:43.204Z"}
+
+data: {"data":"debconf: unable to initialize frontend: Dialog","timestamp":"2026-04-06T21:33:43.204Z"}
+
+data: {"data":"debconf: (TERM is not set, so the dialog frontend is not usable.)","timestamp":"2026-04-06T21:33:43.204Z"}
+
+data: {"data":"debconf: falling back to frontend: Readline","timestamp":"2026-04-06T21:33:43.204Z"}
+
+data: {"data":"debconf: unable to initialize frontend: Readline","timestamp":"2026-04-06T21:33:43.340Z"}
+
+data: {"data":"debconf: (This frontend requires a controlling tty.)","timestamp":"2026-04-06T21:33:43.340Z"}
+
+data: {"data":"debconf: falling back to frontend: Teletype","timestamp":"2026-04-06T21:33:43.340Z"}
+
+data: {"data":"","timestamp":"2026-04-06T21:33:43.340Z"}
+
+data: {"data":"Creating config file /etc/libreoffice/registry/xsltfilter.xcd with new version","timestamp":"2026-04-06T21:33:43.340Z"}
+
+data: {"data":"debconf: unable to initialize frontend: Dialog","timestamp":"2026-04-06T21:33:43.340Z"}
+
+data: {"data":"debconf: (TERM is not set, so the dialog frontend is not usable.)","timestamp":"2026-04-06T21:33:43.340Z"}
+
+data: {"data":"debconf: falling back to frontend: Readline","timestamp":"2026-04-06T21:33:43.340Z"}
+
+data: {"data":"debconf: unable to initialize frontend: Readline","timestamp":"2026-04-06T21:33:43.475Z"}
+
+data: {"data":"debconf: (This frontend requires a controlling tty.)","timestamp":"2026-04-06T21:33:43.475Z"}
+
+data: {"data":"debconf: falling back to frontend: Teletype","timestamp":"2026-04-06T21:33:43.475Z"}
+
+data: {"data":"","timestamp":"2026-04-06T21:33:43.475Z"}
+
+data: {"data":"Creating config file /etc/libreoffice/registry/lingucomponent.xcd with new version","timestamp":"2026-04-06T21:33:43.475Z"}
+
+data: {"data":"debconf: unable to initialize frontend: Dialog","timestamp":"2026-04-06T21:33:43.475Z"}
+
+data: {"data":"debconf: (TERM is not set, so the dialog frontend is not usable.)","timestamp":"2026-04-06T21:33:43.475Z"}
+
+data: {"data":"debconf: falling back to frontend: Readline","timestamp":"2026-04-06T21:33:43.475Z"}
+
+data: {"data":"debconf: unable to initialize frontend: Readline","timestamp":"2026-04-06T21:33:43.613Z"}
+
+data: {"data":"debconf: (This frontend requires a controlling tty.)","timestamp":"2026-04-06T21:33:43.613Z"}
+
+data: {"data":"debconf: falling back to frontend: Teletype","timestamp":"2026-04-06T21:33:43.613Z"}
+
+data: {"data":"","timestamp":"2026-04-06T21:33:43.613Z"}
+
+data: {"data":"Creating config file /etc/libreoffice/registry/Langpack-en-US.xcd with new version","timestamp":"2026-04-06T21:33:43.613Z"}
+
+data: {"data":"debconf: unable to initialize frontend: Dialog","timestamp":"2026-04-06T21:33:43.613Z"}
+
+data: {"data":"debconf: (TERM is not set, so the dialog frontend is not usable.)","timestamp":"2026-04-06T21:33:43.613Z"}
+
+data: {"data":"debconf: falling back to frontend: Readline","timestamp":"2026-04-06T21:33:43.613Z"}
+
+data: {"data":"debconf: unable to initialize frontend: Readline","timestamp":"2026-04-06T21:33:43.779Z"}
+
+data: {"data":"debconf: (This frontend requires a controlling tty.)","timestamp":"2026-04-06T21:33:43.779Z"}
+
+data: {"data":"debconf: falling back to frontend: Teletype","timestamp":"2026-04-06T21:33:43.779Z"}
+
+data: {"data":"","timestamp":"2026-04-06T21:33:43.779Z"}
+
+data: {"data":"Creating config file /etc/libreoffice/registry/res/fcfg_langpack_en-US.xcd with new version","timestamp":"2026-04-06T21:33:43.779Z"}
+
+data: {"data":"Setting up libavdevice59:amd64 (7:5.1.8-0+deb12u1) ...","timestamp":"2026-04-06T21:33:43.779Z"}
+
+data: {"data":"Setting up ffmpeg (7:5.1.8-0+deb12u1) ...","timestamp":"2026-04-06T21:33:43.779Z"}
+
+data: {"data":"Setting up libreoffice-core (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:43.779Z"}
+
+data: {"data":"Setting up libreoffice-math (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:43.779Z"}
+
+data: {"data":"debconf: unable to initialize frontend: Dialog","timestamp":"2026-04-06T21:33:43.779Z"}
+
+data: {"data":"debconf: (TERM is not set, so the dialog frontend is not usable.)","timestamp":"2026-04-06T21:33:43.779Z"}
+
+data: {"data":"debconf: falling back to frontend: Readline","timestamp":"2026-04-06T21:33:43.779Z"}
+
+data: {"data":"debconf: unable to initialize frontend: Readline","timestamp":"2026-04-06T21:33:43.925Z"}
+
+data: {"data":"debconf: (This frontend requires a controlling tty.)","timestamp":"2026-04-06T21:33:43.925Z"}
+
+data: {"data":"debconf: falling back to frontend: Teletype","timestamp":"2026-04-06T21:33:43.925Z"}
+
+data: {"data":"","timestamp":"2026-04-06T21:33:43.925Z"}
+
+data: {"data":"Creating config file /etc/libreoffice/registry/math.xcd with new version","timestamp":"2026-04-06T21:33:43.925Z"}
+
+data: {"data":"Setting up libreoffice-draw (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:43.925Z"}
+
+data: {"data":"debconf: unable to initialize frontend: Dialog","timestamp":"2026-04-06T21:33:43.925Z"}
+
+data: {"data":"debconf: (TERM is not set, so the dialog frontend is not usable.)","timestamp":"2026-04-06T21:33:43.925Z"}
+
+data: {"data":"debconf: falling back to frontend: Readline","timestamp":"2026-04-06T21:33:43.925Z"}
+
+data: {"data":"debconf: unable to initialize frontend: Readline","timestamp":"2026-04-06T21:33:44.066Z"}
+
+data: {"data":"debconf: (This frontend requires a controlling tty.)","timestamp":"2026-04-06T21:33:44.066Z"}
+
+data: {"data":"debconf: falling back to frontend: Teletype","timestamp":"2026-04-06T21:33:44.066Z"}
+
+data: {"data":"","timestamp":"2026-04-06T21:33:44.066Z"}
+
+data: {"data":"Creating config file /etc/libreoffice/registry/draw.xcd with new version","timestamp":"2026-04-06T21:33:44.066Z"}
+
+data: {"data":"debconf: unable to initialize frontend: Dialog","timestamp":"2026-04-06T21:33:44.066Z"}
+
+data: {"data":"debconf: (TERM is not set, so the dialog frontend is not usable.)","timestamp":"2026-04-06T21:33:44.066Z"}
+
+data: {"data":"debconf: falling back to frontend: Readline","timestamp":"2026-04-06T21:33:44.066Z"}
+
+data: {"data":"debconf: unable to initialize frontend: Readline","timestamp":"2026-04-06T21:33:44.216Z"}
+
+data: {"data":"debconf: (This frontend requires a controlling tty.)","timestamp":"2026-04-06T21:33:44.216Z"}
+
+data: {"data":"debconf: falling back to frontend: Teletype","timestamp":"2026-04-06T21:33:44.216Z"}
+
+data: {"data":"","timestamp":"2026-04-06T21:33:44.216Z"}
+
+data: {"data":"Creating config file /etc/libreoffice/registry/graphicfilter.xcd with new version","timestamp":"2026-04-06T21:33:44.216Z"}
+
+data: {"data":"Setting up libreoffice-base-drivers (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:44.216Z"}
+
+data: {"data":"Setting up libreoffice-impress (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:44.216Z"}
+
+data: {"data":"debconf: unable to initialize frontend: Dialog","timestamp":"2026-04-06T21:33:44.216Z"}
+
+data: {"data":"debconf: (TERM is not set, so the dialog frontend is not usable.)","timestamp":"2026-04-06T21:33:44.216Z"}
+
+data: {"data":"debconf: falling back to frontend: Readline","timestamp":"2026-04-06T21:33:44.216Z"}
+
+data: {"data":"debconf: unable to initialize frontend: Readline","timestamp":"2026-04-06T21:33:44.360Z"}
+
+data: {"data":"debconf: (This frontend requires a controlling tty.)","timestamp":"2026-04-06T21:33:44.360Z"}
+
+data: {"data":"debconf: falling back to frontend: Teletype","timestamp":"2026-04-06T21:33:44.360Z"}
+
+data: {"data":"","timestamp":"2026-04-06T21:33:44.360Z"}
+
+data: {"data":"Creating config file /etc/libreoffice/registry/impress.xcd with new version","timestamp":"2026-04-06T21:33:44.360Z"}
+
+data: {"data":"debconf: unable to initialize frontend: Dialog","timestamp":"2026-04-06T21:33:44.360Z"}
+
+data: {"data":"debconf: (TERM is not set, so the dialog frontend is not usable.)","timestamp":"2026-04-06T21:33:44.360Z"}
+
+data: {"data":"debconf: falling back to frontend: Readline","timestamp":"2026-04-06T21:33:44.360Z"}
+
+data: {"data":"debconf: unable to initialize frontend: Readline","timestamp":"2026-04-06T21:33:44.510Z"}
+
+data: {"data":"debconf: (This frontend requires a controlling tty.)","timestamp":"2026-04-06T21:33:44.510Z"}
+
+data: {"data":"debconf: falling back to frontend: Teletype","timestamp":"2026-04-06T21:33:44.510Z"}
+
+data: {"data":"","timestamp":"2026-04-06T21:33:44.510Z"}
+
+data: {"data":"Creating config file /etc/libreoffice/registry/ogltrans.xcd with new version","timestamp":"2026-04-06T21:33:44.510Z"}
+
+data: {"data":"Setting up libreoffice-base-core (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:44.510Z"}
+
+data: {"data":"Setting up python3-uno (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:44.510Z"}
+
+data: {"data":"debconf: unable to initialize frontend: Dialog","timestamp":"2026-04-06T21:33:44.510Z"}
+
+data: {"data":"debconf: (TERM is not set, so the dialog frontend is not usable.)","timestamp":"2026-04-06T21:33:44.510Z"}
+
+data: {"data":"debconf: falling back to frontend: Readline","timestamp":"2026-04-06T21:33:44.510Z"}
+
+data: {"data":"debconf: unable to initialize frontend: Readline","timestamp":"2026-04-06T21:33:44.703Z"}
+
+data: {"data":"debconf: (This frontend requires a controlling tty.)","timestamp":"2026-04-06T21:33:44.703Z"}
+
+data: {"data":"debconf: falling back to frontend: Teletype","timestamp":"2026-04-06T21:33:44.703Z"}
+
+data: {"data":"","timestamp":"2026-04-06T21:33:44.703Z"}
+
+data: {"data":"Creating config file /etc/libreoffice/registry/pyuno.xcd with new version","timestamp":"2026-04-06T21:33:44.703Z"}
+
+data: {"data":"Setting up libreoffice-calc (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:44.754Z"}
+
+data: {"data":"debconf: unable to initialize frontend: Dialog","timestamp":"2026-04-06T21:33:44.868Z"}
+
+data: {"data":"debconf: (TERM is not set, so the dialog frontend is not usable.)","timestamp":"2026-04-06T21:33:44.868Z"}
+
+data: {"data":"debconf: falling back to frontend: Readline","timestamp":"2026-04-06T21:33:44.868Z"}
+
+data: {"data":"debconf: unable to initialize frontend: Readline","timestamp":"2026-04-06T21:33:44.868Z"}
+
+data: {"data":"debconf: (This frontend requires a controlling tty.)","timestamp":"2026-04-06T21:33:44.868Z"}
+
+data: {"data":"debconf: falling back to frontend: Teletype","timestamp":"2026-04-06T21:33:44.868Z"}
+
+data: {"data":"","timestamp":"2026-04-06T21:33:44.868Z"}
+
+data: {"data":"Creating config file /etc/libreoffice/registry/calc.xcd with new version","timestamp":"2026-04-06T21:33:44.868Z"}
+
+data: {"data":"Setting up libreoffice-base (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:44.977Z"}
+
+data: {"data":"debconf: unable to initialize frontend: Dialog","timestamp":"2026-04-06T21:33:44.977Z"}
+
+data: {"data":"debconf: (TERM is not set, so the dialog frontend is not usable.)","timestamp":"2026-04-06T21:33:44.977Z"}
+
+data: {"data":"debconf: falling back to frontend: Readline","timestamp":"2026-04-06T21:33:44.977Z"}
+
+data: {"data":"debconf: unable to initialize frontend: Readline","timestamp":"2026-04-06T21:33:45.124Z"}
+
+data: {"data":"debconf: (This frontend requires a controlling tty.)","timestamp":"2026-04-06T21:33:45.124Z"}
+
+data: {"data":"debconf: falling back to frontend: Teletype","timestamp":"2026-04-06T21:33:45.124Z"}
+
+data: {"data":"","timestamp":"2026-04-06T21:33:45.124Z"}
+
+data: {"data":"Creating config file /etc/libreoffice/registry/base.xcd with new version","timestamp":"2026-04-06T21:33:45.124Z"}
+
+data: {"data":"Setting up libreoffice-writer (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:45.124Z"}
+
+data: {"data":"debconf: unable to initialize frontend: Dialog","timestamp":"2026-04-06T21:33:45.124Z"}
+
+data: {"data":"debconf: (TERM is not set, so the dialog frontend is not usable.)","timestamp":"2026-04-06T21:33:45.124Z"}
+
+data: {"data":"debconf: falling back to frontend: Readline","timestamp":"2026-04-06T21:33:45.124Z"}
+
+data: {"data":"debconf: unable to initialize frontend: Readline","timestamp":"2026-04-06T21:33:45.235Z"}
+
+data: {"data":"debconf: (This frontend requires a controlling tty.)","timestamp":"2026-04-06T21:33:45.235Z"}
+
+data: {"data":"debconf: falling back to frontend: Teletype","timestamp":"2026-04-06T21:33:45.235Z"}
+
+data: {"data":"","timestamp":"2026-04-06T21:33:45.235Z"}
+
+data: {"data":"Creating config file /etc/libreoffice/registry/writer.xcd with new version","timestamp":"2026-04-06T21:33:45.235Z"}
+
+data: {"data":"Setting up libreoffice-report-builder-bin (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:45.235Z"}
+
+data: {"data":"Setting up libreoffice (4:7.4.7-1+deb12u10) ...","timestamp":"2026-04-06T21:33:45.235Z"}
+
+data: {"data":"Processing triggers for hicolor-icon-theme (0.17-2) ...","timestamp":"2026-04-06T21:33:45.235Z"}
+
+data: {"data":"Processing triggers for libc-bin (2.36-9+deb12u13) ...","timestamp":"2026-04-06T21:33:45.235Z"}
+
+data: {"data":"Processing triggers for shared-mime-info (2.2-1) ...","timestamp":"2026-04-06T21:33:45.235Z"}
+
+data: {"data":"Processing triggers for fontconfig (2.14.1-4) ...","timestamp":"2026-04-06T21:33:45.588Z"}
+
+data: {"data":"DONE 22.4s\n","timestamp":"2026-04-06T21:33:45.814Z"}
+
+data: {"data":"--> COPY package.json package-lock.json ./","timestamp":"2026-04-06T21:33:46.014Z"}
+
+data: {"data":"DONE 0.0s\n","timestamp":"2026-04-06T21:33:46.014Z"}
+
+data: {"data":"--> RUN npm ci --omit=dev","timestamp":"2026-04-06T21:33:46.014Z"}
+
+data: {"data":"npm warn deprecated prebuild-install@7.1.3: No longer maintained. Please contact the author of the relevant native addon; alternatives are available.","timestamp":"2026-04-06T21:33:47.570Z"}
+
+data: {"data":"npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead","timestamp":"2026-04-06T21:33:48.555Z"}
+
+data: {"data":"npm warn deprecated glob@10.5.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me","timestamp":"2026-04-06T21:33:50.159Z"}
+
+data: {"data":"","timestamp":"2026-04-06T21:33:54.448Z"}
+
+data: {"data":"added 575 packages, and audited 576 packages in 9s","timestamp":"2026-04-06T21:33:54.448Z"}
+
+data: {"data":"","timestamp":"2026-04-06T21:33:54.448Z"}
+
+data: {"data":"87 packages are looking for funding","timestamp":"2026-04-06T21:33:54.448Z"}
+
+data: {"data":"  run `npm fund` for details","timestamp":"2026-04-06T21:33:54.448Z"}
+
+data: {"data":"","timestamp":"2026-04-06T21:33:54.607Z"}
+
+data: {"data":"10 vulnerabilities (2 moderate, 7 high, 1 critical)","timestamp":"2026-04-06T21:33:54.607Z"}
+
+data: {"data":"","timestamp":"2026-04-06T21:33:54.607Z"}
+
+data: {"data":"To address issues that do not require attention, run:","timestamp":"2026-04-06T21:33:54.607Z"}
+
+data: {"data":"  npm audit fix","timestamp":"2026-04-06T21:33:54.607Z"}
+
+data: {"data":"","timestamp":"2026-04-06T21:33:54.607Z"}
+
+data: {"data":"Some issues need review, and may require choosing","timestamp":"2026-04-06T21:33:54.607Z"}
+
+data: {"data":"a different dependency.","timestamp":"2026-04-06T21:33:54.607Z"}
+
+data: {"data":"","timestamp":"2026-04-06T21:33:54.607Z"}
+
+data: {"data":"Run `npm audit` for details.","timestamp":"2026-04-06T21:33:54.607Z"}
+
+data: {"data":"npm notice","timestamp":"2026-04-06T21:33:54.607Z"}
+
+data: {"data":"npm notice New major version of npm available! 10.9.7 -> 11.12.1","timestamp":"2026-04-06T21:33:54.607Z"}
+
+data: {"data":"npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.12.1","timestamp":"2026-04-06T21:33:54.607Z"}
+
+data: {"data":"npm notice To update run: npm install -g npm@11.12.1","timestamp":"2026-04-06T21:33:54.607Z"}
+
+data: {"data":"npm notice","timestamp":"2026-04-06T21:33:54.607Z"}
+
+data: {"data":"DONE 8.9s\n","timestamp":"2026-04-06T21:33:54.749Z"}
+
+data: {"data":"--> COPY requirements.txt ./","timestamp":"2026-04-06T21:33:54.865Z"}
+
+data: {"data":"DONE 0.1s\n","timestamp":"2026-04-06T21:33:54.865Z"}
+
+data: {"data":"--> RUN pip3 install --no-cache-dir -r requirements.txt","timestamp":"2026-04-06T21:33:55.016Z"}
+
+data: {"data":"error: externally-managed-environment","timestamp":"2026-04-06T21:33:55.108Z"}
+
+data: {"data":"","timestamp":"2026-04-06T21:33:55.108Z"}
+
+data: {"data":"Ã This environment is externally managed","timestamp":"2026-04-06T21:33:55.108Z"}
+
+data: {"data":"â°â> To install Python packages system-wide, try apt install","timestamp":"2026-04-06T21:33:55.108Z"}
+
+data: {"data":"    python3-xyz, where xyz is the package you are trying to","timestamp":"2026-04-06T21:33:55.108Z"}
+
+data: {"data":"    install.","timestamp":"2026-04-06T21:33:55.108Z"}
+
+data: {"data":"    ","timestamp":"2026-04-06T21:33:55.108Z"}
+
+data: {"data":"    If you wish to install a non-Debian-packaged Python package,","timestamp":"2026-04-06T21:33:55.108Z"}
+
+data: {"data":"    create a virtual environment using python3 -m venv path/to/venv.","timestamp":"2026-04-06T21:33:55.108Z"}
+
+data: {"data":"    Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make","timestamp":"2026-04-06T21:33:55.108Z"}
+
+data: {"data":"    sure you have python3-full installed.","timestamp":"2026-04-06T21:33:55.108Z"}
+
+data: {"data":"    ","timestamp":"2026-04-06T21:33:55.108Z"}
+
+data: {"data":"    If you wish to install a non-Debian packaged Python application,","timestamp":"2026-04-06T21:33:55.108Z"}
+
+data: {"data":"    it may be easiest to use pipx install xyz, which will manage a","timestamp":"2026-04-06T21:33:55.108Z"}
+
+data: {"data":"    virtual environment for you. Make sure you have pipx installed.","timestamp":"2026-04-06T21:33:55.108Z"}
+
+data: {"data":"    ","timestamp":"2026-04-06T21:33:55.108Z"}
+
+data: {"data":"    See /usr/share/doc/python3.11/README.venv for more information.","timestamp":"2026-04-06T21:33:55.108Z"}
+
+data: {"data":"","timestamp":"2026-04-06T21:33:55.108Z"}
+
+data: {"data":"note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.","timestamp":"2026-04-06T21:33:55.108Z"}
+
+data: {"data":"hint: See PEP 668 for the detailed specification.","timestamp":"2026-04-06T21:33:55.108Z"}
+
+data: {"data":"\n--> ERROR: process \"/bin/sh -c pip3 install --no-cache-dir -r requirements.txt\" did not complete successfully: exit code: 1\n","timestamp":"2026-04-06T21:33:55.159Z"}
+

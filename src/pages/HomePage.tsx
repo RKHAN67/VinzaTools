@@ -9,7 +9,6 @@ import {
 } from 'lucide-react';
 
 import type { Tool, ToolCategory } from '../types/app';
-import { BrandMark } from '../components/BrandMark';
 
 interface HomePageProps {
   searchQuery: string;
@@ -131,35 +130,15 @@ export const HomePage = ({
 
   return (
     <div className="min-h-screen bg-[#0f0a0a] text-white overflow-x-hidden selection:bg-rose-500/30">
-      {/* Static Background */}
+      {/* Lightweight Background (avoid expensive blur layers on desktop audits) */}
       {!isMobile && (
         <div className="fixed inset-0 pointer-events-none">
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:100px_100px]" />
-          <div className="absolute top-0 left-1/4 w-[420px] h-[420px] bg-rose-500/10 rounded-full blur-[90px] md:w-[600px] md:h-[600px] md:blur-[120px]" />
-          <div className="absolute bottom-0 right-1/4 w-[360px] h-[360px] bg-orange-500/10 rounded-full blur-[80px] md:w-[500px] md:h-[500px] md:blur-[100px]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_10%,rgba(244,63,94,0.10),transparent_55%),radial-gradient(circle_at_85%_95%,rgba(249,115,22,0.08),transparent_60%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:100px_100px]" />
         </div>
       )}
 
-      {/* Minimal Top Bar */}
-      <div className="fixed top-0 left-0 right-0 z-50 bg-[#0f0a0a]/90 border-b border-white/5 px-6 py-3">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4 text-xs font-mono">
-          <BrandMark compact />
-          <div className="hidden md:flex items-center gap-3">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-emerald-300">
-              <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
-Platform Live
-            </span>
-            <span className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-slate-300">
-              94 tools
-            </span>
-            <span className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-slate-300">
-              Themes + Shopify
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-20 pb-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-28 md:pt-32 pb-20">
         {/* Hero Section */}
         <section className="mb-32 relative">
           <div className="grid lg:grid-cols-2 gap-16 items-center">

@@ -1,0 +1,40 @@
+{% comment %}
+  Shopify Integration for Premium Portfolio
+  
+  1. Create a new file in Sections called 'premium-portfolio.liquid'
+  2. Paste this code.
+  3. Add the section to your template.
+{% endcomment %}
+
+<div id="premium-portfolio-{{ section.id }}" class="premium-portfolio-wrapper">
+  <div id="root"></div>
+</div>
+
+<style>
+  /* Load your bundled CSS here or via a CDN */
+  @import url('https://your-domain.com/dist/assets/index.css');
+</style>
+
+<script type="module">
+  /* Load your bundled JS here or via a CDN */
+  import 'https://your-domain.com/dist/assets/index.js';
+</script>
+
+{% schema %}
+{
+  "name": "Premium Portfolio",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "My Portfolio"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Premium Portfolio"
+    }
+  ]
+}
+{% endschema %}
