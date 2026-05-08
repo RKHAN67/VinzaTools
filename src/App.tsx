@@ -514,6 +514,7 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState<ToolCategory | 'all'>('all');
   const [page, setPage] = useState<PageKey>('home');
+  const [showAllToolsOnHome, setShowAllToolsOnHome] = useState(false);
   const [contactTab, setContactTab] = useState<ContactTab>('general');
   const [toolContext, setToolContext] = useState<ToolContext | null>(null);
   const [allTools, setAllTools] = useState<Tool[]>(HOME_PREVIEW_TOOLS);
@@ -570,6 +571,24 @@ export default function App() {
     if (page === 'home' || page === 'admin') return;
     ensureCatalogLoaded();
   }, [page]);
+
+  // Keep navigation/tool discovery consistent with the backend: once a user interacts
+  // with the app, warm the full tool catalog in the background so menus/search show
+  // the complete list without waiting for a deep scroll on Home.
+  React.useEffect(() => {
+    if (!hasInteracted) return;
+    if (catalogReady || catalogLoading) return;
+    if (typeof window === 'undefined') return;
+
+    const warm = () => ensureCatalogLoaded();
+    if ('requestIdleCallback' in window) {
+      const handle = (window as any).requestIdleCallback(warm, { timeout: 4000 });
+      return () => (window as any).cancelIdleCallback?.(handle);
+    }
+
+    const timer = window.setTimeout(warm, 1200);
+    return () => window.clearTimeout(timer);
+  }, [hasInteracted, catalogReady, catalogLoading]);
 
   React.useEffect(() => {
     if (hasInteracted) return;
@@ -645,7 +664,10 @@ export default function App() {
     return HOME_PREVIEW_TOOLS.map((tool) => map.get(tool.id) || tool);
   }, [allTools]);
   const filteredTools = useMemo(() => {
-    const source = page === 'home' ? homePreviewTools : allTools;
+    // Home should eventually reflect the same complete catalog as the backend.
+    // We still start with a small preview list for instant first paint, then swap to
+    // the full INTERNAL_TOOLS once the catalog chunk is loaded.
+    const source = page === 'home' ? (catalogReady ? allTools : homePreviewTools) : allTools;
     return source.filter((tool) => {
       const matchesSearch =
         tool.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -653,7 +675,7 @@ export default function App() {
       const matchesCategory = activeCategory === 'all' || tool.category === activeCategory;
       return matchesSearch && matchesCategory;
     });
-  }, [allTools, homePreviewTools, searchQuery, activeCategory, page]);
+  }, [allTools, homePreviewTools, searchQuery, activeCategory, page, catalogReady]);
 
   const featuredTools = useMemo(() => {
     if (catalogReady) {
@@ -802,6 +824,11 @@ export default function App() {
   const goTools = () => {
     setPageWithRoute('tools');
     setActiveToolId(null);
+  };
+
+  const enableFullHomeTools = () => {
+    ensureCatalogLoaded();
+    setShowAllToolsOnHome(true);
   };
 
   const getClientId = () => {
@@ -1087,6 +1114,8 @@ export default function App() {
             handleToolClick={handleToolClick}
             openSubTool={openSubTool}
             goTools={goTools}
+            showAllTools={catalogReady && showAllToolsOnHome}
+            enableShowAllTools={enableFullHomeTools}
             onSecondaryVisible={ensureCatalogLoaded}
           />
         )}

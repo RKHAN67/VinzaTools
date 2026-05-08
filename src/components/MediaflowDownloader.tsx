@@ -129,6 +129,15 @@ export const MediaflowDownloader = ({
 
   const isSingleView = singleView ?? Boolean(initialTool);
 
+  const detectToolFromUrl = (value: string): ToolType => {
+    const v = value.toLowerCase();
+    if (/(?:youtube\.com|youtu\.be)/.test(v)) return 'youtube';
+    if (/(?:tiktok\.com|vt\.tiktok\.com)/.test(v)) return 'tiktok';
+    if (/(?:instagram\.com)/.test(v)) return 'instagram';
+    if (/(?:facebook\.com|fb\.watch)/.test(v)) return 'facebook';
+    return null;
+  };
+
   const normalizeYoutubeUrl = (input: string) => {
     const match = input.match(
       /(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/|youtube\.com\/shorts\/)([^"&?/\s]{11})/
@@ -165,6 +174,16 @@ export const MediaflowDownloader = ({
       setSummary(null);
     }
   }, [initialTool]);
+
+  useEffect(() => {
+    if (isSingleView) return;
+    if (!url) return;
+    // Helpful UX: auto-detect platform from pasted link.
+    const next = detectToolFromUrl(url);
+    if (next && next !== activeTool) {
+      setActiveTool(next);
+    }
+  }, [url, activeTool, isSingleView]);
 
   const reset = () => {
     setActiveTool(isSingleView ? initialTool || null : null);

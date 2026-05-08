@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import {
   ArrowUpRight,
   Wand2,
@@ -20,6 +20,8 @@ interface HomePageProps {
   handleToolClick: (tool: Tool) => void;
   openSubTool: (toolId: string, subAction: string) => void;
   goTools: () => void;
+  showAllTools?: boolean;
+  enableShowAllTools?: () => void;
   onSecondaryVisible?: () => void;
 }
 
@@ -33,19 +35,19 @@ export const HomePage = ({
   handleToolClick,
   openSubTool,
   goTools,
+  showAllTools,
+  enableShowAllTools,
   onSecondaryVisible,
 }: HomePageProps) => {
   const [isMobile, setIsMobile] = useState(() => {
     if (typeof window === 'undefined') return false;
     return window.matchMedia('(max-width: 640px)').matches;
   });
-  const [showAllHomeTools, setShowAllHomeTools] = useState(false);
   const [showSecondary, setShowSecondary] = useState(false);
   const [SecondarySections, setSecondarySections] = useState<
     React.ComponentType<any> | null
   >(null);
   const [secondaryLoadError, setSecondaryLoadError] = useState<string | null>(null);
-  const secondaryTriggerRef = useRef<HTMLDivElement | null>(null);
   const backgroundRemoverTool = [...featuredTools, ...filteredTools].find(
     (tool) => tool.id === 'bg-remover'
   );
@@ -63,25 +65,20 @@ export const HomePage = ({
     return () => mediaQuery.removeListener(handleChange);
   }, []);
 
-  React.useEffect(() => {
-    setShowAllHomeTools(false);
-  }, [activeCategory, searchQuery]);
-
+  // Load the secondary sections automatically (no "scroll-to-load" requirement).
+  // We still lazy-import to keep the first paint fast.
   React.useEffect(() => {
     if (showSecondary) return;
     if (typeof window === 'undefined') return;
-    const node = secondaryTriggerRef.current;
-    if (!node) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((entry) => entry.isIntersecting)) {
-          setShowSecondary(true);
-        }
-      },
-      { rootMargin: '280px 0px' }
-    );
-    observer.observe(node);
-    return () => observer.disconnect();
+
+    const warm = () => setShowSecondary(true);
+    if ('requestIdleCallback' in window) {
+      const handle = (window as any).requestIdleCallback(warm, { timeout: 1500 });
+      return () => (window as any).cancelIdleCallback?.(handle);
+    }
+
+    const timer = window.setTimeout(warm, 650);
+    return () => window.clearTimeout(timer);
   }, [showSecondary]);
 
   React.useEffect(() => {
@@ -291,7 +288,6 @@ export const HomePage = ({
           </div>
         </section>
 
-        <div ref={secondaryTriggerRef} className="h-1 w-full" aria-hidden="true" />
         {showSecondary && SecondarySections ? (
           <SecondarySections
             searchQuery={searchQuery}
@@ -304,8 +300,8 @@ export const HomePage = ({
             openSubTool={openSubTool}
             goTools={goTools}
             isMobile={isMobile}
-            showAllHomeTools={showAllHomeTools}
-            setShowAllHomeTools={setShowAllHomeTools}
+            showAllTools={showAllTools}
+            enableShowAllTools={enableShowAllTools}
           />
         ) : (
           <div className="mt-12 min-h-[900px] rounded-2xl border border-white/10 bg-white/5 px-6 py-8 text-center text-sm text-slate-300/80 md:min-h-[1200px]">
@@ -324,7 +320,7 @@ export const HomePage = ({
             ) : showSecondary ? (
               'Loading the full tool library...'
             ) : (
-              'Scroll to load the full tool library.'
+              'Loading the full tool library...'
             )}
           </div>
         )}

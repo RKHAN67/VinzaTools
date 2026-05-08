@@ -58,8 +58,8 @@ interface HomeSecondarySectionsProps {
   openSubTool: (toolId: string, subAction: string) => void;
   goTools: () => void;
   isMobile: boolean;
-  showAllHomeTools: boolean;
-  setShowAllHomeTools: React.Dispatch<React.SetStateAction<boolean>>;
+  showAllTools?: boolean;
+  enableShowAllTools?: () => void;
 }
 
 const spotlightLabels: Record<string, string> = {
@@ -188,12 +188,12 @@ export const HomeSecondarySections = ({
   openSubTool,
   goTools,
   isMobile,
-  showAllHomeTools,
-  setShowAllHomeTools,
+  showAllTools,
+  enableShowAllTools,
 }: HomeSecondarySectionsProps) => {
   const [showcaseTab, setShowcaseTab] = useState<ShowcaseTab>('all');
   const commandCenterTools =
-    isMobile && !showAllHomeTools
+    isMobile && !showAllTools
       ? filteredTools.slice(0, mobileCommandLimit)
       : filteredTools;
   const hiddenCommandTools = Math.max(filteredTools.length - commandCenterTools.length, 0);
@@ -410,14 +410,14 @@ export const HomeSecondarySections = ({
             ))}
           </div>
 
-          {isMobile && filteredTools.length > mobileCommandLimit && (
+          {isMobile && !showAllTools && filteredTools.length > mobileCommandLimit && (
             <div className="mt-6 flex items-center justify-center">
               <button
                 type="button"
-                onClick={() => setShowAllHomeTools((prev) => !prev)}
+                onClick={() => enableShowAllTools?.()}
                 className="vinza-button rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-rose-400/30 hover:bg-white/10"
               >
-                {showAllHomeTools ? 'Show fewer tools' : `Show ${hiddenCommandTools} more tools`}
+                {`Show ${hiddenCommandTools} more tools`}
               </button>
             </div>
           )}
