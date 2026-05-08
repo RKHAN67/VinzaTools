@@ -20,9 +20,6 @@ const buildCandidates = () => {
 
   if (typeof window !== "undefined") {
     const { protocol, hostname, port } = window.location;
-    if (isHostedFrontend(hostname)) {
-      candidates.push(...hostedApiFallbacks);
-    }
     candidates.push(`${protocol}//${hostname}${port ? `:${port}` : ""}`);
     for (let p = 3000; p <= 3010; p += 1) {
       candidates.push(`${protocol}//${hostname}:${p}`);
@@ -30,6 +27,11 @@ const buildCandidates = () => {
     candidates.push(`http://127.0.0.1:3000`);
     for (let p = 3001; p <= 3010; p += 1) {
       candidates.push(`http://127.0.0.1:${p}`);
+    }
+    // Hosted backends (e.g. HF Space). Keep them after same-origin so a co-hosted
+    // backend (future) automatically takes precedence without changing env vars.
+    if (isHostedFrontend(hostname)) {
+      candidates.push(...hostedApiFallbacks);
     }
   }
 
@@ -58,9 +60,32 @@ export const resolveApiBase = async () => {
 };
 
 export const apiFetch = async (path: string, options?: RequestInit) => {
-  const base = await resolveApiBase();
-  const url = `${base}${path}`;
-  return fetch(url, options);
+  const preferred = await resolveApiBase();
+  const candidates = buildCandidates();
+  const ordered = [
+    ...(preferred ? [preferred] : []),
+    ...candidates.filter((c) => c !== preferred),
+  ];
+
+  let lastError: unknown = null;
+  for (const base of ordered) {
+    const url = `${base}${path}`;
+    try {
+      const response = await fetch(url, options);
+      // If we got JSON (even an error payload), return it to the caller.
+      if (isJsonResponse(response)) return response;
+      // If it succeeded, return it regardless of content type.
+      if (response.ok) return response;
+      // Non-JSON + non-OK: try next backend candidate.
+    } catch (err) {
+      lastError = err;
+    }
+  }
+
+  // Fall back to preferred base (or same-origin) so the caller gets a meaningful error.
+  if (lastError) throw lastError;
+  const base = preferred || "";
+  return fetch(`${base}${path}`, options);
 };
 
 export const apiHref = async (path: string) => {
