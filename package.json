@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"$projectRoot = Split-Path $env:npm_package_json -Parent; Set-Location $projectRoot; node .\\node_modules\\tsx\\dist\\cli.mjs .\\server.ts\"",
     "start": "node app.js",
+    "prebuild": "node .\\node_modules\\tsx\\dist\\cli.mjs .\\scripts\\generate-public-files.ts",
     "build": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"$projectRoot = Split-Path $env:npm_package_json -Parent; Set-Location $projectRoot; node .\\node_modules\\vite\\bin\\vite.js build\"",
     "build:server": "node .\\scripts\\build-server.mjs",
     "build:cpanel": "npm run build && npm run build:server",

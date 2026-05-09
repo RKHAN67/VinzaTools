@@ -1,0 +1,115 @@
+# VinzaTools
+
+Website: https://vinzatools.com
+Owner: BlueVinza
+Email: info@bluevinza.com
+Phone: +92-341-2890356
+
+## What This Site Offers
+- File utilities: PDF, images, media download workflows, text and developer helpers.
+- No-login, direct tools designed for fast completion and clean downloads.
+
+## Important Pages
+https://vinzatools.com/tools
+https://vinzatools.com/themes
+https://vinzatools.com/blog
+https://vinzatools.com/policy
+https://vinzatools.com/terms
+https://vinzatools.com/cookies
+
+## Tool Catalog (IDs)
+- resume-builder: Professional Resume Builder
+- poster-maker: Poster Maker & Flyer Designer
+- corporate-poster-studio: Corporate Poster Studio (AI Style)
+- image-compare: Image Compare & Diff Tool
+- pdf-merge: Merge PDF Files
+- pdf-split: Split PDF
+- pdf-compress: Compress PDF File
+- pdf-rotate: Rotate PDF Pages
+- pdf-to-jpg: PDF to JPG Converter
+- jpg-to-pdf: JPG to PDF Converter
+- pdf-to-word: PDF to Word Converter
+- pdf-to-ppt: PDF to PowerPoint Converter
+- pdf-to-excel: PDF to Excel Converter
+- edit-pdf: Edit PDF Online
+- watermark-pdf: Watermark PDF
+- sign-pdf: Sign PDF Online
+- protect-pdf: Protect PDF with Password
+- unlock-pdf: Unlock PDF Password
+- ocr-pdf: OCR PDF (Text from Scan)
+- scan-to-pdf: Scan to PDF
+- word-to-pdf: Word to PDF Converter
+- ppt-to-pdf: PPT to PDF Converter
+- excel-to-pdf: Excel to PDF Converter
+- html-to-pdf: HTML to PDF Converter
+- pdf-to-pdfa: PDF to PDF/A Converter
+- page-numbers: Add Page Numbers to PDF
+- crop-pdf: Crop PDF Pages
+- compare-pdf: Compare PDF Files
+- redact-pdf: Redact PDF
+- translate-pdf: Translate PDF
+- organize-pdf: Organize PDF Pages
+- flatten-pdf: Flatten PDF
+- resize-pdf: Resize PDF Pages
+- extract-image-from-pdf: Extract Image from PDF
+- pdf-page-remover: PDF Page Remover
+- extract-pages-from-pdf: Extract Pages from PDF
+- bg-remover: AI Background Remover
+- image-converter: Image Converter (JPG PNG WEBP)
+- youtube-thumbnail-downloader: YouTube Thumbnail Downloader
+- image-compressor: Image Compressor
+- gif-maker: GIF Maker
+- resize-image: Resize Image
+- crop-image: Crop Image
+- color-picker: Color Picker
+- rotate-image: Rotate Image
+- flip-image: Flip Image
+- image-enlarger: Image Enlarger
+- webp-to-png: WEBP to PNG Converter
+- jfif-to-png: JFIF to PNG Converter
+- heic-to-jpg: HEIC to JPG Converter
+- heic-to-png: HEIC to PNG Converter
+- webp-to-jpg: WEBP to JPG Converter
+- qr-code-generator: QR Code Generator
+- color-palette-generator: Color Palette Generator
+- text-counter: Word & Character Counter
+- paragraph-generator: Paragraph Generator
+- case-converter: Case Converter
+- slug-generator: SEO Slug Generator
+- keyword-density-checker: Keyword Density Checker
+- google-authenticator: Google Authenticator Codes
+- dev-json: JSON Formatter & Validator
+- dev-minify: Code Minifier (HTML CSS JS)
+- dev-base64: Base64 Encoder
+- dev-svg: SVG Viewer & Preview
+- password-generator: Secure Password Generator
+- url-encoder: URL Encoder & Decoder
+- db-viewer: DB Viewer
+- csv-viewer: CSV / XLSX Viewer
+- shopify-helper: Shopify ProExtract Studio
+- unit-converter: Unit Converter
+- time-converter: Time Converter
+- archive-converter: Archive Converter
+- crop-video: Crop Video
+- trim-video: Trim Video
+- video-converter: Video Converter
+- audio-converter: Audio Converter
+- mp3-converter: MP3 Converter
+- mp4-to-mp3: MP4 to MP3 Converter
+- video-to-mp3: Video to MP3 Converter
+- mp4-converter: MP4 Converter
+- mov-to-mp4: MOV to MP4 Converter
+- mp3-to-ogg: MP3 to OGG Converter
+- video-to-gif: Video to GIF Converter
+- mp4-to-gif: MP4 to GIF Converter
+- webm-to-gif: WEBM to GIF Converter
+- gif-to-mp4: GIF to MP4 Converter
+- gif-to-apng: GIF to APNG Converter
+- apng-to-gif: APNG to GIF Converter
+- image-to-gif: Image to GIF Converter
+- mov-to-gif: MOV to GIF Converter
+- avi-to-gif: AVI to GIF Converter
+- media-youtube: YouTube Video Downloader
+- media-tiktok: TikTok Video Downloader
+- media-instagram: Instagram Reels Downloader
+- media-facebook: Facebook Video Downloader

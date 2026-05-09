@@ -104,13 +104,13 @@ const features = [
   },
   {
     title: 'Safer Processing',
-    desc: 'Handle PDFs, images, and downloads in one controlled workspace.',
+    desc: 'HTTPS by default, no forced signup, and files are handled only for processing so results stay clean and private.',
     icon: Shield,
     gradient: 'from-orange-400 via-amber-500 to-yellow-500',
   },
   {
     title: 'Simple Steps',
-    desc: 'Background remover, PDF tools, and media downloaders stay easy to use.',
+    desc: 'Clear steps + helpful options in every tool so users finish faster with fewer mistakes.',
     icon: MousePointer2,
     gradient: 'from-rose-400 via-pink-500 to-coral-500',
   },

@@ -538,21 +538,51 @@ export default function App() {
       'cookies',
       'admin',
     ]);
-    const handleHash = () => {
-      const raw = window.location.hash.replace('#', '').toLowerCase();
-      const slug = raw.startsWith('/') ? raw.slice(1) : raw;
+
+    const syncRouteFromLocation = () => {
+      const rawHash = window.location.hash.replace('#', '').toLowerCase();
+      const hashSlug = rawHash.startsWith('/') ? rawHash.slice(1) : rawHash;
       const path = window.location.pathname.toLowerCase();
-      if (slug === adminRoute || path.endsWith(`/${adminRoute}`)) {
+      const pathParts = path.split('/').filter(Boolean);
+
+      // Admin: allow both /adminRoute and #/adminRoute
+      if (hashSlug === adminRoute || path.endsWith(`/${adminRoute}`)) {
         setPage('admin');
-      } else if (validPages.has(slug as PageKey)) {
-        setPage(slug as PageKey);
-      } else if (!slug) {
-        setPage('home');
+        return;
       }
+
+      // Prefer hash routing if present, but support clean URLs for SEO:
+      // /tools, /themes, /blog, /contact, etc (Vercel rewrites everything to index.html)
+      const slug = hashSlug || pathParts[0] || '';
+      if (!slug) {
+        setPage('home');
+        return;
+      }
+
+      if (validPages.has(slug as PageKey)) {
+        setPage(slug as PageKey);
+
+        // Deep-link support: /tools/<toolId>
+        if (slug === 'tools' && pathParts.length >= 2) {
+          const toolId = pathParts[1];
+          // Set the active tool only if it exists in the catalog. If the catalog
+          // isn't loaded yet, set it optimistically and let toolCatalog swap it in.
+          setActiveToolId(toolId);
+        }
+        return;
+      }
+
+      // Unknown route -> home
+      setPage('home');
     };
-    handleHash();
-    window.addEventListener('hashchange', handleHash);
-    return () => window.removeEventListener('hashchange', handleHash);
+
+    syncRouteFromLocation();
+    window.addEventListener('hashchange', syncRouteFromLocation);
+    window.addEventListener('popstate', syncRouteFromLocation);
+    return () => {
+      window.removeEventListener('hashchange', syncRouteFromLocation);
+      window.removeEventListener('popstate', syncRouteFromLocation);
+    };
   }, [adminRoute]);
 
   const ensureCatalogLoaded = () => {
@@ -817,6 +847,10 @@ export default function App() {
       const cleanPath = window.location.pathname.replace(new RegExp(`/${adminRoute}$`, 'i'), '');
       history.replaceState(null, '', cleanPath || '/');
     }
+    // Keep hash routes for backward compatibility, but also push clean URLs so
+    // crawlers and users can share /tools, /themes, etc.
+    const cleanPath = next === 'home' ? '/' : `/${next}`;
+    history.pushState(null, '', cleanPath);
     window.location.hash = next === 'home' ? '' : `#/${next}`;
     scrollHome();
   };
@@ -1066,6 +1100,9 @@ export default function App() {
     setMeta('description', description);
     setMeta('keywords', keywords);
     setMeta('author', 'VinzaTools');
+    setMeta('application-name', 'VinzaTools');
+    setMeta('referrer', 'strict-origin-when-cross-origin');
+    setMeta('format-detection', 'telephone=no');
     const routePath = page === 'home' ? '' : `/${page}`;
     const canonicalUrl = `https://vinzatools.com${routePath}`;
     setMeta('robots', robots);
@@ -1075,6 +1112,12 @@ export default function App() {
     setOg('og:description', description);
     setOg('og:type', 'website');
     setOg('og:url', canonicalUrl);
+    setOg('og:site_name', 'VinzaTools');
+    setOg('og:image', 'https://vinzatools.com/assets/images/toolora-logo.png');
+    setMeta('twitter:card', 'summary_large_image');
+    setMeta('twitter:title', title);
+    setMeta('twitter:description', description);
+    setMeta('twitter:image', 'https://vinzatools.com/assets/images/toolora-logo.png');
 
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
     if (!canonical) {
@@ -1083,6 +1126,60 @@ export default function App() {
       document.head.appendChild(canonical);
     }
     canonical.href = canonicalUrl;
+
+    // Structured data for trust + better AI/SEO discovery.
+    const ldId = 'vinzatools-ld-json';
+    const ensureLd = (json: any) => {
+      let script = document.getElementById(ldId) as HTMLScriptElement | null;
+      if (!script) {
+        script = document.createElement('script');
+        script.id = ldId;
+        script.type = 'application/ld+json';
+        document.head.appendChild(script);
+      }
+      script.text = JSON.stringify(json);
+    };
+
+    if (page === 'tools' && activeToolId) {
+      const activeTool = allTools.find((tool) => tool.id === activeToolId);
+      ensureLd({
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name: activeTool?.name || 'VinzaTools Tool',
+        applicationCategory: 'WebApplication',
+        operatingSystem: 'All',
+        url: canonicalUrl,
+        publisher: {
+          '@type': 'Organization',
+          name: 'BlueVinza',
+          url: 'https://bluevinza.com',
+        },
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+      });
+    } else {
+      ensureLd({
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'Organization',
+            name: 'BlueVinza',
+            url: 'https://bluevinza.com',
+            email: 'info@bluevinza.com',
+            telephone: '+92-341-2890356',
+          },
+          {
+            '@type': 'WebSite',
+            name: 'VinzaTools',
+            url: 'https://vinzatools.com',
+            potentialAction: {
+              '@type': 'SearchAction',
+              target: 'https://vinzatools.com/tools?q={search_term_string}',
+              'query-input': 'required name=search_term_string',
+            },
+          },
+        ],
+      });
+    }
   }, [page, activeToolId, activeToolName]);
 
   if (page === 'admin') {
