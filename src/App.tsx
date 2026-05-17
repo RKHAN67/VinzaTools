@@ -1104,7 +1104,8 @@ export default function App() {
     setMeta('referrer', 'strict-origin-when-cross-origin');
     setMeta('format-detection', 'telephone=no');
     const routePath = page === 'home' ? '' : `/${page}`;
-    const canonicalUrl = `https://vinzatools.com${routePath}`;
+    // Keep canonical aligned with the currently-primary host to avoid redirect chains during indexing.
+    const canonicalUrl = `https://www.vinzatools.com${routePath}`;
     setMeta('robots', robots);
     setMeta('viewport', 'width=device-width, initial-scale=1');
     setMeta('theme-color', '#0f0a0a');

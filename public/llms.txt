@@ -1,6 +1,6 @@
 # VinzaTools
 
-Website: https://vinzatools.com
+Website: https://www.vinzatools.com
 Owner: BlueVinza
 Email: info@bluevinza.com
 Phone: +92-341-2890356
@@ -10,12 +10,12 @@ Phone: +92-341-2890356
 - No-login, direct tools designed for fast completion and clean downloads.
 
 ## Important Pages
-https://vinzatools.com/tools
-https://vinzatools.com/themes
-https://vinzatools.com/blog
-https://vinzatools.com/policy
-https://vinzatools.com/terms
-https://vinzatools.com/cookies
+https://www.vinzatools.com/tools
+https://www.vinzatools.com/themes
+https://www.vinzatools.com/blog
+https://www.vinzatools.com/policy
+https://www.vinzatools.com/terms
+https://www.vinzatools.com/cookies
 
 ## Tool Catalog (IDs)
 - resume-builder: Professional Resume Builder

@@ -3,7 +3,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { INTERNAL_TOOLS } from '../src/data/toolCatalog';
 
-const SITE = 'https://vinzatools.com';
+// The production domain currently redirects to the www host; keep sitemap/robots consistent.
+const SITE = 'https://www.vinzatools.com';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

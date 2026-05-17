@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vinzatools.com/sitemap.xml
+Sitemap: https://www.vinzatools.com/sitemap.xml
