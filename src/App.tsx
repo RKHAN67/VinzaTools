@@ -616,8 +616,8 @@ export default function App() {
       return () => (window as any).cancelIdleCallback?.(handle);
     }
 
-    const timer = window.setTimeout(warm, 1200);
-    return () => window.clearTimeout(timer);
+    const timer = setTimeout(warm, 1200);
+    return () => clearTimeout(timer);
   }, [hasInteracted, catalogReady, catalogLoading]);
 
   React.useEffect(() => {
@@ -1227,6 +1227,7 @@ export default function App() {
               activeCategory={activeCategory}
               setActiveCategory={setActiveCategory}
               filteredTools={filteredTools}
+              allTools={allTools}
               handleToolClick={handleToolClick}
               activeToolId={activeToolId}
               setActiveToolId={setActiveToolId}

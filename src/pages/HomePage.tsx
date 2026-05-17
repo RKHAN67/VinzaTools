@@ -77,8 +77,8 @@ export const HomePage = ({
       return () => (window as any).cancelIdleCallback?.(handle);
     }
 
-    const timer = window.setTimeout(warm, 650);
-    return () => window.clearTimeout(timer);
+    const timer = setTimeout(warm, 650);
+    return () => clearTimeout(timer);
   }, [showSecondary]);
 
   React.useEffect(() => {

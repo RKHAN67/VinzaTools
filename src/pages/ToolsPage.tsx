@@ -89,6 +89,7 @@ interface ToolsPageProps {
   activeCategory: ToolCategory | 'all';
   setActiveCategory: (value: ToolCategory | 'all') => void;
   filteredTools: Tool[];
+  allTools: Tool[];
   handleToolClick: (tool: Tool) => void;
   activeToolId: string | null;
   setActiveToolId: (id: string | null) => void;
@@ -102,6 +103,7 @@ export const ToolsPage = ({
   activeCategory,
   setActiveCategory,
   filteredTools,
+  allTools,
   handleToolClick,
   activeToolId,
   setActiveToolId,
@@ -110,6 +112,7 @@ export const ToolsPage = ({
 }: ToolsPageProps) => {
   const [isMobile, setIsMobile] = React.useState(false);
   const [showAllTools, setShowAllTools] = React.useState(false);
+  const [shareCopied, setShareCopied] = React.useState(false);
 
   React.useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -149,8 +152,110 @@ export const ToolsPage = ({
     isMobile && !showAllTools ? filteredTools.slice(0, mobileLimit) : filteredTools;
   const hiddenCount = Math.max(filteredTools.length - toolsToShow.length, 0);
 
+  const activeTool = React.useMemo(() => {
+    if (!activeToolId) return undefined;
+    return allTools.find((tool) => tool.id === activeToolId);
+  }, [activeToolId, allTools]);
+
+  const getHelperSteps = (tool?: Tool) => {
+    const name = tool?.name || activeToolName || 'this tool';
+    const base = [
+      `Add your file or link in ${name}.`,
+      'Adjust the options (recommended settings are already selected).',
+      'Click the main action button and download/save the result.',
+    ];
+
+    if (!tool) return base;
+    if (tool.category === 'media') {
+      return [
+        'Paste the video URL (YouTube / TikTok / Instagram / Facebook).',
+        'Click “Fetch” to load formats, then pick Video/Audio quality.',
+        'Download and save the file. If a provider blocks the link, try a different format.',
+      ];
+    }
+    if (tool.category === 'pdf') {
+      return [
+        'Upload your PDF (or multiple PDFs if the tool supports it).',
+        'Pick pages/options, then click the action (merge/split/compress).',
+        'Download the processed PDF.',
+      ];
+    }
+    if (tool.category === 'image') {
+      return [
+        'Upload an image (PNG/JPG/WebP).',
+        'Enable “maintain aspect ratio” where available, then choose size/format.',
+        'Export the result and download.',
+      ];
+    }
+    return base;
+  };
+
+  const shareToolLink = async () => {
+    if (typeof window === 'undefined') return;
+    const toolId = activeToolId || '';
+    const url = toolId
+      ? `${window.location.origin}/tools/${toolId}`
+      : window.location.origin + '/tools';
+    try {
+      await navigator.clipboard.writeText(url);
+      setShareCopied(true);
+      window.setTimeout(() => setShareCopied(false), 1800);
+    } catch {
+      window.prompt('Copy this link:', url);
+    }
+  };
+
   return (
     <div className="space-y-8">
+      {activeToolId && (
+        <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+            <div>
+              <div className="text-xs font-black uppercase tracking-[0.24em] text-slate-400">
+                Quick Help
+              </div>
+              <h2 className="mt-2 text-2xl font-black text-white">
+                {activeTool?.name || activeToolName || 'Tool'}
+              </h2>
+              <p className="mt-2 max-w-3xl text-sm leading-7 text-slate-300">
+                {activeTool?.description ||
+                  'Finish your task in seconds. If something looks stuck, refresh once and try again.'}
+              </p>
+              <ol className="mt-4 list-decimal pl-5 text-sm leading-7 text-slate-300">
+                {getHelperSteps(activeTool).map((step) => (
+                  <li key={step}>{step}</li>
+                ))}
+              </ol>
+              <p className="mt-3 text-xs text-slate-400">
+                Privacy note: uploaded files are used only for processing and download delivery.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              <button
+                type="button"
+                onClick={shareToolLink}
+                className="vinza-button inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm font-bold text-white transition hover:border-rose-400/30 hover:bg-white/10"
+              >
+                {shareCopied ? 'Link Copied' : 'Share Tool Link'}
+                <ChevronRight size={16} className="opacity-70" />
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setActiveToolId(null);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="vinza-button inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm font-bold text-white transition hover:border-rose-400/30 hover:bg-white/10"
+              >
+                <ArrowLeft size={16} />
+                Back to Tools
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Hero Section */}
       {!activeToolId && (
         <div className="bg-gradient-to-br from-rose-500/10 to-orange-500/10 rounded-3xl p-10 border border-rose-500/20">
